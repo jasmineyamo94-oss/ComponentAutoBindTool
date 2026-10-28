@@ -2,112 +2,61 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
     internal static class AutoBindPathUtility
     {
-        public static string GetResolvedCodePath(AutoBindGlobalSetting setting, ComponentAutoBindTool target)
-        {
-            if (setting == null || target == null)
-            {
-                return string.Empty;
-            }
+        private static string AssetsPath => Path.GetFullPath(Application.dataPath).Replace('\\', '/').TrimEnd('/');
+        private static StringComparison PathComparison => Application.platform == RuntimePlatform.WindowsEditor
+            ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
 
-            return setting.UseGlobalDefaultSavePath
-                ? NormalizeCodePath(target.CodePath)
-                : NormalizeCodePath(setting.CodePath);
+        public static string GetResolvedCodePath(AutoBindGlobalSetting setting, Core.ComponentAutoBindTool target)
+        {
+            if (setting == null || target == null) return string.Empty;
+            return NormalizeCodePath(setting.UseGlobalDefaultSavePath ? target.CodePath : setting.CodePath);
         }
 
         public static string GetInspectorCodePath(AutoBindGlobalSetting setting, string scriptAssetPath)
         {
-            if (setting == null)
-            {
-                return string.Empty;
-            }
-
-            if (setting.UseGlobalDefaultSavePath)
-            {
-                if (string.IsNullOrWhiteSpace(scriptAssetPath))
-                {
-                    return string.Empty;
-                }
-
-                return ConvertAssetPathToStoredCodePath(Path.GetDirectoryName(scriptAssetPath));
-            }
-
-            return ConvertAbsolutePathToStoredCodePath(setting.CodePath);
+            if (setting == null) return string.Empty;
+            if (!setting.UseGlobalDefaultSavePath) return ToAssetRelativePath(setting.CodePath);
+            return string.IsNullOrEmpty(scriptAssetPath)
+                ? string.Empty : Path.GetDirectoryName(scriptAssetPath)?.Replace('\\', '/');
         }
 
-        public static bool IsPathUnderAssets(string fullPath)
+        public static string NormalizeCodePath(string codePath)
         {
-            if (string.IsNullOrWhiteSpace(fullPath))
+            if (string.IsNullOrWhiteSpace(codePath)) return string.Empty;
+            string path = codePath.Trim().Replace('\\', '/');
+            // 兼容原配置中以 / 开头、相对于 Assets 的路径。
+            if (path.StartsWith("/") && !path.StartsWith("//") &&
+                Application.platform == RuntimePlatform.WindowsEditor)
             {
-                return false;
+                path = path.TrimStart('/');
             }
-
-            string normalizedAssetsPath = NormalizeDirectoryPath(Application.dataPath);
-            string normalizedTargetPath = NormalizeDirectoryPath(fullPath);
-            return normalizedTargetPath.StartsWith(normalizedAssetsPath, StringComparison.OrdinalIgnoreCase);
+            if (path == "Assets" || path.StartsWith("Assets/", StringComparison.Ordinal))
+            {
+                path = Path.Combine(Path.GetDirectoryName(AssetsPath), path);
+            }
+            else if (!Path.IsPathRooted(path))
+            {
+                path = Path.Combine(AssetsPath, path);
+            }
+            return Path.GetFullPath(path).Replace('\\', '/').TrimEnd('/');
         }
 
-        private static string ConvertAbsolutePathToStoredCodePath(string codePath)
+        public static bool IsPathUnderAssets(string path)
         {
-            if (string.IsNullOrWhiteSpace(codePath))
-            {
-                return string.Empty;
-            }
-
-            string normalizedCodePath = NormalizeCodePath(codePath);
-            string normalizedAssetsPath = NormalizeDirectoryPath(Application.dataPath);
-            if (normalizedCodePath.StartsWith(normalizedAssetsPath, StringComparison.OrdinalIgnoreCase))
-            {
-                return normalizedCodePath.Substring(normalizedAssetsPath.Length).Replace('\\', '/');
-            }
-
-            return codePath.Replace('\\', '/');
+            if (string.IsNullOrWhiteSpace(path)) return false;
+            string fullPath = NormalizeCodePath(path);
+            return string.Equals(fullPath, AssetsPath, PathComparison) ||
+                fullPath.StartsWith(AssetsPath + "/", PathComparison);
         }
 
-        private static string ConvertAssetPathToStoredCodePath(string assetPath)
+        public static string ToAssetRelativePath(string path)
         {
-            if (string.IsNullOrWhiteSpace(assetPath))
-            {
-                return string.Empty;
-            }
-
-            string normalizedAssetPath = assetPath.Replace('\\', '/');
-            if (string.Equals(normalizedAssetPath, "Assets", StringComparison.OrdinalIgnoreCase))
-            {
-                return string.Empty;
-            }
-
-            if (normalizedAssetPath.StartsWith("Assets/", StringComparison.OrdinalIgnoreCase))
-            {
-                return normalizedAssetPath.Substring("Assets".Length);
-            }
-
-            return normalizedAssetPath;
-        }
-
-        private static string NormalizeCodePath(string codePath)
-        {
-            if (string.IsNullOrWhiteSpace(codePath))
-            {
-                return string.Empty;
-            }
-
-            if (Path.IsPathRooted(codePath))
-            {
-                return Path.GetFullPath(codePath);
-            }
-
-            string relativePath = codePath.TrimStart('/', '\\');
-            return Path.GetFullPath(Path.Combine(Application.dataPath, relativePath));
-        }
-
-        private static string NormalizeDirectoryPath(string path)
-        {
-            return Path.GetFullPath(path)
-                .TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            string fullPath = NormalizeCodePath(path);
+            return IsPathUnderAssets(fullPath) ? "Assets" + fullPath.Substring(AssetsPath.Length) : fullPath;
         }
     }
 }

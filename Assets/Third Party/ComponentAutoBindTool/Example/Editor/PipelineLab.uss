@@ -1,0 +1,9 @@
+.lab { padding: 16px; background-color: rgb(17, 27, 43); color: rgb(208, 224, 238); }
+#title { font-size: 22px; color: rgb(48, 209, 196); margin-bottom: 8px; }
+.toolbar { flex-direction: row; flex-wrap: wrap; margin-top: 12px; margin-bottom: 8px; }
+.toolbar Button { min-height: 32px; padding-left: 12px; padding-right: 12px; margin-right: 6px; }
+.panels { flex-direction: row; flex-grow: 1; margin-top: 10px; }
+.panel { flex-grow: 1; flex-basis: 0; min-width: 180px; margin-right: 8px; padding: 10px; background-color: rgb(26, 40, 59); }
+.panel > Label { font-size: 16px; color: rgb(48, 209, 196); margin-bottom: 12px; }
+.content { flex-grow: 1; white-space: normal; }
+.content .unity-text-input { background-color: rgb(26, 40, 59); color: rgb(208, 224, 238); border-width: 0; white-space: normal; }

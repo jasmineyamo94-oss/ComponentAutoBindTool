@@ -1,135 +1,142 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using System.Text.RegularExpressions;
+using ComponentAutoBindTool.ViewCore;
+using UnityEditor.Compilation;
 using UnityEngine;
-using BindData = Third_Party.ComponentAutoBindTool.Scripts.Core.ComponentAutoBindTool.BindData;
+using BindData = ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
     internal static class AutoBindValidator
     {
-        public static AutoBindValidationResult Validate(ComponentAutoBindTool target, AutoBindGlobalSetting setting)
+        public static AutoBindValidationResult Validate(Core.ComponentAutoBindTool target, AutoBindGlobalSetting setting)
         {
             var result = new AutoBindValidationResult();
-            if (target == null)
+            if (target == null || setting == null)
             {
-                result.AddError("AutoBind 目标为空。");
+                result.AddError("AutoBind 目标或全局配置为空。");
                 return result;
             }
-
-            ValidateTargetScript(target, result);
-            ValidateCodePath(target, setting, result);
-            ValidateBindDatas(target, result);
+            try
+            {
+                Validate(new AutoBindBuildInput(target, setting, target.BindDatas), result);
+            }
+            catch (Exception ex)
+            {
+                result.AddError("无法准备校验输入：" + ex.Message);
+            }
             return result;
         }
 
-        private static void ValidateTargetScript(ComponentAutoBindTool target, AutoBindValidationResult result)
+        internal static void Validate(AutoBindBuildInput input, AutoBindValidationResult result)
         {
-            MonoBehaviour targetScript = target.m_targetScript;
-            if (targetScript == null)
+            ValidateHost(input, result);
+            ValidatePath(input, result);
+            ValidateBindings(input, result);
+        }
+
+        private static void ValidateHost(AutoBindBuildInput input, AutoBindValidationResult result)
+        {
+            Type type = input.HostType;
+            if (type == null)
             {
-                result.AddError("未指定目标脚本（m_targetScript）。");
+                result.AddError("未指定目标脚本。");
                 return;
             }
-
-            if (targetScript.gameObject != target.gameObject)
-            {
+            if (input.Target.m_targetScript.gameObject != input.Target.gameObject)
                 result.AddError("目标脚本必须挂在当前 AutoBind 根节点上。");
+            if (type.IsAbstract || type.IsGenericType || type.IsNested)
+                result.AddError("目标脚本必须是非抽象、非泛型、非嵌套的 MonoBehaviour。");
+            if (string.IsNullOrEmpty(input.ScriptPath) || !File.Exists(input.ScriptPath))
+            {
+                result.AddError("无法读取目标脚本源码。");
+                return;
             }
 
-            Type targetType = targetScript.GetType();
-            string configuredClassName = target.ClassName ?? string.Empty;
-            string configuredNamespace = target.Namespace ?? string.Empty;
-            string actualNamespace = targetType.Namespace ?? string.Empty;
-
-            if (!string.Equals(configuredClassName, targetType.Name, StringComparison.Ordinal))
+            AutoBindSourceInspector.ValidateDeclarations(input, result);
+            MethodInfo ensure = AutoBindCodeGenerator.FindBaseMethod(type, "EnsureAutoBind", typeof(GameObject));
+            if (ensure != null && !AutoBindCodeGenerator.CanOverride(ensure, typeof(void)))
+                result.AddError("最近的基类 EnsureAutoBind 不是可访问、未封闭的 void 虚方法。");
+            MethodInfo getter = AutoBindCodeGenerator.FindBaseMethod(type, "GetGeneratedUIView");
+            bool requiresGetter = typeof(WidgetViewBase).IsAssignableFrom(type) ||
+                                  (getter != null && getter.ReturnType == typeof(object));
+            if (requiresGetter)
             {
-                result.AddError(
-                    $"类名与目标脚本不一致：当前为 `{configuredClassName}`，目标脚本为 `{targetType.Name}`。");
-            }
-
-            if (!string.Equals(configuredNamespace, actualNamespace, StringComparison.Ordinal))
-            {
-                result.AddError(
-                    $"命名空间与目标脚本不一致：当前为 `{configuredNamespace}`，目标脚本为 `{actualNamespace}`。");
+                if (!AutoBindCodeGenerator.CanOverride(getter, typeof(object)))
+                    result.AddError("GetGeneratedUIView 必须是可访问、未封闭的 object 虚方法。");
             }
         }
 
-        private static void ValidateCodePath(ComponentAutoBindTool target, AutoBindGlobalSetting setting,
-            AutoBindValidationResult result)
+        private static void ValidatePath(AutoBindBuildInput input, AutoBindValidationResult result)
         {
-            string resolvedCodePath = AutoBindPathUtility.GetResolvedCodePath(setting, target);
-            if (string.IsNullOrWhiteSpace(resolvedCodePath))
+            if (string.IsNullOrEmpty(input.OutputPath))
             {
-                result.AddError("代码保存路径为空。");
+                result.AddError("无法解析代码保存路径。");
                 return;
             }
-
-            if (!AutoBindPathUtility.IsPathUnderAssets(resolvedCodePath))
+            if (!AutoBindPathUtility.IsPathUnderAssets(input.OutputPath))
             {
-                result.AddError($"代码保存路径不在 Assets 目录下：{resolvedCodePath}");
+                result.AddError("代码保存路径必须位于 Assets 内：" + input.OutputPath);
                 return;
             }
-
-            if (!Directory.Exists(resolvedCodePath))
+            string outputAssetPath = AutoBindPathUtility.ToAssetRelativePath(input.OutputPath);
+            string sourceAssembly = CompilationPipeline.GetAssemblyNameFromScriptPath(input.ScriptPath);
+            string outputAssembly = CompilationPipeline.GetAssemblyNameFromScriptPath(outputAssetPath);
+            if (string.IsNullOrEmpty(sourceAssembly) || sourceAssembly != outputAssembly)
+                result.AddError("生成文件必须与目标脚本位于同一程序集，请开启跟随目标脚本路径。");
+            if (File.Exists(input.OutputPath))
             {
-                result.AddWarning($"代码保存路径不存在，生成时会自动创建：{resolvedCodePath}");
+                string existing = File.ReadAllText(input.OutputPath);
+                string marker = "// AutoBind host: " + input.HostType?.FullName + "\n";
+                bool owned = existing.Replace("\r\n", "\n").Contains(marker);
+                // 接纳此前生成器留下的无固定文件头产物。
+                bool legacy = existing.Contains("//自动生成于：") &&
+                    Regex.IsMatch(existing, @"\bpartial\s+class\s+" + Regex.Escape(input.HostType?.Name ?? "") + @"\b") &&
+                    (string.IsNullOrEmpty(input.HostType?.Namespace)
+                        ? !Regex.IsMatch(existing, @"\bnamespace\s+")
+                        : Regex.IsMatch(existing, @"\bnamespace\s+" + Regex.Escape(input.HostType.Namespace) + @"\s*\{"));
+                if (!owned && !legacy) result.AddError("输出文件已由其他宿主或手写代码占用：" + outputAssetPath);
             }
         }
 
-        private static void ValidateBindDatas(ComponentAutoBindTool target, AutoBindValidationResult result)
+        private static void ValidateBindings(AutoBindBuildInput input, AutoBindValidationResult result)
         {
-            List<BindData> bindDatas = target.BindDatas;
-            if (bindDatas == null || bindDatas.Count == 0)
+            IReadOnlyList<BindData> bindings = input.Bindings;
+            if (bindings == null || bindings.Count == 0)
             {
-                result.AddWarning("当前没有绑定数据，生成代码后 UIView 将为空。");
+                result.AddWarning("当前没有绑定数据，生成的 UIView 将为空。");
                 return;
             }
-
-            var generatedFieldNameToIndex = new Dictionary<string, int>(StringComparer.Ordinal);
-            for (int i = 0; i < bindDatas.Count; i++)
+            var names = new HashSet<string>(StringComparer.Ordinal);
+            for (int i = 0; i < bindings.Count; i++)
             {
-                BindData bindData = bindDatas[i];
-                string bindName = bindData.Name;
-                Component bindComponent = bindData.BindCom;
-
-                if (string.IsNullOrWhiteSpace(bindName))
+                BindData binding = bindings[i];
+                if (binding == null)
                 {
-                    result.AddError($"[{i}] 绑定名称为空。");
+                    result.AddError($"[{i}] 绑定记录为空。");
+                    continue;
                 }
-                else
-                {
-                    string fieldName = AutoBindFieldNameUtility.BuildFieldName(bindName);
-                    if (!AutoBindFieldNameUtility.IsValidIdentifier(fieldName))
-                    {
-                        result.AddError($"[{i}] 生成字段名非法：`{fieldName}`（源名称：`{bindName}`）。");
-                    }
-                    else if (generatedFieldNameToIndex.TryGetValue(fieldName, out int duplicateIndex))
-                    {
-                        result.AddError($"[{i}] 生成字段名重复：`{fieldName}`（与 [{duplicateIndex}] 冲突）。");
-                    }
-                    else
-                    {
-                        generatedFieldNameToIndex.Add(fieldName, i);
-                    }
-                }
-
-                if (bindComponent == null)
+                string name = AutoBindFieldNameUtility.BuildFieldName(binding.Name);
+                if (!AutoBindFieldNameUtility.IsValidIdentifier(name) || name == "UIView")
+                    result.AddError($"[{i}] 生成字段名非法或与类型名冲突：{name}");
+                else if (!names.Add(name))
+                    result.AddError($"[{i}] 生成字段名重复：{name}");
+                if (binding.BindCom == null)
                 {
                     result.AddError($"[{i}] 组件引用为空。");
                     continue;
                 }
-
-                if (!IsComponentUnderRoot(target.transform, bindComponent))
-                {
-                    result.AddError($"[{i}] 组件 `{bindComponent.name}` 不在当前 AutoBind 根节点下。");
-                }
+                Transform transform = binding.BindCom.transform;
+                if (transform != input.Target.transform && !transform.IsChildOf(input.Target.transform))
+                    result.AddError($"[{i}] 组件不属于当前 AutoBind 根节点。");
+                Type type = binding.BindCom.GetType();
+                if (type.ContainsGenericParameters || !type.IsVisible)
+                    result.AddError($"[{i}] 组件类型不可被生成代码公开引用：{type.FullName}");
             }
         }
 
-        private static bool IsComponentUnderRoot(Transform root, Component component)
-        {
-            return component.transform == root || component.transform.IsChildOf(root);
-        }
     }
 }

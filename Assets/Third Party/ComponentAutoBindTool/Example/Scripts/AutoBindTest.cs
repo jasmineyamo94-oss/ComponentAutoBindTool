@@ -1,15 +1,17 @@
-﻿using Third_Party.ComponentAutoBindTool.Scripts.ViewCore;
+using ComponentAutoBindTool.ViewCore;
+using ComponentAutoBindTool.Example;
 using VContainer;
 
-namespace Third_Party.ComponentAutoBindTool.Example.Scripts
+namespace ComponentAutoBindTool
 {
-    public partial class AutoBindTest : ViewLifetimeScope
+    public partial class AutoBindTest : ViewBase
     {
-        protected override void Configure(IContainerBuilder builder)
+        public override void ConfigureWindow(IContainerBuilder builder)
         {
-            base.Configure(builder);
-            // 测试
-            RegisterCommon<AutoBindTestPresenter>(builder, view);
+            RegisterWindow<AutoBindTestPresenter, UIView>(builder, view);
+            builder.Register<LabScopeProbe>(Lifetime.Scoped);
+            builder.Register<LabWidgetGroupPresenter>(Lifetime.Transient);
+            builder.Register<AutoBindExampleWidgetPresenter>(Lifetime.Transient);
         }
     }
 }

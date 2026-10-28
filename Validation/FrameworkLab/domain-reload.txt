@@ -1,0 +1,6 @@
+PASS: real assembly reload, target resolution, UI Toolkit report restoration and no-op generation.
+成功：True
+绑定变化：False / 代码变化：False
+未发现问题。
+文件 UTC ticks：639287755058508398 → 639287755058508398
+与执行前相同：组件=True，代码=True，所属资产=True

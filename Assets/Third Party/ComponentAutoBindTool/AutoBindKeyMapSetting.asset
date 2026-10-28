@@ -16,4 +16,8 @@ MonoBehaviour:
     list:
     - Key: Nbi
       Value: AAGame.Scripts.Views.Menu.Main.NavigationBarItem
+    - Key: Widget
+      Value: ComponentAutoBindTool.Example.AutoBindExampleWidget
+    - Key: WidgetGroup
+      Value: ComponentAutoBindTool.Example.LabWidgetGroup
     keyCollision: 0

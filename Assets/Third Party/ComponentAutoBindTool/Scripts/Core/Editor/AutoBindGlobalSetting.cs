@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
     /// <summary>
     /// 自动绑定全局设置
@@ -17,7 +17,7 @@ namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
         [SerializeField]
         private bool m_UseGlobalDefaultSavePath;
 
-        public string CodePath => Application.dataPath + m_CodePath;
+        public string CodePath => AutoBindPathUtility.NormalizeCodePath(m_CodePath);
         public string Namespace => m_Namespace;
         public bool UseGlobalDefaultSavePath => m_UseGlobalDefaultSavePath;
 

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Third_Party.ComponentAutoBindTool.Scripts.Core;
 using UnityEditor;
 using UnityEngine;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
     internal static class AutoBindInspectorDrawer
     {

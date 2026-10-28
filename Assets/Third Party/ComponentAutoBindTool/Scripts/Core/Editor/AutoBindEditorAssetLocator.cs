@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
     internal static class AutoBindEditorAssetLocator
     {

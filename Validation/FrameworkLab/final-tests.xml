@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="51" result="Passed" total="51" passed="51" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 09:13:26Z" end-time="2026-10-28 09:13:45Z" duration="18.9131546">
+  <test-suite type="TestSuite" id="1000" name="ComponentAutoBindTool" fullname="ComponentAutoBindTool" runstate="Runnable" testcasecount="51" result="Passed" start-time="2026-10-28 09:13:26Z" end-time="2026-10-28 09:13:45Z" duration="18.913155" total="51" passed="51" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1062" name="Assembly-CSharp-Editor.dll" fullname="E:/CodexValidation/ComponentAutoBindTool-20261028/validation/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="51" result="Passed" start-time="2026-10-28 09:13:26Z" end-time="2026-10-28 09:13:45Z" duration="18.856865" total="51" passed="51" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="43780" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1063" name="ComponentAutoBindTool" fullname="ComponentAutoBindTool" runstate="Runnable" testcasecount="51" result="Passed" start-time="2026-10-28 09:13:26Z" end-time="2026-10-28 09:13:45Z" duration="18.856050" total="51" passed="51" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1064" name="Tests" fullname="ComponentAutoBindTool.Tests" runstate="Runnable" testcasecount="51" result="Passed" start-time="2026-10-28 09:13:26Z" end-time="2026-10-28 09:13:45Z" duration="18.855518" total="51" passed="51" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="AutoBindExamplePlayModeTests" fullname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests" classname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-28 09:13:26Z" end-time="2026-10-28 09:13:27Z" duration="0.092858" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1005" name="DelayedDestroyCancellationAndExpiryThreeRounds" fullname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests.DelayedDestroyCancellationAndExpiryThreeRounds" methodname="DelayedDestroyCancellationAndExpiryThreeRounds" classname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests" runstate="Runnable" seed="1536761691" result="Passed" start-time="2026-10-28 09:12:53Z" end-time="2026-10-28 09:13:15Z" duration="21.619763" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="LayersAndResetThreeRounds" fullname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests.LayersAndResetThreeRounds" methodname="LayersAndResetThreeRounds" classname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests" runstate="Runnable" seed="1525889493" result="Passed" start-time="2026-10-28 09:13:15Z" end-time="2026-10-28 09:13:17Z" duration="2.254761" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="NavigationQueueAndFailedReplacementThreeRounds" fullname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests.NavigationQueueAndFailedReplacementThreeRounds" methodname="NavigationQueueAndFailedReplacementThreeRounds" classname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests" runstate="Runnable" seed="1256054475" result="Passed" start-time="2026-10-28 09:13:17Z" end-time="2026-10-28 09:13:20Z" duration="2.340048" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+              <output><![CDATA[[UIFramework] 无法打开窗口 [MissingPrefab]：IViewPrefabHelper 返回 Prefab 为 null。
+[UIFramework] ReplaceTopView 失败：新窗口 [MissingPrefab] 准备失败，保留原栈顶窗口不关闭。
+[UIFramework] 无法打开窗口 [MissingPrefab]：IViewPrefabHelper 返回 Prefab 为 null。
+[UIFramework] ReplaceTopView 失败：新窗口 [MissingPrefab] 准备失败，保留原栈顶窗口不关闭。
+[UIFramework] 无法打开窗口 [MissingPrefab]：IViewPrefabHelper 返回 Prefab 为 null。
+[UIFramework] ReplaceTopView 失败：新窗口 [MissingPrefab] 准备失败，保留原栈顶窗口不关闭。
+]]></output>
+            </test-case>
+            <test-case id="1007" name="NestedWidgetVisibilityAndSharedScopeThreeRounds" fullname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests.NestedWidgetVisibilityAndSharedScopeThreeRounds" methodname="NestedWidgetVisibilityAndSharedScopeThreeRounds" classname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests" runstate="Runnable" seed="610300491" result="Passed" start-time="2026-10-28 09:13:20Z" end-time="2026-10-28 09:13:22Z" duration="2.332156" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1004" name="SingletonParametersAndMultipleIndependenceThreeRounds" fullname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests.SingletonParametersAndMultipleIndependenceThreeRounds" methodname="SingletonParametersAndMultipleIndependenceThreeRounds" classname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests" runstate="Runnable" seed="1622823555" result="Passed" start-time="2026-10-28 09:13:22Z" end-time="2026-10-28 09:13:24Z" duration="2.254593" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="WindowAndNestedWidgetBindOpenCloseAndReopen" fullname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests.WindowAndNestedWidgetBindOpenCloseAndReopen" methodname="WindowAndNestedWidgetBindOpenCloseAndReopen" classname="ComponentAutoBindTool.Tests.AutoBindExamplePlayModeTests" runstate="Runnable" seed="1996535398" result="Passed" start-time="2026-10-28 09:13:24Z" end-time="2026-10-28 09:13:27Z" duration="2.323752" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1008" name="AutoBindPipelineTests" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" testcasecount="30" result="Passed" start-time="2026-10-28 09:13:27Z" end-time="2026-10-28 09:13:35Z" duration="8.315793" total="30" passed="30" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1031" name="AlternateHostsGenerateCorrectInterfaceAndModifiers" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.AlternateHostsGenerateCorrectInterfaceAndModifiers" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-28 09:13:27Z" end-time="2026-10-28 09:13:28Z" duration="1.012134" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1027" name="AlternateHostsGenerateCorrectInterfaceAndModifiers(ComponentAutoBindTool.Tests.AutoBindExplicitHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.AlternateHostsGenerateCorrectInterfaceAndModifiers(ComponentAutoBindTool.Tests.AutoBindExplicitHost)" methodname="AlternateHostsGenerateCorrectInterfaceAndModifiers" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1237217255" result="Passed" start-time="2026-10-28 09:13:27Z" end-time="2026-10-28 09:13:27Z" duration="0.347346" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1028" name="AlternateHostsGenerateCorrectInterfaceAndModifiers(ComponentAutoBindTool.Tests.AutoBindProtectedHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.AlternateHostsGenerateCorrectInterfaceAndModifiers(ComponentAutoBindTool.Tests.AutoBindProtectedHost)" methodname="AlternateHostsGenerateCorrectInterfaceAndModifiers" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1007169636" result="Passed" start-time="2026-10-28 09:13:27Z" end-time="2026-10-28 09:13:27Z" duration="0.224279" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1029" name="AlternateHostsGenerateCorrectInterfaceAndModifiers(ComponentAutoBindTool.Tests.AutoBindVirtualHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.AlternateHostsGenerateCorrectInterfaceAndModifiers(ComponentAutoBindTool.Tests.AutoBindVirtualHost)" methodname="AlternateHostsGenerateCorrectInterfaceAndModifiers" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="2063364446" result="Passed" start-time="2026-10-28 09:13:27Z" end-time="2026-10-28 09:13:27Z" duration="0.216860" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1030" name="AlternateHostsGenerateCorrectInterfaceAndModifiers(ComponentAutoBindTool.Tests.AutoBindOverloadedHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.AlternateHostsGenerateCorrectInterfaceAndModifiers(ComponentAutoBindTool.Tests.AutoBindOverloadedHost)" methodname="AlternateHostsGenerateCorrectInterfaceAndModifiers" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="608622025" result="Passed" start-time="2026-10-28 09:13:27Z" end-time="2026-10-28 09:13:28Z" duration="0.221588" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1014" name="DuplicateFieldsAndKeywordsAreRejected" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.DuplicateFieldsAndKeywordsAreRejected" methodname="DuplicateFieldsAndKeywordsAreRejected" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1888934603" result="Passed" start-time="2026-10-28 09:13:28Z" end-time="2026-10-28 09:13:28Z" duration="0.195661" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1026" name="FailedWidgetBindingCanRetryAfterSerializedDataIsRepaired" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.FailedWidgetBindingCanRetryAfterSerializedDataIsRepaired" methodname="FailedWidgetBindingCanRetryAfterSerializedDataIsRepaired" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="804161157" result="Passed" start-time="2026-10-28 09:13:28Z" end-time="2026-10-28 09:13:28Z" duration="0.041230" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Widget_Left] AutoBind 获取绑定组件失败。Field=tMTxtCounter, Index=0, Expected=TMPro.TextMeshProUGUI, Reason=索引超出范围，当前共 0 项绑定
+[Widget_Left] AutoBind 获取绑定组件失败。Field=btnIncrement, Index=1, Expected=UnityEngine.UI.Button, Reason=索引超出范围，当前共 0 项绑定
+]]></output>
+            </test-case>
+            <test-case id="1009" name="GenerateRescansAndSecondRunDoesNotRewrite" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.GenerateRescansAndSecondRunDoesNotRewrite" methodname="GenerateRescansAndSecondRunDoesNotRewrite" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1215719555" result="Passed" start-time="2026-10-28 09:13:28Z" end-time="2026-10-28 09:13:28Z" duration="0.545897" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1013" name="InvalidScanPreservesObjectAndFiles" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.InvalidScanPreservesObjectAndFiles" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-28 09:13:28Z" end-time="2026-10-28 09:13:30Z" duration="1.636785" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1010" name="InvalidScanPreservesObjectAndFiles(&quot;Unknown_Field&quot;)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.InvalidScanPreservesObjectAndFiles(&quot;Unknown_Field&quot;)" methodname="InvalidScanPreservesObjectAndFiles" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="208543891" result="Passed" start-time="2026-10-28 09:13:28Z" end-time="2026-10-28 09:13:29Z" duration="0.544919" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1011" name="InvalidScanPreservesObjectAndFiles(&quot;Txt_Missing&quot;)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.InvalidScanPreservesObjectAndFiles(&quot;Txt_Missing&quot;)" methodname="InvalidScanPreservesObjectAndFiles" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="525105536" result="Passed" start-time="2026-10-28 09:13:29Z" end-time="2026-10-28 09:13:29Z" duration="0.540245" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="InvalidScanPreservesObjectAndFiles(&quot;Btn_Bad-Name&quot;)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.InvalidScanPreservesObjectAndFiles(&quot;Btn_Bad-Name&quot;)" methodname="InvalidScanPreservesObjectAndFiles" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="2094916895" result="Passed" start-time="2026-10-28 09:13:29Z" end-time="2026-10-28 09:13:30Z" duration="0.548293" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1017" name="MissingFieldNeverFallsBackToSameTypeAtOldIndex" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.MissingFieldNeverFallsBackToSameTypeAtOldIndex" methodname="MissingFieldNeverFallsBackToSameTypeAtOldIndex" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1381901419" result="Passed" start-time="2026-10-28 09:13:30Z" end-time="2026-10-28 09:13:30Z" duration="0.219999" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[Root] AutoBind 获取绑定组件失败。Field=missing, Index=0, Expected=UnityEngine.UI.Button, Reason=字段不存在，请重新生成并保存绑定数据
+]]></output>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1040" name="NearestSealedOrHiddenBaseMethodPreventsGeneration" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.NearestSealedOrHiddenBaseMethodPreventsGeneration" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-28 09:13:30Z" end-time="2026-10-28 09:13:31Z" duration="0.389434" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1038" name="NearestSealedOrHiddenBaseMethodPreventsGeneration(ComponentAutoBindTool.Tests.AutoBindSealedHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.NearestSealedOrHiddenBaseMethodPreventsGeneration(ComponentAutoBindTool.Tests.AutoBindSealedHost)" methodname="NearestSealedOrHiddenBaseMethodPreventsGeneration" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="266844339" result="Passed" start-time="2026-10-28 09:13:30Z" end-time="2026-10-28 09:13:30Z" duration="0.197806" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1039" name="NearestSealedOrHiddenBaseMethodPreventsGeneration(ComponentAutoBindTool.Tests.AutoBindHiddenHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.NearestSealedOrHiddenBaseMethodPreventsGeneration(ComponentAutoBindTool.Tests.AutoBindHiddenHost)" methodname="NearestSealedOrHiddenBaseMethodPreventsGeneration" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="296470172" result="Passed" start-time="2026-10-28 09:13:30Z" end-time="2026-10-28 09:13:31Z" duration="0.189401" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1022" name="NestedRootIsBoundButItsChildrenAreNotScanned" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.NestedRootIsBoundButItsChildrenAreNotScanned" methodname="NestedRootIsBoundButItsChildrenAreNotScanned" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="720733126" result="Passed" start-time="2026-10-28 09:13:31Z" end-time="2026-10-28 09:13:31Z" duration="0.219413" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1021" name="OutputOwnedByAnotherHostIsNotOverwritten" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.OutputOwnedByAnotherHostIsNotOverwritten" methodname="OutputOwnedByAnotherHostIsNotOverwritten" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1226765307" result="Passed" start-time="2026-10-28 09:13:31Z" end-time="2026-10-28 09:13:31Z" duration="0.194105" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="PathNormalizationHonorsAssetsBoundaryAndLegacyFormat" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.PathNormalizationHonorsAssetsBoundaryAndLegacyFormat" methodname="PathNormalizationHonorsAssetsBoundaryAndLegacyFormat" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1444175155" result="Passed" start-time="2026-10-28 09:13:31Z" end-time="2026-10-28 09:13:31Z" duration="0.037283" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1042" name="PrefabInstanceGenerationSavesSceneOverridesWithoutApplyingToAsset" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.PrefabInstanceGenerationSavesSceneOverridesWithoutApplyingToAsset" methodname="PrefabInstanceGenerationSavesSceneOverridesWithoutApplyingToAsset" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1208524291" result="Passed" start-time="2026-10-28 09:13:31Z" end-time="2026-10-28 09:13:31Z" duration="0.267495" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1024" name="PrefabSaveIncludesOtherDirtyComponentsAndCanReload" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.PrefabSaveIncludesOtherDirtyComponentsAndCanReload" methodname="PrefabSaveIncludesOtherDirtyComponentsAndCanReload" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1613038864" result="Passed" start-time="2026-10-28 09:13:31Z" end-time="2026-10-28 09:13:32Z" duration="0.755230" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1041" name="PrefabStageSavesBindingsToTheOpenedPrefab" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.PrefabStageSavesBindingsToTheOpenedPrefab" methodname="PrefabStageSavesBindingsToTheOpenedPrefab" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1500350986" result="Passed" start-time="2026-10-28 09:13:32Z" end-time="2026-10-28 09:13:32Z" duration="0.342898" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1037" name="RealPartialAndExplicitMemberConflictsAreRejected" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.RealPartialAndExplicitMemberConflictsAreRejected" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-28 09:13:32Z" end-time="2026-10-28 09:13:33Z" duration="1.036314" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1032" name="RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindConflictingHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindConflictingHost)" methodname="RealPartialAndExplicitMemberConflictsAreRejected" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1362185752" result="Passed" start-time="2026-10-28 09:13:32Z" end-time="2026-10-28 09:13:33Z" duration="0.204998" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1033" name="RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindPartialConflictHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindPartialConflictHost)" methodname="RealPartialAndExplicitMemberConflictsAreRejected" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1487783552" result="Passed" start-time="2026-10-28 09:13:33Z" end-time="2026-10-28 09:13:33Z" duration="0.217037" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1034" name="RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindMultiFieldConflictHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindMultiFieldConflictHost)" methodname="RealPartialAndExplicitMemberConflictsAreRejected" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1453918832" result="Passed" start-time="2026-10-28 09:13:33Z" end-time="2026-10-28 09:13:33Z" duration="0.216857" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1035" name="RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindMethodFieldConflictHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindMethodFieldConflictHost)" methodname="RealPartialAndExplicitMemberConflictsAreRejected" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1361937746" result="Passed" start-time="2026-10-28 09:13:33Z" end-time="2026-10-28 09:13:33Z" duration="0.201311" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1036" name="RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindNamespaceAliasConflictHost)" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.RealPartialAndExplicitMemberConflictsAreRejected(ComponentAutoBindTool.Tests.AutoBindNamespaceAliasConflictHost)" methodname="RealPartialAndExplicitMemberConflictsAreRejected" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="431069787" result="Passed" start-time="2026-10-28 09:13:33Z" end-time="2026-10-28 09:13:33Z" duration="0.189484" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-case id="1018" name="RescanSupportsUndo" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.RescanSupportsUndo" methodname="RescanSupportsUndo" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="914783319" result="Passed" start-time="2026-10-28 09:13:33Z" end-time="2026-10-28 09:13:34Z" duration="0.201502" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1023" name="SavedSceneReloadKeepsRuntimeBindings" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.SavedSceneReloadKeepsRuntimeBindings" methodname="SavedSceneReloadKeepsRuntimeBindings" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="829891275" result="Passed" start-time="2026-10-28 09:13:34Z" end-time="2026-10-28 09:13:34Z" duration="0.217006" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="SaveFailureIsReportedWithoutCommitting" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.SaveFailureIsReportedWithoutCommitting" methodname="SaveFailureIsReportedWithoutCommitting" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="531203496" result="Passed" start-time="2026-10-28 09:13:34Z" end-time="2026-10-28 09:13:34Z" duration="0.212165" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1025" name="UngeneratedWidgetCanBeAttachedAndReportsMissingGeneration" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.UngeneratedWidgetCanBeAttachedAndReportsMissingGeneration" methodname="UngeneratedWidgetCanBeAttachedAndReportsMissingGeneration" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="1923018129" result="Passed" start-time="2026-10-28 09:13:34Z" end-time="2026-10-28 09:13:34Z" duration="0.038456" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[UIFramework] [Btn_First] 尚未生成 Widget UIView，请执行生成代码。
+]]></output>
+            </test-case>
+            <test-case id="1020" name="UnsavedSceneAndDifferentAssemblyAreRejected" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.UnsavedSceneAndDifferentAssemblyAreRejected" methodname="UnsavedSceneAndDifferentAssemblyAreRejected" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="2035563303" result="Passed" start-time="2026-10-28 09:13:34Z" end-time="2026-10-28 09:13:35Z" duration="0.347494" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="WriteFailureAfterSavingRestoresBindingsAndUnsavedSceneEdits" fullname="ComponentAutoBindTool.Tests.AutoBindPipelineTests.WriteFailureAfterSavingRestoresBindingsAndUnsavedSceneEdits" methodname="WriteFailureAfterSavingRestoresBindingsAndUnsavedSceneEdits" classname="ComponentAutoBindTool.Tests.AutoBindPipelineTests" runstate="Runnable" seed="405402359" result="Passed" start-time="2026-10-28 09:13:35Z" end-time="2026-10-28 09:13:35Z" duration="0.396822" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1043" name="PipelineLabTests" fullname="ComponentAutoBindTool.Tests.PipelineLabTests" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-10-28 09:13:35Z" end-time="2026-10-28 09:13:45Z" duration="10.438574" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1058" name="FailureReportMatchesConsoleAndPreservesPriorState" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.FailureReportMatchesConsoleAndPreservesPriorState" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-28 09:13:35Z" end-time="2026-10-28 09:13:38Z" duration="3.091468" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1052" name="FailureReportMatchesConsoleAndPreservesPriorState(UnknownPrefix)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.FailureReportMatchesConsoleAndPreservesPriorState(UnknownPrefix)" methodname="FailureReportMatchesConsoleAndPreservesPriorState" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="293333674" result="Passed" start-time="2026-10-28 09:13:35Z" end-time="2026-10-28 09:13:36Z" duration="0.655694" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[操作失败
+错误：
+- [扫描] Unknown_Field的命名中Unknown不存在对应的组件类型，绑定失败
+
+警告：
+- 当前没有绑定数据，生成的 UIView 将为空。
+
+]]></output>
+              </test-case>
+              <test-case id="1053" name="FailureReportMatchesConsoleAndPreservesPriorState(MissingComponent)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.FailureReportMatchesConsoleAndPreservesPriorState(MissingComponent)" methodname="FailureReportMatchesConsoleAndPreservesPriorState" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="1903745445" result="Passed" start-time="2026-10-28 09:13:36Z" end-time="2026-10-28 09:13:36Z" duration="0.296508" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[操作失败
+错误：
+- [扫描] Txt_Missing上不存在UnityEngine.UI.Text的组件
+
+警告：
+- 当前没有绑定数据，生成的 UIView 将为空。
+
+]]></output>
+              </test-case>
+              <test-case id="1054" name="FailureReportMatchesConsoleAndPreservesPriorState(DuplicateField)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.FailureReportMatchesConsoleAndPreservesPriorState(DuplicateField)" methodname="FailureReportMatchesConsoleAndPreservesPriorState" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="448815636" result="Passed" start-time="2026-10-28 09:13:36Z" end-time="2026-10-28 09:13:36Z" duration="0.345787" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[操作失败
+错误：
+- [1] 生成字段名重复：btnFirst
+
+]]></output>
+              </test-case>
+              <test-case id="1055" name="FailureReportMatchesConsoleAndPreservesPriorState(InvalidName)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.FailureReportMatchesConsoleAndPreservesPriorState(InvalidName)" methodname="FailureReportMatchesConsoleAndPreservesPriorState" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="1560992926" result="Passed" start-time="2026-10-28 09:13:36Z" end-time="2026-10-28 09:13:37Z" duration="0.319737" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[操作失败
+错误：
+- [0] 生成字段名非法或与类型名冲突：btnBad-Name
+
+]]></output>
+              </test-case>
+              <test-case id="1056" name="FailureReportMatchesConsoleAndPreservesPriorState(InvalidPath)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.FailureReportMatchesConsoleAndPreservesPriorState(InvalidPath)" methodname="FailureReportMatchesConsoleAndPreservesPriorState" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="1080880161" result="Passed" start-time="2026-10-28 09:13:37Z" end-time="2026-10-28 09:13:37Z" duration="0.303229" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[操作失败
+错误：
+- 代码保存路径必须位于 Assets 内：E:/CodexValidation/ComponentAutoBindTool-20261028/validation/OutsideAssets/PipelineLabHost.BindComponents.cs
+
+]]></output>
+              </test-case>
+              <test-case id="1057" name="FailureReportMatchesConsoleAndPreservesPriorState(Rollback)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.FailureReportMatchesConsoleAndPreservesPriorState(Rollback)" methodname="FailureReportMatchesConsoleAndPreservesPriorState" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="1273159036" result="Passed" start-time="2026-10-28 09:13:37Z" end-time="2026-10-28 09:13:38Z" duration="1.168136" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[生成完成
+未发现问题。
+已保存所属场景或 Prefab，并更新代码。
+操作失败
+错误：
+- AutoBind 操作失败：Access to the path is denied.；恢复时发生异常：Access to the path 'E:\CodexValidation\ComponentAutoBindTool-20261028\validation\Assets\Third Party\ComponentAutoBindTool\Example\LocalPipelineLab\PipelineLabHost.BindComponents.cs' is denied.
+
+]]></output>
+              </test-case>
+            </test-suite>
+            <test-suite type="ParameterizedMethod" id="1051" name="LabUsesRealInspectorPipelineAndPersistsReport" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.LabUsesRealInspectorPipelineAndPersistsReport" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-10-28 09:13:38Z" end-time="2026-10-28 09:13:45Z" duration="7.341415" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1044" name="LabUsesRealInspectorPipelineAndPersistsReport(FirstGeneration)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.LabUsesRealInspectorPipelineAndPersistsReport(FirstGeneration)" methodname="LabUsesRealInspectorPipelineAndPersistsReport" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="446415840" result="Passed" start-time="2026-10-28 09:13:38Z" end-time="2026-10-28 09:13:39Z" duration="0.958068" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[生成完成
+未发现问题。
+已保存所属场景或 Prefab，并更新代码。
+]]></output>
+              </test-case>
+              <test-case id="1045" name="LabUsesRealInspectorPipelineAndPersistsReport(RenameThenGenerate)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.LabUsesRealInspectorPipelineAndPersistsReport(RenameThenGenerate)" methodname="LabUsesRealInspectorPipelineAndPersistsReport" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="449032638" result="Passed" start-time="2026-10-28 09:13:39Z" end-time="2026-10-28 09:13:40Z" duration="1.222768" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[生成完成
+未发现问题。
+已保存所属场景或 Prefab，并更新代码。
+生成完成
+未发现问题。
+已保存所属场景或 Prefab，并更新代码。
+]]></output>
+              </test-case>
+              <test-case id="1046" name="LabUsesRealInspectorPipelineAndPersistsReport(NestedWidgetAndTMP)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.LabUsesRealInspectorPipelineAndPersistsReport(NestedWidgetAndTMP)" methodname="LabUsesRealInspectorPipelineAndPersistsReport" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="836744210" result="Passed" start-time="2026-10-28 09:13:40Z" end-time="2026-10-28 09:13:41Z" duration="0.995412" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[生成完成
+未发现问题。
+已保存所属场景或 Prefab，并更新代码。
+]]></output>
+              </test-case>
+              <test-case id="1047" name="LabUsesRealInspectorPipelineAndPersistsReport(NoOpGeneration)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.LabUsesRealInspectorPipelineAndPersistsReport(NoOpGeneration)" methodname="LabUsesRealInspectorPipelineAndPersistsReport" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="586586511" result="Passed" start-time="2026-10-28 09:13:41Z" end-time="2026-10-28 09:13:42Z" duration="1.184620" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[生成完成
+未发现问题。
+已保存所属场景或 Prefab，并更新代码。
+生成完成
+未发现问题。
+代码内容未变化，已跳过写入。
+]]></output>
+              </test-case>
+              <test-case id="1048" name="LabUsesRealInspectorPipelineAndPersistsReport(SceneSave)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.LabUsesRealInspectorPipelineAndPersistsReport(SceneSave)" methodname="LabUsesRealInspectorPipelineAndPersistsReport" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="484767903" result="Passed" start-time="2026-10-28 09:13:42Z" end-time="2026-10-28 09:13:43Z" duration="0.964281" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[生成完成
+未发现问题。
+已保存所属场景或 Prefab，并更新代码。
+]]></output>
+              </test-case>
+              <test-case id="1049" name="LabUsesRealInspectorPipelineAndPersistsReport(PrefabSave)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.LabUsesRealInspectorPipelineAndPersistsReport(PrefabSave)" methodname="LabUsesRealInspectorPipelineAndPersistsReport" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="1636257935" result="Passed" start-time="2026-10-28 09:13:43Z" end-time="2026-10-28 09:13:44Z" duration="1.005273" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[生成完成
+未发现问题。
+已保存所属场景或 Prefab，并更新代码。
+]]></output>
+              </test-case>
+              <test-case id="1050" name="LabUsesRealInspectorPipelineAndPersistsReport(InstanceOverride)" fullname="ComponentAutoBindTool.Tests.PipelineLabTests.LabUsesRealInspectorPipelineAndPersistsReport(InstanceOverride)" methodname="LabUsesRealInspectorPipelineAndPersistsReport" classname="ComponentAutoBindTool.Tests.PipelineLabTests" runstate="Runnable" seed="1292510410" result="Passed" start-time="2026-10-28 09:13:44Z" end-time="2026-10-28 09:13:45Z" duration="1.006058" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[生成完成
+未发现问题。
+已保存所属场景或 Prefab，并更新代码。
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1059" name="WidgetLifecycleTests" fullname="ComponentAutoBindTool.Tests.WidgetLifecycleTests" classname="ComponentAutoBindTool.Tests.WidgetLifecycleTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-28 09:13:45Z" end-time="2026-10-28 09:13:45Z" duration="0.005318" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1060" name="LocalHideShowResumesTickExactlyOnce" fullname="ComponentAutoBindTool.Tests.WidgetLifecycleTests.LocalHideShowResumesTickExactlyOnce" methodname="LocalHideShowResumesTickExactlyOnce" classname="ComponentAutoBindTool.Tests.WidgetLifecycleTests" runstate="Runnable" seed="607774509" result="Passed" start-time="2026-10-28 09:13:45Z" end-time="2026-10-28 09:13:45Z" duration="0.000680" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1061" name="LocalVisibilityCannotResumePausedParent" fullname="ComponentAutoBindTool.Tests.WidgetLifecycleTests.LocalVisibilityCannotResumePausedParent" methodname="LocalVisibilityCannotResumePausedParent" classname="ComponentAutoBindTool.Tests.WidgetLifecycleTests" runstate="Runnable" seed="1834074497" result="Passed" start-time="2026-10-28 09:13:45Z" end-time="2026-10-28 09:13:45Z" duration="0.000305" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: E:\CodexValidation\FrameworkLab-20261028\final-tests.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Failed(Child)" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-28 08:22:06Z" end-time="2026-10-28 08:22:06Z" duration="0.0456744">
+  <test-suite type="TestSuite" id="1000" name="ComponentAutoBindTool" fullname="ComponentAutoBindTool" runstate="Runnable" testcasecount="33" result="Failed" site="Child" start-time="2026-10-28 08:22:06Z" end-time="2026-10-28 08:22:06Z" duration="0.045674" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1041" name="Assembly-CSharp-Editor.dll" fullname="E:/CodexValidation/ComponentAutoBindTool-20261028/validation/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll" runstate="Runnable" testcasecount="33" result="Failed" site="Child" start-time="2026-10-28 08:22:06Z" end-time="2026-10-28 08:22:06Z" duration="0.036749" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="93380" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1042" name="ComponentAutoBindTool" fullname="ComponentAutoBindTool" runstate="Runnable" testcasecount="33" result="Failed" site="Child" start-time="2026-10-28 08:22:06Z" end-time="2026-10-28 08:22:06Z" duration="0.035097" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1043" name="Tests" fullname="ComponentAutoBindTool.Tests" runstate="Runnable" testcasecount="33" result="Failed" site="Child" start-time="2026-10-28 08:22:06Z" end-time="2026-10-28 08:22:06Z" duration="0.032016" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="1038" name="WidgetLifecycleTests" fullname="ComponentAutoBindTool.Tests.WidgetLifecycleTests" classname="ComponentAutoBindTool.Tests.WidgetLifecycleTests" runstate="Runnable" testcasecount="2" result="Failed" site="Child" start-time="2026-10-28 08:22:06Z" end-time="2026-10-28 08:22:06Z" duration="0.029935" total="2" passed="0" failed="2" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="1039" name="LocalHideShowResumesTickExactlyOnce" fullname="ComponentAutoBindTool.Tests.WidgetLifecycleTests.LocalHideShowResumesTickExactlyOnce" methodname="LocalHideShowResumesTickExactlyOnce" classname="ComponentAutoBindTool.Tests.WidgetLifecycleTests" runstate="Runnable" seed="1148980459" result="Failed" start-time="2026-10-28 08:22:06Z" end-time="2026-10-28 08:22:06Z" duration="0.016472" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Expected: 1
+  But was:  0
+]]></message>
+                <stack-trace><![CDATA[at ComponentAutoBindTool.Tests.WidgetLifecycleTests.LocalHideShowResumesTickExactlyOnce () [0x00048] in E:\CodexValidation\ComponentAutoBindTool-20261028\validation\Assets\AATest\Editor\WidgetLifecycleTests.cs:28
+]]></stack-trace>
+              </failure>
+            </test-case>
+            <test-case id="1040" name="LocalVisibilityCannotResumePausedParent" fullname="ComponentAutoBindTool.Tests.WidgetLifecycleTests.LocalVisibilityCannotResumePausedParent" methodname="LocalVisibilityCannotResumePausedParent" classname="ComponentAutoBindTool.Tests.WidgetLifecycleTests" runstate="Runnable" seed="282916962" result="Failed" start-time="2026-10-28 08:22:06Z" end-time="2026-10-28 08:22:06Z" duration="0.000636" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <failure>
+                <message><![CDATA[  Expected: 1
+  But was:  2
+]]></message>
+                <stack-trace><![CDATA[at ComponentAutoBindTool.Tests.WidgetLifecycleTests.LocalVisibilityCannotResumePausedParent () [0x0004d] in E:\CodexValidation\ComponentAutoBindTool-20261028\validation\Assets\AATest\Editor\WidgetLifecycleTests.cs:46
+]]></stack-trace>
+              </failure>
+              <output><![CDATA[Saving results to: E:\CodexValidation\FrameworkLab-20261028\widget-before.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

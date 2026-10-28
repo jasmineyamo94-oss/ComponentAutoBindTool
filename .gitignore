@@ -12,3 +12,7 @@
 /*.csproj
 /*.sln
 .idea/
+
+# Isolated local AutoBind pipeline experiments
+/Assets/Third Party/ComponentAutoBindTool/Example/LocalPipelineLab/
+/Assets/Third Party/ComponentAutoBindTool/Example/LocalPipelineLab.meta

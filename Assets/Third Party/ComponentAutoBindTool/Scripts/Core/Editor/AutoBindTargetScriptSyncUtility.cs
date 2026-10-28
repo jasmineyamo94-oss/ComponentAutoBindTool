@@ -1,10 +1,17 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
     internal static class AutoBindTargetScriptSyncUtility
     {
+        internal static void ApplyMetadata(AutoBindBuildInput input, SerializedObject target)
+        {
+            target.FindProperty("m_Namespace").stringValue = input.HostType.Namespace ?? string.Empty;
+            target.FindProperty("m_ClassName").stringValue = input.HostType.Name;
+            target.FindProperty("m_CodePath").stringValue = input.CodePath;
+        }
+
         public static bool SyncFromTargetScript(SerializedProperty targetScriptProperty, SerializedProperty namespaceProperty,
             SerializedProperty classNameProperty, SerializedProperty codePathProperty, AutoBindGlobalSetting setting)
         {

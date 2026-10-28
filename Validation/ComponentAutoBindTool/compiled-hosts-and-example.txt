@@ -1,0 +1,3 @@
+AUTOBIND_COMPILED_HOSTS_PASS: 4
+AUTOBIND_EXAMPLE_NOOP_PASS: 2
+Exiting batchmode successfully now!

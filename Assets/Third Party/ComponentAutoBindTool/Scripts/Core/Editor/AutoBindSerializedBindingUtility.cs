@@ -1,12 +1,32 @@
 using System;
 using UnityEditor;
 using UnityEngine;
-using BindData = Third_Party.ComponentAutoBindTool.Scripts.Core.ComponentAutoBindTool.BindData;
+using BindData = ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
     internal static class AutoBindSerializedBindingUtility
     {
+        public static bool ApplyCandidate(AutoBindBuildInput input, bool recordUndo = true)
+        {
+            var serialized = new SerializedObject(input.Target);
+            var bindings = serialized.FindProperty("BindDatas");
+            bool same = bindings.arraySize == input.Bindings.Count;
+            for (int i = 0; same && i < bindings.arraySize; i++)
+            {
+                var item = bindings.GetArrayElementAtIndex(i);
+                same = item.FindPropertyRelative("Name").stringValue == input.Bindings[i].Name &&
+                       item.FindPropertyRelative("BindCom").objectReferenceValue == input.Bindings[i].BindCom;
+            }
+            AutoBindTargetScriptSyncUtility.ApplyMetadata(input, serialized);
+            if (!same) RebuildBindDatas(bindings, input.Bindings);
+            var components = serialized.FindProperty("m_BindComs");
+            var names = serialized.FindProperty("m_BindFieldNames");
+            if (NeedsRuntimeBindingSync(bindings, components, names))
+                SyncRuntimeBindingCaches(bindings, components, names);
+            return recordUndo ? serialized.ApplyModifiedProperties() : serialized.ApplyModifiedPropertiesWithoutUndo();
+        }
+
         public static void AddBindData(SerializedProperty bindDatas, string name, Component bindCom)
         {
             int index = bindDatas.arraySize;

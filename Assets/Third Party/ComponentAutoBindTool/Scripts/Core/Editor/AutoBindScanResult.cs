@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using BindData = Third_Party.ComponentAutoBindTool.Scripts.Core.ComponentAutoBindTool.BindData;
+using BindData = ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
-    internal sealed class AutoBindScanResult
+    public sealed class AutoBindScanResult
     {
         private readonly List<BindData> m_BindDatas = new List<BindData>();
         private readonly List<string> m_Errors = new List<string>();

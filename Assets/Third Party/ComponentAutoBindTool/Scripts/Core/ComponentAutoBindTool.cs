@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Component = UnityEngine.Component;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core
+namespace ComponentAutoBindTool.Core
 {
     /// <summary>
     /// 组件自动绑定工具
@@ -76,15 +76,12 @@ namespace Third_Party.ComponentAutoBindTool.Scripts.Core
                     return GetBindComponentInternal<T>(fieldIndex, fieldName);
                 }
 
-                if (index >= 0 && index < m_BindComs.Count)
-                {
-                    Debug.LogWarning(
-                        $"[{name}] AutoBind 未找到字段 `{fieldName}` 对应的绑定，回退使用索引 {index}。",
-                        this);
-                }
+                Debug.LogError(BuildBindError(index, fieldName, typeof(T), "字段不存在，请重新生成并保存绑定数据"), this);
+                return null;
             }
 
-            return GetBindComponentInternal<T>(index, fieldName);
+            Debug.LogError(BuildBindError(index, fieldName, typeof(T), "字段名为空，请使用纯索引重载或重新生成绑定"), this);
+            return null;
         }
 
         public void OnBeforeSerialize()

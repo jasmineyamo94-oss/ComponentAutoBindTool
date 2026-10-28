@@ -1,14 +1,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
-    internal sealed class AutoBindValidationResult
+    public sealed class AutoBindValidationResult
     {
         private readonly List<string> m_Errors = new List<string>();
         private readonly List<string> m_Warnings = new List<string>();
 
         public bool IsValid => m_Errors.Count == 0;
+        public IReadOnlyList<string> Errors => m_Errors;
+        public IReadOnlyList<string> Warnings => m_Warnings;
         public int ErrorCount => m_Errors.Count;
         public int WarningCount => m_Warnings.Count;
 

@@ -1,22 +1,33 @@
-# AutoBind UI for Unity + VContainer
+# Unity 项目启动框架：AutoBind UI + VContainer
 
-> 通过命名约定扫描 UI 层级，自动生成强类型 `UIView` 绑定代码，并将视图对象接入 VContainer 生命周期的 Unity UI 基础设施。
+当前可运行演示：[移动横屏框架实验台](<Assets/Third Party/ComponentAutoBindTool/Example/README.md>)，包含五组运行时实验和 UI Toolkit 编辑器绑定实验。
+
+> **UI 框架迁移说明（2026-10-28）**：当前接入方式请先阅读 [生成流水线与新 UI 框架](<Assets/Third Party/ComponentAutoBindTool/MIGRATION.md>)。下文保留迁移前的项目说明，其中 ViewLifetimeScope 等旧接入方式已归档；当前采用 ViewBase / WidgetViewBase / WindowEntry，项目版本为 Unity 6000.3.20f1。
+
+> 这是一个面向 Unity 6 的项目启动框架，用 AutoBind 解决 UI 引用收集与生成，用 VContainer 承接 View 生命周期与依赖注入，并预留 `Assets/AAGame/` 作为业务主战场。
 
 ## 项目定位
 
-这是一个 **Unity 6 示例工程**，不是单纯的单文件脚本仓库。
+这不是单纯的脚本仓库，也不建议只把它理解成 `ComponentAutoBindTool` 的示例工程。
 
-它把三个问题放在同一个项目里解决：
+更准确的定位是：
 
-1. **编辑器期自动收集 UI 组件引用**
-2. **代码生成强类型视图绑定层**
-3. **在 VContainer 生命周期中消费这些绑定结果**
+- 一个可持续演进的 **Unity 项目启动框架**
+- 一个以 **AutoBind + VContainer** 为核心的 UI 基础设施母板
+- 一个已经预留业务层目录、可以直接继续孵化实际项目的工程骨架
 
-如果把它当成一个新项目来理解，这个仓库的核心定位可以概括为：
+如果你准备基于它继续开发项目，建议这样理解目录职责：
 
-- 一个面向 Unity UI 的 **AutoBind 工作流**
-- 一个面向 VContainer 的 **View 基础设施样例**
-- 一个可以继续抽离成独立包的 **原型仓库**
+- `Assets/Third Party/ComponentAutoBindTool/`：框架基座，承载 AutoBind、Editor 工具链、View 基础设施
+- `Assets/AAGame/`：业务主战场，承载场景、模块、UI、配置、资源
+- `Assets/AATest/`：测试预留区，用于后续补齐 EditMode / PlayMode 测试
+
+默认开发策略也应如此：
+
+1. 先判断需求能否在 `Assets/AAGame/` 内完成
+2. 只有业务层出现明显重复、性能瓶颈或扩展点缺失时，再演进框架层
+3. 不要把具体业务逻辑直接写进 `Assets/Third Party/ComponentAutoBindTool/`
+4. 不要手动编辑 `*.BindComponents.cs`，应始终通过 Inspector 工作流重新生成
 
 ## 它解决什么问题
 
@@ -82,6 +93,17 @@
 - `jp.hadashikick.vcontainer` `1.17.0`
 - `com.unity.ugui` `2.0.0`
 - `com.cysharp.unitask` `2.5.10`
+
+### 如果你准备用它开新项目
+
+建议按这个顺序落地：
+
+1. 先在 `Assets/AAGame/Scenes`、`Assets/AAGame/Scripts`、`Assets/AAGame/UI` 内建立业务目录
+2. 把 `Assets/Third Party/ComponentAutoBindTool/` 视为框架层，尽量只做通用能力改造
+3. 新界面优先继承 `ViewLifetimeScope`，或在其思路上扩展自己的业务 View 基类
+4. UI 节点遵循 AutoBind 命名规则，生成代码只承载绑定结果，不承载业务逻辑
+5. Presenter / Service / Module 逻辑优先落在 `Assets/AAGame/`，不要把业务逻辑回写到 Third Party
+6. 当项目稳定后，再决定是否把框架层抽成独立包
 
 ### 打开项目后先看哪里
 
@@ -401,8 +423,37 @@ Scene / Prefab
 
 ## 目录结构
 
+推荐按“框架层 / 业务层 / 测试层”理解当前工程：
+
+- `Assets/Third Party/ComponentAutoBindTool/`：框架层
+- `Assets/AAGame/`：业务层
+- `Assets/AATest/`：测试层
+
 ```text
 Assets/
+  AAGame/
+    Scenes/
+    Scripts/
+      Core/
+      Gameplay/
+      Modules/
+      Network/
+      UI/
+      Utility/
+    UI/
+      Prefabs/
+      Views/
+    Prefabs/
+    Resources/
+    Config/
+    Data/
+    Settings/
+    Localization/
+    Audio/
+    Art/
+    Shaders/
+  AATest/
+    (推荐放置 EditMode / PlayMode 测试与测试 asmdef)
   Third Party/
     ComponentAutoBindTool/
       AutoBindGlobalSetting.asset
@@ -435,7 +486,30 @@ Assets/
 - `generic-serializable-dictionary`：用于可编辑的自定义组件映射字典
 - `Kogane.DebugLogger` / Console 工具：用于日志与编辑器体验
 - `vFolders`：编辑器目录增强工具
-- `NuGetForUnity`、`Handlebars.Net`：当前仓库中可见，但并不是 AutoBind 主链路的核心依赖
+- AutoBind 使用纯 C# `StringBuilder` 生成绑定代码，不依赖 Handlebars 或 NuGetForUnity。
+
+### 轮回 UI 框架同步说明
+
+- `ViewLifetimeScope.Show/Hide` 默认切换 GameObject 激活状态。`NonDestroy` 窗口关闭后按名称缓存，重新打开会复用实例并调用 `Init`；同名栈顶也会重新接收参数。
+- `DelayDestroy` 在关闭时隐藏窗口，再按 `m_DestroyDelaySeconds` 使用真实时间销毁；默认零延迟。延迟期间重开会创建新实例。
+- 原三参数 `ViewManager` 构造函数保持默认暂停前一个 Normal 窗口。需要叠加显示时，通过工厂注册四参数构造函数：
+
+```csharp
+builder.Register<ViewManager>(resolver => new ViewManager(
+    resolver.Resolve<LifetimeScope>(),
+    resolver.Resolve<IViewPrefabHelper>(),
+    resolver.Resolve<IViewRootHelper>(),
+    ViewStackDisplayMode.Overlay), Lifetime.Scoped).AsImplementedInterfaces();
+```
+
+上例将同一管理器实例注册为 `IViewManager` 和 `ITickable`，由 VContainer 调度排队窗口。
+
+- 实现 `IViewManagerInjectable` 的视图在 `Init` 前接收管理器。窗口内的依赖注入仍由子容器的显式组件注册或自动注入配置负责，管理器不会从父容器递归注入窗口。
+- Normal 层级仍为 700，HUD / Top / System 仍为 500 / 1000 / 2000；Canvas 的相机、Sorting Layer 和 `overrideSorting` 保持原设置。
+- 扫描会保留可绑定的嵌套根节点，但不进入其后代，并跳过 TMP 自动生成的子网格。映射向导按类型定位唯一配置，不依赖插件所在目录。
+- 回归测试位于 `Assets/AATest/Editor/ViewFrameworkSyncTests.cs`。`AutoBindExampleWorkflow.Run` 可在独立批处理项目中调用，执行与 Inspector“重扫校验 / 生成代码”按钮相同的处理流程。
+
+当前同步保留原框架边界：只有 Normal 入栈；`HideView` 在栈为空时仅补充关闭最后显示的窗口，并不提供完整的多层窗口管理。`Init` 更新参数不会自动通知既有 Presenter，业务仍需自行刷新。缓存视图的子容器会保留，其订阅及 `ITickable` 也需要业务按显隐状态管理。首次实例化时容器可能先于 `Init` 构建，构造函数及 `IInitializable` 不应读取尚未传入的开窗参数。这些问题留待后续单独评估。
 
 ## 示例项目里最值得看的文件
 
@@ -474,19 +548,19 @@ Assets/
 
 这套校验让它更像一个“有约束的工作流工具”，而不是单纯的字符串扫描器。
 
-## 当前仓库状态与已知问题
+## 当前框架状态与已知问题
 
 以下内容不是 README 想象中的理想设计，而是当前代码库真实状态：
 
-### 1. 这是 Unity 工程，不是独立包
+### 1. 这是启动框架，不是现成成熟插件
 
-当前仓库并没有整理成可直接通过 UPM 分发的包结构。
+当前工程更适合作为项目母板继续开发，而不是直接当成已经完全产品化的 UPM 插件使用。
 
-它更像：
+它现在同时具备三种属性：
 
-- 一个工作中的原型仓库
-- 一个示例工程
-- 一个准备继续抽离的基础设施项目
+- 一个可直接继续落业务的 Unity 项目
+- 一个承载 AutoBind + VContainer 约束的基础设施框架
+- 一个未来仍可继续抽离、产品化的工具基座
 
 ### 2. 配置资源被设计成单例
 
@@ -541,17 +615,16 @@ Inspector 文案已经按“跟随目标脚本的路径”展示，但字段名�
 
 项目里包含 Unity 包自带的测试工程引用，但 `Assets/Third Party/ComponentAutoBindTool` 这部分没有独立的 Editor / PlayMode 自动化测试覆盖。
 
-## 如果把它继续产品化，下一步应该做什么
+## 如果基于它继续开项目，优先应该做什么
 
-如果你打算把这个仓库真的发展成一个独立可复用项目，优先级最高的工作建议是：
+如果你的目标是把它作为启动框架继续做项目，优先级最高的工作建议是：
 
-1. 修掉所有硬编码路径
-2. 把 `ComponentAutoBindTool` 抽成 UPM 包结构
-3. 为扫描、校验、代码生成补 Editor 测试
-4. 为命名规则增加更明确的字段后缀语义支持
-5. 把代码生成从字符串拼接升级为模板化方案
-6. 给 `ViewManager` 补齐 Top / System 层的完整生命周期策略
-7. 加上 prefab 工作流和批量生成能力
+1. 先在 `Assets/AAGame/` 下建立自己的模块目录、启动场景与 UI 流程
+2. 修掉现有硬编码路径，避免框架层继续依赖旧示例路径
+3. 为扫描、校验、代码生成链路补 Editor 测试
+4. 根据项目 UI 规范补充自己的前缀映射、View 基类和 Presenter 接入约束
+5. 把生成路径、命名空间、业务层接入方式整理成团队规范
+6. 当框架稳定后，再考虑是否抽离为独立包或继续产品化
 
 ## 适合谁使用
 

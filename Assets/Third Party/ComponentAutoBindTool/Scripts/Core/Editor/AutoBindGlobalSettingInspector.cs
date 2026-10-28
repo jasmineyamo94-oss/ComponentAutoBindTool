@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
+namespace ComponentAutoBindTool.Editor
 {
     [CustomEditor(typeof(AutoBindGlobalSetting))]
     public class AutoBindGlobalSettingInspector : UnityEditor.Editor
@@ -54,10 +54,10 @@ namespace Third_Party.ComponentAutoBindTool.Scripts.Core.Editor
             if (GUILayout.Button("选择路径", GUILayout.Width(140f)))
             {
                 var folderPath = EditorUtility.OpenFolderPanel("选择代码保存路径", Application.dataPath, "");
-                if (folderPath.StartsWith(Application.dataPath))
+                if (!string.IsNullOrEmpty(folderPath) && AutoBindPathUtility.IsPathUnderAssets(folderPath))
                 {
                     // Debug.Log($"dataPath: {Application.dataPath}");
-                    m_CodePath.stringValue = folderPath.Substring(Application.dataPath.Length);
+                    m_CodePath.stringValue = AutoBindPathUtility.ToAssetRelativePath(folderPath);
                 }
                 // Debug.Log($"m_CodePath: {m_CodePath.stringValue}");
             }
