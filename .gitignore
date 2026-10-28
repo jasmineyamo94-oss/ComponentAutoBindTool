@@ -13,6 +13,7 @@
 /*.sln
 .idea/
 .vscode/
+/.vsconfig
 
 # Isolated local AutoBind pipeline experiments
 /Assets/Third Party/ComponentAutoBindTool/Example/LocalPipelineLab/
