@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using ComponentAutoBindTool.Core;
-using Third_Party.ComponentAutoBindTool.Scripts.Core;
 using TMPro;
 using UnityEngine;
 

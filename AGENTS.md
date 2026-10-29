@@ -1,5 +1,7 @@
 # 项目启动框架协作指南
 
+涉及 AutoBind 生成、ViewCore 生命周期、Scope/Widget 或实验台时，先读 [新架构导读](<Assets/Third Party/ComponentAutoBindTool/ARCHITECTURE.md>)，再按任务导航到当前源码。历史文档不作为当前框架契约。
+
 ## 1. 核心定位
 本项目应被视为一个可持续演进的 **Unity 项目启动框架**，而不是单纯的脚本仓库或仅用于维护第三方工具的示例仓库。
 
@@ -57,7 +59,7 @@
 
 - `ComponentAutoBindTool` 的运行时绑定逻辑
 - 扫描、校验、代码生成链路
-- `ViewLifetimeScope`、`ViewManager` 等视图生命周期基础设施
+- `ViewBase`、`WindowEntry`、`ViewManager` 等视图生命周期基础设施
 - 全局配置资源定位、路径策略、生成产物策略
 
 ## 4. 项目结构理解
@@ -68,7 +70,7 @@
 - AutoBind 运行时
 - AutoBind Editor 工具链
 - 代码生成逻辑
-- `ViewLifetimeScope` / `ViewManager` 等 View 基础设施
+- `ViewBase` / `WindowEntry` / `ViewManager` 等 View 基础设施
 - 示例场景与示例脚本
 
 这部分应被视为“可复用框架基座”，默认要求：
@@ -179,7 +181,7 @@ PrefixA_PrefixB_FieldSuffix
 ### 7.3 View 集成原则
 如果沿用当前项目内方案，优先遵循：
 
-- View 根节点通过 `ViewLifetimeScope` 承接生命周期
+- View 根节点继承 `ViewBase`，由 `WindowEntry` 显式绑定 UIView 并创建窗口 Scope
 - 生成的 `UIView` 作为 Presenter / Service 的输入边界
 - 尽量避免业务层直接回退到散乱的 `GetComponent` / 手拖引用模式
 
@@ -229,7 +231,7 @@ PrefixA_PrefixB_FieldSuffix
 ### 9.1 Unity 版本
 当前项目 Unity 版本：
 
-- `6000.0.68f1`
+- `6000.3.20f1`（以 `ProjectSettings/ProjectVersion.txt` 为准）
 
 ### 9.2 打开项目
 ```sh
@@ -243,8 +245,10 @@ PrefixA_PrefixB_FieldSuffix
 
 ### 9.4 EditMode 测试
 ```sh
-<UNITY> -batchmode -projectPath "$(pwd)" -runTests -testPlatform EditMode -logFile Logs/editmode.log -quit
+<UNITY> -batchmode -projectPath "$(pwd)" -runTests -testPlatform EditMode -logFile Logs/editmode.log
 ```
+
+测试由 Test Runner 自行结束，`-runTests` 不与 `-quit` 同用。
 
 ### 9.5 手工验证
 对于 AutoBind / Editor / 生成链路相关改动，至少完成以下最小验证：

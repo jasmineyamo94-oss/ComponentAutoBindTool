@@ -1,0 +1,10 @@
+{
+    "name": "ComponentAutoBindTool.ViewCore",
+    "rootNamespace": "ComponentAutoBindTool.ViewCore",
+    "references": [
+        "ComponentAutoBindTool.Core",
+        "VContainer",
+        "UnityEngine.UI"
+    ],
+    "autoReferenced": true
+}

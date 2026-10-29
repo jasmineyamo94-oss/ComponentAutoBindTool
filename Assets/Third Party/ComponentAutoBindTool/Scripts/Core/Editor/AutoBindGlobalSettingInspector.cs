@@ -56,10 +56,12 @@ namespace ComponentAutoBindTool.Editor
                 var folderPath = EditorUtility.OpenFolderPanel("选择代码保存路径", Application.dataPath, "");
                 if (!string.IsNullOrEmpty(folderPath) && AutoBindPathUtility.IsPathUnderAssets(folderPath))
                 {
-                    // Debug.Log($"dataPath: {Application.dataPath}");
                     m_CodePath.stringValue = AutoBindPathUtility.ToAssetRelativePath(folderPath);
                 }
-                // Debug.Log($"m_CodePath: {m_CodePath.stringValue}");
+                else if (!string.IsNullOrEmpty(folderPath))
+                {
+                    EditorUtility.DisplayDialog("路径无效", "请选择当前项目 Assets 目录内的文件夹。", "确定");
+                }
             }
 
             serializedObject.ApplyModifiedProperties();

@@ -1,23 +1,26 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
 namespace ComponentAutoBindTool.Editor
 {
     /// <summary>
     /// 自动绑定全局设置
     /// </summary>
+    [MovedFrom(true, "ComponentAutoBindTool.Editor", "Assembly-CSharp-Editor", "AutoBindGlobalSetting")]
     public class AutoBindGlobalSetting : ScriptableObject
     {
         [SerializeField] 
-        private string m_CodePath = "/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents";
+        private string m_CodePath = "Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents";
 
         [SerializeField]
         private string m_Namespace;
         
         [SerializeField]
-        private bool m_UseGlobalDefaultSavePath;
+        private bool m_UseGlobalDefaultSavePath = true;
 
         public string CodePath => AutoBindPathUtility.NormalizeCodePath(m_CodePath);
+        internal string RawCodePath => m_CodePath;
         public string Namespace => m_Namespace;
         public bool UseGlobalDefaultSavePath => m_UseGlobalDefaultSavePath;
 

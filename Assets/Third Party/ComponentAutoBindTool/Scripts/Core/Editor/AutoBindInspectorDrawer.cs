@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Third_Party.ComponentAutoBindTool.Scripts.Core;
+using ComponentAutoBindTool.Core;
 using UnityEditor;
 using UnityEngine;
 

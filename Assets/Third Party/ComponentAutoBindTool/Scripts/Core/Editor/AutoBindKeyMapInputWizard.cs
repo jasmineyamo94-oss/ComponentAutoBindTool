@@ -1,7 +1,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
-using Third_Party.ComponentAutoBindTool.Scripts.Core;
+using ComponentAutoBindTool.Core;
 
 namespace ComponentAutoBindTool.Editor
 {

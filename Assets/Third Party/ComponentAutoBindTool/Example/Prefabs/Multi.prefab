@@ -473,7 +473,7 @@ MonoBehaviour:
   m_ClassName: AutoBindExampleWidget
   m_Namespace: ComponentAutoBindTool.Example
   m_targetScript: {fileID: 8544300978780599418}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents
+  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 7699078397034682904}
   - {fileID: 5962585705792039676}
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_ClassName: AutoBindExampleWidget
   m_Namespace: ComponentAutoBindTool.Example
   m_targetScript: {fileID: 7078204082252348866}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents
+  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 4091133096161846038}
   - {fileID: 1369238457620369088}
@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_ClassName: LabWidgetGroup
   m_Namespace: ComponentAutoBindTool.Example
   m_targetScript: {fileID: 932129025242390247}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents
+  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 5045439887495501335}
   - {fileID: 7078204082252348866}
@@ -2107,7 +2107,7 @@ MonoBehaviour:
   m_ClassName: AutoBindTest
   m_Namespace: ComponentAutoBindTool
   m_targetScript: {fileID: 3801235609246595648}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents
+  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 8033769365101223803}
   - {fileID: 8095413435890726092}

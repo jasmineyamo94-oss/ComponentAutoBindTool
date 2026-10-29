@@ -209,6 +209,17 @@ namespace ComponentAutoBindTool.Tests
                 Scope.Session.Manager.CloseView(cover);
                 yield return null;
                 Assert.That(group.Left.Ticks, Is.GreaterThan(stopped));
+                var presenter = (AutoBindTestPresenter)Record(id).Presenter;
+                presenter.DetachGroup();
+                Assert.That(group.Left.Destroyed, Is.True);
+                Assert.That(group.Right.Destroyed, Is.True);
+                Assert.That(Scope.Telemetry.Describe(), Does.Contain($"叶 Widget / Scope {group.Left.ScopeId} OnClose"));
+                int detachedTicks = group.Left.Ticks;
+                Scope.Session.Manager.CloseView(id);
+                Assert.That(Scope.Session.Open("Widgets"), Is.EqualTo(id));
+                Assert.That(presenter.Group, Is.Null, "缓存重开不重新创建已解绑的 Widget 实例。");
+                yield return null;
+                Assert.That(group.Left.Ticks, Is.EqualTo(detachedTicks));
                 Scope.Session.Reset(4);
                 Assert.That(group.Left.Destroyed, Is.True);
                 Assert.That(Scope.Telemetry.ScopesCreated, Is.EqualTo(Scope.Telemetry.ScopesDisposed));

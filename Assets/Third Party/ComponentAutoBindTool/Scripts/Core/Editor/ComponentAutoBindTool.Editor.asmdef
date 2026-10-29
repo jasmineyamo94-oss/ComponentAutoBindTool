@@ -1,0 +1,13 @@
+{
+    "name": "ComponentAutoBindTool.Editor",
+    "rootNamespace": "ComponentAutoBindTool.Editor",
+    "references": [
+        "ComponentAutoBindTool.Core",
+        "ComponentAutoBindTool.ViewCore",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro",
+        "com.upscalebaby.generic-serializable-dictionary"
+    ],
+    "includePlatforms": ["Editor"],
+    "autoReferenced": true
+}

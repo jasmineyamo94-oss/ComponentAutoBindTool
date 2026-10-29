@@ -1,5 +1,7 @@
 # Unity 项目启动框架：AutoBind UI + VContainer
 
+架构与 AI 接手入口：[ComponentAutoBindTool 新架构导读](<Assets/Third Party/ComponentAutoBindTool/ARCHITECTURE.md>)，包含生成闭环、Scope/Presenter/Widget 生命周期、示例装配与按任务查找源码的导航。
+
 当前可运行演示：[移动横屏框架实验台](<Assets/Third Party/ComponentAutoBindTool/Example/README.md>)，包含五组运行时实验和 UI Toolkit 编辑器绑定实验。
 
 > **UI 框架迁移说明（2026-10-28）**：当前接入方式请先阅读 [生成流水线与新 UI 框架](<Assets/Third Party/ComponentAutoBindTool/MIGRATION.md>)。下文保留迁移前的项目说明，其中 ViewLifetimeScope 等旧接入方式已归档；当前采用 ViewBase / WidgetViewBase / WindowEntry，项目版本为 Unity 6000.3.20f1。

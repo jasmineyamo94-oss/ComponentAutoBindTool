@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089caf30d869f954eb91eb065677f71c, type: 3}
   m_Name: AutoBindGlobalSetting
   m_EditorClassIdentifier: 
-  m_CodePath: /Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents
+  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents
   m_Namespace: 
-  m_UseGlobalDefaultSavePath: 0
+  m_UseGlobalDefaultSavePath: 1

@@ -1,0 +1,11 @@
+{
+    "name": "ComponentAutoBindTool.Tests.Hosts",
+    "rootNamespace": "ComponentAutoBindTool.Tests.AssemblyHosts",
+    "references": [
+        "ComponentAutoBindTool.Core",
+        "ComponentAutoBindTool.ViewCore",
+        "VContainer",
+        "UnityEngine.UI"
+    ],
+    "autoReferenced": true
+}

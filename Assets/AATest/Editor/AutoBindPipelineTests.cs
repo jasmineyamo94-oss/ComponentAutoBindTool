@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using ComponentAutoBindTool.Editor;
 using NUnit.Framework;
-using Third_Party.ComponentAutoBindTool.Scripts.Core;
+using ComponentAutoBindTool.Core;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -36,6 +36,7 @@ namespace ComponentAutoBindTool.Tests
             Directory.CreateDirectory(m_Folder);
             m_Setting = ScriptableObject.CreateInstance<AutoBindGlobalSetting>();
             var settingData = new SerializedObject(m_Setting);
+            settingData.FindProperty("m_UseGlobalDefaultSavePath").boolValue = false;
             settingData.FindProperty("m_CodePath").stringValue = m_Folder;
             settingData.ApplyModifiedPropertiesWithoutUndo();
             m_KeyMap = ScriptableObject.CreateInstance<AutoBindKeyMapSetting>();
@@ -45,25 +46,78 @@ namespace ComponentAutoBindTool.Tests
             m_Child = new GameObject("Btn_First", typeof(RectTransform), typeof(Button));
             m_Child.transform.SetParent(root.transform);
             Assert.That(EditorSceneManager.SaveScene(m_Scene, m_Folder + "/Test.unity"), Is.True);
-            AssetDatabase.StartAssetEditing();
-            m_Editing = true;
+            BeginAssetEditing();
         }
 
         [TearDown]
         public void TearDown()
         {
-            if (m_Scene.IsValid() && m_Scene.isLoaded) EditorSceneManager.CloseScene(m_Scene, true);
-            if (m_PreviousScene.IsValid() && m_PreviousScene.isLoaded) SceneManager.SetActiveScene(m_PreviousScene);
-            Object.DestroyImmediate(m_Setting);
-            Object.DestroyImmediate(m_KeyMap);
+            try
+            {
+                if (m_Scene.IsValid() && m_Scene.isLoaded) EditorSceneManager.CloseScene(m_Scene, true);
+                if (m_PreviousScene.IsValid() && m_PreviousScene.isLoaded) SceneManager.SetActiveScene(m_PreviousScene);
+            }
+            finally
+            {
+                try
+                {
+                    Object.DestroyImmediate(m_Setting);
+                    Object.DestroyImmediate(m_KeyMap);
+                }
+                finally
+                {
+                    try
+                    {
+                        DeleteTemporaryAssets();
+                    }
+                    finally
+                    {
+                        try
+                        {
+                            EndAssetEditing();
+                        }
+                        finally
+                        {
+                            // 测试可能导入过生成脚本；进入后续 PlayMode 前同步删除后的编译输入。
+                            AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void DeleteTemporaryAssets()
+        {
+            if (string.IsNullOrEmpty(m_Folder)) return;
             if (Directory.Exists(m_Folder))
             {
                 foreach (string file in Directory.EnumerateFiles(m_Folder, "*", SearchOption.AllDirectories))
                     File.SetAttributes(file, FileAttributes.Normal);
-                FileUtil.DeleteFileOrDirectory(m_Folder);
-                FileUtil.DeleteFileOrDirectory(m_Folder + ".meta");
             }
-            if (m_Editing) AssetDatabase.StopAssetEditing();
+            if (File.Exists(m_Folder + ".meta")) File.SetAttributes(m_Folder + ".meta", FileAttributes.Normal);
+
+            // 先通知资产数据库，避免已导入的脚本只从磁盘消失而仍留在编译列表中。
+            if (!AssetDatabase.DeleteAsset(m_Folder))
+            {
+                // 尚未导入的目录没有资产记录，清理其物理文件后由 TearDown 统一同步。
+                if (Directory.Exists(m_Folder)) FileUtil.DeleteFileOrDirectory(m_Folder);
+                if (File.Exists(m_Folder + ".meta")) FileUtil.DeleteFileOrDirectory(m_Folder + ".meta");
+            }
+            if (Directory.Exists(m_Folder) || File.Exists(m_Folder + ".meta"))
+                throw new IOException("未能清理流水线测试临时资产：" + m_Folder);
+        }
+
+        private void BeginAssetEditing()
+        {
+            AssetDatabase.StartAssetEditing();
+            m_Editing = true;
+        }
+
+        private void EndAssetEditing()
+        {
+            if (!m_Editing) return;
+            m_Editing = false;
+            AssetDatabase.StopAssetEditing();
         }
 
         private AutoBindPipelineReport Generate() => AutoBindBuildPipeline.GenerateCode(m_Tool, m_Setting, m_KeyMap);
@@ -248,8 +302,7 @@ namespace ComponentAutoBindTool.Tests
         public void PrefabSaveIncludesOtherDirtyComponentsAndCanReload()
         {
             AssertSuccess(Generate());
-            AssetDatabase.StopAssetEditing();
-            m_Editing = false;
+            EndAssetEditing();
             string prefabPath = m_Folder + "/Host.prefab";
             PrefabUtility.SaveAsPrefabAsset(m_Tool.gameObject, prefabPath, out bool saved);
             Assert.That(saved, Is.True);
@@ -344,11 +397,9 @@ namespace ComponentAutoBindTool.Tests
             string prefabPath = m_Folder + "/Stage.prefab";
             PrefabUtility.SaveAsPrefabAsset(m_Tool.gameObject, prefabPath, out bool saved);
             Assert.That(saved, Is.True);
-            AssetDatabase.StopAssetEditing();
-            m_Editing = false;
+            EndAssetEditing();
             var stage = PrefabStageUtility.OpenPrefab(prefabPath);
-            AssetDatabase.StartAssetEditing();
-            m_Editing = true;
+            BeginAssetEditing();
             try
             {
                 m_Tool = stage.prefabContentsRoot.GetComponent<Core.ComponentAutoBindTool>();
@@ -375,16 +426,14 @@ namespace ComponentAutoBindTool.Tests
             string prefabPath = m_Folder + "/Instance.prefab";
             PrefabUtility.SaveAsPrefabAsset(m_Tool.gameObject, prefabPath, out bool saved);
             Assert.That(saved, Is.True);
-            AssetDatabase.StopAssetEditing();
-            m_Editing = false;
+            EndAssetEditing();
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
             var instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, m_Scene);
             m_Tool = instance.GetComponent<Core.ComponentAutoBindTool>();
             instance.transform.GetChild(0).name = "Btn_Instance";
             PrefabUtility.RecordPrefabInstancePropertyModifications(instance.transform.GetChild(0).gameObject);
             byte[] originalPrefab = File.ReadAllBytes(prefabPath);
-            AssetDatabase.StartAssetEditing();
-            m_Editing = true;
+            BeginAssetEditing();
             AssertSuccess(Generate());
             Assert.That(File.ReadAllBytes(prefabPath), Is.EqualTo(originalPrefab));
             string scenePath = m_Scene.path;

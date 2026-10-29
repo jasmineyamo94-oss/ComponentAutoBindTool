@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 
-namespace Third_Party.ComponentAutoBindTool.Scripts.Core
+namespace ComponentAutoBindTool.Core
 {
+    [MovedFrom(true, "Third_Party.ComponentAutoBindTool.Scripts.Core", "Assembly-CSharp", "AutoBindKeyMapSetting")]
     public class AutoBindKeyMapSetting : ScriptableObject
     {
         /// <summary>

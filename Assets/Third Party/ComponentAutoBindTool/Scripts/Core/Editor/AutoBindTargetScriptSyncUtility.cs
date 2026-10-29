@@ -1,8 +1,23 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
 namespace ComponentAutoBindTool.Editor
 {
+    internal readonly struct AutoBindTargetScriptMetadata
+    {
+        public string Namespace { get; }
+        public string ClassName { get; }
+        public string CodePath { get; }
+
+        public AutoBindTargetScriptMetadata(string namespaceValue, string className, string codePath)
+        {
+            Namespace = namespaceValue;
+            ClassName = className;
+            CodePath = codePath;
+        }
+    }
+
     internal static class AutoBindTargetScriptSyncUtility
     {
         internal static void ApplyMetadata(AutoBindBuildInput input, SerializedObject target)
@@ -15,40 +30,73 @@ namespace ComponentAutoBindTool.Editor
         public static bool SyncFromTargetScript(SerializedProperty targetScriptProperty, SerializedProperty namespaceProperty,
             SerializedProperty classNameProperty, SerializedProperty codePathProperty, AutoBindGlobalSetting setting)
         {
-            if (targetScriptProperty == null)
+            bool succeeded = SyncFromTargetScript(targetScriptProperty, namespaceProperty, classNameProperty,
+                codePathProperty, setting, out string error);
+            if (!succeeded) Debug.LogError(error);
+            return succeeded;
+        }
+
+        internal static bool SyncFromTargetScript(SerializedProperty targetScriptProperty, SerializedProperty namespaceProperty,
+            SerializedProperty classNameProperty, SerializedProperty codePathProperty, AutoBindGlobalSetting setting, out string error)
+        {
+            error = null;
+            if (targetScriptProperty == null || namespaceProperty == null || classNameProperty == null || codePathProperty == null)
             {
+                error = "无法读取 AutoBind 元数据序列化字段。";
                 return false;
             }
 
-            Object objectReferenceValue = targetScriptProperty.objectReferenceValue;
-            if (objectReferenceValue == null)
+            var reference = targetScriptProperty.objectReferenceValue;
+            if (reference != null && !(reference is MonoBehaviour))
             {
+                error = "目标脚本不是有效的 MonoBehaviour。";
                 return false;
             }
+            if (!TryResolveMetadata(reference as MonoBehaviour, setting, out var metadata, out error)) return false;
 
-            MonoBehaviour targetScript = objectReferenceValue as MonoBehaviour;
-            if (targetScript == null)
-            {
-                Debug.LogError("目标脚本不是有效的 MonoBehaviour。");
-                return false;
-            }
-
-            System.Type scriptType = targetScript.GetType();
-            MonoScript monoScript = MonoScript.FromMonoBehaviour(targetScript);
-            string scriptPath = monoScript != null ? AssetDatabase.GetAssetPath(monoScript) : string.Empty;
-
-            namespaceProperty.stringValue = scriptType.Namespace ?? string.Empty;
-            classNameProperty.stringValue = scriptType.Name;
-
-            string codePath = AutoBindPathUtility.GetInspectorCodePath(setting, scriptPath);
-            if (string.IsNullOrEmpty(codePath))
-            {
-                Debug.LogError("无法解析 AutoBind 代码保存路径。");
-                return false;
-            }
-
-            codePathProperty.stringValue = codePath;
+            // 全部候选解析成功后才更新同一 SerializedObject，由调用方与引用变更一起提交。
+            namespaceProperty.stringValue = metadata.Namespace;
+            classNameProperty.stringValue = metadata.ClassName;
+            codePathProperty.stringValue = metadata.CodePath;
             return true;
+        }
+
+        internal static bool TryResolveMetadata(MonoBehaviour targetScript, AutoBindGlobalSetting setting,
+            out AutoBindTargetScriptMetadata metadata, out string error)
+        {
+            metadata = new AutoBindTargetScriptMetadata(string.Empty, string.Empty, string.Empty);
+            error = null;
+            if (targetScript == null) return true;
+            if (setting == null)
+            {
+                error = "缺少 AutoBind 全局配置，无法解析目标脚本的输出路径。";
+                return false;
+            }
+            try
+            {
+                MonoScript script = MonoScript.FromMonoBehaviour(targetScript);
+                string scriptPath = script != null ? AssetDatabase.GetAssetPath(script) : string.Empty;
+                if (string.IsNullOrEmpty(scriptPath))
+                {
+                    error = "无法解析目标脚本的资源路径。";
+                    return false;
+                }
+                string resolvedPath = AutoBindPathUtility.GetResolvedCodePath(setting, scriptPath);
+                if (string.IsNullOrEmpty(resolvedPath) || !AutoBindPathUtility.IsPathUnderAssets(resolvedPath))
+                {
+                    error = "代码保存路径必须是 Assets 内的有效目录：" + resolvedPath;
+                    return false;
+                }
+                Type type = targetScript.GetType();
+                metadata = new AutoBindTargetScriptMetadata(type.Namespace ?? string.Empty, type.Name,
+                    AutoBindPathUtility.ToAssetRelativePath(resolvedPath));
+                return true;
+            }
+            catch (Exception exception)
+            {
+                error = "无法解析 AutoBind 元数据：" + exception.Message;
+                return false;
+            }
         }
     }
 }

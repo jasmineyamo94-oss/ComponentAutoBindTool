@@ -2,11 +2,6 @@
 using UnityEditor;
 using UnityEngine;
 
-/// <summary>
-/// 设置属性只读
-/// </summary>
-public class DisplayOnly : PropertyAttribute { }
-
 [CustomPropertyDrawer(typeof(DisplayOnly))]
 public class ReadOnlyDrawer : PropertyDrawer
 {

@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using System.Text;
-using Third_Party.ComponentAutoBindTool.Scripts.Core;
+using ComponentAutoBindTool.Core;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;

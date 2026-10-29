@@ -1,0 +1,6 @@
+{
+    "name": "ComponentAutoBindTool.Core",
+    "rootNamespace": "ComponentAutoBindTool.Core",
+    "references": [],
+    "autoReferenced": true
+}

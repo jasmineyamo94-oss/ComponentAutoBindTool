@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 using Component = UnityEngine.Component;
 
 namespace ComponentAutoBindTool.Core
@@ -8,6 +9,7 @@ namespace ComponentAutoBindTool.Core
     /// <summary>
     /// 组件自动绑定工具
     /// </summary>
+    [MovedFrom(true, "ComponentAutoBindTool.Core", "Assembly-CSharp", "ComponentAutoBindTool")]
     public class ComponentAutoBindTool : MonoBehaviour, ISerializationCallbackReceiver
     {
 #if UNITY_EDITOR

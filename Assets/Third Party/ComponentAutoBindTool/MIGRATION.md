@@ -1,5 +1,7 @@
 # 生成流水线与新 UI 框架
 
+完整的当前架构、源码导航和示例装配关系见 [新架构导读](ARCHITECTURE.md)。本文侧重迁移和宿主接入步骤。
+
 本次迁移基于 Unity **6000.3.20f1**。当前运行时使用命名空间
 ComponentAutoBindTool.ViewCore，入口为 ViewBase、WidgetViewBase、WindowEntry 和 ViewManager。
 
@@ -12,6 +14,18 @@ ComponentAutoBindTool.ViewCore，入口为 ViewBase、WidgetViewBase、WindowEnt
 菜单“自动绑定UI组件 / 框架实验台”提供正式示例重建与独立编辑器绑定实验台。
 示例使用固定策略的八个 Prefab，每次实验拥有独立可释放容器；旧枚举整数不能直接迁移。
 所有资源装配和演示逻辑位于 Example，普通业务界面仍使用各自的 Inspector 按钮。
+
+## 运行期增强接入（2026-10-29）
+
+本轮保留 Core / ViewCore / Editor 三程序集及所有生成代码。现有无动画窗口无需重新生成或修改 Prefab。
+
+- 排队：旧 `ShowView(..., immediately: false)` 对应优先级 0。需要优先级时使用 `EnqueueView(name, args, priority)`；同级保持提交顺序。默认 Top/System 打开时阻止队列出队；需要旧门禁可设置具体管理器的 `BlockQueueWhenHigherLayersOpen = false`。`ClearWaitingQueue` 独立于关闭窗口。
+- 动画：窗口根节点挂载 `IViewTransition` 实现；入场、退场最终在主线程调用完成回调，Cancel 停止自身动效。关闭立即结束逻辑会话，退场延后隐藏和最终释放。需要控制独立子 GraphicRaycaster 时重写宿主 `SetInteractable`。
+- 等待：`await Context.WaitClosedAsync(token)` 或 `await manager.WaitViewClosedAsync(id, token)` 等待当前打开会话的关闭；多个消费者分别调用 API，每个返回值只 await 一次。取消等待不会关闭窗口。该 API 不表示退场结束或资源已销毁。
+- 诊断：Play Mode 打开“自动绑定UI组件 / 框架实验台 / 运行期窗口监控台”，无需额外挂组件。自定义诊断使用 `IViewManagerDiagnostics` 和复用 List，不反射管理器私有字典。
+- 生命周期：WindowPresenter 的关闭/销毁现在与 Widget 一样完成 Pause → Close → Destroy，重复与重入调用幂等；异常时继续尝试剩余资源清理后传播错误。不要在同一实例的 OnClose 尚未返回时重入打开它；可在 OnViewClosed 或关闭等待结束后打开。
+
+新增接口成员意味着自行实现 `IViewManager`、`IWindowContext` 的外部适配器需补齐相应方法与属性；使用内置 ViewManager / WindowEntry 的调用方保持原调用方式。主线程调用约束、异步完成源池与动画版本保护见 [架构导读第 5 节](ARCHITECTURE.md#5-调度与生命周期中需要保持的契约)，验证结果见 [运行期增强报告](../../../Validation/ViewEnhancements/README.md)。
 
 ## 接入新宿主
 
@@ -72,7 +86,8 @@ Legacy/ComponentAutoBindTool，保留迁移前工作区原内容、目录结构�
 
 ## 回归验证
 
-测试位于 Assets/AATest/Editor，使用项目现有 NUnit 引用，不引入新 asmdef。
+测试位于 Assets/AATest/Editor，沿用默认 Editor 程序集和现有 NUnit 引用。
+Fixtures/AssemblyHosts 新增独立程序集夹具，验证带 asmdef 的业务宿主。
 EditMode 套件包括通过 EnterPlayMode 执行的真实示例集成测试。
 在 Test Runner 的 EditMode 页运行 ComponentAutoBindTool.Tests，或用 Unity batchmode：
 
@@ -85,3 +100,16 @@ AutoBindGeneratedCodeVerification 提供额外两阶段验证：在项目副本�
 退出后再次启动 Unity 调用 Verify。它会先生成四类宿主的真实代码，再经过脚本编译，
 验证 IAutoBindHost 调用和缓存幂等性；生成的测试产物只应保留在验证副本。
 首次迁移验证见 Validation/ComponentAutoBindTool；新实验台验证与截图见 Validation/FrameworkLab。
+
+## 程序集、路径与生命周期边界更新（2026-10-29）
+
+- 框架拆为 Core、ViewCore、Editor 三个程序集；Editor 仅在编辑器编译。业务 asmdef 显式引用 `ComponentAutoBindTool.Core`、`ComponentAutoBindTool.ViewCore` 及实际使用的 VContainer、uGUI、TMP 程序集。生成 partial 必须与宿主同程序集，校验器仍禁止跨程序集输出。
+- 新配置默认开启“跟随目标脚本的路径”。已有项目配置也已切换；四份正式示例生成文件移到 `Example/Scripts`，保留 `.meta` GUID。菜单“自动绑定UI组件 / 框架实验台 / 迁移示例生成目录（保留GUID）”可重复执行迁移与正式流水线生成，不重建 UI 层级。
+- `AutoBindKeyMapSetting` 迁至 Editor 目录，命名空间为 `ComponentAutoBindTool.Core`，原脚本 GUID、映射资产和额外映射保留。外部源码需要替换旧 `Third_Party.ComponentAutoBindTool.Scripts.Core` 引用；类型迁移标记用于 Unity 类型迁移，不等同于旧源码命名空间别名。
+- 单斜杠旧配置按广泛兼容规则处理：如 `/tmp/Output` 会指向项目 Assets 内的 `tmp/Output`。真实绝对路径检查不重解释配置，因此选择器仍拒绝工程外目录，`..` 越界和 `AssetsBackup` 不会通过。
+- Inspector 显式切换脚本时同步元数据并支持同一次 Undo；重绘只读摘要，不改绑定表。解析失败不提交部分元数据。
+- Widget 活动时动态解绑补齐 Pause、Close、Destroy；隐藏/暂停状态不重复 Pause，重复销毁不重复回调。回调异常不阻止其余清理尝试，最后仍向调用方传播异常。
+
+新增 `AutoBindAssemblyVerification` 两阶段编译验证：`Prepare` 通过 Inspector 为独立程序集的普通、显式接口、窗口、Widget 宿主生成；下次启动执行 `Verify` 检查真实接口分派、缓存和 Player 程序集边界。`CompilePlayer` 实际编译 Windows Player 脚本。只在验证副本执行这些入口，避免留下临时场景和测试生成文件。
+
+本次验证为 Windows / Unity 6000.3.20f1：129 项回归全部通过，原 51 项全部保留；生成后编译、Player 脚本编译及真实脚本重载恢复均通过。命令、证据和平台边界见 [测试报告](../../../Validation/BoundaryFixes/README.md)。程序集依赖遵循 [Unity 6.3 程序集引用规则](https://docs.unity3d.com/6000.3/Documentation/Manual/assembly-definitions-referencing.html)。

@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using ComponentAutoBindTool.Editor;
 using ComponentAutoBindTool.ViewCore;
-using Third_Party.ComponentAutoBindTool.Scripts.Core;
+using ComponentAutoBindTool.Core;
 using TMPro;
 using UnityEditor;
 using UnityEditor.SceneManagement;

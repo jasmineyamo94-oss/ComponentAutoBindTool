@@ -1,5 +1,8 @@
 using System;
+using System.Threading;
+using UnityEngine;
 
+// ReSharper disable once CheckNamespace
 namespace ComponentAutoBindTool.ViewCore
 {
     public interface IViewManager
@@ -16,6 +19,16 @@ namespace ComponentAutoBindTool.ViewCore
         /// 兼容旧版 params object[] 开窗入口
         /// </summary>
         int ShowView(string viewName, bool immediately, params object[] args);
+
+        /// <summary>
+        /// 将窗口加入 Normal 等待队列，支持按 priority 优先级稳定插队（数值越大越优先出队，同优先级保持先进先出）
+        /// </summary>
+        void EnqueueView(string viewName, IViewArgs args = null, int priority = 0);
+
+        /// <summary>
+        /// 清空尚未出队的等待队列请求并归还对象池
+        /// </summary>
+        void ClearWaitingQueue();
 
         /// <summary>
         /// 事务安全地替换指定层级的栈顶窗口（解决 A-P07：新窗口准备成功后才关闭旧栈顶）
@@ -43,5 +56,10 @@ namespace ComponentAutoBindTool.ViewCore
         void CloseAllViews(bool destroyCached = false);
 
         bool IsViewOpen(string viewName);
+
+        /// <summary>
+        /// 异步等待指定窗口实例关闭（基于 Unity 6 原生 Awaitable，零第三方依赖；若窗口未打开或已关闭则同步立即返回）
+        /// </summary>
+        Awaitable WaitViewClosedAsync(int instanceId, CancellationToken cancellationToken = default);
     }
 }

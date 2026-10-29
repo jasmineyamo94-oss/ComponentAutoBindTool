@@ -1,4 +1,4 @@
-using Third_Party.ComponentAutoBindTool.Scripts.Core;
+using ComponentAutoBindTool.Core;
 using UnityEditor;
 
 #if UNITY_EDITOR

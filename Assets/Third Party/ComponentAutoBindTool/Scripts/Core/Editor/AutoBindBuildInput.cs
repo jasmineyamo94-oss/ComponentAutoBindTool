@@ -24,8 +24,9 @@ namespace ComponentAutoBindTool.Editor
             var script = target.m_targetScript != null ? MonoScript.FromMonoBehaviour(target.m_targetScript) : null;
             ScriptPath = script != null ? AssetDatabase.GetAssetPath(script) : string.Empty;
             CodePath = AutoBindPathUtility.GetInspectorCodePath(setting, ScriptPath);
-            OutputPath = HostType == null || string.IsNullOrEmpty(CodePath) ? string.Empty :
-                Path.Combine(AutoBindPathUtility.NormalizeCodePath(CodePath), HostType.Name + ".BindComponents.cs").Replace('\\', '/');
+            string resolvedPath = AutoBindPathUtility.GetResolvedCodePath(setting, ScriptPath);
+            OutputPath = HostType == null || string.IsNullOrEmpty(resolvedPath) ? string.Empty :
+                Path.Combine(resolvedPath, HostType.Name + ".BindComponents.cs").Replace('\\', '/');
             Bindings = bindings;
         }
     }

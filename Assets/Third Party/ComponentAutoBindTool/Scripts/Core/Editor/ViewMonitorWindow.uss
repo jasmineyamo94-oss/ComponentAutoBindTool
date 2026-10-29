@@ -1,0 +1,61 @@
+.view-monitor {
+    padding: 10px;
+}
+.monitor-title {
+    font-size: 16px;
+    -unity-font-style: bold;
+    margin-bottom: 6px;
+}
+.monitor-summary {
+    white-space: normal;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.monitor-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+.monitor-actions > Button {
+    min-height: 24px;
+    margin-right: 4px;
+}
+.monitor-scroll {
+    flex-grow: 1;
+    min-height: 0;
+}
+.monitor-section {
+    margin-bottom: 8px;
+    padding: 6px;
+}
+.monitor-header {
+    -unity-font-style: bold;
+    white-space: normal;
+    margin-bottom: 4px;
+}
+.monitor-row {
+    flex-direction: row;
+    align-items: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(128, 128, 128, 0.25);
+}
+.monitor-row-info {
+    flex-grow: 1;
+    flex-shrink: 1;
+    white-space: normal;
+}
+.monitor-row > Button {
+    flex-shrink: 0;
+    min-width: 44px;
+    min-height: 24px;
+}
+.monitor-queue-row {
+    white-space: normal;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.monitor-hidden {
+    display: none;
+}

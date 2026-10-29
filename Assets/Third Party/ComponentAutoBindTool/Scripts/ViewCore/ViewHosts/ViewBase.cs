@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
@@ -22,6 +23,22 @@ namespace ComponentAutoBindTool.ViewCore
         [Tooltip("是否允许被返回键 (TryNavigateBack) 关闭")]
         public bool AllowNavigateBack = true;
 
+        private GraphicRaycaster m_GraphicRaycaster;
+        private IViewTransition m_Transition;
+        private bool m_TransitionSearched;
+
+        /// <summary>
+        /// 当前宿主是否挂载了自定义入场/退场过渡动画组件
+        /// </summary>
+        public bool HasTransition
+        {
+            get
+            {
+                EnsureTransitionResolved();
+                return m_Transition != null;
+            }
+        }
+
         // 由生成代码重写；默认实现允许宿主在首次生成前编译。
         public virtual void EnsureAutoBind(GameObject go)
         {
@@ -42,7 +59,7 @@ namespace ComponentAutoBindTool.ViewCore
         {
             if (uiView == null)
             {
-                throw new System.InvalidOperationException($"[{name}] RegisterWindow 失败：UIView 为 null，请先生成并检查 AutoBind 绑定。");
+                throw new InvalidOperationException($"[{name}] RegisterWindow 失败：UIView 为 null，请先生成并检查 AutoBind 绑定。");
             }
 
             builder.RegisterInstance(uiView).AsSelf();
@@ -52,14 +69,76 @@ namespace ComponentAutoBindTool.ViewCore
         }
 
         /// <summary>
-        /// 表现层显示钩子（子类可覆写以接入入场动效）
+        /// 控制窗口根 GraphicRaycaster 交互开关（用于过渡动画期间防连点）
+        /// </summary>
+        public virtual void SetInteractable(bool interactable)
+        {
+            if (m_GraphicRaycaster == null && this != null)
+            {
+                TryGetComponent(out m_GraphicRaycaster);
+            }
+
+            if (m_GraphicRaycaster != null && m_GraphicRaycaster.enabled != interactable)
+            {
+                m_GraphicRaycaster.enabled = interactable;
+            }
+        }
+
+        /// <summary>
+        /// 表现层显示钩子
         /// </summary>
         public virtual void SetViewVisible(bool visible)
         {
-            if (gameObject.activeSelf != visible)
+            if (this != null && gameObject != null && gameObject.activeSelf != visible)
             {
                 gameObject.SetActive(visible);
             }
+        }
+
+        /// <summary>
+        /// 播放入场过渡（未挂载 IViewTransition 时同步立即完成，零延迟）
+        /// </summary>
+        public virtual void PlayEnterTransition(Action onCompleted)
+        {
+            EnsureTransitionResolved();
+            if (m_Transition == null)
+            {
+                onCompleted?.Invoke();
+                return;
+            }
+
+            m_Transition.PlayEnter(this, onCompleted);
+        }
+
+        /// <summary>
+        /// 播放退场过渡（未挂载 IViewTransition 时同步立即完成，零延迟）
+        /// </summary>
+        public virtual void PlayExitTransition(Action onCompleted)
+        {
+            EnsureTransitionResolved();
+            if (m_Transition == null)
+            {
+                onCompleted?.Invoke();
+                return;
+            }
+
+            m_Transition.PlayExit(this, onCompleted);
+        }
+
+        /// <summary>
+        /// 中断正在进行的过渡动画
+        /// </summary>
+        public virtual void CancelTransition()
+        {
+            EnsureTransitionResolved();
+            m_Transition?.Cancel(this);
+        }
+
+        private void EnsureTransitionResolved()
+        {
+            if (m_TransitionSearched || this == null) return;
+            m_TransitionSearched = true;
+            TryGetComponent(out m_Transition);
         }
     }
 }

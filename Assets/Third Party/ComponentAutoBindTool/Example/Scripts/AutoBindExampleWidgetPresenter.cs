@@ -21,6 +21,7 @@ namespace ComponentAutoBindTool.Example
         public void Increment() { if (Destroyed) return; Count++; Refresh(); }
         protected override void OnResume() => m_Trace.Log($"叶 Widget / Scope {ScopeId} OnResume");
         protected override void OnPause() => m_Trace.Log($"叶 Widget / Scope {ScopeId} OnPause");
+        protected override void OnClose() => m_Trace.Log($"叶 Widget / Scope {ScopeId} OnClose");
         protected override void OnWidgetTick(float deltaTime)
         {
             Ticks++;
@@ -30,6 +31,11 @@ namespace ComponentAutoBindTool.Example
             Refresh();
         }
         private void Refresh() => View.tMTxtCounter.text = $"计数 {Count} · Tick {Ticks}";
-        protected override void OnDestroy() { Destroyed = true; View.btnIncrement.onClick.RemoveListener(Increment); }
+        protected override void OnDestroy()
+        {
+            Destroyed = true;
+            View.btnIncrement.onClick.RemoveListener(Increment);
+            m_Trace.Log($"叶 Widget / Scope {ScopeId} OnDestroy");
+        }
     }
 }

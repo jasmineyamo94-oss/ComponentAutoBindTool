@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using ComponentAutoBindTool.Editor;
 using ComponentAutoBindTool.ViewCore;
-using Third_Party.ComponentAutoBindTool.Scripts.Core;
+using ComponentAutoBindTool.Core;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -22,6 +22,7 @@ namespace ComponentAutoBindTool.Tests
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
             var setting = ScriptableObject.CreateInstance<AutoBindGlobalSetting>();
             var data = new SerializedObject(setting);
+            data.FindProperty("m_UseGlobalDefaultSavePath").boolValue = false;
             data.FindProperty("m_CodePath").stringValue = Output;
             data.ApplyModifiedPropertiesWithoutUndo();
             var keyMap = ScriptableObject.CreateInstance<AutoBindKeyMapSetting>();
@@ -85,8 +86,8 @@ namespace ComponentAutoBindTool.Tests
                 }
                 finally { UnityEngine.Object.DestroyImmediate(inspector); }
             }
-            if (count != 2) throw new InvalidOperationException("示例宿主数量不符。");
-            Debug.Log("AUTOBIND_EXAMPLE_NOOP_PASS: 2");
+            if (count != 4) throw new InvalidOperationException("示例宿主数量不符。");
+            Debug.Log("AUTOBIND_EXAMPLE_NOOP_PASS: 4");
         }
     }
 }

@@ -3478,7 +3478,7 @@ MonoBehaviour:
   m_ClassName: LabShellView
   m_Namespace: ComponentAutoBindTool.Example
   m_targetScript: {fileID: 1125079370}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents
+  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 535699459}
   - {fileID: 612659441}
