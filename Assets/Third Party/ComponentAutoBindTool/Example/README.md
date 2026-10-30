@@ -39,7 +39,7 @@ Play Mode 下可另开菜单 **自动绑定UI组件 / 框架实验台 / 运行�
 
 ## 重建与代码组织
 
-菜单 **重建正式示例** 重建本目录的场景、8 个目录 Prefab、字体图集，以及配置输出目录中的生成绑定；同时更新全局额外映射的 Widget / WidgetGroup 两项，必要时将根目录 TMP Essentials 移入 Example。菜单 **恢复实验初始状态** 只处理本地隔离实验。正式重建保留已有资产 .meta；构建模板的四种宿主通过 Inspector.RunPipeline 生成，不手写 BindComponents。
+菜单 **重建正式示例** 重建本目录的场景、8 个目录 Prefab、字体图集，以及配置输出目录中的生成绑定；示例使用内置 `Widget` 前缀，不登记业务 Widget 映射。必要时重建会将根目录 TMP Essentials 移入 Example。菜单 **恢复实验初始状态** 只处理本地隔离实验。正式重建保留已有资产 .meta；构建模板的四种宿主通过 Inspector.RunPipeline 生成，不手写 BindComponents。
 
 - AutoBindExampleScope：外层组合入口；Update 唯一驱动实验 ViewManager.Tick。
 - LabSession：独立可释放实验容器，窗口资源由 Prefab 目录固定配置。

@@ -2383,7 +2383,7 @@ MonoBehaviour:
     BindCom: {fileID: 3619654465731829023}
   - Name: TMTxt_Status
     BindCom: {fileID: 7836036491297351278}
-  - Name: WidgetGroup_Details
+  - Name: Widget_Details
     BindCom: {fileID: 7177996099286579271}
   m_ClassName: AutoBindTest
   m_Namespace: ComponentAutoBindTool
@@ -2398,7 +2398,7 @@ MonoBehaviour:
   - tMTxtTitle
   - btnClose
   - tMTxtStatus
-  - widgetGroupDetails
+  - widgetDetails
 --- !u!114 &5493553647038013695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,7 +2431,7 @@ GameObject:
   - component: {fileID: 7658804633807654604}
   - component: {fileID: 7177996099286579271}
   m_Layer: 0
-  m_Name: WidgetGroup_Details
+  m_Name: Widget_Details
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

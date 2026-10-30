@@ -55,8 +55,9 @@ namespace ComponentAutoBindTool.Editor
             {
                 // 获取当前字符串中 每个大写 的字母
                 var str = "";
-                var typeName = mono.GetType().Name;
-                foreach (var t in typeName)
+                var type = mono.GetType();
+                var typeName = type.FullName;
+                foreach (var t in type.Name)
                 {
                     if (char.IsUpper(t))
                     {

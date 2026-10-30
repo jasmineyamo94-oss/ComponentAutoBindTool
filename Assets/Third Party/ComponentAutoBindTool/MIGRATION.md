@@ -32,10 +32,12 @@ ComponentAutoBindTool.ViewCore，入口为 ViewBase、WidgetViewBase、WindowEnt
 1. 先创建能独立编译的 partial 窗口类，继承 ViewBase；嵌套控件继承 WidgetViewBase。
 2. 初次生成前保留空的 ConfigureWindow 实现，不引用尚不存在的 UIView 类型。
 3. 把宿主挂到绑定根节点，将同节点 ComponentAutoBindTool 的目标脚本设为该宿主。
-4. 按 Prefix_FieldSuffix 命名节点。嵌套 Widget 根节点添加自己的 AutoBind，配置 Widget 前缀映射。
+4. 按 Prefix_FieldSuffix 命名节点。嵌套 Widget 根节点添加自己的 AutoBind，直接使用内置 `Widget` 前缀，例如 `Widget_Details`，无需注册具体 Widget 派生类。多个 Widget 同节点时，在同节点 AutoBind 的目标脚本指定实际绑定对象。
 5. 保存场景，点击“生成代码”，等待编译。无需先按“重扫校验”，生成本身始终重新扫描。
 6. 接入强类型 Presenter：窗口 ConfigureWindow 中调用 RegisterWindow<TPresenter, UIView>(builder, view)，
    并注册所需的 Widget Presenter；Presenter 通过 BindWidget<TPresenter> 绑定控件。
+
+迁移已有工程时，内置 `Widget` 优先于额外映射中同名项；如果旧 `Widget` 前缀指向非 Widget 组件，请为其选用其他前缀并重新生成。旧的自定义 Widget 前缀（例如 `WidgetGroup`）可继续使用原映射；切换到 `Widget` 后字段名会随前缀改变，需同步手写 Presenter 并通过 Inspector 重新生成和保存所属资产。类型无法解析时，映射 Inspector 的清理按钮会删除对应记录，使用前请检查编译状态和具体内容。
 
 生成的 EnsureAutoBind 重写最近的匹配虚方法。Widget 生成的 GetGeneratedUIView 在需要时绑定，
 并返回缓存的同一 UIView。没有生成文件的 Widget 可以编译和挂载，调用默认 getter 会报告缺少生成。

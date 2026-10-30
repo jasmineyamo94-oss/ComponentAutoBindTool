@@ -43,6 +43,7 @@ namespace ComponentAutoBindTool.Core
             { "TMTxt", "TMPro.TextMeshProUGUI" },
             { "TMDrop", "TMPro.TMP_Dropdown" },
             { "TMInf", "TMPro.TMP_InputField" },
+            { "Widget", "ComponentAutoBindTool.ViewCore.WidgetViewBase" },
         };
         
         public GenericDictionary<string, string> extraComponentKeyMap;

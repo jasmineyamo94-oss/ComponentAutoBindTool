@@ -41,8 +41,9 @@ namespace ComponentAutoBindTool.Tests
             Assert.That(setting.GetType().FullName, Is.EqualTo("ComponentAutoBindTool.Core.AutoBindKeyMapSetting"));
             Assert.That(setting.GetType().Assembly.GetName().Name, Is.EqualTo("ComponentAutoBindTool.Editor"));
             Assert.That(setting.TryGetComponentTypeName("Widget", out var widget), Is.True);
-            Assert.That(widget, Does.Contain("AutoBindExampleWidget"));
-            Assert.That(setting.TryGetComponentTypeName("WidgetGroup", out _), Is.True);
+            Assert.That(widget, Is.EqualTo(typeof(WidgetViewBase).FullName));
+            Assert.That(setting.extraComponentKeyMap.ContainsKey("Widget"), Is.False);
+            Assert.That(setting.extraComponentKeyMap.ContainsKey("WidgetGroup"), Is.False);
         }
 
         [Test]

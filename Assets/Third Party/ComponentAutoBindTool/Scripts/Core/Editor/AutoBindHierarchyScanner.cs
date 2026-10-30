@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using ComponentAutoBindTool.Core;
+using ComponentAutoBindTool.ViewCore;
 using TMPro;
 using UnityEngine;
 
@@ -79,15 +80,39 @@ namespace ComponentAutoBindTool.Editor
                     return;
                 }
 
-                Component component = target.GetComponent(componentTypeName);
-                if (component == null)
-                {
-                    result.AddError($"{target.name}上不存在{componentTypeName}的组件");
-                    continue;
-                }
+                Component component = ResolveComponent(target, componentTypeName, result);
+                if (component == null) continue;
 
                 result.AddBindData($"{prefix}_{fieldSuffix}", component);
             }
+        }
+
+        private static Component ResolveComponent(Transform target, string componentTypeName, AutoBindScanResult result)
+        {
+            if (componentTypeName == typeof(WidgetViewBase).FullName || componentTypeName == nameof(WidgetViewBase))
+            {
+                var widgets = target.GetComponents<WidgetViewBase>();
+                if (widgets.Length == 1) return widgets[0];
+                if (widgets.Length == 0)
+                {
+                    result.AddError($"{target.name}上不存在继承自WidgetViewBase的组件");
+                    return null;
+                }
+
+                if (target.TryGetComponent<Core.ComponentAutoBindTool>(out var nestedTool) &&
+                    nestedTool.m_targetScript is WidgetViewBase selected && selected != null &&
+                    selected.gameObject == target.gameObject)
+                {
+                    return selected;
+                }
+
+                result.AddError($"{target.name}上存在多个WidgetViewBase组件，请在同节点的AutoBind目标脚本中指定一个");
+                return null;
+            }
+
+            Component component = target.GetComponent(componentTypeName);
+            if (component == null) result.AddError($"{target.name}上不存在{componentTypeName}的组件");
+            return component;
         }
 
     }

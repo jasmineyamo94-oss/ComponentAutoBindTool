@@ -74,13 +74,6 @@ namespace ComponentAutoBindTool.Example.Editor
                 roots[i] = Rect(((UILayer)i).ToString(), windows, Vector2.zero, Vector2.one);
             new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
 
-            var keyMap = AutoBindEditorAssetLocator.LoadSingletonAsset<AutoBindKeyMapSetting>();
-            if (keyMap.extraComponentKeyMap == null) keyMap.extraComponentKeyMap = new GenericDictionary<string, string>();
-            keyMap.extraComponentKeyMap["Widget"] = typeof(AutoBindExampleWidget).FullName;
-            keyMap.extraComponentKeyMap["WidgetGroup"] = typeof(LabWidgetGroup).FullName;
-            EditorUtility.SetDirty(keyMap);
-            AssetDatabase.SaveAssetIfDirty(keyMap);
-
             var template = BuildWindow(stage);
             EditorSceneManager.SaveScene(scene);
             foreach (var tool in template.GetComponentsInChildren<Core.ComponentAutoBindTool>(true).Reverse())
@@ -215,7 +208,7 @@ namespace ComponentAutoBindTool.Example.Editor
             Button("Btn_Close", card, "关闭", new Vector2(0.77f, 0.80f), new Vector2(0.98f, 0.99f));
             var status = Label("TMTxt_Status", card, "Instance / Scope / UIView", 22, Color.white, new Vector2(0.04f, 0.05f), new Vector2(0.96f, 0.78f));
             status.alignment = TextAlignmentOptions.TopLeft;
-            var groupRect = Rect("WidgetGroup_Details", card, new Vector2(0.03f, 0.02f), new Vector2(0.97f, 0.68f));
+            var groupRect = Rect("Widget_Details", card, new Vector2(0.03f, 0.02f), new Vector2(0.97f, 0.68f));
             Paint(groupRect, Surface);
             var group = groupRect.gameObject.AddComponent<LabWidgetGroup>();
             groupRect.GetComponent<Core.ComponentAutoBindTool>().m_targetScript = group;
