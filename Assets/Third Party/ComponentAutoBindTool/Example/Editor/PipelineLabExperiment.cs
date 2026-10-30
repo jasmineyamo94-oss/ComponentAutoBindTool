@@ -85,7 +85,7 @@ namespace ComponentAutoBindTool.Example.Editor
                 case PipelineLabCase.DuplicateField: Child(root.transform, "Btn_First", typeof(Button)); break;
                 case PipelineLabCase.InvalidName: root.transform.GetChild(0).name = "Btn_Bad-Name"; break;
                 case PipelineLabCase.NestedWidgetAndTMP:
-                    var nested = Child(root.transform, "Widget_Details", typeof(LabWidgetGroup));
+                    var nested = Child(root.transform, "Widget_GroupDetails", typeof(LabWidgetGroup));
                     Child(nested.transform, "Unknown_InsideBoundary", typeof(Button));
                     var tmp = new GameObject("Unknown_TMPGenerated", typeof(RectTransform));
                     tmp.SetActive(false);

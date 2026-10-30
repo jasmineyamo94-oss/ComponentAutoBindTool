@@ -135,6 +135,19 @@ namespace ComponentAutoBindTool.Editor
                 Type type = binding.BindCom.GetType();
                 if (type.ContainsGenericParameters || !type.IsVisible)
                     result.AddError($"[{i}] 组件类型不可被生成代码公开引用：{type.FullName}");
+                if (binding.BindCom == input.Target.m_targetScript)
+                    result.AddError($"[{i}] 不能将当前根节点的目标脚本自身作为绑定项。");
+                if (binding.Name != null && binding.Name.StartsWith("Widget_", StringComparison.Ordinal) &&
+                    binding.BindCom is not WidgetViewBase)
+                    result.AddError($"[{i}] Widget 前缀绑定的组件必须继承 WidgetViewBase：{type.FullName}");
+                if (binding.Name != null && binding.Name.StartsWith("Sub_", StringComparison.Ordinal))
+                {
+                    bool hasNestedTarget = binding.BindCom.TryGetComponent<Core.ComponentAutoBindTool>(out var nested) &&
+                                           nested.m_targetScript == binding.BindCom && nested != binding.BindCom;
+                    if (binding.BindCom.gameObject == input.Target.gameObject ||
+                        (!(binding.BindCom is IAutoBindHost) && !hasNestedTarget))
+                        result.AddError($"[{i}] Sub 前缀必须绑定嵌套 AutoBind 子宿主脚本：{type.FullName}");
+                }
             }
         }
 

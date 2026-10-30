@@ -21,7 +21,7 @@ namespace ComponentAutoBindTool.Example
             root.anchoredPosition = new Vector2(((int)Context.Layer - 1) * 22 + Context.InstanceId % 3 * 12, -(int)Context.Layer * 12);
             if (Context.ViewName == "Widgets")
             {
-                Group = BindWidget<LabWidgetGroupPresenter>(View.widgetDetails);
+                Group = BindWidget<LabWidgetGroupPresenter>(View.widgetGroupDetails);
                 Group.RequestDetach = DetachGroup;
                 View.tMTxtStatus.rectTransform.anchorMin = new Vector2(0.04f, 0.68f);
                 View.tMTxtStatus.rectTransform.anchorMax = new Vector2(0.96f, 0.80f);
@@ -65,7 +65,7 @@ namespace ComponentAutoBindTool.Example
             if (Group == null) return;
             UnbindWidget(Group);
             Group = null;
-            View.widgetDetails.SetWidgetVisible(false);
+            View.widgetGroupDetails.SetWidgetVisible(false);
             m_Trace.Log($"#{Context.InstanceId} Widget 已解绑并清理");
         }
         private void Close() => Context.CloseSelf();

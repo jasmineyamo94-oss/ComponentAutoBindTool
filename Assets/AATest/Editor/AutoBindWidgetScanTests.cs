@@ -55,6 +55,76 @@ namespace ComponentAutoBindTool.Tests
             {
                 string code = AutoBindCodeGenerator.BuildCode(new AutoBindBuildInput(m_Tool, settings, scan.BindDatas));
                 Assert.That(code, Does.Contain("global::@ComponentAutoBindTool.@Example.@LabWidgetGroup widgetItem"));
+                Assert.That(code, Does.Not.Contain("cascadeHost"));
+            }
+            finally { Object.DestroyImmediate(settings); }
+        }
+
+        [Test]
+        public void WidgetRejectsExplicitOrdinaryTargetEvenWithOneWidget()
+        {
+            var child = Child("Widget_Bad");
+            child.AddComponent<LabWidgetGroup>();
+            var nested = child.GetComponent<ComponentAutoBindTool.Core.ComponentAutoBindTool>();
+            nested.m_targetScript = child.AddComponent<AutoBindPlainHost>();
+            var scan = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            Assert.That(scan.HasErrors, Is.True);
+            Assert.That(scan.Errors[0], Does.Contain("Sub"));
+            Assert.That(scan.BindDatas, Is.Empty);
+        }
+
+        [Test]
+        public void SubBindsNestedTargetAndGeneratesOneCascadeForAliases()
+        {
+            var child = Child("Sub_Header");
+            var host = child.AddComponent<AutoBindPlainHost>();
+            var nested = child.AddComponent<ComponentAutoBindTool.Core.ComponentAutoBindTool>();
+            nested.m_targetScript = host;
+            var inside = new GameObject("Unknown_Inside");
+            inside.transform.SetParent(child.transform);
+            var scan = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            Assert.That(scan.Errors, Is.Empty);
+            Assert.That(scan.BindDatas.Count, Is.EqualTo(1));
+            Assert.That(scan.BindDatas[0].BindCom, Is.SameAs(host));
+            scan.AddBindData("Other_Header", host);
+            var settings = ScriptableObject.CreateInstance<AutoBindGlobalSetting>();
+            try
+            {
+                string code = AutoBindCodeGenerator.BuildCode(new AutoBindBuildInput(m_Tool, settings, scan.BindDatas));
+                Assert.That(code, Does.Contain("(object)boundView.subHeader is not global::ComponentAutoBindTool.ViewCore.IAutoBindHost cascadeHost0"));
+                Assert.That(code, Does.Contain("cascadeHost0.EnsureAutoBind(boundView.subHeader.gameObject)"));
+                Assert.That(code, Does.Not.Contain("cascadeHost1"));
+            }
+            finally { Object.DestroyImmediate(settings); }
+        }
+
+        [Test]
+        public void SubRejectsMissingOrForeignTarget()
+        {
+            var child = Child("Sub_Header");
+            Assert.That(AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map).HasErrors, Is.True);
+            var nested = child.AddComponent<ComponentAutoBindTool.Core.ComponentAutoBindTool>();
+            Assert.That(AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map).HasErrors, Is.True);
+            nested.m_targetScript = m_Tool.m_targetScript;
+            Assert.That(AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map).HasErrors, Is.True);
+            nested.m_targetScript = nested;
+            Assert.That(AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map).HasErrors, Is.True);
+        }
+
+        [Test]
+        public void ValidatorRejectsSelfAndInvalidWidgetAndSubBindings()
+        {
+            var ordinary = Child("Child").AddComponent<AutoBindPlainHost>();
+            m_Tool.BindDatas.Add(new ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData("Sub_Self", m_Tool.m_targetScript));
+            m_Tool.BindDatas.Add(new ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData("Widget_Bad", ordinary));
+            m_Tool.BindDatas.Add(new ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData("Sub_Bad", ordinary));
+            var settings = ScriptableObject.CreateInstance<AutoBindGlobalSetting>();
+            try
+            {
+                string report = AutoBindValidator.Validate(m_Tool, settings).BuildReport();
+                Assert.That(report, Does.Contain("不能将当前根节点"));
+                Assert.That(report, Does.Contain("Widget 前缀"));
+                Assert.That(report, Does.Contain("Sub 前缀"));
             }
             finally { Object.DestroyImmediate(settings); }
         }

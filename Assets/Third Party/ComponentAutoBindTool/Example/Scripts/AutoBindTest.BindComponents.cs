@@ -12,7 +12,7 @@ namespace @ComponentAutoBindTool
             public global::@TMPro.@TextMeshProUGUI tMTxtTitle;
             public global::@UnityEngine.@UI.@Button btnClose;
             public global::@TMPro.@TextMeshProUGUI tMTxtStatus;
-            public global::@ComponentAutoBindTool.@Example.@LabWidgetGroup widgetDetails;
+            public global::@ComponentAutoBindTool.@Example.@LabWidgetGroup widgetGroupDetails;
         }
 
         private UIView view;
@@ -30,12 +30,12 @@ namespace @ComponentAutoBindTool
                 tMTxtTitle = autoBindTool.GetBindComponent<global::@TMPro.@TextMeshProUGUI>(0, nameof(UIView.tMTxtTitle)),
                 btnClose = autoBindTool.GetBindComponent<global::@UnityEngine.@UI.@Button>(1, nameof(UIView.btnClose)),
                 tMTxtStatus = autoBindTool.GetBindComponent<global::@TMPro.@TextMeshProUGUI>(2, nameof(UIView.tMTxtStatus)),
-                widgetDetails = autoBindTool.GetBindComponent<global::@ComponentAutoBindTool.@Example.@LabWidgetGroup>(3, nameof(UIView.widgetDetails)),
+                widgetGroupDetails = autoBindTool.GetBindComponent<global::@ComponentAutoBindTool.@Example.@LabWidgetGroup>(3, nameof(UIView.widgetGroupDetails)),
             };
             if (boundView.tMTxtTitle == null) return;
             if (boundView.btnClose == null) return;
             if (boundView.tMTxtStatus == null) return;
-            if (boundView.widgetDetails == null) return;
+            if (boundView.widgetGroupDetails == null) return;
             view = boundView;
         }
     }

@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: AutoBindKeyMapSetting
   m_EditorClassIdentifier: 
   extraComponentKeyMap:
-    list:
-    - Key: Nbi
-      Value: AAGame.Scripts.Views.Menu.Main.NavigationBarItem
+    list: []
     keyCollision: 0

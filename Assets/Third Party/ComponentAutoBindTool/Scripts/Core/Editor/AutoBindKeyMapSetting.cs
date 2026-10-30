@@ -44,6 +44,7 @@ namespace ComponentAutoBindTool.Core
             { "TMDrop", "TMPro.TMP_Dropdown" },
             { "TMInf", "TMPro.TMP_InputField" },
             { "Widget", "ComponentAutoBindTool.ViewCore.WidgetViewBase" },
+            { "Sub", "ComponentAutoBindTool.Core.ComponentAutoBindTool" },
         };
         
         public GenericDictionary<string, string> extraComponentKeyMap;
@@ -76,7 +77,7 @@ namespace ComponentAutoBindTool.Core
                 yield break;
             }
 
-            foreach (KeyValuePair<string, string> item in extraComponentKeyMap.OrderBy(pair => pair.Key))
+            foreach (KeyValuePair<string, string> item in extraComponentKeyMap.Where(pair => !DefaultComponentKeyMap.ContainsKey(pair.Key)).OrderBy(pair => pair.Key))
             {
                 yield return item;
             }

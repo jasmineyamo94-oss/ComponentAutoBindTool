@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using ComponentAutoBindTool.ViewCore;
@@ -70,6 +71,20 @@ namespace ComponentAutoBindTool.Editor
             {
                 Line(body + "if (boundView." + AutoBindFieldNameUtility.BuildFieldName(binding.Name) + " == null) return;");
             }
+            var cascaded = new HashSet<Component>();
+            int cascadeIndex = 0;
+            foreach (var binding in input.Bindings)
+            {
+                if (!ShouldCascadeAutoBind(binding, input.Target) || !cascaded.Add(binding.BindCom)) continue;
+                string name = AutoBindFieldNameUtility.BuildFieldName(binding.Name);
+                string local = "cascadeHost" + cascadeIndex++;
+                Line(body + "if ((object)boundView." + name + " is not " + HostInterface + " " + local + ")");
+                Line(body + "{");
+                Line(body + "    global::UnityEngine.Debug.LogError(\"[AutoBind] 子宿主 " + name + " 尚未实现绑定接口，请先生成并编译子宿主绑定代码。\", boundView." + name + ");");
+                Line(body + "    return;");
+                Line(body + "}");
+                Line(body + local + ".EnsureAutoBind(boundView." + name + ".gameObject);");
+            }
             Line(body + "view = boundView;");
             Line(member + "}");
             if (ensure != null && !publicOverride)
@@ -88,6 +103,16 @@ namespace ComponentAutoBindTool.Editor
             Line(indent + "}");
             if (indent.Length != 0) Line("}");
             return code.ToString();
+        }
+
+        internal static bool ShouldCascadeAutoBind(Core.ComponentAutoBindTool.BindData binding, Core.ComponentAutoBindTool root)
+        {
+            if (binding == null || binding.BindCom == null || (root != null && binding.BindCom == root.m_targetScript)) return false;
+            if (binding.BindCom is WidgetViewBase) return false;
+            if (binding.BindCom is IAutoBindHost) return true;
+            return root != null && binding.BindCom.gameObject != root.gameObject &&
+                   binding.BindCom.TryGetComponent<Core.ComponentAutoBindTool>(out var nested) &&
+                   nested.m_targetScript == binding.BindCom;
         }
 
         internal static MethodInfo FindBaseMethod(Type target, string name, params Type[] parameters)

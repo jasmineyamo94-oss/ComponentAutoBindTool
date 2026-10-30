@@ -100,7 +100,9 @@ AutoBindBuildPipeline.GenerateCode(target, settings, keyMap);
 | 带 `TMP_SubMeshUI` | 跳过 TMP 自动生成的子节点及子树。 |
 | 未知前缀、缺失组件 | 进入统一错误报告，阻止提交；不会静默丢弃该项后继续生成。 |
 
-前缀来源于 [AutoBindKeyMapSetting](Scripts/Core/Editor/AutoBindKeyMapSetting.cs) 的内置映射与额外映射。`Widget` 内置映射到 `WidgetViewBase`，扫描器在节点上多态查找所有 Widget 派生组件；唯一组件直接绑定，同节点存在多个时使用该节点 AutoBind 的目标脚本消歧，若未指定有效的同节点 Widget 则报告错误并阻止提交。`Rtf_Widget_Item` 可同时绑定 RectTransform 与具体 Widget。生成的字段类型来自组件实例的实际派生类型，新增业务 Widget 不需要登记额外映射。
+前缀来源于 [AutoBindKeyMapSetting](Scripts/Core/Editor/AutoBindKeyMapSetting.cs) 的内置映射与额外映射。`Widget` 用于 `WidgetViewBase` 派生组件；同节点 AutoBind 指定目标时，目标必须是同节点 Widget，未指定目标时扫描器按可用组件进行多态匹配。`Sub` 用于嵌套 AutoBind 宿主，必须在子节点挂载 AutoBind 并指定同节点目标脚本。无效引用、组件缺失或无法消歧均阻止提交。`Rtf_Widget_Item` 可同时绑定 RectTransform 与具体 Widget。字段类型来自组件实例的实际派生类型，新增业务 Widget 和子宿主不需要登记额外映射。
+
+生成的父宿主 `EnsureAutoBind` 验证全部字段后，级联调用非 Widget 子宿主的 `IAutoBindHost.EnsureAutoBind`；相同组件重复绑定时仅调用一次。Widget 不在此阶段级联，仍由运行时 Presenter 的 `BindWidget` 驱动。首次生成前普通子宿主尚未实现接口时，父代码会在运行时检查接口并报告缺失生成代码，而非提前缓存父 UIView。子宿主的接口返回 `void`，其内部绑定失败时不能以返回值通知父宿主；级联也不是事务，不会回滚此前已初始化的子宿主。使用前应检查子宿主生成结果和 Console 诊断。
 
 额外映射仍可用于自定义非 Widget 组件；默认映射优先于同名前缀的额外映射。右键新增记录使用完整类型名，历史短名仍受支持。映射配置 Inspector 会提示无法解析为 Component 的类型，并可通过“清理失效映射”删除这些记录，支持 Undo；清理前应检查迁移期尚未编译或已改名的类型。
 
@@ -335,7 +337,7 @@ ViewManager 构造时注册到 `ViewManagerDebugRegistry`，Dispose 时注销。
 
 中文使用 `Fonts/LabChinese.asset` 的静态预烘焙字形；Noto 原字体与 OFL 许可随 Example 保留，TMP Essentials 也在 Example 中。默认运行不依赖在线字体或远程资源服务；竖屏仅显示横屏提示。
 
-菜单 **自动绑定UI组件 → 框架实验台 → 重建正式示例** 调用 AutoBindExampleSetup：重建示例场景、八个 Prefab、字体图集，经 Inspector 入口生成四个宿主的绑定。示例使用内置 Widget 前缀，不向全局额外映射写入业务类型；重建可能将已有根目录 TMP Essentials 移到 Example。重建会修改正式示例资产；这与本地实验重置的范围不同。已有场景、宿主与资产 `.meta` GUID 需要保留。
+菜单 **自动绑定UI组件 → 框架实验台 → 重建正式示例** 调用 AutoBindExampleSetup：重建示例场景、八个 Prefab、字体图集，经 Inspector 入口生成四个宿主的绑定。示例使用内置 Widget 前缀，不向全局额外映射写入业务类型；重建会清理值与旧示例类型完全一致的 Widget / WidgetGroup 遗留项，保留其他自定义映射，并可能将已有根目录 TMP Essentials 移到 Example。重建会修改正式示例资产；这与本地实验重置的范围不同。已有场景、宿主与资产 `.meta` GUID 需要保留。
 
 ## 7. 编辑器绑定实验台
 
@@ -401,6 +403,8 @@ ViewManager 构造时注册到 `ViewManagerDebugRegistry`，Dispose 时注销。
 2026-10-29 在 Windows、Unity **6000.3.20f1** 验证副本执行的运行期增强套件结果为 **172/172**（原 129 项逐名核对保留，当时新增 43 项），见 [运行期增强验证](../../../Validation/ViewEnhancements/README.md)。当时四份生成文件内容及修改时间保持不变。此前的生成后重启编译、接口调用、独立程序集和真实脚本重载证据保存在 [129 项边界修复报告](../../../Validation/BoundaryFixes/README.md)；八张多分辨率截图和 51 项最初基线保存在 [Validation/FrameworkLab](../../../Validation/FrameworkLab/README.md)。Unix 路径是注入规则测试，尚未运行 macOS/Linux Unity。
 
 2026-10-30 的 Widget 多态绑定迁移后，完整套件 **177/177** 通过；随后增加的完整类型名映射用例及其扫描测试 **4/4** 单独通过。八个示例 Prefab 和一个生成文件已通过 Inspector 流水线迁移，详见 [Widget 多态绑定验证](../../../Validation/WidgetPolymorphism/README.md)。
+
+同日 `Sub` 与级联绑定更新的完整套件为 **182/182**；正式示例重建、真实两阶段生成编译与 Player 脚本编译也已验证，详见 [级联绑定验证](../../../Validation/SubAutoBind/README.md)。
 
 测试沿用现有 EditMode 程序集，其中通过 EnterPlayMode/ExitPlayMode 执行实际运行集成。`-runTests` 不与 `-quit` 同用；字体重建和截图需图形设备，不加 `-nographics`。普通测试可使用 `-nographics`。建议使用工程副本，避免测试切换场景影响正在编辑的场景。
 

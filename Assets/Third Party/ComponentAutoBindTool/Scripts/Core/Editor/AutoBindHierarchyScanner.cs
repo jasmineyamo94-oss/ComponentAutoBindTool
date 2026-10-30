@@ -80,17 +80,29 @@ namespace ComponentAutoBindTool.Editor
                     return;
                 }
 
-                Component component = ResolveComponent(target, componentTypeName, result);
+                Component component = ResolveComponent(target, prefix, componentTypeName, result);
                 if (component == null) continue;
 
                 result.AddBindData($"{prefix}_{fieldSuffix}", component);
             }
         }
 
-        private static Component ResolveComponent(Transform target, string componentTypeName, AutoBindScanResult result)
+        private static Component ResolveComponent(Transform target, string prefix, string componentTypeName, AutoBindScanResult result)
         {
-            if (componentTypeName == typeof(WidgetViewBase).FullName || componentTypeName == nameof(WidgetViewBase))
+            if (prefix == "Widget" || componentTypeName == typeof(WidgetViewBase).FullName || componentTypeName == nameof(WidgetViewBase))
             {
+                if (target.TryGetComponent<Core.ComponentAutoBindTool>(out var nestedTool) && nestedTool.m_targetScript != null)
+                {
+                    var selected = nestedTool.m_targetScript;
+                    if (selected.gameObject != target.gameObject)
+                    {
+                        result.AddError($"{target.name}的嵌套 AutoBind 目标脚本必须挂载在当前节点上。");
+                        return null;
+                    }
+                    if (selected is WidgetViewBase widget) return widget;
+                    result.AddError($"{target.name}使用 Widget 前缀，但目标脚本未继承 WidgetViewBase；普通宿主请使用 Sub 前缀。");
+                    return null;
+                }
                 var widgets = target.GetComponents<WidgetViewBase>();
                 if (widgets.Length == 1) return widgets[0];
                 if (widgets.Length == 0)
@@ -99,15 +111,29 @@ namespace ComponentAutoBindTool.Editor
                     return null;
                 }
 
-                if (target.TryGetComponent<Core.ComponentAutoBindTool>(out var nestedTool) &&
-                    nestedTool.m_targetScript is WidgetViewBase selected && selected != null &&
-                    selected.gameObject == target.gameObject)
-                {
-                    return selected;
-                }
-
                 result.AddError($"{target.name}上存在多个WidgetViewBase组件，请在同节点的AutoBind目标脚本中指定一个");
                 return null;
+            }
+
+            if (prefix == "Sub" || componentTypeName == typeof(Core.ComponentAutoBindTool).FullName)
+            {
+                if (!target.TryGetComponent<Core.ComponentAutoBindTool>(out var nestedTool))
+                {
+                    result.AddError($"{target.name}使用 Sub 前缀，但节点上未挂载嵌套 AutoBind。");
+                    return null;
+                }
+                var selected = nestedTool.m_targetScript;
+                if (selected == null)
+                {
+                    result.AddError($"{target.name}使用 Sub 前缀，但嵌套 AutoBind 未指定目标脚本。");
+                    return null;
+                }
+                if (selected.gameObject != target.gameObject || selected == nestedTool)
+                {
+                    result.AddError($"{target.name}的嵌套 AutoBind 目标必须是同节点的宿主脚本。");
+                    return null;
+                }
+                return selected;
             }
 
             Component component = target.GetComponent(componentTypeName);
