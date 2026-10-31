@@ -47,6 +47,7 @@ namespace ComponentAutoBindTool.Editor
             Line(member + "}");
             Line();
             Line(member + "private UIView view;");
+            Line(member + "bool " + HostInterface + ".IsAutoBound => view != null;");
             Line();
             string modifier = ensure == null ? "public" : Access(ensure, type) + " override";
             Line(member + modifier + " void EnsureAutoBind(global::UnityEngine.GameObject go)");
@@ -84,6 +85,11 @@ namespace ComponentAutoBindTool.Editor
                 Line(body + "    return;");
                 Line(body + "}");
                 Line(body + local + ".EnsureAutoBind(boundView." + name + ".gameObject);");
+                Line(body + "if (!" + local + ".IsAutoBound)");
+                Line(body + "{");
+                Line(body + "    global::UnityEngine.Debug.LogError(\"[AutoBind] 子宿主 " + name + " 内部绑定失败，父宿主已中止缓存。\", boundView." + name + ");");
+                Line(body + "    return;");
+                Line(body + "}");
             }
             Line(body + "view = boundView;");
             Line(member + "}");

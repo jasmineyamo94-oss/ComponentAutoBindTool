@@ -1,0 +1,6 @@
+{
+    "name": "ComponentAutoBindTool.AssetCore",
+    "rootNamespace": "ComponentAutoBindTool.AssetCore",
+    "references": ["VContainer"],
+    "autoReferenced": true
+}

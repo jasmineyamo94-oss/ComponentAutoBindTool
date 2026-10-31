@@ -7,7 +7,7 @@ using VContainer;
 // ReSharper disable once CheckNamespace
 namespace ComponentAutoBindTool.ViewCore
 {
-    public abstract class WidgetPresenterBase<TUIView> : IWidgetPresenter
+    public abstract class WidgetPresenterBase<TUIView> : IWidgetPresenter, IWidgetVisibility
         where TUIView : class
     {
         protected TUIView View { get; private set; }
@@ -83,6 +83,22 @@ namespace ComponentAutoBindTool.ViewCore
             return childPresenter;
         }
 
+        protected WidgetPresenterPool<THost, TPresenter> CreateWidgetPool<THost, TPresenter>(
+            THost template, UnityEngine.Transform parent)
+            where THost : WidgetViewBase
+            where TPresenter : class, IWidgetPresenter, IWidgetVisibility
+        {
+            var pool = new WidgetPresenterPool<THost, TPresenter>(template, parent,
+                host => BindWidget<TPresenter>(host), presenter => UnbindWidget(presenter));
+            AddToInstanceLifetime(pool);
+            return pool;
+        }
+
+        protected void UnbindWidget(IWidgetPresenter presenter)
+        {
+            if (presenter != null && m_ChildWidgets.Remove(presenter)) presenter.InternalOnDestroy();
+        }
+
         /// <summary>
         /// 控制子控件自身的局部显隐，并同步触发 OnResume / OnPause
         /// </summary>
@@ -113,9 +129,11 @@ namespace ComponentAutoBindTool.ViewCore
 
             OnOpen();
 
-            for (int i = 0; i < m_ChildWidgets.Count; i++)
+            for (int i = 0; i < m_ChildWidgets.Count;)
             {
-                m_ChildWidgets[i].InternalOnOpen();
+                IWidgetPresenter child = m_ChildWidgets[i];
+                child.InternalOnOpen();
+                if (i < m_ChildWidgets.Count && ReferenceEquals(child, m_ChildWidgets[i])) i++;
             }
         }
 
@@ -140,9 +158,11 @@ namespace ComponentAutoBindTool.ViewCore
             {
                 m_IsResumed = true;
                 OnResume();
-                for (int i = 0; i < m_ChildWidgets.Count && m_IsResumed; i++)
+                for (int i = 0; i < m_ChildWidgets.Count && m_IsResumed;)
                 {
-                    m_ChildWidgets[i].InternalOnResume();
+                    IWidgetPresenter child = m_ChildWidgets[i];
+                    child.InternalOnResume();
+                    if (i < m_ChildWidgets.Count && ReferenceEquals(child, m_ChildWidgets[i])) i++;
                 }
             }
             else
@@ -181,6 +201,7 @@ namespace ComponentAutoBindTool.ViewCore
                 PauseRunningSubtree(ref exceptions);
                 for (int i = m_ChildWidgets.Count - 1; i >= 0; i--)
                 {
+                    if (i >= m_ChildWidgets.Count) continue;
                     try
                     {
                         m_ChildWidgets[i].InternalOnClose();
@@ -229,11 +250,14 @@ namespace ComponentAutoBindTool.ViewCore
             try
             {
                 CloseOpenSession(ref exceptions);
-                for (int i = m_ChildWidgets.Count - 1; i >= 0; i--)
+                while (m_ChildWidgets.Count > 0)
                 {
+                    int index = m_ChildWidgets.Count - 1;
+                    IWidgetPresenter child = m_ChildWidgets[index];
+                    m_ChildWidgets.RemoveAt(index);
                     try
                     {
-                        m_ChildWidgets[i].InternalOnDestroy();
+                        child.InternalOnDestroy();
                     }
                     catch (Exception exception)
                     {
@@ -273,16 +297,18 @@ namespace ComponentAutoBindTool.ViewCore
             m_IsPausing = true;
             try
             {
-                for (int i = 0; i < m_ChildWidgets.Count; i++)
+                for (int i = 0; i < m_ChildWidgets.Count;)
                 {
+                    IWidgetPresenter child = m_ChildWidgets[i];
                     try
                     {
-                        m_ChildWidgets[i].InternalOnPause();
+                        child.InternalOnPause();
                     }
                     catch (Exception exception)
                     {
                         AddException(ref exceptions, exception);
                     }
+                    if (i < m_ChildWidgets.Count && ReferenceEquals(child, m_ChildWidgets[i])) i++;
                 }
                 try
                 {
@@ -318,9 +344,11 @@ namespace ComponentAutoBindTool.ViewCore
             if (!IsVisible || !m_IsOpenSessionActive || !m_IsResumed) return;
 
             OnWidgetTick(deltaTime);
-            for (int i = 0; i < m_ChildWidgets.Count; i++)
+            for (int i = 0; i < m_ChildWidgets.Count;)
             {
-                m_ChildWidgets[i].InternalTick(deltaTime);
+                IWidgetPresenter child = m_ChildWidgets[i];
+                child.InternalTick(deltaTime);
+                if (i < m_ChildWidgets.Count && ReferenceEquals(child, m_ChildWidgets[i])) i++;
             }
         }
 

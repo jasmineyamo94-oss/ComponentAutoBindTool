@@ -1,6 +1,6 @@
 # ComponentAutoBindTool 新架构导读
 
-面向首次接手工程的 AI 与开发者。本文描述当前实现，不是待实施方案。核对日期：2026-10-29；Unity 版本以项目根目录 `ProjectSettings/ProjectVersion.txt` 为准，当前为 **6000.3.20f1**。
+面向首次接手工程的 AI 与开发者。本文描述当前实现，不是待实施方案。核对日期：2026-10-31；Unity 版本以项目根目录 `ProjectSettings/ProjectVersion.txt` 为准，当前为 **6000.3.20f1**。
 
 本文中的 `Scripts/`、`Example/` 均相对于本文件所在的插件根目录。实际修改前，继续读取对应源码、项目根目录 `AGENTS.md` 和工作区未提交差异。
 
@@ -20,6 +20,7 @@
 | 理解整体调用链 | 本文第 2～5 节 |
 | 修改扫描、校验、生成或保存行为 | [AutoBindBuildPipeline.cs](Scripts/Core/Editor/AutoBindBuildPipeline.cs) → 第 3 节 |
 | 接入一个普通业务窗口或 Widget | 第 4、5、8 节 → [迁移说明](MIGRATION.md) |
+| 声明强类型开窗路由 | 第 5.8 节 → Example/Scripts/LabRoutes.cs |
 | 修改层级、导航、实例复用、关闭策略 | [ViewManager.cs](Scripts/ViewCore/Management/ViewManager.cs) 与 [WindowEntry.cs](Scripts/ViewCore/Management/WindowEntry.cs) |
 | 调查 Widget 可见性、Tick、生命周期 | [WidgetPresenterBase.cs](Scripts/ViewCore/Presenters/WidgetPresenterBase.cs) → 第 5 节 |
 | 理解或修改运行时实验台 | 第 6 节 → [实验操作说明](Example/README.md) |
@@ -60,7 +61,7 @@ flowchart TD
 
 生成代码通过 `partial` 与手写宿主组成同一个类型；业务方法放在手写 partial 或 Presenter 中。运行时框架不依赖 Example，也不依赖编辑器流水线。VContainer 的注入与解析仍由容器实现，不能把“运行时不扫描绑定层级”理解成“整个应用没有反射或分配”。
 
-三个框架程序集分别为 `ComponentAutoBindTool.Core`、`ComponentAutoBindTool.ViewCore`、`ComponentAutoBindTool.Editor`。依赖方向为 Editor → ViewCore → Core，Editor 同时直接引用 Core；运行时程序集不引用 Editor 或默认 `Assembly-CSharp`。Editor 仅支持 Editor 平台，引用 TMP、uGUI 与现有序列化字典。三个程序集保留 Auto Referenced，现有示例及业务脚本可继续使用默认程序集；Editor 通过 `InternalsVisibleTo("Assembly-CSharp-Editor")` 支持现有测试和实验入口。
+基础绑定与视图的三个框架程序集分别为 `ComponentAutoBindTool.Core`、`ComponentAutoBindTool.ViewCore`、`ComponentAutoBindTool.Editor`。依赖方向为 Editor → ViewCore → Core，Editor 同时直接引用 Core；运行时程序集不引用 Editor 或默认 `Assembly-CSharp`。Editor 仅支持 Editor 平台，引用 TMP、uGUI 与现有序列化字典。三个程序集保留 Auto Referenced，现有示例及业务脚本可继续使用默认程序集；Editor 通过 `InternalsVisibleTo("Assembly-CSharp-Editor")` 支持现有测试和实验入口。
 
 `AutoBindKeyMapSetting` 的完整类型名已统一为 `ComponentAutoBindTool.Core.AutoBindKeyMapSetting`，但它属于 **Editor 程序集**；不要把它当作 Player 运行时配置。原脚本 GUID 与映射资产引用保留，旧源码中的 `Third_Party.ComponentAutoBindTool.Scripts.Core` 需更新。`DisplayOnly` 属性留在 Core，对应 Drawer 只在 Editor 中编译。
 
@@ -102,7 +103,7 @@ AutoBindBuildPipeline.GenerateCode(target, settings, keyMap);
 
 前缀来源于 [AutoBindKeyMapSetting](Scripts/Core/Editor/AutoBindKeyMapSetting.cs) 的内置映射与额外映射。`Widget` 用于 `WidgetViewBase` 派生组件；同节点 AutoBind 指定目标时，目标必须是同节点 Widget，未指定目标时扫描器按可用组件进行多态匹配。`Sub` 用于嵌套 AutoBind 宿主，必须在子节点挂载 AutoBind 并指定同节点目标脚本。无效引用、组件缺失或无法消歧均阻止提交。`Rtf_Widget_Item` 可同时绑定 RectTransform 与具体 Widget。字段类型来自组件实例的实际派生类型，新增业务 Widget 和子宿主不需要登记额外映射。
 
-生成的父宿主 `EnsureAutoBind` 验证全部字段后，级联调用非 Widget 子宿主的 `IAutoBindHost.EnsureAutoBind`；相同组件重复绑定时仅调用一次。Widget 不在此阶段级联，仍由运行时 Presenter 的 `BindWidget` 驱动。首次生成前普通子宿主尚未实现接口时，父代码会在运行时检查接口并报告缺失生成代码，而非提前缓存父 UIView。子宿主的接口返回 `void`，其内部绑定失败时不能以返回值通知父宿主；级联也不是事务，不会回滚此前已初始化的子宿主。使用前应检查子宿主生成结果和 Console 诊断。
+生成的父宿主 `EnsureAutoBind` 验证全部字段后，级联调用非 Widget 子宿主的 `IAutoBindHost.EnsureAutoBind`；相同组件重复绑定时仅调用一次。Widget 不在此阶段级联，仍由运行时 Presenter 的 `BindWidget` 驱动。首次生成前普通子宿主尚未实现接口时，父代码会在运行时检查接口并报告缺失生成代码，而非提前缓存父 UIView。子宿主生成的 `IsAutoBound` 仅在完整 UIView 缓存成功后返回 true；级联失败时父宿主不缓存残缺 UIView，修复后可重试。为保持旧宿主和未生成骨架兼容，接口默认状态为 true；旧生成文件需通过 Inspector 重新生成才能获得此校验。级联不回滚此前已初始化的子宿主。
 
 额外映射仍可用于自定义非 Widget 组件；默认映射优先于同名前缀的额外映射。右键新增记录使用完整类型名，历史短名仍受支持。映射配置 Inspector 会提示无法解析为 Component 的类型，并可通过“清理失效映射”删除这些记录，支持 Undo；清理前应检查迁移期尚未编译或已改名的类型。
 
@@ -120,15 +121,13 @@ AutoBindBuildPipeline.GenerateCode(target, settings, keyMap);
 
 ### 3.4 事务、路径与确定性产物
 
-[GenerationTransaction](Scripts/Core/Editor/AutoBindGenerationTransaction.cs) 保存组件 JSON、所属资产文件、生成文件及必要的脏状态和 Prefab 覆盖快照。执行顺序为：检查可写与准备临时源码 → 同步绑定 → 必要时保存所属资产 → 提交代码 → 内容变化时导入该脚本。
+[GenerationTransaction](Scripts/Core/Editor/AutoBindGenerationTransaction.cs) 使用内存序列化、独立 Undo 分组、Dirty 与 Prefab overrides 快照，以及代码文件临时替换。执行顺序为：检查代码可写并准备临时源码 → 同步内存绑定 → 标记 Dirty → 提交和按需导入代码。
 
-- 普通场景及其 Prefab 实例保存为场景与实例覆盖；不自动 Apply 到源 Prefab。
-- Prefab Stage 保存当前 Prefab；直接操作 Prefab 资产则保存该资产。
-- 未命名场景生成时返回明确错误，要求先保存场景。
-- 保存可能持久化所属场景中已有的其他编辑；这不是仅保存一个组件的操作。失败回滚恢复原文件，并保留操作前已经存在的内存编辑及脏状态。
-- 可捕获的提交异常会尝试恢复本次修改；恢复错误也进入报告。没有进程崩溃或断电恢复承诺。
-- 生成属于持久化提交，不单独提供组件 Undo；需要可撤销的扫描使用重扫入口。
-- 源码相同时不改写代码、不改变其修改时间、不主动导入脚本；所属资产是否需要保存另行判断。
+- 普通场景、未命名场景、Prefab Stage 和直接选中的 Prefab 资产均不会由生成事务主动保存；用户按需保存所属资产。Unity 会保留脚本重载期间的内存序列化状态，但关闭编辑器前仍需保存。
+- 场景 Prefab 实例只记录覆盖，不自动 Apply 到源 Prefab。
+- 可捕获的提交异常恢复组件和代码文件，移除本次 Undo，保留既有未保存编辑；Unity 没有公开场景清脏 API，失败后可能留下保守的星号提示。不承诺进程崩溃或断电恢复。
+- 生成支持撤销内存绑定；Undo 不删除或恢复磁盘代码，撤销后需重新生成使二者一致。
+- 源码相同时不改写代码、不改变修改时间、不主动导入脚本，也不保存用户已有编辑。
 
 生成格式固定为 UTF-8 无 BOM、LF、四空格、无时间戳，类型使用 `global::` 完整限定名。内容变化时只 `ImportAsset` 目标脚本，不调用全局 `Refresh()`。
 
@@ -296,6 +295,36 @@ ViewManager 构造时注册到 `ViewManagerDebugRegistry`，Dispose 时注销。
 
 菜单 **自动绑定UI组件 / 框架实验台 / 运行期窗口监控台** 打开 UI Toolkit [ViewMonitorWindow](Scripts/Core/Editor/ViewMonitorWindow.cs)。它每 250 ms 刷新，复用行和快照列表，可切换管理器，查看四层、缓存/待销毁实例和队列，定位宿主、精确关闭、返回、关闭全部、强制释放及清空队列。编辑模式禁用运行操作，旧行按钮重新确认管理器和实例状态。无需场景 MonoBehaviour。Editor 文本格式化及界面刷新允许分配，不能将运行时快照的零分配结果推广为整个监控 UI 零 GC。
 
+### 5.8 显式类型化路由
+
+`ViewRoute<TView, TArgs>` 是不可变声明，包含显式资源键、宿主类型和参数类型；类名不参与资源解析。同一个 View 类型可以声明多个路由，例如示例的 Normal、Cover、Multi 等八个路由都使用 AutoBindTest 与 LabOpenArgs，但指向不同资源键和策略。
+
+```csharp
+public static readonly ViewRoute<EquipmentView, EquipmentArgs> Detail = new("EquipmentDetail");
+manager.ShowView(Detail, new EquipmentArgs());
+manager.EnqueueView(Detail, new EquipmentArgs(), priority: 10);
+manager.ReplaceTopView(Detail, new EquipmentArgs());
+manager.CloseView(Detail);
+```
+
+`ViewManagerTypedExtensions` 从路由推断泛型，调用处错误参数类型无法编译。内置管理器显式实现可选的 `IViewRouteManager`；旧 IViewManager 和外部实现方无需新增成员。外部管理器未实现路由能力时，扩展明确抛出 NotSupportedException，不会退回字符串调用。直接使用擦除类型的能力接口时仍执行运行期参数检查。
+
+所有构建均核验实际宿主可赋给 TView、Presenter 的 IWindowArgsContract.ArgsType 精确等于 TArgs，以及参数非空且兼容 TArgs。WindowPresenterBase 自动提供参数契约；自定义 Presenter 需主动实现它才能使用路由。空参数路由使用 EmptyViewArgs，提供省略参数的 ShowView 重载；对应 Presenter 必须显式使用 EmptyViewArgs，单泛型 Presenter 的参数契约是 IViewArgs，不视为同一契约。
+
+新实例在解析 Presenter 后、Attach/OnCreate 前校验；失败释放 Scope 和实例。缓存/活动实例在取消销毁计时或改动旧会话前校验；不匹配返回 0，保持原会话。替换目标准备失败保留原窗。关闭先按既有同名实例规则选择，再核验该实例，不加载 Prefab，也不会跳过不匹配栈顶去关闭低层实例。诊断包含路由键和预期/实际类型。构造函数及 ConfigureWindow 的自定义副作用不在自动回滚范围内。
+
+排队同时保存路由和参数引用，出队时校验实际资源；无效请求只消费一次，后续请求按原优先级和门禁继续。参数不会自动复制，推荐不可变 DTO；DTO 中委托仍可能保留调用方。失败或未立即打开时仍返回 0，不能用该返回值等待未来的队列实例。清理袋仅释放显式登记的资源；参数刷新不保证再次 OnResume。
+
+### 5.9 动态 Widget 复用与资源加载
+
+父 WindowPresenter 或 WidgetPresenter 通过 `CreateWidgetPool<THost, TPresenter>(template, parent)` 建池，自动纳入实例资源袋。`Spawn(out host)` 首次调用绑定并解析 Presenter，`Despawn(presenter)` 只隐藏、Pause 并停止 Tick；再次 Spawn 复用同一 Host/Presenter，不重新 Resolve。TPresenter 需实现 IWidgetVisibility（泛型 WidgetPresenterBase 已实现）。池结束时统一解绑并销毁克隆，模板不销毁；归还不是关闭会话，物品数据与条目级异步任务由业务在取出/归还时更新。
+
+统一资源层见 [资源接入说明](Scripts/AssetCore/README.md)。依赖方向为 AssetViewBridge → AssetCore / ViewCore；ViewCore 不引用第三方资源包。AssetCore 统一句柄、引用计数、实例释放与资源作用域，Addressables 和 YooAsset 仅适配底层引擎；默认可用 DirectCatalogBackend 离线目录。
+
+`IAsyncViewManager` 为可选能力，IViewManager 调用方可用 `ShowViewAsync` / `ReplaceTopViewAsync` 扩展，类型化路由保留编译期参数约束。已存在 Singleton 直接复用；首次加载以资源名串行协调，同步 ShowView 可并存。加载期间 CloseView(name/route)、CloseAllViews 或 Dispose 会作废在途请求；调用方令牌取消传播 OperationCanceledException，管理器关闭引发取消返回 0。第三方 helper 若忽略令牌，返回时仍归还租约并中止创建。
+
+IAsyncViewPrefabHelper 每次成功获取增加一份待用租约，实例化前失败必须 ReleaseUninstantiatedPrefab；IViewPrefabLeaseHelper.RegisterViewInstance 把租约交给具体实例。AssetViewPrefabHelper 按实例归还，因此 Multiple、NonDestroy 与 DestroyDelayed 的 Prefab 引用一直保持到真实实例释放。管理器应先于 helper、资源服务释放；组合根通常采用 Scoped 管理器与 Singleton helper/service。各公开 Awaitable 独立消费一次，内部共享 Task，不共享同一 Awaitable。
+
 ## 6. 运行时实验台如何组成
 
 入口场景：[Example.unity](Example/Scenes/Example.unity)。布局是 uGUI + TextMeshPro，1280×720 参考分辨率，包含 Safe Area、五项实验导航、操作舞台、动作按钮和可展开观察抽屉。外层壳不属于受管理窗口，System 窗口出现时仍可操作导航和重置。
@@ -352,7 +381,7 @@ ViewManager 构造时注册到 `ViewManagerDebugRegistry`，Dispose 时注销。
 | 字段改名 | 专用宿主没有依赖生成字段的手写业务逻辑，改名后不会留下 Presenter 对旧字段的引用。 |
 | 执行状态 | PipelineLabState 把实验编号、GlobalObjectId、报告、差异与文件时间等保存进 SessionState；这是当前编辑器会话恢复，不是跨机器的持久化项目配置。 |
 | 写入时机 | 面板在编译、导入及 Play Mode 期间禁用写入；底层实验工具允许无 GUI 测试持有自己的重载锁。 |
-| 回滚实验 | 场景保存回调短暂把实验代码设为只读；finally 解除回调并恢复原文件属性。报告比较真实组件、代码与资产快照，以及既有未保存编辑是否保留。 |
+| 回滚实验 | 先建立正常生成基线，再临时把代码目标路径替换为目录制造提交失败；撤除故障后比较真实文件内容并恢复原时间与属性。报告比较真实组件、代码与资产快照，以及既有未保存编辑是否保留。 |
 
 13 个实验涵盖首次生成、改名、嵌套 Widget/TMP 边界、五类失败校验、连续生成不改写、场景保存、Prefab 保存、实例覆盖和提交失败回滚。正式示例重建与本地实验重置是两个独立动作，不共用删除或清理范围。
 
@@ -362,7 +391,7 @@ ViewManager 构造时注册到 `ViewManagerDebugRegistry`，Dispose 时注销。
 
 1. 在业务目录创建可独立编译的 partial 宿主，窗口继承 ViewBase，Widget 继承 WidgetViewBase。窗口初始 ConfigureWindow 保持可编译，不先引用尚不存在的 UIView。
 2. 创建层级或 Prefab，将目标宿主设到同节点 AutoBind 上；配置前缀和节点命名，确认嵌套根节点的边界。
-3. 保存场景，使用 Inspector 生成；以成功报告、所属资产保存和脚本编译成功作为此步完成条件。
+3. 使用 Inspector 生成；以成功报告、内存绑定有效和脚本编译成功作为此步完成条件，按需保存场景或 Prefab。
 4. 在生成 UIView 已存在后接入强类型 Presenter；注册窗口服务与适合数量关系的 Widget Presenter 寿命。
 5. 在组合入口提供 Prefab/root 适配器和唯一 Tick 驱动，设置策略；验证首次打开、刷新、关闭重开与释放。
 
@@ -391,6 +420,7 @@ ViewManager 构造时注册到 `ViewManagerDebugRegistry`，Dispose 时注销。
 | [AutoBindAssemblyTests](../../../Assets/AATest/Editor/AutoBindAssemblyTests.cs) | 三个框架程序集依赖、配置迁移及独立宿主同程序集输出校验。 |
 | [ViewCoreEnhancementTests](../../../Assets/AATest/Editor/ViewCoreEnhancementTests.cs) | 高层队列门禁、稳定优先级、动画与延迟销毁、开关回调重入及预热快照零分配。 |
 | [ViewWaiterTests](../../../Assets/AATest/Editor/ViewWaiterTests.cs) | 多等待者、取消、完成源复用、会话隔离、晚消费返回值与后台取消切回主线程。 |
+| [ViewRouteTests](../../../Assets/AATest/Editor/ViewRouteTests.cs)、[ViewRouteCompilationTests](../../../Assets/AATest/Editor/ViewRouteCompilationTests.cs) | 显式资源路由、运行期宿主/参数契约、失败保持旧状态、能力兼容及真实 C# 编译正反例。 |
 | [WindowPresenterLifecycleTests](../../../Assets/AATest/Editor/WindowPresenterLifecycleTests.cs) | WindowPresenter 嵌套生命周期、重复与重入、参数刷新和异常清理。 |
 | [ViewMonitorWindowTests](../../../Assets/AATest/Editor/ViewMonitorWindowTests.cs) | 注册表、真实 UI Toolkit 操作、复用行、切换管理器和禁用 Domain Reload 的重入 Play。 |
 | [AutoBindExamplePlayModeTests](../../../Assets/AATest/Editor/AutoBindExamplePlayModeTests.cs) | 实际场景开关复用与五组实验；每组连续运行、重置三轮。 |
@@ -406,8 +436,10 @@ ViewManager 构造时注册到 `ViewManagerDebugRegistry`，Dispose 时注销。
 
 同日 `Sub` 与级联绑定更新的完整套件为 **182/182**；正式示例重建、真实两阶段生成编译与 Player 脚本编译也已验证，详见 [级联绑定验证](../../../Validation/SubAutoBind/README.md)。
 
+2026-10-31 显式类型化路由更新后，完整套件 **201/201** 通过，原 182 项逐名保留；新增 18 项运行行为与 1 项真实编译正反例。示例实验三轮重置及 Player 脚本编译通过，场景、Prefab 与生成文件保持不变。本地证据见 [类型化路由验证](../../../Validation/TypedRoutes/README.md)，Validation 目录按项目规则忽略。
+
 测试沿用现有 EditMode 程序集，其中通过 EnterPlayMode/ExitPlayMode 执行实际运行集成。`-runTests` 不与 `-quit` 同用；字体重建和截图需图形设备，不加 `-nographics`。普通测试可使用 `-nographics`。建议使用工程副本，避免测试切换场景影响正在编辑的场景。
 
-目前需要保留的边界：生成事务不承担崩溃恢复；资源准备安全不等于所有 Presenter 用户回调都有事务恢复；动态在 OnOpen 内新增 Widget 的重入与重复回调需要单独测试；Prefab helper 是同步获取接口。编辑器模拟截图不替代移动真机性能验证。
+目前需要保留的边界：生成事务不承担崩溃恢复；资源准备安全不等于所有 Presenter 用户回调都有事务恢复；动态在 OnOpen 内新增 Widget 的重入与重复回调需要单独测试；Prefab helper 的基础接口保留同步获取，通过可选接口提供异步能力。编辑器模拟截图不替代移动真机性能验证。
 
 框架修复的复现、根因与对应回归集中维护在 [Example/FRAMEWORK_FIXES.md](Example/FRAMEWORK_FIXES.md)。修改契约后同时更新本导读、相关操作说明与测试证据，避免其他 AI 从历史文档推断当前行为。

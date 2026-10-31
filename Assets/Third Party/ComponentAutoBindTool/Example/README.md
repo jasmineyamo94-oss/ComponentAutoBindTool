@@ -29,13 +29,13 @@ Play Mode 下可另开菜单 **自动绑定UI组件 / 框架实验台 / 运行�
 菜单：**自动绑定UI组件 → 框架实验台 → 编辑器绑定实验台**。
 
 1. 选择实验，点击“恢复实验初始状态”。
-2. 点击“重扫与校验”或“生成并保存”。
+2. 点击“重扫与校验”或“生成代码”。
 3. 比较绑定表、源码变化、统一报告以及文件 UTC 时间。首次生成或改名会触发正常脚本编译；编译结束后面板恢复。
 4. 使用“定位对象”查看真实层级，使用“打开生成文件”检查源码。
 
 实验资产位于 Example/LocalPipelineLab，已排除出版本控制；配置是内存副本。正式演示 Prefab、全局路径配置与映射资产不受实验影响。新建隔离场景前，当前未命名场景必须先保存。命名场景中的既有未保存编辑不会被实验自动保存。
 
-故障实验通过 sceneSaved 回调将实验代码文件短暂设为只读，触发真实提交异常。finally 解除回调并恢复属性。报告比较组件序列化、代码、所属场景文件与既有未保存编辑，不预设成功结果。失败错误与 Inspector 使用相同 Console 输出。
+故障实验临时将代码目标路径替换为目录，触发临时文件提交失败，finally 恢复原代码。生成本身不保存场景或 Prefab；报告可比较所属资产未变化和内存 Dirty 状态。报告比较组件序列化、代码、所属场景文件与既有未保存编辑，不预设成功结果。失败错误与 Inspector 使用相同 Console 输出。
 
 ## 重建与代码组织
 
@@ -43,6 +43,7 @@ Play Mode 下可另开菜单 **自动绑定UI组件 / 框架实验台 / 运行�
 
 - AutoBindExampleScope：外层组合入口；Update 唯一驱动实验 ViewManager.Tick。
 - LabSession：独立可释放实验容器，窗口资源由 Prefab 目录固定配置。
+- LabRoutes：八个静态只读类型化路由，共用 AutoBindTest / LabOpenArgs，保留独立资源名和策略。LabSession 常规打开、排队、替换与按名称关闭使用这些路由；MissingPrefab 替换仍展示字符串入口兼容和资源缺失行为。
 - AutoBindTest / Presenter：共享绑定结构的通用窗口，强类型 LabOpenArgs。
 - LabWidgetGroup → AutoBindExampleWidget：两层嵌套；Presenter 为 Transient，LabScopeProbe 为窗口 Scoped。
 - LabTelemetry：示例专用观察服务，只读取公开上下文与回调，不访问框架私有容器。

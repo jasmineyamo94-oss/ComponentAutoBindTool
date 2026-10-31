@@ -17,6 +17,7 @@ namespace @ComponentAutoBindTool.@Example
         }
 
         private UIView view;
+        bool global::ComponentAutoBindTool.ViewCore.IAutoBindHost.IsAutoBound => view != null;
 
         public override void EnsureAutoBind(global::UnityEngine.GameObject go)
         {

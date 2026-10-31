@@ -38,7 +38,7 @@ namespace ComponentAutoBindTool.Example.Editor
             m_Writes.Add(choice);
             AddButton(m_Writes, "恢复实验初始状态", () => { m_State = PipelineLabExperiment.Prepare((PipelineLabCase)m_State.Experiment); Render(); });
             AddButton(m_Writes, "重扫与校验", () => Run(false));
-            AddButton(m_Writes, "生成并保存", () => Run(true));
+            AddButton(m_Writes, "生成代码", () => Run(true));
             rootVisualElement.Add(m_Writes);
             var links = new VisualElement(); links.AddToClassList("toolbar");
             AddButton(links, "定位对象", () => { var target = PipelineLabExperiment.Resolve(m_State); Selection.activeObject = target; EditorGUIUtility.PingObject(target); });

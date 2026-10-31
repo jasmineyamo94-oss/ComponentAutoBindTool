@@ -46,6 +46,7 @@ namespace ComponentAutoBindTool.Editor
         private static bool HasMemberConflict(string member, string source, Type host)
         {
             string text = member.Replace("@", "").Trim();
+            if (Regex.IsMatch(text, @"\bIAutoBindHost\s*\.\s*IsAutoBound\b")) return true;
             var getter = AutoBindCodeGenerator.FindBaseMethod(host, "GetGeneratedUIView");
             bool generatesGetter = getter != null && getter.ReturnType == typeof(object);
             bool Reserved(string name) => name == "view" || name == "UIView" ||
@@ -110,11 +111,120 @@ namespace ComponentAutoBindTool.Editor
             return Regex.IsMatch(text, @"^<\s*(?:global\s*::\s*)?@?[\p{L}_](?:[\p{L}\p{N}_\s.,?<>\[\]]|::)*>");
         }
 
+        // 保留源码长度与换行，字符串内的声明、注释和大括号不参与宿主识别。
+        internal static string StripCommentsAndLiterals(string source)
+        {
+            char[] stripped = source.ToCharArray();
+            int position = 0;
+            while (position < source.Length)
+            {
+                int start = position;
+                if (!SkipComment(source, ref position) && !SkipLiteral(source, ref position))
+                {
+                    position++;
+                    continue;
+                }
+                for (int i = start; i < position; i++)
+                    if (stripped[i] != '\r' && stripped[i] != '\n') stripped[i] = ' ';
+            }
+            return new string(stripped);
+        }
+
+        private static bool SkipComment(string source, ref int position)
+        {
+            if (position + 1 >= source.Length || source[position] != '/') return false;
+            char next = source[position + 1];
+            if (next != '/' && next != '*') return false;
+            position += 2;
+            if (next == '/')
+            {
+                while (position < source.Length && source[position] != '\n') position++;
+            }
+            else
+            {
+                while (position + 1 < source.Length && !(source[position] == '*' && source[position + 1] == '/')) position++;
+                position = Math.Min(source.Length, position + 2);
+            }
+            return true;
+        }
+
+        private static bool SkipLiteral(string source, ref int position)
+        {
+            int quote = position;
+            bool interpolated = false;
+            int dollars = 0;
+            bool verbatim = false;
+            while (quote < source.Length && (source[quote] == '$' || source[quote] == '@'))
+            {
+                interpolated |= source[quote] == '$';
+                if (source[quote] == '$') dollars++;
+                verbatim |= source[quote] == '@';
+                quote++;
+            }
+            if (quote >= source.Length || (source[quote] != '"' && (quote != position || source[quote] != '\''))) return false;
+            char delimiter = source[quote];
+            int count = 1;
+            while (delimiter == '"' && quote + count < source.Length && source[quote + count] == '"') count++;
+            position = quote + 1;
+            if (count >= 3)
+            {
+                // 原始字符串支持任意长度引号分隔符；其内插表达式也整体屏蔽。
+                position = quote + count;
+                while (position < source.Length)
+                {
+                    if (interpolated && source[position] == '{')
+                    {
+                        int braces = 0;
+                        while (position + braces < source.Length && source[position + braces] == '{') braces++;
+                        position += braces;
+                        if (braces >= dollars) SkipInterpolation(source, ref position, dollars);
+                        continue;
+                    }
+                    int run = 0;
+                    while (position + run < source.Length && source[position + run] == '"') run++;
+                    position += run;
+                    if (run >= count) return true;
+                    if (run == 0) position++;
+                }
+                return true;
+            }
+            while (position < source.Length)
+            {
+                char current = source[position++];
+                if (!verbatim && current == '\\') { position = Math.Min(source.Length, position + 1); continue; }
+                if (current == delimiter)
+                {
+                    if (verbatim && position < source.Length && source[position] == '"') { position++; continue; }
+                    return true;
+                }
+                if (!interpolated || current != '{') continue;
+                if (position < source.Length && source[position] == '{') { position++; continue; }
+                SkipInterpolation(source, ref position, 1);
+            }
+            return true;
+        }
+
+        private static void SkipInterpolation(string source, ref int position, int closingBraces)
+        {
+            int depth = 0;
+            while (position < source.Length)
+            {
+                if (SkipComment(source, ref position) || SkipLiteral(source, ref position)) continue;
+                char current = source[position++];
+                if (current == '{') depth++;
+                if (current != '}') continue;
+                if (depth > 0) { depth--; continue; }
+                int count = 1;
+                while (count < closingBraces && position < source.Length && source[position] == '}')
+                { position++; count++; }
+                if (count == closingBraces) return;
+            }
+        }
+
         // 仅做声明级词法识别：忽略注释、字符串、特性和方法体，避免将局部变量当作字段。
         internal static IEnumerable<string> FindDeclarations(string source, Type host)
         {
-            string stripped = Regex.Replace(source,
-                @"//[^\r\n]*|/\*[\s\S]*?\*/|@""(?:""""|[^""])*""|""(?:\\.|[^""\\])*""|'(?:\\.|[^'\\])*'", " ");
+            string stripped = StripCommentsAndLiterals(source);
             string[] tokens = Regex.Matches(stripped, @"@?[\p{L}_][\p{L}\p{N}_]*|[^\s]")
                 .Cast<Match>().Select(m => m.Value).ToArray();
             string currentNamespace = "";

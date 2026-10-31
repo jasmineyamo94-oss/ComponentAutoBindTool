@@ -9,11 +9,12 @@ namespace ComponentAutoBindTool.ViewCore
     /// <summary>
     /// 窗口 Presenter 泛型基类（支持强类型开窗参数 TArgs）
     /// </summary>
-    public abstract class WindowPresenterBase<TUIView, TArgs> : IWindowPresenter
+    public abstract class WindowPresenterBase<TUIView, TArgs> : IWindowPresenter, IWindowArgsContract
         where TUIView : class
         where TArgs : class, IViewArgs
     {
         protected TUIView View { get; }
+        public Type ArgsType => typeof(TArgs);
         protected IWindowContext Context { get; private set; }
         private IObjectResolver m_WindowScope;
 
@@ -96,8 +97,20 @@ namespace ComponentAutoBindTool.ViewCore
         }
 
         /// <summary>
-        /// 动态解绑并销毁指定的子控件 Widget
+        /// 创建随父实例释放的动态 Widget 复用池。
         /// </summary>
+        protected WidgetPresenterPool<THost, TPresenter> CreateWidgetPool<THost, TPresenter>(
+            THost template, UnityEngine.Transform parent)
+            where THost : WidgetViewBase
+            where TPresenter : class, IWidgetPresenter, IWidgetVisibility
+        {
+            var pool = new WidgetPresenterPool<THost, TPresenter>(template, parent,
+                host => BindWidget<TPresenter>(host), presenter => UnbindWidget(presenter));
+            AddToInstanceLifetime(pool);
+            return pool;
+        }
+
+        /// <summary>动态解绑并销毁指定的子控件 Widget。</summary>
         protected void UnbindWidget(IWidgetPresenter widgetPresenter)
         {
             if (widgetPresenter != null && m_ChildWidgets.Remove(widgetPresenter))

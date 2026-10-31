@@ -60,7 +60,9 @@ namespace ComponentAutoBindTool.ViewCore
         /// <summary>
         /// 显式执行静态绑定并从父容器创建窗口子 Scope（解决 A-P03）
         /// </summary>
-        public void BuildScopeAndCreate(IObjectResolver parentResolver)
+        public void BuildScopeAndCreate(IObjectResolver parentResolver) => BuildScopeAndCreate(parentResolver, null);
+
+        internal bool BuildScopeAndCreate(IObjectResolver parentResolver, ViewRoute route)
         {
             // 1. 显式调用静态组件绑定，生成 UIView
             ((IAutoBindHost)ViewHost).EnsureAutoBind(ViewHost.gameObject);
@@ -74,9 +76,12 @@ namespace ComponentAutoBindTool.ViewCore
             });
 
             // 3. 解析 Presenter 并完成关联与首次创建初始化
-            Presenter = m_ChildScope.Resolve<IWindowPresenter>();
+            var presenter = m_ChildScope.Resolve<IWindowPresenter>();
+            if (route != null && !route.ValidatePresenter(presenter)) return false;
+            Presenter = presenter;
             Presenter.InternalAttach(this, m_ChildScope);
             Presenter.InternalOnCreate();
+            return true;
         }
 
         /// <summary>

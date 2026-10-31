@@ -63,6 +63,9 @@ namespace ComponentAutoBindTool.Tests
             {
                 Assert.That(state.Report, Does.Contain("源 Prefab 保持不变：True"));
                 var current = SceneManager.GetSceneByPath(PipelineLabExperiment.ScenePath);
+                Assert.That(current.isDirty, Is.True);
+                Assert.That(state.AssetRestored, Is.True);
+                EditorSceneManager.SaveScene(current);
                 EditorSceneManager.CloseScene(current, true);
                 EditorSceneManager.OpenScene(PipelineLabExperiment.ScenePath, OpenSceneMode.Additive);
                 var loaded = PipelineLabExperiment.Resolve(state);

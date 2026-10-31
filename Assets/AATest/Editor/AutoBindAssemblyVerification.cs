@@ -25,6 +25,7 @@ namespace ComponentAutoBindTool.Tests
 
         public static void PrepareAll()
         {
+            AutoBindGeneratedCodeVerification.RegenerateExample();
             AutoBindGeneratedCodeVerification.Prepare();
             Prepare();
         }
@@ -96,6 +97,7 @@ namespace ComponentAutoBindTool.Tests
                     }
                     finally { Object.DestroyImmediate(inspector); }
                 }
+                EditorSceneManager.SaveScene(scene, ScenePath);
             }
             finally
             {

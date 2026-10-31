@@ -16,6 +16,34 @@ namespace ComponentAutoBindTool.Tests
     public static class AutoBindGeneratedCodeVerification
     {
         private const string Output = "Assets/AATest/CompilationGenerated";
+        public static void RegenerateExample()
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(Example.Editor.AutoBindExampleSetup.PrefabPath);
+            foreach (var tool in prefab.GetComponentsInChildren<Core.ComponentAutoBindTool>(true))
+            {
+                var inspector = (ComponentAutoBindToolInspector)UnityEditor.Editor.CreateEditor(tool);
+                try
+                {
+                    var report = inspector.RunPipeline(true);
+                    if (!report.Succeeded) throw new InvalidOperationException(report.ValidationResult.BuildReport());
+                }
+                finally { UnityEngine.Object.DestroyImmediate(inspector); }
+            }
+            var scene = EditorSceneManager.OpenScene(Example.Editor.AutoBindExampleSetup.ScenePath);
+            foreach (var root in scene.GetRootGameObjects())
+                foreach (var tool in root.GetComponentsInChildren<Core.ComponentAutoBindTool>(true))
+                {
+                    var inspector = (ComponentAutoBindToolInspector)UnityEditor.Editor.CreateEditor(tool);
+                    try
+                    {
+                        var report = inspector.RunPipeline(true);
+                        if (!report.Succeeded) throw new InvalidOperationException(report.ValidationResult.BuildReport());
+                    }
+                    finally { UnityEngine.Object.DestroyImmediate(inspector); }
+                }
+            Debug.Log("AUTOBIND_EXAMPLE_REGENERATED：通过 Inspector 流水线重新生成。");
+        }
+
         public static void Prepare()
         {
             Directory.CreateDirectory(Output);
@@ -56,6 +84,7 @@ namespace ComponentAutoBindTool.Tests
                 var report = AutoBindBuildPipeline.GenerateCode(tool, setting, keyMap);
                 if (!report.Succeeded) throw new InvalidOperationException(report.ValidationResult.BuildReport());
             }
+            EditorSceneManager.SaveScene(scene, Output + "/Verification.unity");
             Debug.Log("四种宿主的真实编译验证产物已生成。");
         }
 
@@ -96,6 +125,18 @@ namespace ComponentAutoBindTool.Tests
             FieldInfo childField = child.GetType().GetField("view", BindingFlags.Instance | BindingFlags.NonPublic);
             if (childField == null || childField.GetValue(child) != null)
                 throw new InvalidOperationException("级联验证子宿主初始状态不符。");
+            var childToolBeforeBind = child.GetComponent<Core.ComponentAutoBindTool>();
+            var serialized = new SerializedObject(childToolBeforeBind);
+            var components = serialized.FindProperty("m_BindComs");
+            UnityEngine.Object original = components.GetArrayElementAtIndex(0).objectReferenceValue;
+            components.GetArrayElementAtIndex(0).objectReferenceValue = null;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            parentHost.EnsureAutoBind(parent.gameObject);
+            if (parentHost.IsAutoBound || ((IAutoBindHost)(object)child).IsAutoBound)
+                throw new InvalidOperationException("子绑定失败时父宿主缓存了残缺 UIView。");
+            serialized.Update();
+            serialized.FindProperty("m_BindComs").GetArrayElementAtIndex(0).objectReferenceValue = original;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
             parentHost.EnsureAutoBind(parent.gameObject);
             object childView = childField.GetValue(child);
             var childTool = child.GetComponent<Core.ComponentAutoBindTool>();

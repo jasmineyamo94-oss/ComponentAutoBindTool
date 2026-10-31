@@ -1,0 +1,7 @@
+{
+    "name": "ComponentAutoBindTool.AssetCore.YooAsset",
+    "references": ["ComponentAutoBindTool.AssetCore", "YooAsset"],
+    "defineConstraints": ["USE_YOOASSET"],
+    "versionDefines": [{ "name": "com.tuyoogame.yooasset", "expression": "[3.0.6,4.0.0)", "define": "USE_YOOASSET" }],
+    "autoReferenced": true
+}

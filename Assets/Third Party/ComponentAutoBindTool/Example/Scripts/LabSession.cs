@@ -46,7 +46,16 @@ namespace ComponentAutoBindTool.Example
 
         public int Open(string name, bool immediately = true)
         {
-            int id = Manager.ShowView(name, new LabOpenArgs("参数修订", ++m_Revision), immediately);
+            var args = new LabOpenArgs("参数修订", ++m_Revision);
+            var route = LabRoutes.Find(name);
+            int id;
+            if (route == null) id = Manager.ShowView(name, args, immediately);
+            else if (immediately) id = Manager.ShowView(route, args);
+            else
+            {
+                Manager.EnqueueView(route, args);
+                id = 0;
+            }
             if (id > 0) LastInstanceId = id;
             m_Trace.Log($"ShowView({name}, immediately:{immediately}) → {id}");
             return id;
@@ -67,9 +76,9 @@ namespace ComponentAutoBindTool.Example
                     break;
                 case 2:
                     if (action == 0) Open("AutoBindTest");
-                    if (action == 1) Manager.CloseView("AutoBindTest");
+                    if (action == 1) Manager.CloseView(LabRoutes.Normal);
                     if (action == 2) Open("Delayed");
-                    if (action == 3) Manager.CloseView("Delayed");
+                    if (action == 3) Manager.CloseView(LabRoutes.Delayed);
                     if (action == 4) Open("Multi");
                     if (action == 5) Manager.CloseView(LastInstanceId);
                     break;
@@ -77,7 +86,7 @@ namespace ComponentAutoBindTool.Example
                     if (action == 0) Open("AutoBindTest");
                     if (action == 1) Open("Cover", false);
                     if (action == 2) Open("Multi", false);
-                    if (action == 3) LastInstanceId = Manager.ReplaceTopView("Cover", new LabOpenArgs("替换", ++m_Revision));
+                    if (action == 3) LastInstanceId = Manager.ReplaceTopView(LabRoutes.Cover, new LabOpenArgs("替换", ++m_Revision));
                     if (action == 4) Manager.ReplaceTopView("MissingPrefab", new LabOpenArgs("预期失败", 0));
                     if (action == 5) Manager.TryNavigateBack();
                     break;

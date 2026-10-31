@@ -42,7 +42,7 @@ namespace ComponentAutoBindTool.Example.Editor
         public const string ScenePath = Workspace + "/Experiment.unity";
         public const string CodePath = Workspace + "/PipelineLabHost.BindComponents.cs";
         public static readonly string[] Names = { "正常扫描 / 首次生成", "节点改名后直接生成", "嵌套边界 / Widget / TMP 跳过", "失败：未知前缀", "失败：缺失组件",
-            "失败：重复字段", "失败：非法名称", "失败：无效路径", "连续生成不改写", "保存场景", "保存 Prefab", "场景实例仅产生覆盖", "提交失败与完整回滚" };
+            "失败：重复字段", "失败：非法名称", "失败：无效路径", "连续生成不改写", "场景内存更新 / 手动保存", "Prefab 内存更新 / 手动保存", "场景实例仅产生覆盖", "提交失败与完整回滚" };
 
         public static Core.ComponentAutoBindTool Resolve(PipelineLabState state)
         {
@@ -143,15 +143,24 @@ namespace ComponentAutoBindTool.Example.Editor
             state.BeforeTime = Timestamp(CodePath);
             var originalAttributes = File.Exists(CodePath) ? File.GetAttributes(CodePath) : FileAttributes.Normal;
             var scene = tool.gameObject.scene;
-            void FailCommit(Scene saved)
+            bool inject = generate && state.Experiment == (int)PipelineLabCase.Rollback && File.Exists(CodePath);
+            void RestoreInjectedPath()
             {
-                if (saved == scene && File.Exists(CodePath)) File.SetAttributes(CodePath, FileAttributes.ReadOnly);
+                if (!inject || !Directory.Exists(CodePath)) return;
+                Directory.Delete(CodePath);
+                File.WriteAllText(CodePath, source, new UTF8Encoding(false));
+                if (state.BeforeTime != 0) File.SetLastWriteTimeUtc(CodePath, new DateTime(state.BeforeTime, DateTimeKind.Utc));
+                File.SetAttributes(CodePath, originalAttributes);
             }
-            bool inject = generate && state.Experiment == (int)PipelineLabCase.Rollback;
             try
             {
-                if (inject) EditorSceneManager.sceneSaved += FailCommit;
+                if (inject)
+                {
+                    File.Delete(CodePath);
+                    Directory.CreateDirectory(CodePath);
+                }
                 var report = inspector.RunPipeline(generate, false, setting, map);
+                RestoreInjectedPath();
                 state.Succeeded = report.Succeeded;
                 state.BindingsChanged = report.BindingsUpdated;
                 state.CodeChanged = report.CodeFileUpdated;
@@ -174,8 +183,7 @@ namespace ComponentAutoBindTool.Example.Editor
             }
             finally
             {
-                EditorSceneManager.sceneSaved -= FailCommit;
-                if (inject && File.Exists(CodePath)) File.SetAttributes(CodePath, originalAttributes);
+                RestoreInjectedPath();
                 Object.DestroyImmediate(inspector);
                 Object.DestroyImmediate(setting);
                 Object.DestroyImmediate(map);

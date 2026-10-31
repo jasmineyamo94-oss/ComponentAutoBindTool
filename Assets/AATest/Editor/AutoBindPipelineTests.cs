@@ -142,7 +142,7 @@ namespace ComponentAutoBindTool.Tests
             AssertSuccess(renamed);
             Assert.That(m_Tool.BindDatas[0].Name, Is.EqualTo("Btn_Renamed"));
             Assert.That(File.ReadAllText(renamed.GeneratedFilePath), Does.Contain("btnRenamed"));
-            Assert.That(m_Scene.isDirty, Is.False);
+            Assert.That(m_Scene.isDirty, Is.True);
         }
 
         [TestCase("Unknown_Field")]
@@ -178,7 +178,7 @@ namespace ComponentAutoBindTool.Tests
         }
 
         [Test]
-        public void WriteFailureAfterSavingRestoresBindingsAndUnsavedSceneEdits()
+        public void CommitFailureRestoresBindingsAndUnsavedSceneEdits()
         {
             var first = Generate();
             AssertSuccess(first);
@@ -188,38 +188,44 @@ namespace ComponentAutoBindTool.Tests
             m_Child.name = "Btn_Renamed";
             var unrelated = new GameObject("先前未保存的编辑");
             EditorSceneManager.MarkSceneDirty(m_Scene);
-            void FailCodeCommit(Scene saved)
-            {
-                if (saved == m_Scene) File.SetAttributes(first.GeneratedFilePath, FileAttributes.ReadOnly);
-            }
-            EditorSceneManager.sceneSaved += FailCodeCommit;
+            File.Delete(first.GeneratedFilePath);
+            Directory.CreateDirectory(first.GeneratedFilePath);
             AutoBindPipelineReport failed;
             try { failed = Generate(); }
             finally
             {
-                EditorSceneManager.sceneSaved -= FailCodeCommit;
-                File.SetAttributes(first.GeneratedFilePath, FileAttributes.Normal);
+                Directory.Delete(first.GeneratedFilePath);
+                File.WriteAllBytes(first.GeneratedFilePath, code);
             }
             Assert.That(failed.Succeeded, Is.False);
             Assert.That(EditorJsonUtility.ToJson(m_Tool), Is.EqualTo(snapshot));
             Assert.That(File.ReadAllBytes(m_Scene.path), Is.EqualTo(scene));
-            Assert.That(File.ReadAllBytes(first.GeneratedFilePath), Is.EqualTo(code));
-            Assert.That(unrelated != null && unrelated.name == "先前未保存的编辑", Is.True);
+            Assert.That(unrelated != null, Is.True);
             Assert.That(m_Child.name, Is.EqualTo("Btn_Renamed"));
             Assert.That(m_Scene.isDirty, Is.True);
         }
 
         [Test]
-        public void SaveFailureIsReportedWithoutCommitting()
+        public void ReadOnlySceneDoesNotPreventGenerationOrChangeDisk()
+        {
+            byte[] scene = File.ReadAllBytes(m_Scene.path);
+            File.SetAttributes(m_Scene.path, FileAttributes.ReadOnly);
+            try { AssertSuccess(Generate()); }
+            finally { File.SetAttributes(m_Scene.path, FileAttributes.Normal); }
+            Assert.That(File.ReadAllBytes(m_Scene.path), Is.EqualTo(scene));
+            Assert.That(m_Scene.isDirty, Is.True);
+        }
+
+        [Test]
+        public void GenerationSupportsUndoWithoutRemovingCodeFile()
         {
             string snapshot = EditorJsonUtility.ToJson(m_Tool);
-            File.SetAttributes(m_Scene.path, FileAttributes.ReadOnly);
-            AutoBindPipelineReport failed;
-            try { failed = Generate(); }
-            finally { File.SetAttributes(m_Scene.path, FileAttributes.Normal); }
-            Assert.That(failed.Succeeded, Is.False);
+            var report = Generate();
+            AssertSuccess(report);
+            Undo.FlushUndoRecordObjects();
+            Undo.PerformUndo();
             Assert.That(EditorJsonUtility.ToJson(m_Tool), Is.EqualTo(snapshot));
-            Assert.That(Directory.GetFiles(m_Folder, "*.cs"), Is.Empty);
+            Assert.That(File.Exists(report.GeneratedFilePath), Is.True);
         }
 
         [Test]
@@ -252,11 +258,12 @@ namespace ComponentAutoBindTool.Tests
         }
 
         [Test]
-        public void UnsavedSceneAndDifferentAssemblyAreRejected()
+        public void UnsavedSceneGeneratesButDifferentAssemblyIsRejected()
         {
             Scene unsaved = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
             SceneManager.MoveGameObjectToScene(m_Tool.gameObject, unsaved);
-            Assert.That(Generate().ValidationResult.BuildReport(), Does.Contain("先保存"));
+            AssertSuccess(Generate());
+            Assert.That(unsaved.isDirty, Is.True);
             SceneManager.MoveGameObjectToScene(m_Tool.gameObject, m_Scene);
             EditorSceneManager.CloseScene(unsaved, true);
             var data = new SerializedObject(m_Setting);
@@ -292,6 +299,7 @@ namespace ComponentAutoBindTool.Tests
             var report = Generate();
             AssertSuccess(report);
             string scenePath = m_Scene.path;
+            Assert.That(EditorSceneManager.SaveScene(m_Scene), Is.True);
             EditorSceneManager.CloseScene(m_Scene, true);
             m_Scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Additive);
             var tool = m_Scene.GetRootGameObjects().SelectMany(x => x.GetComponentsInChildren<Core.ComponentAutoBindTool>()).Single();
@@ -299,7 +307,7 @@ namespace ComponentAutoBindTool.Tests
         }
 
         [Test]
-        public void PrefabSaveIncludesOtherDirtyComponentsAndCanReload()
+        public void PrefabGenerationLeavesOtherDirtyComponentsUnsaved()
         {
             AssertSuccess(Generate());
             EndAssetEditing();
@@ -310,11 +318,14 @@ namespace ComponentAutoBindTool.Tests
             m_Tool = prefab.GetComponent<Core.ComponentAutoBindTool>();
             prefab.transform.localPosition = new Vector3(17, 23, 0);
             EditorUtility.SetDirty(prefab.transform);
+            byte[] before = File.ReadAllBytes(prefabPath);
             AssertSuccess(Generate());
+            Assert.That(EditorUtility.IsDirty(prefab.transform), Is.True);
+            Assert.That(File.ReadAllBytes(prefabPath), Is.EqualTo(before));
             var loaded = PrefabUtility.LoadPrefabContents(prefabPath);
             try
             {
-                Assert.That(loaded.transform.localPosition, Is.EqualTo(new Vector3(17, 23, 0)));
+                Assert.That(loaded.transform.localPosition, Is.Not.EqualTo(new Vector3(17, 23, 0)));
                 Assert.That(loaded.GetComponent<Core.ComponentAutoBindTool>().GetBindComponent<Button>(-1, "btnFirst"), Is.Not.Null);
             }
             finally { PrefabUtility.UnloadPrefabContents(loaded); }
@@ -392,7 +403,7 @@ namespace ComponentAutoBindTool.Tests
         }
 
         [Test]
-        public void PrefabStageSavesBindingsToTheOpenedPrefab()
+        public void PrefabStageGenerationLeavesBindingsDirtyWithoutSaving()
         {
             string prefabPath = m_Folder + "/Stage.prefab";
             PrefabUtility.SaveAsPrefabAsset(m_Tool.gameObject, prefabPath, out bool saved);
@@ -405,7 +416,8 @@ namespace ComponentAutoBindTool.Tests
                 m_Tool = stage.prefabContentsRoot.GetComponent<Core.ComponentAutoBindTool>();
                 stage.prefabContentsRoot.transform.GetChild(0).name = "Btn_Stage";
                 AssertSuccess(Generate());
-                Assert.That(stage.scene.isDirty, Is.False);
+                Assert.That(stage.scene.isDirty, Is.True);
+                Assert.That(m_Tool.GetBindComponent<Button>(-1, "btnStage"), Is.Not.Null);
             }
             finally
             {
@@ -415,13 +427,13 @@ namespace ComponentAutoBindTool.Tests
             var loaded = PrefabUtility.LoadPrefabContents(prefabPath);
             try
             {
-                Assert.That(loaded.GetComponent<Core.ComponentAutoBindTool>().GetBindComponent<Button>(-1, "btnStage"), Is.Not.Null);
+                Assert.That(loaded.transform.GetChild(0).name, Is.EqualTo("Btn_First"));
             }
             finally { PrefabUtility.UnloadPrefabContents(loaded); }
         }
 
         [Test]
-        public void PrefabInstanceGenerationSavesSceneOverridesWithoutApplyingToAsset()
+        public void PrefabInstanceGenerationLeavesOverridesDirtyUntilExplicitSave()
         {
             string prefabPath = m_Folder + "/Instance.prefab";
             PrefabUtility.SaveAsPrefabAsset(m_Tool.gameObject, prefabPath, out bool saved);
@@ -437,6 +449,7 @@ namespace ComponentAutoBindTool.Tests
             AssertSuccess(Generate());
             Assert.That(File.ReadAllBytes(prefabPath), Is.EqualTo(originalPrefab));
             string scenePath = m_Scene.path;
+            Assert.That(EditorSceneManager.SaveScene(m_Scene), Is.True);
             EditorSceneManager.CloseScene(m_Scene, true);
             m_Scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Additive);
             var reloaded = m_Scene.GetRootGameObjects().Single(PrefabUtility.IsPartOfPrefabInstance);

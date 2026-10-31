@@ -49,6 +49,7 @@ namespace ComponentAutoBindTool.Tests
             public Action<string> PhaseCallback { get; set; }
 
             public LifecycleProbe BindChild(WidgetViewBase host) => BindWidget<LifecycleProbe>(host);
+            public void UnbindChild(IWidgetPresenter child) => UnbindWidget(child);
             public void TrackSession(Action callback) => AddToOpenSession(new CallbackDisposable(callback));
             public void TrackInstance(Action callback) => AddToInstanceLifetime(new CallbackDisposable(callback));
 
@@ -430,5 +431,83 @@ namespace ComponentAutoBindTool.Tests
             lifecycle.InternalOnClose();
             lifecycle.InternalOnDestroy();
         }
+        [Test]
+        public void PoolReusesPresenterAndHostWithoutResolveAndStopsHiddenTick()
+        {
+            using IObjectResolver scope = CreateScope();
+            var events = new List<string>();
+            WindowProbe window = OpenWindow(scope);
+            var template = CreateHost("template", events);
+            int binds = 0;
+            using var pool = new WidgetPresenterPool<WidgetLifecycleHost, LifecycleProbe>(template, template.transform.parent,
+                host =>
+                {
+                    binds++;
+                    host.UIView = new LifecycleView { Name = "pooled", Events = events };
+                    return window.Bind(host);
+                }, presenter => window.Unbind(presenter));
+            var first = pool.Spawn(out var firstHost);
+            Assert.That(firstHost.gameObject.activeSelf, Is.True);
+            ((IWidgetPresenter)first).InternalTick(1f);
+            pool.Despawn(first);
+            pool.Despawn(first);
+            ((IWidgetPresenter)first).InternalTick(1f);
+            Assert.That(first.Ticks, Is.EqualTo(1));
+            Assert.That(events.Count(e => e == "pooled.Pause"), Is.EqualTo(1));
+            var second = pool.Spawn(out var secondHost);
+            Assert.That(second, Is.SameAs(first));
+            Assert.That(secondHost, Is.SameAs(firstHost));
+            Assert.That(binds, Is.EqualTo(1));
+            pool.Dispose();
+            Assert.That(events, Does.Contain("pooled.InstanceDisposed"));
+            Assert.That(firstHost == null, Is.True);
+            ((IWindowPresenter)window).InternalOnDestroy();
+        }
+
+        [Test]
+        public void PoolDisposeInsidePauseStillDestroysReturningItem()
+        {
+            using IObjectResolver scope = CreateScope();
+            var events = new List<string>();
+            WindowProbe window = OpenWindow(scope);
+            var template = CreateHost("template", events);
+            using var pool = new WidgetPresenterPool<WidgetLifecycleHost, LifecycleProbe>(template, null,
+                host =>
+                {
+                    host.UIView = new LifecycleView { Name = "pooled", Events = events };
+                    return window.Bind(host);
+                }, presenter => window.Unbind(presenter));
+            var presenter = pool.Spawn(out var host);
+            presenter.PhaseCallback = phase => { if (phase == "Pause") pool.Dispose(); };
+            pool.Despawn(presenter);
+            Assert.That(host == null, Is.True);
+            Assert.That(pool.ActiveCount + pool.InactiveCount, Is.Zero);
+            Assert.That(events, Does.Contain("pooled.InstanceDisposed"));
+            ((IWindowPresenter)window).InternalOnDestroy();
+        }
+
+        [Test]
+        public void NestedPoolDisposeDuringPauseDoesNotSkipSiblingPause()
+        {
+            using IObjectResolver scope = CreateScope();
+            var events = new List<string>();
+            WindowProbe window = OpenWindow(scope);
+            var parent = window.Bind(CreateHost("parent", events));
+            var template = CreateHost("template", events);
+            using var pool = new WidgetPresenterPool<WidgetLifecycleHost, LifecycleProbe>(template, null,
+                host =>
+                {
+                    host.UIView = new LifecycleView { Name = "pooled", Events = events };
+                    return parent.BindChild(host);
+                }, presenter => parent.UnbindChild(presenter));
+            var item = pool.Spawn(out _);
+            parent.BindChild(CreateHost("sibling", events));
+            item.PhaseCallback = phase => { if (phase == "Pause") pool.Dispose(); };
+            ((IWidgetPresenter)parent).InternalOnPause();
+            Assert.That(events.Count(e => e == "sibling.Pause"), Is.EqualTo(1));
+            Assert.That(events.Count(e => e == "pooled.InstanceDisposed"), Is.EqualTo(1));
+            ((IWindowPresenter)window).InternalOnDestroy();
+        }
+
     }
 }

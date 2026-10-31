@@ -118,7 +118,7 @@ namespace ComponentAutoBindTool.Editor
             string title = report.Succeeded ? (generate ? "生成完成" : "校验通过") : "操作失败";
             m_LastReport = title + "\n" + report.ValidationResult.BuildReport();
             if (generate && report.Succeeded)
-                m_LastReport += report.CodeFileUpdated ? "\n已保存所属场景或 Prefab，并更新代码。" : "\n代码内容未变化，已跳过写入。";
+                m_LastReport += report.CodeFileUpdated ? "\n已更新代码；绑定引用已更新到内存，请按需保存场景或 Prefab。" : "\n代码内容未变化，已跳过写入。";
             if (report.Succeeded)
             {
                 if (report.ValidationResult.WarningCount > 0) Debug.LogWarning(m_LastReport, m_Target);

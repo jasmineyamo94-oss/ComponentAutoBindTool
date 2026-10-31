@@ -29,15 +29,19 @@ ComponentAutoBindTool.ViewCore，入口为 ViewBase、WidgetViewBase、WindowEnt
 
 ## 接入新宿主
 
+新业务开窗可声明静态只读 `ViewRoute<MyView, MyArgs>("稳定资源键")`，通过 `manager.ShowView(route, args)`、`EnqueueView`、`ReplaceTopView`、`CloseView` 使用。路由不要求资源名等于类名，一个宿主可以对应多个资源。旧字符串入口与 IViewManager 实现方保持兼容；新能力通过 IViewRouteManager 选择加入。
+
+WindowPresenterBase 自动公开 IWindowArgsContract，运行时按精确 TArgs 核验；自定义 Presenter 需实现该契约。无参数路由使用 EmptyViewArgs，Presenter 同样声明该类型。新路由拒绝 null 参数或错误契约，诊断后返回 0/false，不刷新旧会话。完整接口和失败范围见 [架构导读第 5.8 节](ARCHITECTURE.md#58-显式类型化路由)。该接入不需要重新生成绑定文件。
+
 1. 先创建能独立编译的 partial 窗口类，继承 ViewBase；嵌套控件继承 WidgetViewBase。
 2. 初次生成前保留空的 ConfigureWindow 实现，不引用尚不存在的 UIView 类型。
 3. 把宿主挂到绑定根节点，将同节点 ComponentAutoBindTool 的目标脚本设为该宿主。
 4. 按 Prefix_FieldSuffix 命名节点。嵌套 Widget 根节点添加自己的 AutoBind，直接使用内置 `Widget` 前缀，例如 `Widget_GroupDetails`，无需注册具体 Widget 派生类；指定的目标必须是同节点 Widget。普通嵌套子宿主使用 `Sub` 前缀，例如 `Sub_Header`，同节点 AutoBind 必须指向该子宿主脚本。
-5. 保存场景，点击“生成代码”，等待编译。无需先按“重扫校验”，生成本身始终重新扫描。
+5. 点击“生成代码”，等待编译；按需手动保存场景或 Prefab。无需先按“重扫校验”，生成本身始终重新扫描。
 6. 接入强类型 Presenter：窗口 ConfigureWindow 中调用 RegisterWindow<TPresenter, UIView>(builder, view)，
    并注册所需的 Widget Presenter；Presenter 通过 BindWidget<TPresenter> 绑定控件。
 
-先为子宿主生成，再为父宿主生成，等待脚本编译。父宿主绑定时会级联调用非 Widget 子宿主的 `EnsureAutoBind`；Widget 依旧由 `BindWidget` 驱动。子宿主尚未实现接口时父绑定会报告缺少生成代码并保持可重试；接口为 void，子宿主自身内部绑定失败需根据其 Console 诊断排查。
+先为子宿主生成，再为父宿主生成，等待脚本编译。父宿主绑定时会级联调用非 Widget 子宿主的 `EnsureAutoBind`；Widget 依旧由 `BindWidget` 驱动。子宿主尚未实现接口时父绑定会报告缺少生成代码并保持可重试；重新生成后的子宿主通过 IsAutoBound 通知父宿主绑定失败；旧生成文件请通过 Inspector 重新生成。
 
 迁移已有工程时，内置 `Widget` 和 `Sub` 优先于额外映射中同名项；如果旧前缀指向其他组件，请为其选用其他前缀并重新生成。旧的自定义 Widget 前缀（例如 `WidgetGroup`）可继续使用原映射；切换到 `Widget` 后字段名会随前缀改变，需同步手写 Presenter 并通过 Inspector 重新生成和保存所属资产。按本次方案，项目映射资产的额外映射已清空，原 `Nbi` 业务映射也已移除；仍使用该前缀时需要重新配置或迁移节点。类型无法解析时，映射 Inspector 的清理按钮会删除对应记录，使用前请检查编译状态和具体内容。
 
@@ -61,13 +65,11 @@ Inspector 显示并记录同一份报告；选中对象和重绘不会隐式修�
 遍历顺序、嵌套绑定边界、TMP 跳过规则以及字段命名转换规则保持原有语义。
 
 - 重扫校验：成功后同步绑定表和运行时缓存，支持 Undo，不写生成代码。
-- 生成代码：同步元数据及三份绑定列表，保存所属资产，再提交代码文件。
-- 普通场景与场景中的 Prefab 实例：保存场景及实例覆盖，不自动 Apply 到原 Prefab。
-- Prefab 编辑模式：保存当前打开的 Prefab；直接选中的 Prefab 资产保存该资产。
-- 未命名场景：返回“请先保存当前场景”，流水线不弹窗。
-- 可捕获的保存或写入失败：恢复组件、原代码与所属资产内容，并保留操作前的未保存编辑。
+- 生成代码：同步内存元数据与三份绑定列表、记录 Undo/Dirty，再提交代码文件。
+- 普通场景、未命名场景、Prefab Stage 与直接选中的 Prefab 资产均不主动保存；实例只记录覆盖。
+- 可捕获的代码写入失败恢复组件、代码与本次 Undo，保留已有未保存编辑；失败后可能保留场景星号。
 
-生成是对象与文件的一次持久化提交，不单独提供组件 Undo；需要可撤销的扫描使用“重扫校验”。
+生成的内存引用可撤销，磁盘代码不随 Undo 回退；撤销后重新生成。退出 Unity 前按需保存场景或 Prefab。
 回滚不覆盖进程崩溃、断电等无法捕获的失败。
 
 输出使用 UTF-8 无 BOM、LF、四空格缩进，没有时间戳；组件类型采用 global:: 完整限定名。
@@ -117,3 +119,7 @@ AutoBindGeneratedCodeVerification 提供额外两阶段验证：在项目副本�
 新增 `AutoBindAssemblyVerification` 两阶段编译验证：`Prepare` 通过 Inspector 为独立程序集的普通、显式接口、窗口、Widget 宿主生成；下次启动执行 `Verify` 检查真实接口分派、缓存和 Player 程序集边界。`CompilePlayer` 实际编译 Windows Player 脚本。只在验证副本执行这些入口，避免留下临时场景和测试生成文件。
 
 本次验证为 Windows / Unity 6000.3.20f1：129 项回归全部通过，原 51 项全部保留；生成后编译、Player 脚本编译及真实脚本重载恢复均通过。命令、证据和平台边界见 [测试报告](../../../Validation/BoundaryFixes/README.md)。程序集依赖遵循 [Unity 6.3 程序集引用规则](https://docs.unity3d.com/6000.3/Documentation/Manual/assembly-definitions-referencing.html)。
+
+## 可选资源后端与异步开窗
+
+使用方式、版本范围、组合根注册与租约规则见 [资源接入说明](Scripts/AssetCore/README.md)。不使用外部加载包时可直接接入 DirectCatalogBackend。动态列表通过父 Presenter 的 CreateWidgetPool 创建复用池，Spawn/Despawn 不反复 Resolve；池随父实例释放。

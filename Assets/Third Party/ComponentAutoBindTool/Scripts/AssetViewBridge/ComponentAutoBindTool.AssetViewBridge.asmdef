@@ -1,0 +1,5 @@
+{
+    "name": "ComponentAutoBindTool.AssetViewBridge",
+    "references": ["ComponentAutoBindTool.AssetCore", "ComponentAutoBindTool.ViewCore"],
+    "autoReferenced": true
+}
