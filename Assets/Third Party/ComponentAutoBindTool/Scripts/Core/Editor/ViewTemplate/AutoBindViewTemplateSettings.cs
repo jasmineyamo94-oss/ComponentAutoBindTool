@@ -8,18 +8,18 @@ namespace ComponentAutoBindTool.Editor
     {
         internal const string DefaultPrefabRoot = "Assets/AAGame/UI/Prefabs";
         internal const string DefaultScriptRoot = "Assets/AAGame/Scripts/UI";
-        [SerializeField] private string m_PrefabRoot = DefaultPrefabRoot;
-        [SerializeField] private string m_ScriptRoot = DefaultScriptRoot;
-        internal string PrefabRoot => m_PrefabRoot;
-        internal string ScriptRoot => m_ScriptRoot;
+        [SerializeField] private string _prefabRoot = DefaultPrefabRoot;
+        [SerializeField] private string _scriptRoot = DefaultScriptRoot;
+        internal string PrefabRoot => _prefabRoot;
+        internal string ScriptRoot => _scriptRoot;
 
         internal void Store(string prefabRoot, string scriptRoot)
         {
             string prefab = AutoBindViewTemplateDefinition.NormalizeFolder(prefabRoot);
             string scripts = AutoBindViewTemplateDefinition.NormalizeFolder(scriptRoot);
             AutoBindViewTemplateDefinition.ValidateAssembly(scripts + "/__TemplateProbe.cs");
-            m_PrefabRoot = prefab;
-            m_ScriptRoot = scripts;
+            _prefabRoot = prefab;
+            _scriptRoot = scripts;
             Save(true);
         }
     }

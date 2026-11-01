@@ -5,16 +5,16 @@ namespace ComponentAutoBindTool.Example
 {
     public sealed class LabWidgetGroupPresenter : WidgetPresenterBase<LabWidgetGroup.UIView>
     {
-        private readonly LabScopeProbe m_Probe;
+        private readonly LabScopeProbe _probe;
         public AutoBindExampleWidgetPresenter Left { get; private set; }
         public AutoBindExampleWidgetPresenter Right { get; private set; }
         public Action RequestDetach;
-        public LabWidgetGroupPresenter(LabScopeProbe probe) { m_Probe = probe; }
+        public LabWidgetGroupPresenter(LabScopeProbe probe) { _probe = probe; }
         protected override void OnCreate()
         {
             Left = BindWidget<AutoBindExampleWidgetPresenter>(View.widgetLeft);
             Right = BindWidget<AutoBindExampleWidgetPresenter>(View.widgetRight);
-            View.tMTxtScope.text = $"嵌套 Widget / 共享 Scope #{m_Probe.Id} / 两个独立 Presenter";
+            View.tMTxtScope.text = $"嵌套 Widget / 共享 Scope #{_probe.Id} / 两个独立 Presenter";
             View.btnToggle.onClick.AddListener(ToggleLeft);
             View.btnUnbind.onClick.AddListener(Detach);
         }

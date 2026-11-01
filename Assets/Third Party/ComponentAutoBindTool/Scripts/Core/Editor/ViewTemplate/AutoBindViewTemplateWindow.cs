@@ -10,26 +10,26 @@ namespace ComponentAutoBindTool.Editor
 {
     public sealed class AutoBindViewTemplateWindow : EditorWindow
     {
-        [SerializeField] private string m_BaseName = "";
-        [SerializeField] private bool m_UseArgs = true;
-        [SerializeField] private GameObject m_Context;
-        [SerializeReference] private AutoBindViewTemplateDefinition m_RecreateRecipe;
-        private AutoBindGlobalSetting m_Global;
-        private TextField m_Name;
-        private Toggle m_Args;
-        private HelpBox m_Status;
-        private Button m_Create, m_Retry, m_Cancel, m_Clear, m_Backup, m_Prefab, m_Script, m_DeleteLocated;
-        private string m_Error;
-        private string m_PreviewKey;
-        private readonly List<TextField> m_Outputs = new();
-        private readonly List<Label> m_OutputNames = new();
+        [SerializeField] private string _baseName = "";
+        [SerializeField] private bool _useArgs = true;
+        [SerializeField] private GameObject _context;
+        [SerializeReference] private AutoBindViewTemplateDefinition _recreateRecipe;
+        private AutoBindGlobalSetting _global;
+        private TextField _name;
+        private Toggle _args;
+        private HelpBox _status;
+        private Button _create, _retry, _cancel, _clear, _backup, _prefab, _script, _deleteLocated;
+        private string _error;
+        private string _previewKey;
+        private readonly List<TextField> _outputs = new();
+        private readonly List<Label> _outputNames = new();
 
         [MenuItem("GameObject/UI (Canvas)/UI View Template", false, 10)]
         private static void Open(MenuCommand command)
         {
             var window = GetWindow<AutoBindViewTemplateWindow>("UI View Template");
             if (AutoBindViewTemplateCreation.instance.RecreationRecipe == null)
-                window.m_Context = command.context as GameObject ?? Selection.activeGameObject;
+                window._context = command.context as GameObject ?? Selection.activeGameObject;
             window.Show();
             window.Focus();
         }
@@ -37,13 +37,13 @@ namespace ComponentAutoBindTool.Editor
         public void CreateGUI()
         {
             var restored = AutoBindViewTemplateCreation.instance;
-            if (m_RecreateRecipe?.IsInitialized != true) m_RecreateRecipe = null;
-            if (m_RecreateRecipe == null && restored.RecreationRecipe != null)
+            if (_recreateRecipe?.IsInitialized != true) _recreateRecipe = null;
+            if (_recreateRecipe == null && restored.RecreationRecipe != null)
             {
-                m_RecreateRecipe = restored.RecreationRecipe;
-                m_BaseName = m_RecreateRecipe.BaseName;
-                m_UseArgs = m_RecreateRecipe.UseArgs;
-                m_Context = restored.RecreationParent;
+                _recreateRecipe = restored.RecreationRecipe;
+                _baseName = _recreateRecipe.BaseName;
+                _useArgs = _recreateRecipe.UseArgs;
+                _context = restored.RecreationParent;
             }
             minSize = new Vector2(680, 630);
             rootVisualElement.Clear();
@@ -54,45 +54,45 @@ namespace ComponentAutoBindTool.Editor
             var title = new Label("创建 UI 界面模板"); title.AddToClassList("template-title"); scroll.Add(title);
             var hint = new Label("输入基础名，其余名称按固定规则生成。例：Inventory → InventoryView。");
             hint.AddToClassList("template-description"); scroll.Add(hint);
-            m_Name = new TextField("界面基础名") { name = "baseName", value = m_BaseName };
-            m_Name.RegisterValueChangedCallback(evt => { m_BaseName = evt.newValue; m_Error = null; Refresh(); });
-            scroll.Add(m_Name);
-            m_Args = new Toggle("使用 Args 传递数据") { name = "useArgs", value = m_UseArgs };
-            m_Args.RegisterValueChangedCallback(evt => { m_UseArgs = evt.newValue; m_Error = null; Refresh(); });
-            scroll.Add(m_Args);
-            m_Outputs.Clear();
-            m_OutputNames.Clear();
-            m_PreviewKey = null;
+            _name = new TextField("界面基础名") { name = "baseName", value = _baseName };
+            _name.RegisterValueChangedCallback(evt => { _baseName = evt.newValue; _error = null; Refresh(); });
+            scroll.Add(_name);
+            _args = new Toggle("使用 Args 传递数据") { name = "useArgs", value = _useArgs };
+            _args.RegisterValueChangedCallback(evt => { _useArgs = evt.newValue; _error = null; Refresh(); });
+            scroll.Add(_args);
+            _outputs.Clear();
+            _outputNames.Clear();
+            _previewKey = null;
             foreach (string label in new[] { "View 脚本", "Presenter 脚本", "Args 脚本", "Routes 脚本", "绑定脚本", "界面 Prefab" })
             {
-                var name = new Label(label) { name = "outputName" + m_Outputs.Count };
-                name.AddToClassList("template-file-name"); scroll.Add(name); m_OutputNames.Add(name);
-                var field = new TextField { isReadOnly = true, name = "output" + m_Outputs.Count };
-                field.AddToClassList("template-output"); scroll.Add(field); m_Outputs.Add(field);
+                var name = new Label(label) { name = "outputName" + _outputs.Count };
+                name.AddToClassList("template-file-name"); scroll.Add(name); _outputNames.Add(name);
+                var field = new TextField { isReadOnly = true, name = "output" + _outputs.Count };
+                field.AddToClassList("template-output"); scroll.Add(field); _outputs.Add(field);
             }
             var paths = new VisualElement(); paths.AddToClassList("template-actions");
             paths.Add(new Button(() => AutoBindViewTemplateSettingsWindow.Open(
-                m_RecreateRecipe == null ? null : Path.GetDirectoryName(m_RecreateRecipe.PrefabPath)?.Replace('\\', '/'),
-                m_RecreateRecipe == null ? null : Path.GetDirectoryName(m_RecreateRecipe.ScriptDirectory)?.Replace('\\', '/'))) { text = "路径设置" });
+                _recreateRecipe == null ? null : Path.GetDirectoryName(_recreateRecipe.PrefabPath)?.Replace('\\', '/'),
+                _recreateRecipe == null ? null : Path.GetDirectoryName(_recreateRecipe.ScriptDirectory)?.Replace('\\', '/'))) { text = "路径设置" });
             scroll.Add(paths);
-            m_Status = new HelpBox("", HelpBoxMessageType.Info) { name = "creationStatus" }; scroll.Add(m_Status);
+            _status = new HelpBox("", HelpBoxMessageType.Info) { name = "creationStatus" }; scroll.Add(_status);
             var actions = new VisualElement(); actions.AddToClassList("template-actions");
-            m_Create = new Button(() => Execute(() => AutoBindViewTemplateCreation.instance.Begin(CurrentDefinition(), m_Context))) { text = "创建", name = "createTemplate" };
-            m_Retry = new Button(() => Execute(() => AutoBindViewTemplateCreation.instance.Retry())) { text = "重试", name = "retryTemplate" };
-            m_Cancel = new Button(() => Execute(() => AutoBindViewTemplateCreation.instance.Cancel())) { text = "取消并清理本次产物", name = "cancelTemplate" };
-            actions.Add(m_Create); actions.Add(m_Retry); actions.Add(m_Cancel); scroll.Add(actions);
+            _create = new Button(() => Execute(() => AutoBindViewTemplateCreation.instance.Begin(CurrentDefinition(), _context))) { text = "创建", name = "createTemplate" };
+            _retry = new Button(() => Execute(() => AutoBindViewTemplateCreation.instance.Retry())) { text = "重试", name = "retryTemplate" };
+            _cancel = new Button(() => Execute(() => AutoBindViewTemplateCreation.instance.Cancel())) { text = "取消并清理本次产物", name = "cancelTemplate" };
+            actions.Add(_create); actions.Add(_retry); actions.Add(_cancel); scroll.Add(actions);
             var cleanup = new VisualElement(); cleanup.AddToClassList("template-actions");
-            m_Clear = new Button(() => Execute(ClearAndPrepareRecreation)) { text = "清除并重新创建", name = "clearTemplate" };
-            m_Backup = new Button(() => EditorUtility.RevealInFinder(AutoBindViewTemplateCreation.instance.ClearBackupPath)) { text = "打开清除备份", name = "clearBackup" };
-            cleanup.Add(m_Clear); cleanup.Add(m_Backup); scroll.Add(cleanup);
-            m_DeleteLocated = new Button(() => Execute(OpenLocatedDeletion)) { text = "按位置删除已有模板…", name = "deleteLocatedTemplate" };
-            var located = new VisualElement(); located.AddToClassList("template-actions"); located.Add(m_DeleteLocated); scroll.Add(located);
+            _clear = new Button(() => Execute(ClearAndPrepareRecreation)) { text = "清除并重新创建", name = "clearTemplate" };
+            _backup = new Button(() => EditorUtility.RevealInFinder(AutoBindViewTemplateCreation.instance.ClearBackupPath)) { text = "打开清除备份", name = "clearBackup" };
+            cleanup.Add(_clear); cleanup.Add(_backup); scroll.Add(cleanup);
+            _deleteLocated = new Button(() => Execute(OpenLocatedDeletion)) { text = "按位置删除已有模板…", name = "deleteLocatedTemplate" };
+            var located = new VisualElement(); located.AddToClassList("template-actions"); located.Add(_deleteLocated); scroll.Add(located);
             var deletionHint = new Label("没有本次生成记录时，可按位置定位文件；仅删除磁盘资产，不清除场景实例。");
             deletionHint.AddToClassList("template-description"); scroll.Add(deletionHint);
             var links = new VisualElement(); links.AddToClassList("template-actions");
-            m_Prefab = new Button(() => EditorGUIUtility.PingObject(AssetDatabase.LoadAssetAtPath<GameObject>(AutoBindViewTemplateCreation.instance.Definition.PrefabPath))) { text = "定位 Prefab" };
-            m_Script = new Button(() => AssetDatabase.OpenAsset(AssetDatabase.LoadAssetAtPath<MonoScript>(AutoBindViewTemplateCreation.instance.Definition.ViewPath))) { text = "打开 View 脚本" };
-            links.Add(m_Prefab); links.Add(m_Script); scroll.Add(links);
+            _prefab = new Button(() => EditorGUIUtility.PingObject(AssetDatabase.LoadAssetAtPath<GameObject>(AutoBindViewTemplateCreation.instance.Definition.PrefabPath))) { text = "定位 Prefab" };
+            _script = new Button(() => AssetDatabase.OpenAsset(AssetDatabase.LoadAssetAtPath<MonoScript>(AutoBindViewTemplateCreation.instance.Definition.ViewPath))) { text = "打开 View 脚本" };
+            links.Add(_prefab); links.Add(_script); scroll.Add(links);
             ReadGlobal();
             Refresh();
             rootVisualElement.schedule.Execute(Refresh).Every(200);
@@ -102,17 +102,17 @@ namespace ComponentAutoBindTool.Editor
         private void OnProjectChange() { ReadGlobal(); Refresh(); }
         private void ReadGlobal()
         {
-            try { m_Global = AutoBindViewTemplateCreation.ReadConfiguration(); m_Error = null; }
-            catch (Exception error) { m_Global = null; m_Error = error.Message; }
+            try { _global = AutoBindViewTemplateCreation.ReadConfiguration(); _error = null; }
+            catch (Exception error) { _global = null; _error = error.Message; }
         }
 
         private AutoBindViewTemplateDefinition CurrentDefinition()
         {
             var settings = AutoBindViewTemplateSettings.instance;
-            return AutoBindViewTemplateDefinition.Create(m_BaseName,
-                m_RecreateRecipe == null ? settings.PrefabRoot : Path.GetDirectoryName(m_RecreateRecipe.PrefabPath),
-                m_RecreateRecipe == null ? settings.ScriptRoot : Path.GetDirectoryName(m_RecreateRecipe.ScriptDirectory),
-                m_RecreateRecipe == null ? m_Global != null ? m_Global.Namespace : "" : m_RecreateRecipe.Namespace, m_UseArgs);
+            return AutoBindViewTemplateDefinition.Create(_baseName,
+                _recreateRecipe == null ? settings.PrefabRoot : Path.GetDirectoryName(_recreateRecipe.PrefabPath),
+                _recreateRecipe == null ? settings.ScriptRoot : Path.GetDirectoryName(_recreateRecipe.ScriptDirectory),
+                _recreateRecipe == null ? _global != null ? _global.Namespace : "" : _recreateRecipe.Namespace, _useArgs);
         }
 
         private void ClearAndPrepareRecreation()
@@ -125,20 +125,20 @@ namespace ComponentAutoBindTool.Editor
                 "将删除最近一次成功生成的以下产物及其 .meta：\n\n" + string.Join("\n", paths) +
                 "\n\n清除不可通过 Undo 恢复，备份保存在 Library。不会保存场景；清除并等待编译后，可调整 Args 再点击创建。", "清除并返回表单", "取消")) return;
             job.ClearCompleted();
-            m_RecreateRecipe = recipe;
-            m_BaseName = recipe.BaseName;
-            m_UseArgs = recipe.UseArgs;
-            m_Context = parent;
-            m_Name.SetValueWithoutNotify(m_BaseName);
-            m_Args.SetValueWithoutNotify(m_UseArgs);
+            _recreateRecipe = recipe;
+            _baseName = recipe.BaseName;
+            _useArgs = recipe.UseArgs;
+            _context = parent;
+            _name.SetValueWithoutNotify(_baseName);
+            _args.SetValueWithoutNotify(_useArgs);
         }
 
         private void OpenLocatedDeletion()
         {
-            string basis = AutoBindViewTemplateDefinition.ValidateBaseName(m_BaseName);
+            string basis = AutoBindViewTemplateDefinition.ValidateBaseName(_baseName);
             var settings = AutoBindViewTemplateSettings.instance;
-            string scripts = m_RecreateRecipe == null ? settings.ScriptRoot : Path.GetDirectoryName(m_RecreateRecipe.ScriptDirectory);
-            string prefabs = m_RecreateRecipe == null ? settings.PrefabRoot : Path.GetDirectoryName(m_RecreateRecipe.PrefabPath);
+            string scripts = _recreateRecipe == null ? settings.ScriptRoot : Path.GetDirectoryName(_recreateRecipe.ScriptDirectory);
+            string prefabs = _recreateRecipe == null ? settings.PrefabRoot : Path.GetDirectoryName(_recreateRecipe.PrefabPath);
             AutoBindViewTemplateDeletionWindow.Open(basis, scripts + "/" + basis, prefabs + "/" + basis + "View.prefab");
         }
 
@@ -147,68 +147,68 @@ namespace ComponentAutoBindTool.Editor
             AutoBindViewTemplateCreation.instance.UseSavedPaths();
             foreach (var window in Resources.FindObjectsOfTypeAll<AutoBindViewTemplateWindow>())
             {
-                window.m_RecreateRecipe = null;
+                window._recreateRecipe = null;
                 window.Refresh();
             }
         }
 
         private void Execute(Action action)
         {
-            m_Error = null;
+            _error = null;
             try { action(); }
-            catch (Exception error) { m_Error = error.Message; }
+            catch (Exception error) { _error = error.Message; }
             Refresh();
         }
 
         private void Refresh()
         {
-            if (m_Name == null) return;
+            if (_name == null) return;
             var job = AutoBindViewTemplateCreation.instance;
             AutoBindViewTemplateDefinition definition = null;
             string validation = null;
             try { definition = job.HasPending ? job.Definition : CurrentDefinition(); }
             catch (Exception error) { validation = error.Message; }
-            if (m_Global == null) validation = "请先创建唯一的 AutoBind 全局配置和组件映射配置；配置就绪后才能创建。";
+            if (_global == null) validation = "请先创建唯一的 AutoBind 全局配置和组件映射配置；配置就绪后才能创建。";
             string key = definition == null ? "" : string.Join("\n", definition.OutputPaths);
-            if (key != m_PreviewKey)
+            if (key != _previewKey)
             {
-                m_PreviewKey = key;
+                _previewKey = key;
                 string[] paths = definition == null ? new string[6] : new[]
                 {
                     definition.ViewPath, definition.PresenterPath, definition.UseArgs ? definition.ArgsPath : null,
                     definition.RoutesPath, definition.BindingPath, definition.PrefabPath
                 };
-                for (int i = 0; i < m_Outputs.Count; i++)
+                for (int i = 0; i < _outputs.Count; i++)
                 {
                     bool omittedArgs = definition != null && !definition.UseArgs && i == 2;
-                    m_Outputs[i].SetValueWithoutNotify(omittedArgs ? "不生成专属 Args，使用 EmptyViewArgs" : paths[i] ?? "—");
-                    m_OutputNames[i].text = omittedArgs ? "Args 脚本（不生成）" : paths[i] == null ? "—" : Path.GetFileName(paths[i]);
+                    _outputs[i].SetValueWithoutNotify(omittedArgs ? "不生成专属 Args，使用 EmptyViewArgs" : paths[i] ?? "—");
+                    _outputNames[i].text = omittedArgs ? "Args 脚本（不生成）" : paths[i] == null ? "—" : Path.GetFileName(paths[i]);
                 }
             }
-            m_Name.SetEnabled(!job.HasPending);
-            m_Args.SetEnabled(!job.HasPending);
+            _name.SetEnabled(!job.HasPending);
+            _args.SetEnabled(!job.HasPending);
             if (job.HasPending && definition != null)
             {
-                m_BaseName = definition.BaseName;
-                m_UseArgs = definition.UseArgs;
-                m_Name.SetValueWithoutNotify(m_BaseName);
-                m_Args.SetValueWithoutNotify(m_UseArgs);
+                _baseName = definition.BaseName;
+                _useArgs = definition.UseArgs;
+                _name.SetValueWithoutNotify(_baseName);
+                _args.SetValueWithoutNotify(_useArgs);
             }
             bool idle = !EditorApplication.isCompiling && !EditorApplication.isUpdating;
             string blocked = AutoBindViewTemplateCreation.BlockReason();
-            m_Create.SetEnabled(!job.HasPending && blocked == null && definition != null && m_Global != null);
-            m_Retry.SetEnabled(idle && job.Phase == AutoBindTemplatePhase.Failed);
-            m_Cancel.SetEnabled(idle && job.CanCancel && !EditorApplication.isPlayingOrWillChangePlaymode && UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() == null);
-            m_Clear.SetEnabled(job.CanClearCompleted && AutoBindViewTemplateCreation.BlockReason(true) == null);
-            m_Backup.SetEnabled(!string.IsNullOrEmpty(job.ClearBackupPath) && Directory.Exists(job.ClearBackupPath));
+            _create.SetEnabled(!job.HasPending && blocked == null && definition != null && _global != null);
+            _retry.SetEnabled(idle && job.Phase == AutoBindTemplatePhase.Failed);
+            _cancel.SetEnabled(idle && job.CanCancel && !EditorApplication.isPlayingOrWillChangePlaymode && UnityEditor.SceneManagement.PrefabStageUtility.GetCurrentPrefabStage() == null);
+            _clear.SetEnabled(job.CanClearCompleted && AutoBindViewTemplateCreation.BlockReason(true) == null);
+            _backup.SetEnabled(!string.IsNullOrEmpty(job.ClearBackupPath) && Directory.Exists(job.ClearBackupPath));
             bool validName;
-            try { AutoBindViewTemplateDefinition.ValidateBaseName(m_BaseName); validName = true; }
+            try { AutoBindViewTemplateDefinition.ValidateBaseName(_baseName); validName = true; }
             catch (ArgumentException) { validName = false; }
-            m_DeleteLocated.SetEnabled(validName && AutoBindViewTemplateDeletion.BlockReason() == null);
-            m_Prefab.SetEnabled(job.Phase == AutoBindTemplatePhase.Completed && job.Definition != null && File.Exists(job.Definition.PrefabPath));
-            m_Script.SetEnabled(job.Definition != null && File.Exists(job.Definition.ViewPath));
-            m_Status.text = m_Error ?? (job.HasPending || job.Phase == AutoBindTemplatePhase.Completed ? job.Message : validation ?? blocked ?? job.Message);
-            m_Status.messageType = m_Error != null || job.Phase == AutoBindTemplatePhase.Failed ? HelpBoxMessageType.Error : HelpBoxMessageType.Info;
+            _deleteLocated.SetEnabled(validName && AutoBindViewTemplateDeletion.BlockReason() == null);
+            _prefab.SetEnabled(job.Phase == AutoBindTemplatePhase.Completed && job.Definition != null && File.Exists(job.Definition.PrefabPath));
+            _script.SetEnabled(job.Definition != null && File.Exists(job.Definition.ViewPath));
+            _status.text = _error ?? (job.HasPending || job.Phase == AutoBindTemplatePhase.Completed ? job.Message : validation ?? blocked ?? job.Message);
+            _status.messageType = _error != null || job.Phase == AutoBindTemplatePhase.Failed ? HelpBoxMessageType.Error : HelpBoxMessageType.Info;
         }
     }
 

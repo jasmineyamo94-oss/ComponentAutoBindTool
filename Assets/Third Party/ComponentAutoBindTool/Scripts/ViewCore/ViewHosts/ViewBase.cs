@@ -11,7 +11,7 @@ namespace ComponentAutoBindTool.ViewCore
         typeof(Core.ComponentAutoBindTool))]
     public abstract class ViewBase : MonoBehaviour, IAutoBindHost
     {
-        [Header("窗口调度与层级配置")]
+        [Header("窗口调度与层级配置")] 
         public UILayer Layer = UILayer.Normal;
         public WindowInstanceMode InstanceMode = WindowInstanceMode.Singleton;
         public ViewCoverMode CoverMode = ViewCoverMode.PausePrevious;
@@ -23,9 +23,9 @@ namespace ComponentAutoBindTool.ViewCore
         [Tooltip("是否允许被返回键 (TryNavigateBack) 关闭")]
         public bool AllowNavigateBack = true;
 
-        private GraphicRaycaster m_GraphicRaycaster;
-        private IViewTransition m_Transition;
-        private bool m_TransitionSearched;
+        private GraphicRaycaster _graphicRaycaster;
+        private IViewTransition _transition;
+        private bool _transitionSearched;
 
         /// <summary>
         /// 当前宿主是否挂载了自定义入场/退场过渡动画组件
@@ -35,7 +35,7 @@ namespace ComponentAutoBindTool.ViewCore
             get
             {
                 EnsureTransitionResolved();
-                return m_Transition != null;
+                return _transition != null;
             }
         }
 
@@ -64,8 +64,8 @@ namespace ComponentAutoBindTool.ViewCore
 
             builder.RegisterInstance(uiView).AsSelf();
             builder.Register<TPresenter>(Lifetime.Scoped)
-                   .As<IWindowPresenter>()
-                   .AsSelf();
+                .As<IWindowPresenter>()
+                .AsSelf();
         }
 
         /// <summary>
@@ -73,14 +73,14 @@ namespace ComponentAutoBindTool.ViewCore
         /// </summary>
         public virtual void SetInteractable(bool interactable)
         {
-            if (m_GraphicRaycaster == null && this != null)
+            if (_graphicRaycaster == null && this != null)
             {
-                TryGetComponent(out m_GraphicRaycaster);
+                TryGetComponent(out _graphicRaycaster);
             }
 
-            if (m_GraphicRaycaster != null && m_GraphicRaycaster.enabled != interactable)
+            if (_graphicRaycaster != null && _graphicRaycaster.enabled != interactable)
             {
-                m_GraphicRaycaster.enabled = interactable;
+                _graphicRaycaster.enabled = interactable;
             }
         }
 
@@ -101,13 +101,13 @@ namespace ComponentAutoBindTool.ViewCore
         public virtual void PlayEnterTransition(Action onCompleted)
         {
             EnsureTransitionResolved();
-            if (m_Transition == null)
+            if (_transition == null)
             {
                 onCompleted?.Invoke();
                 return;
             }
 
-            m_Transition.PlayEnter(this, onCompleted);
+            _transition.PlayEnter(this, onCompleted);
         }
 
         /// <summary>
@@ -116,13 +116,13 @@ namespace ComponentAutoBindTool.ViewCore
         public virtual void PlayExitTransition(Action onCompleted)
         {
             EnsureTransitionResolved();
-            if (m_Transition == null)
+            if (_transition == null)
             {
                 onCompleted?.Invoke();
                 return;
             }
 
-            m_Transition.PlayExit(this, onCompleted);
+            _transition.PlayExit(this, onCompleted);
         }
 
         /// <summary>
@@ -131,14 +131,14 @@ namespace ComponentAutoBindTool.ViewCore
         public virtual void CancelTransition()
         {
             EnsureTransitionResolved();
-            m_Transition?.Cancel(this);
+            _transition?.Cancel(this);
         }
 
         private void EnsureTransitionResolved()
         {
-            if (m_TransitionSearched || this == null) return;
-            m_TransitionSearched = true;
-            TryGetComponent(out m_Transition);
+            if (_transitionSearched || this == null) return;
+            _transitionSearched = true;
+            TryGetComponent(out _transition);
         }
     }
 }

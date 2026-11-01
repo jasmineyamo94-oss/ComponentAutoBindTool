@@ -11,28 +11,28 @@ namespace ComponentAutoBindTool.Tests
 {
     public class WidgetLifecycleTests
     {
-        private readonly List<GameObject> m_Hosts = new();
+        private readonly List<GameObject> _hosts = new();
 
         [TearDown]
         public void TearDown()
         {
-            foreach (GameObject host in m_Hosts)
+            foreach (GameObject host in _hosts)
             {
                 UnityEngine.Object.DestroyImmediate(host);
             }
-            m_Hosts.Clear();
+            _hosts.Clear();
         }
 
         private sealed class CallbackDisposable : IDisposable
         {
-            private readonly Action m_Callback;
+            private readonly Action _callback;
 
             public CallbackDisposable(Action callback)
             {
-                m_Callback = callback;
+                _callback = callback;
             }
 
-            public void Dispose() => m_Callback();
+            public void Dispose() => _callback();
         }
 
         public sealed class LifecycleView
@@ -90,7 +90,7 @@ namespace ComponentAutoBindTool.Tests
         private WidgetLifecycleHost CreateHost(string name, List<string> events)
         {
             var gameObject = new GameObject(name);
-            m_Hosts.Add(gameObject);
+            _hosts.Add(gameObject);
             var host = gameObject.AddComponent<WidgetLifecycleHost>();
             host.UIView = new LifecycleView { Name = name, Events = events };
             return host;

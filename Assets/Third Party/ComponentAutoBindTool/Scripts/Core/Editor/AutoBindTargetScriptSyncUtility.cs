@@ -22,9 +22,9 @@ namespace ComponentAutoBindTool.Editor
     {
         internal static void ApplyMetadata(AutoBindBuildInput input, SerializedObject target)
         {
-            target.FindProperty("m_Namespace").stringValue = input.HostType.Namespace ?? string.Empty;
-            target.FindProperty("m_ClassName").stringValue = input.HostType.Name;
-            target.FindProperty("m_CodePath").stringValue = input.CodePath;
+            target.FindProperty("_namespace").stringValue = input.HostType.Namespace ?? string.Empty;
+            target.FindProperty("_className").stringValue = input.HostType.Name;
+            target.FindProperty("_codePath").stringValue = input.CodePath;
         }
 
         public static bool SyncFromTargetScript(SerializedProperty targetScriptProperty, SerializedProperty namespaceProperty,

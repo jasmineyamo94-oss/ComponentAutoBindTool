@@ -49,68 +49,68 @@ namespace ComponentAutoBindTool.Tests
             public void Dispose() { }
         }
 
-        private Backend m_Backend;
-        private AssetService m_Service;
-        [SetUp] public void SetUp() { m_Backend = new Backend(); m_Service = new AssetService(m_Backend); }
-        [TearDown] public void TearDown() { m_Service.Dispose(); Object.DestroyImmediate(m_Backend.Asset); }
+        private Backend _backend;
+        private AssetService _service;
+        [SetUp] public void SetUp() { _backend = new Backend(); _service = new AssetService(_backend); }
+        [TearDown] public void TearDown() { _service.Dispose(); Object.DestroyImmediate(_backend.Asset); }
         private static async Task<T> Consume<T>(Awaitable<T> operation) => await operation;
 
         [Test]
         public void SyncHandlesShareOneReferenceCountAndDisposeIsIdempotent()
         {
-            var first = m_Service.LoadAssetSync<GameObject>("item");
-            var second = m_Service.LoadAssetSync<GameObject>("item");
+            var first = _service.LoadAssetSync<GameObject>("item");
+            var second = _service.LoadAssetSync<GameObject>("item");
             first.Dispose(); first.Dispose();
-            Assert.That(m_Backend.Releases, Is.Zero);
-            Assert.That(second.Asset, Is.SameAs(m_Backend.Asset));
+            Assert.That(_backend.Releases, Is.Zero);
+            Assert.That(second.Asset, Is.SameAs(_backend.Asset));
             second.Dispose();
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
             Assert.That(first.Asset, Is.Null);
         }
 
         [Test]
         public void OwnerFailureDoesNotReleaseOtherCallersAsset()
         {
-            var first = m_Service.LoadAssetSync<GameObject>("item");
-            Assert.Throws<InvalidOperationException>(() => m_Service.LoadAssetSync<GameObject>("item", new ThrowingOwner()));
+            var first = _service.LoadAssetSync<GameObject>("item");
+            Assert.Throws<InvalidOperationException>(() => _service.LoadAssetSync<GameObject>("item", new ThrowingOwner()));
             Assert.That(first.Asset, Is.Not.Null);
-            Assert.That(m_Backend.Releases, Is.Zero);
+            Assert.That(_backend.Releases, Is.Zero);
             first.Dispose();
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
         }
 
         [UnityTest]
         public IEnumerator ConcurrentLoadCancellationDoesNotCancelOtherCaller()
         {
             using var cancellation = new CancellationTokenSource();
-            var first = Consume(m_Service.LoadAssetAsync<GameObject>("item", cancellationToken: cancellation.Token));
-            var second = Consume(m_Service.LoadAssetAsync<GameObject>("item"));
+            var first = Consume(_service.LoadAssetAsync<GameObject>("item", cancellationToken: cancellation.Token));
+            var second = Consume(_service.LoadAssetAsync<GameObject>("item"));
             cancellation.Cancel();
             while (!first.IsCompleted) yield return null;
             Assert.That(first.IsCanceled, Is.True);
             Assert.That(second.IsCompleted, Is.False);
-            m_Backend.Completion.SetResult(true);
+            _backend.Completion.SetResult(true);
             while (!second.IsCompleted) yield return null;
             Assert.That(second.Status, Is.EqualTo(TaskStatus.RanToCompletion));
-            Assert.That(m_Backend.AsyncLoads, Is.EqualTo(1));
-            Assert.That(m_Backend.Releases, Is.Zero);
+            Assert.That(_backend.AsyncLoads, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.Zero);
             second.Result.Dispose();
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
         }
 
         [UnityTest]
         public IEnumerator AllCanceledLoadsReleaseLateResultAndCanRetry()
         {
             using var cancellation = new CancellationTokenSource();
-            var task = Consume(m_Service.LoadAssetAsync<GameObject>("item", cancellationToken: cancellation.Token));
+            var task = Consume(_service.LoadAssetAsync<GameObject>("item", cancellationToken: cancellation.Token));
             cancellation.Cancel();
             while (!task.IsCompleted) yield return null;
-            m_Backend.Completion.SetResult(true);
+            _backend.Completion.SetResult(true);
             yield return null;
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
-            Assert.That(m_Service.TryGetLoadedAsset<GameObject>("item", out _), Is.False);
-            m_Backend.Delay = false;
-            var retry = Consume(m_Service.LoadAssetAsync<GameObject>("item"));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
+            Assert.That(_service.TryGetLoadedAsset<GameObject>("item", out _), Is.False);
+            _backend.Delay = false;
+            var retry = Consume(_service.LoadAssetAsync<GameObject>("item"));
             while (!retry.IsCompleted) yield return null;
             Assert.That(retry.Status, Is.EqualTo(TaskStatus.RanToCompletion));
             retry.Result.Dispose();
@@ -119,16 +119,16 @@ namespace ComponentAutoBindTool.Tests
         [UnityTest]
         public IEnumerator FailedSharedLoadCanRetryWithoutInvalidCache()
         {
-            m_Backend.Fail = true;
-            var first = Consume(m_Service.LoadAssetAsync<GameObject>("item"));
-            var second = Consume(m_Service.LoadAssetAsync<GameObject>("item"));
-            m_Backend.Completion.SetResult(true);
+            _backend.Fail = true;
+            var first = Consume(_service.LoadAssetAsync<GameObject>("item"));
+            var second = Consume(_service.LoadAssetAsync<GameObject>("item"));
+            _backend.Completion.SetResult(true);
             while (!first.IsCompleted || !second.IsCompleted) yield return null;
             Assert.That(first.Exception?.InnerException, Is.TypeOf<InvalidOperationException>());
             Assert.That(second.Exception?.InnerException, Is.TypeOf<InvalidOperationException>());
-            m_Backend.Delay = false;
-            m_Backend.Fail = false;
-            var retry = Consume(m_Service.LoadAssetAsync<GameObject>("item"));
+            _backend.Delay = false;
+            _backend.Fail = false;
+            var retry = Consume(_service.LoadAssetAsync<GameObject>("item"));
             while (!retry.IsCompleted) yield return null;
             Assert.That(retry.Status, Is.EqualTo(TaskStatus.RanToCompletion));
             retry.Result.Dispose();
@@ -137,66 +137,66 @@ namespace ComponentAutoBindTool.Tests
         [UnityTest]
         public IEnumerator DisposeWhileLoadingReleasesLateHandleThenBackend()
         {
-            var task = Consume(m_Service.LoadAssetAsync<GameObject>("item"));
-            m_Service.Dispose();
-            Assert.That(m_Backend.Disposals, Is.Zero);
-            m_Backend.Completion.SetResult(true);
+            var task = Consume(_service.LoadAssetAsync<GameObject>("item"));
+            _service.Dispose();
+            Assert.That(_backend.Disposals, Is.Zero);
+            _backend.Completion.SetResult(true);
             while (!task.IsCompleted) yield return null;
             Assert.That(task.Exception?.InnerException, Is.TypeOf<ObjectDisposedException>());
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
-            Assert.That(m_Backend.Disposals, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
+            Assert.That(_backend.Disposals, Is.EqualTo(1));
         }
 
         [UnityTest]
         public IEnumerator SyncFallbackDuringAsyncLoadReleasesRedundantHandle()
         {
-            var pending = Consume(m_Service.LoadAssetAsync<GameObject>("item"));
-            var sync = m_Service.LoadAssetSync<GameObject>("item");
-            m_Backend.Completion.SetResult(true);
+            var pending = Consume(_service.LoadAssetAsync<GameObject>("item"));
+            var sync = _service.LoadAssetSync<GameObject>("item");
+            _backend.Completion.SetResult(true);
             while (!pending.IsCompleted) yield return null;
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
             sync.Dispose();
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
             pending.Result.Dispose();
-            Assert.That(m_Backend.Releases, Is.EqualTo(2));
+            Assert.That(_backend.Releases, Is.EqualTo(2));
         }
 
         [UnityTest]
         public IEnumerator SyncCompletionReentrancyDoesNotOverwriteAsyncRawHandle()
         {
-            var pending = Consume(m_Service.LoadAssetAsync<GameObject>("item"));
-            m_Backend.DuringSync = () => m_Backend.Completion.SetResult(true);
-            var sync = m_Service.LoadAssetSync<GameObject>("item");
+            var pending = Consume(_service.LoadAssetAsync<GameObject>("item"));
+            _backend.DuringSync = () => _backend.Completion.SetResult(true);
+            var sync = _service.LoadAssetSync<GameObject>("item");
             while (!pending.IsCompleted) yield return null;
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
             sync.Dispose(); pending.Result.Dispose();
-            Assert.That(m_Backend.Releases, Is.EqualTo(2));
+            Assert.That(_backend.Releases, Is.EqualTo(2));
         }
 
         [Test]
         public void InstanceHandlesCanBeReleasedByGameObjectAndScope()
         {
-            using var scope = m_Service.CreateReleaseScope();
-            var first = m_Service.InstantiateSync("item", owner: scope);
-            var second = m_Service.InstantiateSync("item", owner: scope);
+            using var scope = _service.CreateReleaseScope();
+            var first = _service.InstantiateSync("item", owner: scope);
+            var second = _service.InstantiateSync("item", owner: scope);
             var instance = first.Instance;
-            Assert.That(m_Service.ReleaseInstance(instance), Is.True);
+            Assert.That(_service.ReleaseInstance(instance), Is.True);
             Assert.That(first.IsReleased, Is.True);
-            Assert.That(m_Service.ReleaseInstance(instance), Is.False);
-            Assert.That(m_Backend.Releases, Is.Zero);
+            Assert.That(_service.ReleaseInstance(instance), Is.False);
+            Assert.That(_backend.Releases, Is.Zero);
             scope.Dispose();
             Assert.That(second.IsReleased, Is.True);
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
         }
 
         [Test]
         public void DisposedScopeImmediatelyReleasesNewHandle()
         {
-            using var scope = m_Service.CreateReleaseScope();
+            using var scope = _service.CreateReleaseScope();
             scope.Dispose();
-            var handle = m_Service.LoadAssetSync<GameObject>("item", scope);
+            var handle = _service.LoadAssetSync<GameObject>("item", scope);
             Assert.That(handle.IsReleased, Is.True);
-            Assert.That(m_Backend.Releases, Is.EqualTo(1));
+            Assert.That(_backend.Releases, Is.EqualTo(1));
         }
     }
 }

@@ -15,9 +15,9 @@ namespace ComponentAutoBindTool.Tests
     {
         internal sealed class Environment : IViewPrefabHelper, IViewRootHelper, IDisposable
         {
-            private readonly Dictionary<string, GameObject> m_Prefabs = new();
-            private readonly GameObject m_Root = new("窗口调度测试");
-            private readonly IObjectResolver m_Scope;
+            private readonly Dictionary<string, GameObject> _prefabs = new();
+            private readonly GameObject _root = new("窗口调度测试");
+            private readonly IObjectResolver _scope;
             public readonly EnhancementProbe Probe = new();
             public readonly ViewManager Manager;
             public int Releases { get; private set; }
@@ -26,24 +26,24 @@ namespace ComponentAutoBindTool.Tests
             {
                 var builder = new ContainerBuilder();
                 builder.RegisterInstance(Probe);
-                m_Scope = builder.Build();
-                Manager = new ViewManager(m_Scope, this, this);
+                _scope = builder.Build();
+                Manager = new ViewManager(_scope, this, this);
             }
 
             public GameObject Add(string name, UILayer layer = UILayer.Normal,
                 ViewCloseStrategy strategy = ViewCloseStrategy.NonDestroy)
             {
                 var prefab = new GameObject(name);
-                prefab.transform.SetParent(m_Root.transform);
+                prefab.transform.SetParent(_root.transform);
                 var host = prefab.AddComponent<EnhancementViewHost>();
                 host.Layer = layer;
                 host.CloseStrategy = strategy;
-                m_Prefabs.Add(name, prefab);
+                _prefabs.Add(name, prefab);
                 return prefab;
             }
 
-            public GameObject GetViewPrefab(string viewName) => m_Prefabs.GetValueOrDefault(viewName);
-            public Transform GetViewRoot(string viewName, UILayer layer = UILayer.Normal) => m_Root.transform;
+            public GameObject GetViewPrefab(string viewName) => _prefabs.GetValueOrDefault(viewName);
+            public Transform GetViewRoot(string viewName, UILayer layer = UILayer.Normal) => _root.transform;
             public void ReleaseViewInstance(string viewName, GameObject instance)
             {
                 Releases++;
@@ -55,8 +55,8 @@ namespace ComponentAutoBindTool.Tests
                 try { Manager.Dispose(); }
                 finally
                 {
-                    m_Scope.Dispose();
-                    Object.DestroyImmediate(m_Root);
+                    _scope.Dispose();
+                    Object.DestroyImmediate(_root);
                 }
             }
         }

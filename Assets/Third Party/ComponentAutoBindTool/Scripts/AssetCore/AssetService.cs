@@ -19,37 +19,37 @@ namespace ComponentAutoBindTool.AssetCore
             public Exception Error;
         }
 
-        private readonly IAssetBackend m_Backend;
-        private readonly Dictionary<(Type, string), CacheEntry> m_Cache = new();
-        private readonly HashSet<IAssetHandle> m_Handles = new();
-        private readonly Dictionary<int, AssetInstanceHandle> m_Instances = new();
-        private Task m_Initialization;
-        private bool m_Disposed;
-        private bool m_BackendDisposed;
-        private int m_Operations;
+        private readonly IAssetBackend _backend;
+        private readonly Dictionary<(Type, string), CacheEntry> _cache = new();
+        private readonly HashSet<IAssetHandle> _handles = new();
+        private readonly Dictionary<int, AssetInstanceHandle> _instances = new();
+        private Task _initialization;
+        private bool _disposed;
+        private bool _backendDisposed;
+        private int _operations;
 
         public AssetService(IAssetBackend backend) =>
-            m_Backend = backend ?? throw new ArgumentNullException(nameof(backend));
-        public bool IsInitialized => !m_Disposed && m_Backend.IsInitialized;
+            _backend = backend ?? throw new ArgumentNullException(nameof(backend));
+        public bool IsInitialized => !_disposed && _backend.IsInitialized;
 
         public async Awaitable InitializeAsync(CancellationToken cancellationToken = default)
         {
             ThrowIfDisposed();
             cancellationToken.ThrowIfCancellationRequested();
-            if (!m_Backend.IsInitialized)
+            if (!_backend.IsInitialized)
             {
-                if (m_Initialization == null || m_Initialization.IsFaulted || m_Initialization.IsCanceled)
-                    m_Initialization = InitializeInternalAsync();
-                await WaitForCallerAsync(m_Initialization, cancellationToken);
+                if (_initialization == null || _initialization.IsFaulted || _initialization.IsCanceled)
+                    _initialization = InitializeInternalAsync();
+                await WaitForCallerAsync(_initialization, cancellationToken);
             }
             ThrowIfDisposed();
         }
 
         private async Task InitializeInternalAsync()
         {
-            m_Operations++;
-            try { await m_Backend.InitializeAsync(); }
-            finally { m_Operations--; TryDisposeBackend(); }
+            _operations++;
+            try { await _backend.InitializeAsync(); }
+            finally { _operations--; TryDisposeBackend(); }
         }
 
         // 共享 Task 可以多次等待；每个公开调用仍返回独立的 Unity Awaitable。
@@ -78,7 +78,7 @@ namespace ComponentAutoBindTool.AssetCore
         {
             ThrowIfDisposed();
             ValidateKey(key);
-            asset = m_Cache.TryGetValue((typeof(T), key), out var entry) ? entry.Asset as T : null;
+            asset = _cache.TryGetValue((typeof(T), key), out var entry) ? entry.Asset as T : null;
             return asset != null;
         }
 
@@ -87,23 +87,23 @@ namespace ComponentAutoBindTool.AssetCore
             ThrowIfDisposed();
             ValidateKey(key);
             var cacheKey = (typeof(T), key);
-            if (!m_Cache.TryGetValue(cacheKey, out var entry))
-                m_Cache.Add(cacheKey, entry = new CacheEntry());
+            if (!_cache.TryGetValue(cacheKey, out var entry))
+                _cache.Add(cacheKey, entry = new CacheEntry());
             entry.References++;
             bool transferred = false;
             try
             {
                 if (entry.Asset == null)
                 {
-                    var result = m_Backend.LoadAssetSync<T>(key);
+                    var result = _backend.LoadAssetSync<T>(key);
                     if (result.Asset == null)
                     {
-                        if (result.RawHandle != null) m_Backend.ReleaseRawHandle(result.RawHandle);
+                        if (result.RawHandle != null) _backend.ReleaseRawHandle(result.RawHandle);
                         throw new InvalidOperationException($"同步资源加载失败：{key} ({typeof(T).Name})。");
                     }
-                    if (m_Disposed || entry.Asset != null)
+                    if (_disposed || entry.Asset != null)
                     {
-                        if (result.RawHandle != null) m_Backend.ReleaseRawHandle(result.RawHandle);
+                        if (result.RawHandle != null) _backend.ReleaseRawHandle(result.RawHandle);
                         ThrowIfDisposed();
                     }
                     else
@@ -125,8 +125,8 @@ namespace ComponentAutoBindTool.AssetCore
             ValidateKey(key);
             await InitializeAsync(cancellationToken);
             var cacheKey = (typeof(T), key);
-            if (!m_Cache.TryGetValue(cacheKey, out var entry))
-                m_Cache.Add(cacheKey, entry = new CacheEntry());
+            if (!_cache.TryGetValue(cacheKey, out var entry))
+                _cache.Add(cacheKey, entry = new CacheEntry());
             entry.References++;
             bool transferred = false;
             try
@@ -148,14 +148,14 @@ namespace ComponentAutoBindTool.AssetCore
 
         private async Task LoadEntryAsync<T>((Type, string) key, CacheEntry entry) where T : UnityEngine.Object
         {
-            m_Operations++;
+            _operations++;
             try
             {
-                var result = await m_Backend.LoadAssetAsync<T>(key.Item2);
+                var result = await _backend.LoadAssetAsync<T>(key.Item2);
                 // 同步兜底可能先完成；后一份原生句柄必须释放，不能覆盖尚在使用的句柄。
-                if (m_Disposed || entry.References == 0 || entry.Asset != null || result.Asset == null)
+                if (_disposed || entry.References == 0 || entry.Asset != null || result.Asset == null)
                 {
-                    if (result.RawHandle != null) m_Backend.ReleaseRawHandle(result.RawHandle);
+                    if (result.RawHandle != null) _backend.ReleaseRawHandle(result.RawHandle);
                     if (result.Asset == null && entry.Asset == null)
                         entry.Error = new InvalidOperationException($"资源为空：{key.Item2}。");
                 }
@@ -168,7 +168,7 @@ namespace ComponentAutoBindTool.AssetCore
             catch (Exception error) { entry.Error = error; }
             finally
             {
-                m_Operations--;
+                _operations--;
                 if (entry.References == 0) RemoveEntry(key, entry);
                 TryDisposeBackend();
             }
@@ -180,10 +180,10 @@ namespace ComponentAutoBindTool.AssetCore
             AssetHandle<T> handle = null;
             handle = new AssetHandle<T>(key.Item2, (T)entry.Asset, () =>
             {
-                m_Handles.Remove(handle);
+                _handles.Remove(handle);
                 Release(key, entry);
             });
-            m_Handles.Add(handle);
+            _handles.Add(handle);
             try { owner?.Track(handle); }
             catch { handle.Dispose(); throw; }
             return handle;
@@ -198,11 +198,11 @@ namespace ComponentAutoBindTool.AssetCore
 
         private void RemoveEntry((Type, string) key, CacheEntry entry)
         {
-            if (m_Cache.TryGetValue(key, out var current) && ReferenceEquals(current, entry)) m_Cache.Remove(key);
+            if (_cache.TryGetValue(key, out var current) && ReferenceEquals(current, entry)) _cache.Remove(key);
             object raw = entry.RawHandle;
             entry.RawHandle = null;
             entry.Asset = null;
-            if (raw != null) m_Backend.ReleaseRawHandle(raw);
+            if (raw != null) _backend.ReleaseRawHandle(raw);
             TryDisposeBackend();
         }
 
@@ -230,13 +230,13 @@ namespace ComponentAutoBindTool.AssetCore
                 int id = instance.GetInstanceID();
                 handle = new AssetInstanceHandle(key, instance, () =>
                 {
-                    m_Instances.Remove(id);
-                    m_Handles.Remove(handle);
+                    _instances.Remove(id);
+                    _handles.Remove(handle);
                     try { DestroyInstance(instance); }
                     finally { prefab.Dispose(); }
                 });
-                m_Instances.Add(id, handle);
-                m_Handles.Add(handle);
+                _instances.Add(id, handle);
+                _handles.Add(handle);
                 owner?.Track(handle);
                 return handle;
             }
@@ -257,7 +257,7 @@ namespace ComponentAutoBindTool.AssetCore
 
         public bool ReleaseInstance(GameObject instance)
         {
-            if (ReferenceEquals(instance, null) || !m_Instances.TryGetValue(instance.GetInstanceID(), out var handle)) return false;
+            if (ReferenceEquals(instance, null) || !_instances.TryGetValue(instance.GetInstanceID(), out var handle)) return false;
             handle.Dispose();
             return true;
         }
@@ -266,26 +266,26 @@ namespace ComponentAutoBindTool.AssetCore
         {
             ValidateKey(key);
             await InitializeAsync(cancellationToken);
-            m_Operations++;
-            try { return await m_Backend.GetDownloadSizeAsync(key, cancellationToken); }
-            finally { m_Operations--; TryDisposeBackend(); }
+            _operations++;
+            try { return await _backend.GetDownloadSizeAsync(key, cancellationToken); }
+            finally { _operations--; TryDisposeBackend(); }
         }
 
         public async Awaitable DownloadDependenciesAsync(string key, CancellationToken cancellationToken = default)
         {
             ValidateKey(key);
             await InitializeAsync(cancellationToken);
-            m_Operations++;
-            try { await m_Backend.DownloadDependenciesAsync(key, cancellationToken); }
-            finally { m_Operations--; TryDisposeBackend(); }
+            _operations++;
+            try { await _backend.DownloadDependenciesAsync(key, cancellationToken); }
+            finally { _operations--; TryDisposeBackend(); }
         }
 
         public void Dispose()
         {
-            if (m_Disposed) return;
-            m_Disposed = true;
+            if (_disposed) return;
+            _disposed = true;
             List<Exception> errors = null;
-            var handles = new List<IAssetHandle>(m_Handles);
+            var handles = new List<IAssetHandle>(_handles);
             // 先释放实例，后释放其持有的资源句柄。
             foreach (var handle in handles)
                 if (handle is AssetInstanceHandle)
@@ -298,13 +298,13 @@ namespace ComponentAutoBindTool.AssetCore
 
         private void TryDisposeBackend()
         {
-            if (!m_Disposed || m_BackendDisposed || m_Operations != 0 || m_Cache.Count != 0) return;
-            m_BackendDisposed = true;
-            m_Backend.Dispose();
+            if (!_disposed || _backendDisposed || _operations != 0 || _cache.Count != 0) return;
+            _backendDisposed = true;
+            _backend.Dispose();
         }
         private void ThrowIfDisposed()
         {
-            if (m_Disposed) throw new ObjectDisposedException(nameof(AssetService));
+            if (_disposed) throw new ObjectDisposedException(nameof(AssetService));
         }
         private static void ValidateKey(string key)
         {

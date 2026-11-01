@@ -122,7 +122,7 @@ namespace ComponentAutoBindTool.Tests
                 Assert.That(setting.UseGlobalDefaultSavePath, Is.True);
                 using (var serialized = new SerializedObject(setting))
                 {
-                    Assert.That(serialized.FindProperty("m_CodePath").stringValue,
+                    Assert.That(serialized.FindProperty("_codePath").stringValue,
                         Is.EqualTo("Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents"));
                 }
                 Assert.That(AutoBindPathUtility.GetInspectorCodePath(setting, "Assets/Feature/Host.cs"),

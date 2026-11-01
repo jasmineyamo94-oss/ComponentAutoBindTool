@@ -347,17 +347,17 @@ MonoBehaviour:
     BindCom: {fileID: 1976525955711268317}
   - Name: Btn_Unbind
     BindCom: {fileID: 3727884869634158000}
-  m_ClassName: LabWidgetGroup
-  m_Namespace: ComponentAutoBindTool.Example
+  _className: LabWidgetGroup
+  _namespace: ComponentAutoBindTool.Example
   m_targetScript: {fileID: 2670349648525571259}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
+  _codePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 4601482715901560956}
   - {fileID: 7025164304307485981}
   - {fileID: 7035675108088554938}
   - {fileID: 1976525955711268317}
   - {fileID: 3727884869634158000}
-  m_BindFieldNames:
+  _bindFieldNames:
   - tMTxtScope
   - widgetLeft
   - widgetRight
@@ -949,14 +949,14 @@ MonoBehaviour:
     BindCom: {fileID: 6334271896025891041}
   - Name: Btn_Increment
     BindCom: {fileID: 631295115545148943}
-  m_ClassName: AutoBindExampleWidget
-  m_Namespace: ComponentAutoBindTool.Example
+  _className: AutoBindExampleWidget
+  _namespace: ComponentAutoBindTool.Example
   m_targetScript: {fileID: 7025164304307485981}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
+  _codePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 6334271896025891041}
   - {fileID: 631295115545148943}
-  m_BindFieldNames:
+  _bindFieldNames:
   - tMTxtCounter
   - btnIncrement
 --- !u!114 &7025164304307485981
@@ -2351,14 +2351,14 @@ MonoBehaviour:
     BindCom: {fileID: 9029739303487842760}
   - Name: Btn_Increment
     BindCom: {fileID: 1852450866515219313}
-  m_ClassName: AutoBindExampleWidget
-  m_Namespace: ComponentAutoBindTool.Example
+  _className: AutoBindExampleWidget
+  _namespace: ComponentAutoBindTool.Example
   m_targetScript: {fileID: 7035675108088554938}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
+  _codePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 9029739303487842760}
   - {fileID: 1852450866515219313}
-  m_BindFieldNames:
+  _bindFieldNames:
   - tMTxtCounter
   - btnIncrement
 --- !u!114 &7035675108088554938
@@ -2518,16 +2518,16 @@ MonoBehaviour:
     BindCom: {fileID: 7836036491297351278}
   - Name: Widget_GroupDetails
     BindCom: {fileID: 2670349648525571259}
-  m_ClassName: AutoBindTest
-  m_Namespace: ComponentAutoBindTool
+  _className: AutoBindTest
+  _namespace: ComponentAutoBindTool
   m_targetScript: {fileID: 5493553647038013695}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
+  _codePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 7094161903395981907}
   - {fileID: 3619654465731829023}
   - {fileID: 7836036491297351278}
   - {fileID: 2670349648525571259}
-  m_BindFieldNames:
+  _bindFieldNames:
   - tMTxtTitle
   - btnClose
   - tMTxtStatus

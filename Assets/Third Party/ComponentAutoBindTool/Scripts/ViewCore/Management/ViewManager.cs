@@ -14,9 +14,9 @@ namespace ComponentAutoBindTool.ViewCore
         private const int SortingStepPerWindow = 50;
         private const int MaxWindowsPerLayer = 38; // 50 * 38 = 1900，确保不跨层越界（解决 A-P08）
 
-        private readonly IObjectResolver m_ParentResolver;
-        private readonly IViewPrefabHelper m_PrefabHelper;
-        private readonly IViewRootHelper m_RootHelper;
+        private readonly IObjectResolver _parentResolver;
+        private readonly IViewPrefabHelper _prefabHelper;
+        private readonly IViewRootHelper _rootHelper;
 
         private sealed class PendingLoad
         {
@@ -24,26 +24,26 @@ namespace ComponentAutoBindTool.ViewCore
             public readonly CancellationTokenSource Cancellation = new();
             public int Requests;
         }
-        private readonly Dictionary<string, PendingLoad> m_InFlightLoads = new();
+        private readonly Dictionary<string, PendingLoad> _inFlightLoads = new();
 
-        private int m_NextInstanceId = 1;
-        private bool m_IsDisposed;
-        private readonly ViewCloseWaiters m_CloseWaiters = new();
-        private readonly Dictionary<UILayer, int> m_PresentationVersions = new();
+        private int _nextInstanceId = 1;
+        private bool _isDisposed;
+        private readonly ViewCloseWaiters _closeWaiters = new();
+        private readonly Dictionary<UILayer, int> _presentationVersions = new();
 
         public bool BlockQueueWhenHigherLayersOpen { get; set; } = true;
-        public bool IsDisposed => m_IsDisposed;
-        public int TotalInstanceCount => m_AllEntries.Count;
-        public int WaitingQueueCount => m_WaitingQueue.Count;
+        public bool IsDisposed => _isDisposed;
+        public int TotalInstanceCount => _allEntries.Count;
+        public int WaitingQueueCount => _waitingQueue.Count;
 
         // 1. 全局唯一实例登记表：InstanceId -> WindowEntry（覆盖打开、暂停、缓存、延迟销毁所有状态，解决 A-P01）
-        private readonly Dictionary<int, WindowEntry> m_AllEntries = new();
+        private readonly Dictionary<int, WindowEntry> _allEntries = new();
 
         // 2. 单实例索引：ViewName -> InstanceId（解决 A-P02）
-        private readonly Dictionary<string, int> m_SingletonIndex = new();
+        private readonly Dictionary<string, int> _singletonIndex = new();
 
         // 3. 四层独立可重排顺序列表：保存当前处于打开/暂停栈中的 InstanceId（解决 A-P01 / A-P02）
-        private readonly Dictionary<UILayer, List<int>> m_LayerOrderLists = new()
+        private readonly Dictionary<UILayer, List<int>> _layerOrderLists = new()
         {
             { UILayer.HUD, new List<int>() },
             { UILayer.Normal, new List<int>() },
@@ -52,10 +52,10 @@ namespace ComponentAutoBindTool.ViewCore
         };
 
         // 4. 延迟销毁真实时间倒计时表：InstanceId -> 剩余秒数（脱离 ParentScope 协程，支持重开拦截复活与统一 Dispose，解决 A-P06）
-        private readonly Dictionary<int, float> m_PendingDestroyTimers = new();
-        private readonly List<int> m_ExpiredDestroyIdsCache = new();
-        private readonly List<int> m_TickIdsCache = new();
-        private readonly List<int> m_TimerIdsCache = new();
+        private readonly Dictionary<int, float> _pendingDestroyTimers = new();
+        private readonly List<int> _expiredDestroyIdsCache = new();
+        private readonly List<int> _tickIdsCache = new();
+        private readonly List<int> _timerIdsCache = new();
 
         // 5. 排队延后打开队列
         private sealed class QueuedOpenRequest
@@ -67,7 +67,7 @@ namespace ComponentAutoBindTool.ViewCore
             public ViewRoute Route;
             public void Reset() { ViewName = null; Args = null; Priority = 0; ArgsTypeName = null; Route = null; }
         }
-        private readonly List<QueuedOpenRequest> m_WaitingQueue = new();
+        private readonly List<QueuedOpenRequest> _waitingQueue = new();
 
         public event Action<IWindowContext> OnViewOpened;
         public event Action<IWindowContext> OnViewClosed;
@@ -78,15 +78,15 @@ namespace ComponentAutoBindTool.ViewCore
             IViewPrefabHelper prefabHelper,
             IViewRootHelper rootHelper)
         {
-            m_ParentResolver = parentResolver;
-            m_PrefabHelper = prefabHelper;
-            m_RootHelper = rootHelper;
+            _parentResolver = parentResolver;
+            _prefabHelper = prefabHelper;
+            _rootHelper = rootHelper;
             ViewManagerDebugRegistry.Register(this);
         }
 
         int IViewRouteManager.ShowView(ViewRoute route, IViewArgs args, bool immediately)
         {
-            if (m_IsDisposed || !ValidateRouteInput(route, args)) return 0;
+            if (_isDisposed || !ValidateRouteInput(route, args)) return 0;
             if (!immediately)
             {
                 EnqueueInternal(route.Key, args, 0, route);
@@ -97,19 +97,19 @@ namespace ComponentAutoBindTool.ViewCore
 
         void IViewRouteManager.EnqueueView(ViewRoute route, IViewArgs args, int priority)
         {
-            if (m_IsDisposed || !ValidateRouteInput(route, args)) return;
+            if (_isDisposed || !ValidateRouteInput(route, args)) return;
             EnqueueInternal(route.Key, args, priority, route);
         }
 
         int IViewRouteManager.ReplaceTopView(ViewRoute route, IViewArgs args, UILayer layer)
         {
-            if (m_IsDisposed || !ValidateRouteInput(route, args)) return 0;
+            if (_isDisposed || !ValidateRouteInput(route, args)) return 0;
             return ReplaceTopViewInternal(route.Key, args, layer, route);
         }
 
         bool IViewRouteManager.CloseView(ViewRoute route)
         {
-            if (m_IsDisposed || !ValidateRoute(route)) return false;
+            if (_isDisposed || !ValidateRoute(route)) return false;
             List<Exception> errors = null;
             bool closed = CancelPendingLoad(route.Key, ref errors);
             var entry = FindEntryToClose(route.Key);
@@ -143,7 +143,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         public int ShowView(string viewName, IViewArgs args = null, bool immediately = true)
         {
-            if (m_IsDisposed || string.IsNullOrEmpty(viewName)) return 0;
+            if (_isDisposed || string.IsNullOrEmpty(viewName)) return 0;
 
             if (!immediately)
             {
@@ -174,18 +174,18 @@ namespace ComponentAutoBindTool.ViewCore
             UILayer? replaceLayer, CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();
-            if (m_IsDisposed || string.IsNullOrEmpty(viewName) ||
+            if (_isDisposed || string.IsNullOrEmpty(viewName) ||
                 (route != null && !ValidateRouteInput(route, args))) return 0;
             int oldTop = 0;
             if (replaceLayer.HasValue)
             {
-                var order = m_LayerOrderLists[replaceLayer.Value];
+                var order = _layerOrderLists[replaceLayer.Value];
                 if (order.Count > 0) oldTop = order[^1];
             }
             WindowEntry entry;
             if (!TryGetReusableEntry(viewName, route, out entry))
                 entry = await PrepareWindowEntryAsync(viewName, route, cancellationToken);
-            if (entry == null || m_IsDisposed) return 0;
+            if (entry == null || _isDisposed) return 0;
             if (oldTop != 0 && oldTop != entry.InstanceId) CloseView(oldTop);
             return ActivateAndScheduleEntry(entry, args) ? entry.InstanceId : 0;
         }
@@ -193,10 +193,10 @@ namespace ComponentAutoBindTool.ViewCore
         private async Awaitable<WindowEntry> PrepareWindowEntryAsync(string viewName, ViewRoute route,
             CancellationToken callerToken)
         {
-            if (m_PrefabHelper is not IAsyncViewPrefabHelper helper)
+            if (_prefabHelper is not IAsyncViewPrefabHelper helper)
                 return GetOrPrepareWindowEntry(viewName, route);
-            if (!m_InFlightLoads.TryGetValue(viewName, out var pending))
-                m_InFlightLoads.Add(viewName, pending = new PendingLoad());
+            if (!_inFlightLoads.TryGetValue(viewName, out var pending))
+                _inFlightLoads.Add(viewName, pending = new PendingLoad());
             pending.Requests++;
             bool entered = false;
             using var linked = CancellationTokenSource.CreateLinkedTokenSource(callerToken, pending.Cancellation.Token);
@@ -207,7 +207,7 @@ namespace ComponentAutoBindTool.ViewCore
                 linked.Token.ThrowIfCancellationRequested();
                 if (TryGetReusableEntry(viewName, route, out var existing)) return existing;
                 GameObject prefab = await helper.GetViewPrefabAsync(viewName, linked.Token);
-                if (m_IsDisposed || linked.IsCancellationRequested)
+                if (_isDisposed || linked.IsCancellationRequested)
                 {
                     helper.ReleaseUninstantiatedPrefab(viewName);
                     linked.Token.ThrowIfCancellationRequested();
@@ -230,8 +230,8 @@ namespace ComponentAutoBindTool.ViewCore
                 if (entered) pending.Gate.Release();
                 if (--pending.Requests == 0)
                 {
-                    if (m_InFlightLoads.TryGetValue(viewName, out var current) && ReferenceEquals(current, pending))
-                        m_InFlightLoads.Remove(viewName);
+                    if (_inFlightLoads.TryGetValue(viewName, out var current) && ReferenceEquals(current, pending))
+                        _inFlightLoads.Remove(viewName);
                     pending.Cancellation.Dispose();
                     pending.Gate.Dispose();
                 }
@@ -240,7 +240,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         private bool CancelPendingLoad(string viewName, ref List<Exception> errors)
         {
-            if (string.IsNullOrEmpty(viewName) || !m_InFlightLoads.Remove(viewName, out var pending)) return false;
+            if (string.IsNullOrEmpty(viewName) || !_inFlightLoads.Remove(viewName, out var pending)) return false;
             try { pending.Cancellation.Cancel(); }
             catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
             return true;
@@ -248,8 +248,8 @@ namespace ComponentAutoBindTool.ViewCore
 
         private void CancelAllPendingLoads(ref List<Exception> errors)
         {
-            var loads = new List<PendingLoad>(m_InFlightLoads.Values);
-            m_InFlightLoads.Clear();
+            var loads = new List<PendingLoad>(_inFlightLoads.Values);
+            _inFlightLoads.Clear();
             foreach (var pending in loads)
             {
                 try { pending.Cancellation.Cancel(); }
@@ -259,7 +259,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         public void EnqueueView(string viewName, IViewArgs args = null, int priority = 0)
         {
-            if (m_IsDisposed || string.IsNullOrEmpty(viewName)) return;
+            if (_isDisposed || string.IsNullOrEmpty(viewName)) return;
             EnqueueInternal(viewName, args ?? EmptyViewArgs.Instance, priority, null);
         }
 
@@ -272,25 +272,25 @@ namespace ComponentAutoBindTool.ViewCore
             request.Priority = priority;
             request.Route = route;
             int index = 0;
-            while (index < m_WaitingQueue.Count && m_WaitingQueue[index].Priority >= priority) index++;
-            m_WaitingQueue.Insert(index, request);
+            while (index < _waitingQueue.Count && _waitingQueue[index].Priority >= priority) index++;
+            _waitingQueue.Insert(index, request);
         }
 
         public void ClearWaitingQueue()
         {
-            foreach (var request in m_WaitingQueue)
+            foreach (var request in _waitingQueue)
             {
                 request.Reset();
                 GenericPool<QueuedOpenRequest>.Release(request);
             }
-            m_WaitingQueue.Clear();
+            _waitingQueue.Clear();
         }
 
         public async Awaitable WaitViewClosedAsync(int instanceId, CancellationToken cancellationToken = default)
         {
-            if (m_IsDisposed || !m_AllEntries.TryGetValue(instanceId, out var entry) ||
+            if (_isDisposed || !_allEntries.TryGetValue(instanceId, out var entry) ||
                 (!entry.HasOpenSession && entry.State != WindowState.OpenAndActive && entry.State != WindowState.Paused)) return;
-            await m_CloseWaiters.Wait(instanceId, cancellationToken);
+            await _closeWaiters.Wait(instanceId, cancellationToken);
         }
 
         /// <summary>
@@ -298,14 +298,14 @@ namespace ComponentAutoBindTool.ViewCore
         /// </summary>
         public int ReplaceTopView(string viewName, IViewArgs args = null, UILayer layer = UILayer.Normal)
         {
-            if (m_IsDisposed || string.IsNullOrEmpty(viewName)) return 0;
+            if (_isDisposed || string.IsNullOrEmpty(viewName)) return 0;
             return ReplaceTopViewInternal(viewName, args ?? EmptyViewArgs.Instance, layer, null);
         }
 
         private int ReplaceTopViewInternal(string viewName, IViewArgs args, UILayer layer, ViewRoute route)
         {
 
-            var layerList = m_LayerOrderLists[layer];
+            var layerList = _layerOrderLists[layer];
             int oldTopInstanceId = layerList.Count > 0 ? layerList[^1] : 0;
 
             // 先准备或获取目标窗口实例
@@ -339,7 +339,7 @@ namespace ComponentAutoBindTool.ViewCore
         private WindowEntry GetOrPrepareWindowEntry(string viewName, ViewRoute route = null)
         {
             if (TryGetReusableEntry(viewName, route, out var existing)) return existing;
-            GameObject prefab = m_PrefabHelper.GetViewPrefab(viewName);
+            GameObject prefab = _prefabHelper.GetViewPrefab(viewName);
             return PrepareWindowEntry(viewName, prefab, route);
         }
 
@@ -347,9 +347,9 @@ namespace ComponentAutoBindTool.ViewCore
         {
             entry = null;
             // 1. 检查是否命中已有 Singleton 实例（彻底解决 A-P02 的 A->B->A 重复创建问题）
-            if (m_SingletonIndex.TryGetValue(viewName, out int existingId))
+            if (_singletonIndex.TryGetValue(viewName, out int existingId))
             {
-                if (m_AllEntries.TryGetValue(existingId, out var existingEntry) &&
+                if (_allEntries.TryGetValue(existingId, out var existingEntry) &&
                     existingEntry.GameObject != null &&
                     existingEntry.State != WindowState.Destroyed)
                 {
@@ -358,13 +358,13 @@ namespace ComponentAutoBindTool.ViewCore
                     if (route != null && (!route.ValidateHost(existingEntry.ViewHost) ||
                                           !route.ValidatePresenter(existingEntry.Presenter))) return true;
                     // 若该实例正在延迟销毁倒计时中，直接拦截并取消销毁任务！
-                    m_PendingDestroyTimers.Remove(existingId);
+                    _pendingDestroyTimers.Remove(existingId);
                     entry = existingEntry;
                     return true;
                 }
 
                 // 若记录已失效，清理残余索引
-                m_SingletonIndex.Remove(viewName);
+                _singletonIndex.Remove(viewName);
                 if (existingEntry != null) FinalizeDestroyEntry(existingEntry);
             }
 
@@ -388,46 +388,46 @@ namespace ComponentAutoBindTool.ViewCore
                 var prefabViewComponent = prefab.GetComponent<ViewBase>();
                 if (route != null && !route.ValidateHost(prefabViewComponent)) return null;
                 UILayer targetLayer = prefabViewComponent != null ? prefabViewComponent.Layer : UILayer.Normal;
-                Transform root = m_RootHelper.GetViewRoot(viewName, targetLayer);
+                Transform root = _rootHelper.GetViewRoot(viewName, targetLayer);
 
                 instanceGo = UnityEngine.Object.Instantiate(prefab, root);
-                if (m_PrefabHelper is IViewPrefabLeaseHelper leases)
+                if (_prefabHelper is IViewPrefabLeaseHelper leases)
                     leases.RegisterViewInstance(viewName, instanceGo);
                 transferred = true;
                 if (!instanceGo.TryGetComponent<ViewBase>(out var viewHost))
                 {
                     ViewLogger.Error($"窗口 Prefab [{viewName}] 根节点缺少继承自 ViewBase 的脚本！");
-                    m_PrefabHelper.ReleaseViewInstance(viewName, instanceGo);
+                    _prefabHelper.ReleaseViewInstance(viewName, instanceGo);
                     return null;
                 }
 
-                int newId = m_NextInstanceId++;
+                int newId = _nextInstanceId++;
                 var newEntry = new WindowEntry(newId, viewName, viewHost, this);
 
                 bool prepared;
                 try
                 {
-                    prepared = newEntry.BuildScopeAndCreate(m_ParentResolver, route);
+                    prepared = newEntry.BuildScopeAndCreate(_parentResolver, route);
                 }
                 catch (Exception ex)
                 {
                     ViewLogger.Error($"窗口 [{viewName}] 构建子容器或执行 OnCreate 异常: {ex}");
                     try { newEntry.Dispose(); }
-                    finally { m_PrefabHelper.ReleaseViewInstance(viewName, instanceGo); }
+                    finally { _prefabHelper.ReleaseViewInstance(viewName, instanceGo); }
                     return null;
                 }
 
-                if (!prepared || m_IsDisposed)
+                if (!prepared || _isDisposed)
                 {
                     try { newEntry.Dispose(); }
-                    finally { m_PrefabHelper.ReleaseViewInstance(viewName, instanceGo); }
+                    finally { _prefabHelper.ReleaseViewInstance(viewName, instanceGo); }
                     return null;
                 }
 
-                m_AllEntries[newId] = newEntry;
+                _allEntries[newId] = newEntry;
                 if (viewHost.InstanceMode == WindowInstanceMode.Singleton)
                 {
-                    m_SingletonIndex[viewName] = newId;
+                    _singletonIndex[viewName] = newId;
                 }
 
                 return newEntry;
@@ -437,7 +437,7 @@ namespace ComponentAutoBindTool.ViewCore
                 if (!transferred)
                 {
                     if (instanceGo != null) UnityEngine.Object.DestroyImmediate(instanceGo);
-                    if (m_PrefabHelper is IAsyncViewPrefabHelper asyncHelper)
+                    if (_prefabHelper is IAsyncViewPrefabHelper asyncHelper)
                         asyncHelper.ReleaseUninstantiatedPrefab(viewName);
                 }
             }
@@ -448,8 +448,8 @@ namespace ComponentAutoBindTool.ViewCore
         /// </summary>
         private bool ActivateAndScheduleEntry(WindowEntry entry, IViewArgs args)
         {
-            if (m_IsDisposed || !m_AllEntries.ContainsKey(entry.InstanceId) || entry.GameObject == null) return false;
-            var layerList = m_LayerOrderLists[entry.Layer];
+            if (_isDisposed || !_allEntries.ContainsKey(entry.InstanceId) || entry.GameObject == null) return false;
+            var layerList = _layerOrderLists[entry.Layer];
 
             // 若已在列表中（例如 A->B->A 或栈顶刷新），先移除原位置再追加到末尾置顶
             layerList.Remove(entry.InstanceId);
@@ -458,19 +458,19 @@ namespace ComponentAutoBindTool.ViewCore
             // 每次开窗必交付新参数（触发 Presenter.OnOpen 与子控件级联 OnOpen，解决 A-P04）
             entry.DeliverOpenArgs(args);
 
-            if (m_IsDisposed || !m_AllEntries.ContainsKey(entry.InstanceId) || !layerList.Contains(entry.InstanceId)) return false;
+            if (_isDisposed || !_allEntries.ContainsKey(entry.InstanceId) || !layerList.Contains(entry.InstanceId)) return false;
 
             // 重新计算该层的 SortingOrder 与遮挡暂停/恢复状态
             RefreshLayerPresentation(entry.Layer);
 
-            if (m_IsDisposed || !m_AllEntries.ContainsKey(entry.InstanceId) || !layerList.Contains(entry.InstanceId)) return false;
+            if (_isDisposed || !_allEntries.ContainsKey(entry.InstanceId) || !layerList.Contains(entry.InstanceId)) return false;
             OnViewOpened?.Invoke(entry);
             return true;
         }
 
         public bool CloseView(int instanceId)
         {
-            if (m_IsDisposed || !m_AllEntries.TryGetValue(instanceId, out var entry))
+            if (_isDisposed || !_allEntries.TryGetValue(instanceId, out var entry))
                 return false;
 
             // 若已经处于关闭缓存、待销毁或已销毁状态，无需重复关闭
@@ -482,10 +482,10 @@ namespace ComponentAutoBindTool.ViewCore
             }
 
             UILayer layer = entry.Layer;
-            m_LayerOrderLists[layer].Remove(instanceId);
+            _layerOrderLists[layer].Remove(instanceId);
 
             // 完成源在用户回调前与当前会话分离；回调重开后的等待属于新会话。
-            var closedWaiters = m_CloseWaiters.Detach(instanceId);
+            var closedWaiters = _closeWaiters.Detach(instanceId);
             List<Exception> errors = null;
             var strategy = entry.ViewHost.CloseStrategy;
             float delay = entry.ViewHost.DestroyDelaySeconds;
@@ -497,16 +497,16 @@ namespace ComponentAutoBindTool.ViewCore
                         entry.EnterClosedState(WindowState.Cached);
                         break;
                     case ViewCloseStrategy.DestroyDelayed when delay > 0f:
-                        m_PendingDestroyTimers[instanceId] = delay;
+                        _pendingDestroyTimers[instanceId] = delay;
                         entry.EnterClosedState(WindowState.PendingDestroy, () =>
                         {
-                            if (m_PendingDestroyTimers.TryGetValue(instanceId, out float remaining) && remaining <= 0f)
+                            if (_pendingDestroyTimers.TryGetValue(instanceId, out float remaining) && remaining <= 0f)
                                 FinalizeDestroyEntry(entry);
                         });
                         break;
                     default:
-                        if (m_SingletonIndex.TryGetValue(entry.ViewName, out int mappedId) && mappedId == instanceId)
-                            m_SingletonIndex.Remove(entry.ViewName);
+                        if (_singletonIndex.TryGetValue(entry.ViewName, out int mappedId) && mappedId == instanceId)
+                            _singletonIndex.Remove(entry.ViewName);
                         entry.EnterClosedState(WindowState.Destroyed, () => FinalizeDestroyEntry(entry));
                         break;
                 }
@@ -516,7 +516,7 @@ namespace ComponentAutoBindTool.ViewCore
             catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
             try { OnViewClosed?.Invoke(entry); }
             catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
-            finally { m_CloseWaiters.Complete(closedWaiters); }
+            finally { _closeWaiters.Complete(closedWaiters); }
             ViewLifecycleErrors.Throw(errors);
             return true;
         }
@@ -536,19 +536,19 @@ namespace ComponentAutoBindTool.ViewCore
         {
             if (string.IsNullOrEmpty(viewName)) return null;
 
-            if (m_SingletonIndex.TryGetValue(viewName, out int singleId))
+            if (_singletonIndex.TryGetValue(viewName, out int singleId))
             {
-                return m_AllEntries.GetValueOrDefault(singleId);
+                return _allEntries.GetValueOrDefault(singleId);
             }
 
             // 若是多实例窗口，从高到低查找最后打开的同名实例并关闭
             UILayer[] searchOrder = { UILayer.System, UILayer.Top, UILayer.Normal, UILayer.HUD };
             foreach (var layer in searchOrder)
             {
-                var list = m_LayerOrderLists[layer];
+                var list = _layerOrderLists[layer];
                 for (int i = list.Count - 1; i >= 0; i--)
                 {
-                    var entry = m_AllEntries[list[i]];
+                    var entry = _allEntries[list[i]];
                     if (entry.ViewName == viewName)
                     {
                         return entry;
@@ -566,10 +566,10 @@ namespace ComponentAutoBindTool.ViewCore
             UILayer[] backLayers = { UILayer.System, UILayer.Top, UILayer.Normal };
             for (int l = 0; l < backLayers.Length; l++)
             {
-                var list = m_LayerOrderLists[backLayers[l]];
+                var list = _layerOrderLists[backLayers[l]];
                 for (int i = list.Count - 1; i >= 0; i--)
                 {
-                    var entry = m_AllEntries[list[i]];
+                    var entry = _allEntries[list[i]];
                     if (entry.ViewHost.AllowNavigateBack)
                     {
                         return CloseView(entry.InstanceId);
@@ -581,7 +581,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         public void CloseAllViews(bool destroyCached = false)
         {
-            if (m_IsDisposed) return;
+            if (_isDisposed) return;
             List<Exception> cancellationErrors = null;
             CancelAllPendingLoads(ref cancellationErrors);
             var ids = ListPool<int>.Get();
@@ -590,7 +590,7 @@ namespace ComponentAutoBindTool.ViewCore
             {
                 foreach (var layer in new[] { UILayer.System, UILayer.Top, UILayer.Normal, UILayer.HUD })
                 {
-                    var list = m_LayerOrderLists[layer];
+                    var list = _layerOrderLists[layer];
                     for (int i = list.Count - 1; i >= 0; i--) ids.Add(list[i]);
                 }
                 foreach (int id in ids)
@@ -601,10 +601,10 @@ namespace ComponentAutoBindTool.ViewCore
                 if (destroyCached)
                 {
                     ids.Clear();
-                    ids.AddRange(m_AllEntries.Keys);
+                    ids.AddRange(_allEntries.Keys);
                     foreach (int id in ids)
                     {
-                        if (!m_AllEntries.TryGetValue(id, out var entry) ||
+                        if (!_allEntries.TryGetValue(id, out var entry) ||
                             entry.State == WindowState.OpenAndActive || entry.State == WindowState.Paused) continue;
                         try { FinalizeDestroyEntry(entry); }
                         catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
@@ -617,7 +617,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         public bool IsViewOpen(string viewName)
         {
-            foreach (var kvp in m_AllEntries)
+            foreach (var kvp in _allEntries)
             {
                 var entry = kvp.Value;
                 if (entry.ViewName == viewName &&
@@ -634,9 +634,9 @@ namespace ComponentAutoBindTool.ViewCore
         /// </summary>
         private void RefreshLayerPresentation(UILayer layer)
         {
-            m_PresentationVersions.TryGetValue(layer, out int version);
-            m_PresentationVersions[layer] = ++version;
-            var liveList = m_LayerOrderLists[layer];
+            _presentationVersions.TryGetValue(layer, out int version);
+            _presentationVersions[layer] = ++version;
+            var liveList = _layerOrderLists[layer];
             if (liveList.Count == 0) return;
             var list = ListPool<int>.Get();
             list.AddRange(liveList);
@@ -653,7 +653,7 @@ namespace ComponentAutoBindTool.ViewCore
                 // 1. 自底向上设置根 Canvas 及子 Canvas 的相对排序
                 for (int i = 0; i < list.Count; i++)
                 {
-                    if (m_AllEntries.TryGetValue(list[i], out var entry))
+                    if (_allEntries.TryGetValue(list[i], out var entry))
                     {
                         int clampedIndex = Mathf.Min(i, MaxWindowsPerLayer);
                         entry.SetSortingOrder(baseOrder + clampedIndex * SortingStepPerWindow);
@@ -664,7 +664,7 @@ namespace ComponentAutoBindTool.ViewCore
                 int firstFullScreenIndex = -1;
                 for (int i = list.Count - 1; i >= 0; i--)
                 {
-                    if (!m_AllEntries.TryGetValue(list[i], out var entry)) continue;
+                    if (!_allEntries.TryGetValue(list[i], out var entry)) continue;
                     if (entry.ViewHost.CoverMode == ViewCoverMode.PausePrevious)
                     {
                         firstFullScreenIndex = i;
@@ -675,15 +675,15 @@ namespace ComponentAutoBindTool.ViewCore
                 // 先将被遮挡的下层窗口 Pause，再将可见的上层窗口 Resume
                 for (int i = 0; i < firstFullScreenIndex; i++)
                 {
-                    if (m_IsDisposed || m_PresentationVersions[layer] != version) break;
-                    if (!m_AllEntries.TryGetValue(list[i], out var entry)) continue;
+                    if (_isDisposed || _presentationVersions[layer] != version) break;
+                    if (!_allEntries.TryGetValue(list[i], out var entry)) continue;
                     try { entry.Pause(); }
                     catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
                 }
                 for (int i = Math.Max(0, firstFullScreenIndex); i < list.Count; i++)
                 {
-                    if (m_IsDisposed || m_PresentationVersions[layer] != version) break;
-                    if (!m_AllEntries.TryGetValue(list[i], out var entry)) continue;
+                    if (_isDisposed || _presentationVersions[layer] != version) break;
+                    if (!_allEntries.TryGetValue(list[i], out var entry)) continue;
                     try { entry.SetActiveAndResume(); }
                     catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
                 }
@@ -706,15 +706,15 @@ namespace ComponentAutoBindTool.ViewCore
 
         public void Tick()
         {
-            if (m_IsDisposed) return;
+            if (_isDisposed) return;
 
             // 1. 当 Normal 层为空时，处理排队请求
-            if (m_LayerOrderLists[UILayer.Normal].Count == 0 && m_WaitingQueue.Count > 0 &&
+            if (_layerOrderLists[UILayer.Normal].Count == 0 && _waitingQueue.Count > 0 &&
                 (!BlockQueueWhenHigherLayersOpen ||
-                 (m_LayerOrderLists[UILayer.Top].Count == 0 && m_LayerOrderLists[UILayer.System].Count == 0)))
+                 (_layerOrderLists[UILayer.Top].Count == 0 && _layerOrderLists[UILayer.System].Count == 0)))
             {
-                var req = m_WaitingQueue[0];
-                m_WaitingQueue.RemoveAt(0);
+                var req = _waitingQueue[0];
+                _waitingQueue.RemoveAt(0);
                 try
                 {
                     ShowViewImmediateInternal(req.ViewName, req.Args, req.Route);
@@ -728,14 +728,14 @@ namespace ComponentAutoBindTool.ViewCore
 
             // 2. 驱动所有处于 OpenAndActive 窗口及其可见子 Widget 的受控帧更新（解决 A-P05）
             float dt = Time.deltaTime;
-            m_TickIdsCache.Clear();
-            foreach (var id in m_AllEntries.Keys)
+            _tickIdsCache.Clear();
+            foreach (var id in _allEntries.Keys)
             {
-                m_TickIdsCache.Add(id);
+                _tickIdsCache.Add(id);
             }
-            for (int i = 0; i < m_TickIdsCache.Count; i++)
+            for (int i = 0; i < _tickIdsCache.Count; i++)
             {
-                if (m_AllEntries.TryGetValue(m_TickIdsCache[i], out var entry) &&
+                if (_allEntries.TryGetValue(_tickIdsCache[i], out var entry) &&
                     entry.State == WindowState.OpenAndActive)
                 {
                     entry.Tick(dt);
@@ -743,29 +743,29 @@ namespace ComponentAutoBindTool.ViewCore
             }
 
             // 3. 驱动真实时间延迟销毁倒计时（解决 A-P06）
-            if (m_PendingDestroyTimers.Count > 0)
+            if (_pendingDestroyTimers.Count > 0)
             {
                 float unscaledDt = Time.unscaledDeltaTime;
-                m_ExpiredDestroyIdsCache.Clear();
+                _expiredDestroyIdsCache.Clear();
 
-                m_TimerIdsCache.Clear();
-                m_TimerIdsCache.AddRange(m_PendingDestroyTimers.Keys);
-                foreach (int timerId in m_TimerIdsCache)
+                _timerIdsCache.Clear();
+                _timerIdsCache.AddRange(_pendingDestroyTimers.Keys);
+                foreach (int timerId in _timerIdsCache)
                 {
-                    if (!m_PendingDestroyTimers.TryGetValue(timerId, out float remaining)) continue;
+                    if (!_pendingDestroyTimers.TryGetValue(timerId, out float remaining)) continue;
                     remaining = Mathf.Max(0f, remaining - unscaledDt);
-                    m_PendingDestroyTimers[timerId] = remaining;
-                    if (remaining <= 0f && m_AllEntries.TryGetValue(timerId, out var pending) && !pending.IsTransitioning)
+                    _pendingDestroyTimers[timerId] = remaining;
+                    if (remaining <= 0f && _allEntries.TryGetValue(timerId, out var pending) && !pending.IsTransitioning)
                     {
-                        m_ExpiredDestroyIdsCache.Add(timerId);
+                        _expiredDestroyIdsCache.Add(timerId);
                     }
                 }
 
-                for (int i = 0; i < m_ExpiredDestroyIdsCache.Count; i++)
+                for (int i = 0; i < _expiredDestroyIdsCache.Count; i++)
                 {
-                    int expiredId = m_ExpiredDestroyIdsCache[i];
-                    if (m_PendingDestroyTimers.TryGetValue(expiredId, out float remaining) && remaining <= 0f &&
-                        m_AllEntries.TryGetValue(expiredId, out var expiredEntry) &&
+                    int expiredId = _expiredDestroyIdsCache[i];
+                    if (_pendingDestroyTimers.TryGetValue(expiredId, out float remaining) && remaining <= 0f &&
+                        _allEntries.TryGetValue(expiredId, out var expiredEntry) &&
                         expiredEntry.State == WindowState.PendingDestroy && !expiredEntry.IsTransitioning)
                     {
                         FinalizeDestroyEntry(expiredEntry);
@@ -780,23 +780,23 @@ namespace ComponentAutoBindTool.ViewCore
             string viewName = entry.ViewName;
             GameObject go = entry.GameObject;
 
-            if (!m_AllEntries.Remove(id)) return;
-            m_PendingDestroyTimers.Remove(id);
-            if (m_SingletonIndex.TryGetValue(viewName, out int mappedId) && mappedId == id)
+            if (!_allEntries.Remove(id)) return;
+            _pendingDestroyTimers.Remove(id);
+            if (_singletonIndex.TryGetValue(viewName, out int mappedId) && mappedId == id)
             {
-                m_SingletonIndex.Remove(viewName);
+                _singletonIndex.Remove(viewName);
             }
 
-            var waiters = m_CloseWaiters.Detach(id);
+            var waiters = _closeWaiters.Detach(id);
             List<Exception> errors = null;
             try { entry.Dispose(); }
             catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
             try
             {
-                if (go != null) m_PrefabHelper.ReleaseViewInstance(viewName, go);
+                if (go != null) _prefabHelper.ReleaseViewInstance(viewName, go);
             }
             catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
-            finally { m_CloseWaiters.Complete(waiters); }
+            finally { _closeWaiters.Complete(waiters); }
             ViewLifecycleErrors.Throw(errors);
         }
 
@@ -804,16 +804,16 @@ namespace ComponentAutoBindTool.ViewCore
         {
             if (results == null) return;
             results.Clear();
-            if (!m_LayerOrderLists.TryGetValue(layer, out var ids)) return;
+            if (!_layerOrderLists.TryGetValue(layer, out var ids)) return;
             foreach (int id in ids)
-                if (m_AllEntries.TryGetValue(id, out var entry)) results.Add(BuildSnapshot(entry));
+                if (_allEntries.TryGetValue(id, out var entry)) results.Add(BuildSnapshot(entry));
         }
 
         public void GetInactiveSnapshots(List<WindowDiagnosticSnapshot> results)
         {
             if (results == null) return;
             results.Clear();
-            foreach (var entry in m_AllEntries.Values)
+            foreach (var entry in _allEntries.Values)
                 if (entry.State == WindowState.Cached || entry.State == WindowState.PendingDestroy ||
                     (entry.State == WindowState.Destroyed && entry.IsTransitioning)) results.Add(BuildSnapshot(entry));
         }
@@ -822,16 +822,16 @@ namespace ComponentAutoBindTool.ViewCore
         {
             if (results == null) return;
             results.Clear();
-            for (int i = 0; i < m_WaitingQueue.Count; i++)
+            for (int i = 0; i < _waitingQueue.Count; i++)
             {
-                var request = m_WaitingQueue[i];
+                var request = _waitingQueue[i];
                 results.Add(new QueuedRequestSnapshot(i, request.ViewName, request.Priority, request.ArgsTypeName));
             }
         }
 
         private WindowDiagnosticSnapshot BuildSnapshot(WindowEntry entry)
         {
-            m_PendingDestroyTimers.TryGetValue(entry.InstanceId, out float remaining);
+            _pendingDestroyTimers.TryGetValue(entry.InstanceId, out float remaining);
             var host = entry.ViewHost;
             return new WindowDiagnosticSnapshot(entry.InstanceId, entry.ViewName, entry.Layer, entry.State,
                 host != null ? host.InstanceMode : WindowInstanceMode.Singleton,
@@ -846,24 +846,24 @@ namespace ComponentAutoBindTool.ViewCore
         /// </summary>
         public void Dispose()
         {
-            if (m_IsDisposed) return;
-            m_IsDisposed = true;
+            if (_isDisposed) return;
+            _isDisposed = true;
             List<Exception> cancellationErrors = null;
             CancelAllPendingLoads(ref cancellationErrors);
             ViewManagerDebugRegistry.Unregister(this);
             ClearWaitingQueue();
 
-            m_PendingDestroyTimers.Clear();
-            foreach (var list in m_LayerOrderLists.Values)
+            _pendingDestroyTimers.Clear();
+            foreach (var list in _layerOrderLists.Values)
             {
                 list.Clear();
             }
-            m_SingletonIndex.Clear();
+            _singletonIndex.Clear();
 
             // 先切断登记表，销毁回调和等待 continuation 可以安全重入查询。
             var entries = ListPool<WindowEntry>.Get();
-            entries.AddRange(m_AllEntries.Values);
-            m_AllEntries.Clear();
+            entries.AddRange(_allEntries.Values);
+            _allEntries.Clear();
             List<Exception> errors = cancellationErrors;
             foreach (var entry in entries)
             {
@@ -873,12 +873,12 @@ namespace ComponentAutoBindTool.ViewCore
                 catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
                 try
                 {
-                    if (go != null) m_PrefabHelper.ReleaseViewInstance(viewName, go);
+                    if (go != null) _prefabHelper.ReleaseViewInstance(viewName, go);
                 }
                 catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
             }
             ListPool<WindowEntry>.Release(entries);
-            m_CloseWaiters.Dispose();
+            _closeWaiters.Dispose();
             ViewLifecycleErrors.Throw(errors);
         }
     }

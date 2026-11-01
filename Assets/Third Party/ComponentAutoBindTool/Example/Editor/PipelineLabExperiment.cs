@@ -130,8 +130,8 @@ namespace ComponentAutoBindTool.Example.Editor
             var setting = Object.Instantiate(AutoBindEditorAssetLocator.LoadSingletonAsset<AutoBindGlobalSetting>());
             var map = Object.Instantiate(AutoBindEditorAssetLocator.LoadSingletonAsset<AutoBindKeyMapSetting>());
             var data = new SerializedObject(setting);
-            data.FindProperty("m_UseGlobalDefaultSavePath").boolValue = false;
-            data.FindProperty("m_CodePath").stringValue = state.Experiment == (int)PipelineLabCase.InvalidPath ? "../OutsideAssets" : Workspace;
+            data.FindProperty("_useGlobalDefaultSavePath").boolValue = false;
+            data.FindProperty("_codePath").stringValue = state.Experiment == (int)PipelineLabCase.InvalidPath ? "../OutsideAssets" : Workspace;
             data.ApplyModifiedPropertiesWithoutUndo();
             var inspector = (ComponentAutoBindToolInspector)UnityEditor.Editor.CreateEditor(tool);
             string before = EditorJsonUtility.ToJson(tool);

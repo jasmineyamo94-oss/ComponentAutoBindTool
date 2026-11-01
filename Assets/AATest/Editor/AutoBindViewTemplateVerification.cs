@@ -390,11 +390,11 @@ namespace ComponentAutoBindTool.Tests
 
         private sealed class Resources : IViewPrefabHelper, IViewRootHelper
         {
-            private readonly GameObject m_Prefab;
-            private readonly Transform m_Parent;
-            internal Resources(GameObject prefab, Transform parent) { m_Prefab = prefab; m_Parent = parent; }
-            public GameObject GetViewPrefab(string name) => m_Prefab;
-            public Transform GetViewRoot(string name, UILayer layer = UILayer.Normal) => m_Parent;
+            private readonly GameObject _prefab;
+            private readonly Transform _parent;
+            internal Resources(GameObject prefab, Transform parent) { _prefab = prefab; _parent = parent; }
+            public GameObject GetViewPrefab(string name) => _prefab;
+            public Transform GetViewRoot(string name, UILayer layer = UILayer.Normal) => _parent;
             public void ReleaseViewInstance(string name, GameObject instance) => Object.DestroyImmediate(instance);
         }
     }

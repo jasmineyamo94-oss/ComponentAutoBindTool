@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
@@ -11,18 +11,18 @@ namespace ComponentAutoBindTool.Editor
     public class AutoBindGlobalSetting : ScriptableObject
     {
         [SerializeField] 
-        private string m_CodePath = "Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents";
+        private string _codePath = "Assets/Third Party/ComponentAutoBindTool/Scripts/ViewBindComponents";
 
         [SerializeField]
-        private string m_Namespace;
+        private string _namespace;
         
         [SerializeField]
-        private bool m_UseGlobalDefaultSavePath = true;
+        private bool _useGlobalDefaultSavePath = true;
 
-        public string CodePath => AutoBindPathUtility.NormalizeCodePath(m_CodePath);
-        internal string RawCodePath => m_CodePath;
-        public string Namespace => m_Namespace;
-        public bool UseGlobalDefaultSavePath => m_UseGlobalDefaultSavePath;
+        public string CodePath => AutoBindPathUtility.NormalizeCodePath(_codePath);
+        internal string RawCodePath => _codePath;
+        public string Namespace => _namespace;
+        public bool UseGlobalDefaultSavePath => _useGlobalDefaultSavePath;
 
         [MenuItem("自动绑定UI组件/创建配置文件")]
         private static void CreateAutoBindGlobalSetting()

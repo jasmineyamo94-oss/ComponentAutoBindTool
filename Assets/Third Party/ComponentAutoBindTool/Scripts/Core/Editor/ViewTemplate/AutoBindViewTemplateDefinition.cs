@@ -139,7 +139,7 @@ namespace ComponentAutoBindTool.Editor
         internal string ViewSource(bool complete) => "using ComponentAutoBindTool.ViewCore;\nusing VContainer;\n\n" + Wrap(
             "public partial class " + ViewName + " : global::ComponentAutoBindTool.ViewCore.ViewBase\n{\n" +
             "    public override void ConfigureWindow(global::VContainer.IContainerBuilder builder)\n    {\n" +
-            (complete ? "        RegisterWindow<" + PresenterName + ", UIView>(builder, view);\n" : "") + "    }\n}");
+            (complete ? "        RegisterWindow<" + PresenterName + ", UIView>(builder, _view);\n" : "") + "    }\n}");
         internal string ArgsSource() => "using ComponentAutoBindTool.ViewCore;\n\n" + Wrap("public sealed class " + ArgsName + " : global::ComponentAutoBindTool.ViewCore.IViewArgs\n{\n}");
         internal string RoutesSource() => "using ComponentAutoBindTool.ViewCore;\n\n" + Wrap(
             "public static class " + RoutesName + "\n{\n    public static readonly global::ComponentAutoBindTool.ViewCore.ViewRoute<" + ViewName + ", " + ArgsTypeName + "> Main = new(\"" + ViewName + "\");\n}");

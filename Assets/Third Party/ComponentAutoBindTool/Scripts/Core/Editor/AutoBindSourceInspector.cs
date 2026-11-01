@@ -49,7 +49,7 @@ namespace ComponentAutoBindTool.Editor
             if (Regex.IsMatch(text, @"\bIAutoBindHost\s*\.\s*IsAutoBound\b")) return true;
             var getter = AutoBindCodeGenerator.FindBaseMethod(host, "GetGeneratedUIView");
             bool generatesGetter = getter != null && getter.ReturnType == typeof(object);
-            bool Reserved(string name) => name == "view" || name == "UIView" ||
+            bool Reserved(string name) => name == "_view" || name == "UIView" ||
                 name == "EnsureAutoBind" || (generatesGetter && name == "GetGeneratedUIView");
             var nestedType = Regex.Match(text, @"\b(class|struct|interface|enum|delegate)\s+(?:\S+\s+)?(\w+)");
             if (nestedType.Success) return Reserved(nestedType.Groups[2].Value);
@@ -62,7 +62,7 @@ namespace ComponentAutoBindTool.Editor
                 var nameMatch = Regex.Match(signature, @"(\w+)\s*$");
                 if (!nameMatch.Success) return false;
                 string name = nameMatch.Groups[1].Value;
-                if (name == "view" || name == "UIView") return true;
+                if (name == "_view" || name == "UIView") return true;
                 int close = text.IndexOf(')', parenthesis);
                 if (close < 0) return false;
                 string parameters = text.Substring(parenthesis + 1, close - parenthesis - 1).Trim();

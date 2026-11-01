@@ -21,7 +21,7 @@ namespace ComponentAutoBindTool.Example.Editor
         public const string ScenePath = ExampleRoot + "/Scenes/Example.unity";
         public const string PrefabPath = ExampleRoot + "/Prefabs/AutoBindTest.prefab";
         public static readonly string[] Catalog = { "AutoBindTest", "Cover", "Multi", "Delayed", "HUD", "Top", "System", "Widgets" };
-        private static TMP_FontAsset m_Font;
+        private static TMP_FontAsset _font;
         private static readonly Color Background = new Color32(12, 19, 32, 255);
         private static readonly Color Surface = new Color32(23, 35, 54, 255);
         private static readonly Color Accent = new Color32(48, 209, 196, 255);
@@ -127,36 +127,36 @@ namespace ComponentAutoBindTool.Example.Editor
         private static void BuildFont()
         {
             string path = ExampleRoot + "/Fonts/LabChinese.asset";
-            m_Font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(path);
-            bool created = m_Font == null;
+            _font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(path);
+            bool created = _font == null;
             if (created)
             {
                 var font = AssetDatabase.LoadAssetAtPath<Font>(ExampleRoot + "/Fonts/NotoSansCJKsc-Regular.otf");
-                m_Font = TMP_FontAsset.CreateFontAsset(font, 42, 5, GlyphRenderMode.SDFAA, 2048, 2048, AtlasPopulationMode.Dynamic, true);
-                m_Font.name = "LabChinese";
+                _font = TMP_FontAsset.CreateFontAsset(font, 42, 5, GlyphRenderMode.SDFAA, 2048, 2048, AtlasPopulationMode.Dynamic, true);
+                _font.name = "LabChinese";
             }
-            m_Font.atlasPopulationMode = AtlasPopulationMode.Dynamic;
+            _font.atlasPopulationMode = AtlasPopulationMode.Dynamic;
             if (created)
             {
-                AssetDatabase.CreateAsset(m_Font, path);
-                AssetDatabase.AddObjectToAsset(m_Font.material, m_Font);
+                AssetDatabase.CreateAsset(_font, path);
+                AssetDatabase.AddObjectToAsset(_font.material, _font);
             }
             string characters = string.Concat(Directory.GetFiles(ExampleRoot, "*.cs", SearchOption.AllDirectories).Select(File.ReadAllText));
             characters += string.Concat(Enumerable.Range(32, 95).Select(c => (char)c));
             characters = new string(characters.Where(c => !char.IsControl(c)).Distinct().ToArray());
-            m_Font.TryAddCharacters(characters, out _);
-            foreach (var texture in m_Font.atlasTextures)
+            _font.TryAddCharacters(characters, out _);
+            foreach (var texture in _font.atlasTextures)
             {
-                if (texture != null && !AssetDatabase.Contains(texture)) AssetDatabase.AddObjectToAsset(texture, m_Font);
+                if (texture != null && !AssetDatabase.Contains(texture)) AssetDatabase.AddObjectToAsset(texture, _font);
                 if (texture != null) EditorUtility.SetDirty(texture);
             }
             string required = "自动绑定窗口层级与遮挡实例参数生命周期导航排队依赖注入观察重置计数" +
                 string.Concat(Enumerable.Range(32, 95).Select(c => (char)c));
-            if (required.Any(c => !m_Font.HasCharacter(c)))
+            if (required.Any(c => !_font.HasCharacter(c)))
                 throw new InvalidOperationException("字体预烘焙未完成。请在启用图形设备的 Unity 中重建示例，命令行不要使用 -nographics。");
-            EditorUtility.SetDirty(m_Font);
-            m_Font.atlasPopulationMode = AtlasPopulationMode.Static;
-            AssetDatabase.SaveAssetIfDirty(m_Font);
+            EditorUtility.SetDirty(_font);
+            _font.atlasPopulationMode = AtlasPopulationMode.Static;
+            AssetDatabase.SaveAssetIfDirty(_font);
         }
 
         private static void BuildShell(RectTransform parent)
@@ -286,7 +286,7 @@ namespace ComponentAutoBindTool.Example.Editor
         {
             var rect = Rect(name, parent, min, max);
             var label = rect.gameObject.AddComponent<TextMeshProUGUI>();
-            label.font = m_Font;
+            label.font = _font;
             label.text = value;
             label.fontSize = size;
             label.color = color;

@@ -5,41 +5,41 @@ namespace ComponentAutoBindTool.AssetCore
 {
     public sealed class AssetHandle<T> : IAssetHandle where T : UnityEngine.Object
     {
-        private Action m_Release;
-        private T m_Asset;
+        private Action _release;
+        private T _asset;
         internal AssetHandle(string key, T asset, Action release)
         {
             Key = key;
-            m_Asset = asset;
-            m_Release = release;
+            _asset = asset;
+            _release = release;
         }
         public string Key { get; }
         public bool IsReleased { get; private set; }
-        public T Asset => IsReleased ? null : m_Asset;
+        public T Asset => IsReleased ? null : _asset;
         public void Dispose()
         {
             if (IsReleased) return;
             IsReleased = true;
-            m_Asset = null;
-            Action release = m_Release;
-            m_Release = null;
+            _asset = null;
+            Action release = _release;
+            _release = null;
             release?.Invoke();
         }
     }
 
     public sealed class AssetInstanceHandle : IAssetHandle
     {
-        private Action m_Release;
-        private GameObject m_Instance;
+        private Action _release;
+        private GameObject _instance;
         internal AssetInstanceHandle(string key, GameObject instance, Action release)
         {
             Key = key;
-            m_Instance = instance;
-            m_Release = release;
+            _instance = instance;
+            _release = release;
         }
         public string Key { get; }
         public bool IsReleased { get; private set; }
-        public GameObject Instance => IsReleased ? null : m_Instance;
+        public GameObject Instance => IsReleased ? null : _instance;
         public T GetRequiredComponent<T>() where T : Component
         {
             if (Instance != null && Instance.TryGetComponent(out T component)) return component;
@@ -49,9 +49,9 @@ namespace ComponentAutoBindTool.AssetCore
         {
             if (IsReleased) return;
             IsReleased = true;
-            m_Instance = null;
-            Action release = m_Release;
-            m_Release = null;
+            _instance = null;
+            Action release = _release;
+            _release = null;
             release?.Invoke();
         }
     }

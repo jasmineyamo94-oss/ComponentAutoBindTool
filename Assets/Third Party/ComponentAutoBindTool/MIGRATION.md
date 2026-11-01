@@ -38,7 +38,7 @@ WindowPresenterBase 自动公开 IWindowArgsContract，运行时按精确 TArgs 
 3. 把宿主挂到绑定根节点，将同节点 ComponentAutoBindTool 的目标脚本设为该宿主。
 4. 按 Prefix_FieldSuffix 命名节点。嵌套 Widget 根节点添加自己的 AutoBind，直接使用内置 `Widget` 前缀，例如 `Widget_GroupDetails`，无需注册具体 Widget 派生类；指定的目标必须是同节点 Widget。普通嵌套子宿主使用 `Sub` 前缀，例如 `Sub_Header`，同节点 AutoBind 必须指向该子宿主脚本。
 5. 点击“生成代码”，等待编译；按需手动保存场景或 Prefab。无需先按“重扫校验”，生成本身始终重新扫描。
-6. 接入强类型 Presenter：窗口 ConfigureWindow 中调用 RegisterWindow<TPresenter, UIView>(builder, view)，
+6. 接入强类型 Presenter：窗口 ConfigureWindow 中调用 RegisterWindow<TPresenter, UIView>(builder, _view)，
    并注册所需的 Widget Presenter；Presenter 通过 BindWidget<TPresenter> 绑定控件。
 
 先为子宿主生成，再为父宿主生成，等待脚本编译。父宿主绑定时会级联调用非 Widget 子宿主的 `EnsureAutoBind`；Widget 依旧由 `BindWidget` 驱动。子宿主尚未实现接口时父绑定会报告缺少生成代码并保持可重试；重新生成后的子宿主通过 IsAutoBound 通知父宿主绑定失败；旧生成文件请通过 Inspector 重新生成。

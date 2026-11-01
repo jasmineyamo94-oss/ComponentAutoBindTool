@@ -9,30 +9,30 @@ namespace ComponentAutoBindTool.Tests
 {
     public sealed class AutoBindWidgetScanTests
     {
-        private GameObject m_Root;
-        private ComponentAutoBindTool.Core.ComponentAutoBindTool m_Tool;
-        private AutoBindKeyMapSetting m_Map;
+        private GameObject _root;
+        private ComponentAutoBindTool.Core.ComponentAutoBindTool _tool;
+        private AutoBindKeyMapSetting _map;
 
         [SetUp]
         public void SetUp()
         {
-            m_Root = new GameObject("Root");
-            m_Tool = m_Root.AddComponent<ComponentAutoBindTool.Core.ComponentAutoBindTool>();
-            m_Tool.m_targetScript = m_Root.AddComponent<AutoBindPlainHost>();
-            m_Map = ScriptableObject.CreateInstance<AutoBindKeyMapSetting>();
+            _root = new GameObject("Root");
+            _tool = _root.AddComponent<ComponentAutoBindTool.Core.ComponentAutoBindTool>();
+            _tool.m_targetScript = _root.AddComponent<AutoBindPlainHost>();
+            _map = ScriptableObject.CreateInstance<AutoBindKeyMapSetting>();
         }
 
         [TearDown]
         public void TearDown()
         {
-            Object.DestroyImmediate(m_Root);
-            Object.DestroyImmediate(m_Map);
+            Object.DestroyImmediate(_root);
+            Object.DestroyImmediate(_map);
         }
 
         private GameObject Child(string name)
         {
             var child = new GameObject(name, typeof(RectTransform));
-            child.transform.SetParent(m_Root.transform);
+            child.transform.SetParent(_root.transform);
             return child;
         }
 
@@ -44,7 +44,7 @@ namespace ComponentAutoBindTool.Tests
             var nested = new GameObject("Btn_Nested", typeof(RectTransform), typeof(UnityEngine.UI.Button));
             nested.transform.SetParent(child.transform);
 
-            var scan = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            var scan = AutoBindHierarchyScanner.CollectBindings(_tool, _map);
             Assert.That(scan.Errors, Is.Empty);
             Assert.That(scan.BindDatas.Count, Is.EqualTo(2));
             Assert.That(scan.BindDatas[0].Name, Is.EqualTo("Rtf_Item"));
@@ -53,7 +53,7 @@ namespace ComponentAutoBindTool.Tests
             var settings = ScriptableObject.CreateInstance<AutoBindGlobalSetting>();
             try
             {
-                string code = AutoBindCodeGenerator.BuildCode(new AutoBindBuildInput(m_Tool, settings, scan.BindDatas));
+                string code = AutoBindCodeGenerator.BuildCode(new AutoBindBuildInput(_tool, settings, scan.BindDatas));
                 Assert.That(code, Does.Contain("global::@ComponentAutoBindTool.@Example.@LabWidgetGroup widgetItem"));
                 Assert.That(code, Does.Not.Contain("cascadeHost"));
             }
@@ -67,7 +67,7 @@ namespace ComponentAutoBindTool.Tests
             child.AddComponent<LabWidgetGroup>();
             var nested = child.GetComponent<ComponentAutoBindTool.Core.ComponentAutoBindTool>();
             nested.m_targetScript = child.AddComponent<AutoBindPlainHost>();
-            var scan = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            var scan = AutoBindHierarchyScanner.CollectBindings(_tool, _map);
             Assert.That(scan.HasErrors, Is.True);
             Assert.That(scan.Errors[0], Does.Contain("Sub"));
             Assert.That(scan.BindDatas, Is.Empty);
@@ -82,7 +82,7 @@ namespace ComponentAutoBindTool.Tests
             nested.m_targetScript = host;
             var inside = new GameObject("Unknown_Inside");
             inside.transform.SetParent(child.transform);
-            var scan = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            var scan = AutoBindHierarchyScanner.CollectBindings(_tool, _map);
             Assert.That(scan.Errors, Is.Empty);
             Assert.That(scan.BindDatas.Count, Is.EqualTo(1));
             Assert.That(scan.BindDatas[0].BindCom, Is.SameAs(host));
@@ -90,7 +90,7 @@ namespace ComponentAutoBindTool.Tests
             var settings = ScriptableObject.CreateInstance<AutoBindGlobalSetting>();
             try
             {
-                string code = AutoBindCodeGenerator.BuildCode(new AutoBindBuildInput(m_Tool, settings, scan.BindDatas));
+                string code = AutoBindCodeGenerator.BuildCode(new AutoBindBuildInput(_tool, settings, scan.BindDatas));
                 Assert.That(code, Does.Contain("(object)boundView.subHeader is not global::ComponentAutoBindTool.ViewCore.IAutoBindHost cascadeHost0"));
                 Assert.That(code, Does.Contain("cascadeHost0.EnsureAutoBind(boundView.subHeader.gameObject)"));
                 Assert.That(code, Does.Not.Contain("cascadeHost1"));
@@ -102,26 +102,26 @@ namespace ComponentAutoBindTool.Tests
         public void SubRejectsMissingOrForeignTarget()
         {
             var child = Child("Sub_Header");
-            Assert.That(AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map).HasErrors, Is.True);
+            Assert.That(AutoBindHierarchyScanner.CollectBindings(_tool, _map).HasErrors, Is.True);
             var nested = child.AddComponent<ComponentAutoBindTool.Core.ComponentAutoBindTool>();
-            Assert.That(AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map).HasErrors, Is.True);
-            nested.m_targetScript = m_Tool.m_targetScript;
-            Assert.That(AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map).HasErrors, Is.True);
+            Assert.That(AutoBindHierarchyScanner.CollectBindings(_tool, _map).HasErrors, Is.True);
+            nested.m_targetScript = _tool.m_targetScript;
+            Assert.That(AutoBindHierarchyScanner.CollectBindings(_tool, _map).HasErrors, Is.True);
             nested.m_targetScript = nested;
-            Assert.That(AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map).HasErrors, Is.True);
+            Assert.That(AutoBindHierarchyScanner.CollectBindings(_tool, _map).HasErrors, Is.True);
         }
 
         [Test]
         public void ValidatorRejectsSelfAndInvalidWidgetAndSubBindings()
         {
             var ordinary = Child("Child").AddComponent<AutoBindPlainHost>();
-            m_Tool.BindDatas.Add(new ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData("Sub_Self", m_Tool.m_targetScript));
-            m_Tool.BindDatas.Add(new ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData("Widget_Bad", ordinary));
-            m_Tool.BindDatas.Add(new ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData("Sub_Bad", ordinary));
+            _tool.BindDatas.Add(new ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData("Sub_Self", _tool.m_targetScript));
+            _tool.BindDatas.Add(new ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData("Widget_Bad", ordinary));
+            _tool.BindDatas.Add(new ComponentAutoBindTool.Core.ComponentAutoBindTool.BindData("Sub_Bad", ordinary));
             var settings = ScriptableObject.CreateInstance<AutoBindGlobalSetting>();
             try
             {
-                string report = AutoBindValidator.Validate(m_Tool, settings).BuildReport();
+                string report = AutoBindValidator.Validate(_tool, settings).BuildReport();
                 Assert.That(report, Does.Contain("不能将当前根节点"));
                 Assert.That(report, Does.Contain("Widget 前缀"));
                 Assert.That(report, Does.Contain("Sub 前缀"));
@@ -133,7 +133,7 @@ namespace ComponentAutoBindTool.Tests
         public void MissingWidgetReportsError()
         {
             Child("Widget_Missing");
-            var scan = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            var scan = AutoBindHierarchyScanner.CollectBindings(_tool, _map);
             Assert.That(scan.HasErrors, Is.True);
             Assert.That(scan.BindDatas, Is.Empty);
             Assert.That(scan.Errors[0], Does.Contain("WidgetViewBase"));
@@ -142,11 +142,11 @@ namespace ComponentAutoBindTool.Tests
         [Test]
         public void CustomComponentMappingAcceptsFullyQualifiedTypeName()
         {
-            m_Map.extraComponentKeyMap = new GenericDictionary<string, string>();
-            m_Map.extraComponentKeyMap.Add("Custom", typeof(AutoBindPlainHost).FullName);
+            _map.extraComponentKeyMap = new GenericDictionary<string, string>();
+            _map.extraComponentKeyMap.Add("Custom", typeof(AutoBindPlainHost).FullName);
             var host = Child("Custom_Item").AddComponent<AutoBindPlainHost>();
 
-            var scan = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            var scan = AutoBindHierarchyScanner.CollectBindings(_tool, _map);
             Assert.That(scan.Errors, Is.Empty);
             Assert.That(scan.BindDatas[0].BindCom, Is.SameAs(host));
         }
@@ -159,18 +159,18 @@ namespace ComponentAutoBindTool.Tests
             var selected = child.AddComponent<AutoBindExampleWidget>();
             var nestedTool = child.GetComponent<ComponentAutoBindTool.Core.ComponentAutoBindTool>();
 
-            var ambiguous = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            var ambiguous = AutoBindHierarchyScanner.CollectBindings(_tool, _map);
             Assert.That(ambiguous.HasErrors, Is.True);
             Assert.That(ambiguous.BindDatas, Is.Empty);
 
             nestedTool.m_targetScript = selected;
-            var resolved = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            var resolved = AutoBindHierarchyScanner.CollectBindings(_tool, _map);
             Assert.That(resolved.Errors, Is.Empty);
             Assert.That(resolved.BindDatas[0].BindCom, Is.SameAs(selected));
 
             var other = Child("Unbound").AddComponent<LabWidgetGroup>();
             nestedTool.m_targetScript = other;
-            var invalid = AutoBindHierarchyScanner.CollectBindings(m_Tool, m_Map);
+            var invalid = AutoBindHierarchyScanner.CollectBindings(_tool, _map);
             Assert.That(invalid.HasErrors, Is.True);
             Assert.That(invalid.BindDatas, Is.Empty);
         }

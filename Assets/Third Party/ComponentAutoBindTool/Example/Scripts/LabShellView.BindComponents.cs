@@ -31,12 +31,12 @@ namespace @ComponentAutoBindTool.@Example
             public global::@UnityEngine.@RectTransform rtfPortrait;
         }
 
-        private UIView view;
-        bool global::ComponentAutoBindTool.ViewCore.IAutoBindHost.IsAutoBound => view != null;
+        private UIView _view;
+        bool global::ComponentAutoBindTool.ViewCore.IAutoBindHost.IsAutoBound => _view != null;
 
         public void EnsureAutoBind(global::UnityEngine.GameObject go)
         {
-            if (view != null) return;
+            if (_view != null) return;
             if (go == null || !go.TryGetComponent<global::ComponentAutoBindTool.Core.ComponentAutoBindTool>(out var autoBindTool))
             {
                 global::UnityEngine.Debug.LogError("[LabShellView] AutoBind 根节点或绑定组件不存在。", go);
@@ -85,7 +85,7 @@ namespace @ComponentAutoBindTool.@Example
             if (boundView.sRectTrace == null) return;
             if (boundView.tMTxtTrace == null) return;
             if (boundView.rtfPortrait == null) return;
-            view = boundView;
+            _view = boundView;
         }
     }
 }

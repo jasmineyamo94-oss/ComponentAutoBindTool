@@ -64,8 +64,8 @@ namespace ComponentAutoBindTool.Tests
 
                 string snapshot = EditorJsonUtility.ToJson(tool);
                 var data = new SerializedObject(setting);
-                data.FindProperty("m_UseGlobalDefaultSavePath").boolValue = false;
-                data.FindProperty("m_CodePath").stringValue = "Assets/AATest/IndependentOutput";
+                data.FindProperty("_useGlobalDefaultSavePath").boolValue = false;
+                data.FindProperty("_codePath").stringValue = "Assets/AATest/IndependentOutput";
                 data.ApplyModifiedPropertiesWithoutUndo();
                 var report = AutoBindBuildPipeline.RescanAndValidate(tool, setting, map);
                 Assert.That(report.Succeeded, Is.False);

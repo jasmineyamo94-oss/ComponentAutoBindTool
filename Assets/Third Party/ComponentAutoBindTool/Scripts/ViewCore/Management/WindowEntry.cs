@@ -16,17 +16,17 @@ namespace ComponentAutoBindTool.ViewCore
         public UILayer Layer { get; }
         public WindowState State { get; private set; } = WindowState.Constructing;
         public bool IsTransitioning { get; private set; }
-        public int RootSortingOrder => m_RootCanvas != null ? m_RootCanvas.sortingOrder : 0;
-        public int SubCanvasCount => m_SubCanvases.Count;
+        public int RootSortingOrder => _rootCanvas != null ? _rootCanvas.sortingOrder : 0;
+        public int SubCanvasCount => _subCanvases.Count;
 
         public IWindowPresenter Presenter { get; private set; }
 
-        private readonly IViewManager m_ViewManager;
-        private readonly Canvas m_RootCanvas;
-        private readonly List<(Canvas canvas, int relativeOffset)> m_SubCanvases = new();
-        private IScopedObjectResolver m_ChildScope;
-        private bool m_IsDisposed;
-        private int m_TransitionVersion;
+        private readonly IViewManager _viewManager;
+        private readonly Canvas _rootCanvas;
+        private readonly List<(Canvas canvas, int relativeOffset)> _subCanvases = new();
+        private IScopedObjectResolver _childScope;
+        private bool _isDisposed;
+        private int _transitionVersion;
         internal bool IsClosing { get; private set; }
         internal bool HasOpenSession { get; private set; }
 
@@ -36,22 +36,22 @@ namespace ComponentAutoBindTool.ViewCore
             ViewName = viewName;
             ViewHost = viewHost;
             Layer = viewHost.Layer;
-            m_ViewManager = viewManager;
+            _viewManager = viewManager;
 
-            m_RootCanvas = viewHost.GetComponent<Canvas>();
-            if (m_RootCanvas != null)
+            _rootCanvas = viewHost.GetComponent<Canvas>();
+            if (_rootCanvas != null)
             {
-                m_RootCanvas.overrideSorting = true;
-                int rootBaseOrder = m_RootCanvas.sortingOrder;
+                _rootCanvas.overrideSorting = true;
+                int rootBaseOrder = _rootCanvas.sortingOrder;
 
                 // 收集所有子 Canvas 相对于根 Canvas 的初始排序偏移（解决 A-P08）
                 var allCanvases = viewHost.GetComponentsInChildren<Canvas>(true);
                 for (int i = 0; i < allCanvases.Length; i++)
                 {
                     var c = allCanvases[i];
-                    if (c != m_RootCanvas)
+                    if (c != _rootCanvas)
                     {
-                        m_SubCanvases.Add((c, c.sortingOrder - rootBaseOrder));
+                        _subCanvases.Add((c, c.sortingOrder - rootBaseOrder));
                     }
                 }
             }
@@ -68,18 +68,18 @@ namespace ComponentAutoBindTool.ViewCore
             ((IAutoBindHost)ViewHost).EnsureAutoBind(ViewHost.gameObject);
 
             // 2. 通过父容器纯代码创建窗口子容器作用域
-            m_ChildScope = parentResolver.CreateScope(builder =>
+            _childScope = parentResolver.CreateScope(builder =>
             {
                 builder.RegisterInstance<IWindowContext>(this);
-                builder.RegisterInstance<IViewManager>(m_ViewManager);
+                builder.RegisterInstance<IViewManager>(_viewManager);
                 ViewHost.ConfigureWindow(builder);
             });
 
             // 3. 解析 Presenter 并完成关联与首次创建初始化
-            var presenter = m_ChildScope.Resolve<IWindowPresenter>();
+            var presenter = _childScope.Resolve<IWindowPresenter>();
             if (route != null && !route.ValidatePresenter(presenter)) return false;
             Presenter = presenter;
-            Presenter.InternalAttach(this, m_ChildScope);
+            Presenter.InternalAttach(this, _childScope);
             Presenter.InternalOnCreate();
             return true;
         }
@@ -89,14 +89,14 @@ namespace ComponentAutoBindTool.ViewCore
         /// </summary>
         public void SetSortingOrder(int rootSortingOrder)
         {
-            if (m_RootCanvas != null)
+            if (_rootCanvas != null)
             {
-                m_RootCanvas.sortingOrder = rootSortingOrder;
+                _rootCanvas.sortingOrder = rootSortingOrder;
             }
 
-            for (int i = 0; i < m_SubCanvases.Count; i++)
+            for (int i = 0; i < _subCanvases.Count; i++)
             {
-                var (subCanvas, offset) = m_SubCanvases[i];
+                var (subCanvas, offset) = _subCanvases[i];
                 if (subCanvas != null)
                 {
                     subCanvas.sortingOrder = rootSortingOrder + offset;
@@ -106,7 +106,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         public void DeliverOpenArgs(IViewArgs args)
         {
-            if (m_IsDisposed || IsClosing) return;
+            if (_isDisposed || IsClosing) return;
             HasOpenSession = true;
             Presenter?.InternalOnOpen(args ?? EmptyViewArgs.Instance);
         }
@@ -114,20 +114,20 @@ namespace ComponentAutoBindTool.ViewCore
         public void SetActiveAndResume()
         {
             // 重算其他窗口的排序不能重播本窗口正在进行的入场。
-            if (m_IsDisposed || IsClosing || State == WindowState.Destroyed || State == WindowState.OpenAndActive) return;
-            int version = ++m_TransitionVersion;
+            if (_isDisposed || IsClosing || State == WindowState.Destroyed || State == WindowState.OpenAndActive) return;
+            int version = ++_transitionVersion;
             IsTransitioning = false;
             State = WindowState.OpenAndActive;
             List<Exception> errors = null;
             try { ViewHost.CancelTransition(); }
             catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
-            if (version == m_TransitionVersion && !m_IsDisposed)
+            if (version == _transitionVersion && !_isDisposed)
             {
                 ViewHost.SetViewVisible(true);
                 ViewHost.SetInteractable(false);
                 try { Presenter?.InternalOnResume(); }
                 catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
-                if (version == m_TransitionVersion && State == WindowState.OpenAndActive && !m_IsDisposed)
+                if (version == _transitionVersion && State == WindowState.OpenAndActive && !_isDisposed)
                 {
                     if (ViewHost.HasTransition)
                     {
@@ -147,7 +147,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         private void CompleteEnter(int version)
         {
-            if (version != m_TransitionVersion || !IsTransitioning || m_IsDisposed || State != WindowState.OpenAndActive) return;
+            if (version != _transitionVersion || !IsTransitioning || _isDisposed || State != WindowState.OpenAndActive) return;
             IsTransitioning = false;
             if (ViewHost != null) ViewHost.SetInteractable(true);
         }
@@ -156,7 +156,7 @@ namespace ComponentAutoBindTool.ViewCore
         {
             if (State == WindowState.OpenAndActive)
             {
-                int version = ++m_TransitionVersion;
+                int version = ++_transitionVersion;
                 IsTransitioning = false;
                 State = WindowState.Paused;
                 List<Exception> errors = null;
@@ -164,7 +164,7 @@ namespace ComponentAutoBindTool.ViewCore
                 catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
                 try { Presenter?.InternalOnPause(); }
                 catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
-                if (version == m_TransitionVersion && !m_IsDisposed && ViewHost != null)
+                if (version == _transitionVersion && !_isDisposed && ViewHost != null)
                 {
                     ViewHost.SetInteractable(false);
                     ViewHost.SetViewVisible(false);
@@ -177,9 +177,9 @@ namespace ComponentAutoBindTool.ViewCore
 
         public void EnterClosedState(WindowState closedTargetState, Action onExitTransitionComplete)
         {
-            if (m_IsDisposed || IsClosing || State == WindowState.Destroyed ||
+            if (_isDisposed || IsClosing || State == WindowState.Destroyed ||
                 (!HasOpenSession && (State == WindowState.Cached || State == WindowState.PendingDestroy))) return;
-            int version = ++m_TransitionVersion;
+            int version = ++_transitionVersion;
             bool wasActive = State == WindowState.OpenAndActive;
             State = closedTargetState;
             HasOpenSession = false;
@@ -200,7 +200,7 @@ namespace ComponentAutoBindTool.ViewCore
                 catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
             }
             finally { IsClosing = false; }
-            if (version == m_TransitionVersion && !m_IsDisposed)
+            if (version == _transitionVersion && !_isDisposed)
             {
                 IsTransitioning = true;
                 try
@@ -221,7 +221,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         private void CompleteExit(int version, Action onCompleted)
         {
-            if (version != m_TransitionVersion || !IsTransitioning || m_IsDisposed) return;
+            if (version != _transitionVersion || !IsTransitioning || _isDisposed) return;
             IsTransitioning = false;
             try { if (ViewHost != null) ViewHost.SetViewVisible(false); }
             finally { onCompleted?.Invoke(); }
@@ -237,18 +237,18 @@ namespace ComponentAutoBindTool.ViewCore
 
         public void CloseSelf()
         {
-            m_ViewManager.CloseView(InstanceId);
+            _viewManager.CloseView(InstanceId);
         }
 
         public Awaitable WaitClosedAsync(CancellationToken cancellationToken = default) =>
-            m_ViewManager.WaitViewClosedAsync(InstanceId, cancellationToken);
+            _viewManager.WaitViewClosedAsync(InstanceId, cancellationToken);
 
         public void Dispose()
         {
             // DestroyImmediate 已先切换状态；状态不能代表 Presenter 与 Scope 已释放。
-            if (m_IsDisposed) return;
-            m_IsDisposed = true;
-            ++m_TransitionVersion;
+            if (_isDisposed) return;
+            _isDisposed = true;
+            ++_transitionVersion;
             IsTransitioning = false;
             bool wasActive = State == WindowState.OpenAndActive;
             bool wasOpen = HasOpenSession || wasActive || State == WindowState.Paused;
@@ -283,8 +283,8 @@ namespace ComponentAutoBindTool.ViewCore
             finally
             {
                 Presenter = null;
-                var scope = m_ChildScope;
-                m_ChildScope = null;
+                var scope = _childScope;
+                _childScope = null;
                 try { scope?.Dispose(); }
                 catch (Exception error) { ViewLifecycleErrors.Add(ref errors, error); }
             }

@@ -40,40 +40,40 @@ namespace ComponentAutoBindTool.Editor
             public string SceneSnapshot;
         }
 
-        [SerializeField] private AutoBindViewTemplateDefinition m_Definition;
-        [SerializeField] private AutoBindTemplatePhase m_Phase;
-        [SerializeField] private AutoBindTemplatePhase m_ResumePhase;
-        [SerializeField] private string m_Message;
-        [SerializeField] private GameObject m_Parent;
-        [SerializeField] private bool m_HadParent;
-        [SerializeField] private int m_SceneHandle;
-        [SerializeField] private GameObject m_Instance;
-        [SerializeField] private List<OwnedFile> m_Files = new();
-        [SerializeField] private List<string> m_Directories = new();
-        [SerializeField] private List<string> m_CompileErrors = new();
-        [SerializeField] private bool m_CompilationFinished;
-        [SerializeField] private bool m_Reloaded;
+        [SerializeField] private AutoBindViewTemplateDefinition _definition;
+        [SerializeField] private AutoBindTemplatePhase _phase;
+        [SerializeField] private AutoBindTemplatePhase _resumePhase;
+        [SerializeField] private string _message;
+        [SerializeField] private GameObject _parent;
+        [SerializeField] private bool _hadParent;
+        [SerializeField] private int _sceneHandle;
+        [SerializeField] private GameObject _instance;
+        [SerializeField] private List<OwnedFile> _files = new();
+        [SerializeField] private List<string> _directories = new();
+        [SerializeField] private List<string> _compileErrors = new();
+        [SerializeField] private bool _compilationFinished;
+        [SerializeField] private bool _reloaded;
         // 可空会话数据必须按引用序列化，避免重载后 null 被 Unity 内联序列化还原为空配方/回执。
-        [SerializeReference] private CreationReceipt m_LastSuccess;
-        [SerializeField] private string m_ClearBackupPath;
-        [SerializeReference] private AutoBindViewTemplateDefinition m_RecreationRecipe;
-        [SerializeField] private GameObject m_RecreationParent;
-        private bool m_Executing;
+        [SerializeReference] private CreationReceipt _lastSuccess;
+        [SerializeField] private string _clearBackupPath;
+        [SerializeReference] private AutoBindViewTemplateDefinition _recreationRecipe;
+        [SerializeField] private GameObject _recreationParent;
+        private bool _executing;
 
-        internal AutoBindTemplatePhase Phase => m_Phase;
-        internal bool IsBusy => m_Phase == AutoBindTemplatePhase.HostCompilation || m_Phase == AutoBindTemplatePhase.FinalCompilation || m_Phase == AutoBindTemplatePhase.Clearing;
-        internal bool HasPending => IsBusy || m_Phase == AutoBindTemplatePhase.Failed;
-        internal string Message => m_Message ?? "输入不含 View 后缀的基础名，例如 Inventory。";
-        internal AutoBindViewTemplateDefinition Definition => m_Definition;
-        internal GameObject CreatedInstance => m_Instance;
-        internal bool CanClearCompleted => !HasPending && m_LastSuccess?.Definition?.IsInitialized == true && m_LastSuccess.Files != null && m_LastSuccess.Files.Count > 0;
-        internal bool CanCancel => HasPending && m_ResumePhase != AutoBindTemplatePhase.Clearing;
-        internal AutoBindViewTemplateDefinition LastCreatedDefinition => m_LastSuccess?.Definition;
-        internal GameObject LastCreatedParent => m_LastSuccess?.Parent;
-        internal string ClearBackupPath => m_ClearBackupPath;
-        internal AutoBindViewTemplateDefinition RecreationRecipe => m_RecreationRecipe?.IsInitialized == true ? m_RecreationRecipe : null;
-        internal GameObject RecreationParent => m_RecreationParent;
-        internal void UseSavedPaths() { m_RecreationRecipe = null; m_RecreationParent = null; }
+        internal AutoBindTemplatePhase Phase => _phase;
+        internal bool IsBusy => _phase == AutoBindTemplatePhase.HostCompilation || _phase == AutoBindTemplatePhase.FinalCompilation || _phase == AutoBindTemplatePhase.Clearing;
+        internal bool HasPending => IsBusy || _phase == AutoBindTemplatePhase.Failed;
+        internal string Message => _message ?? "输入不含 View 后缀的基础名，例如 Inventory。";
+        internal AutoBindViewTemplateDefinition Definition => _definition;
+        internal GameObject CreatedInstance => _instance;
+        internal bool CanClearCompleted => !HasPending && _lastSuccess?.Definition?.IsInitialized == true && _lastSuccess.Files != null && _lastSuccess.Files.Count > 0;
+        internal bool CanCancel => HasPending && _resumePhase != AutoBindTemplatePhase.Clearing;
+        internal AutoBindViewTemplateDefinition LastCreatedDefinition => _lastSuccess?.Definition;
+        internal GameObject LastCreatedParent => _lastSuccess?.Parent;
+        internal string ClearBackupPath => _clearBackupPath;
+        internal AutoBindViewTemplateDefinition RecreationRecipe => _recreationRecipe?.IsInitialized == true ? _recreationRecipe : null;
+        internal GameObject RecreationParent => _recreationParent;
+        internal void UseSavedPaths() { _recreationRecipe = null; _recreationParent = null; }
 
         internal static string BlockReason(bool allowCompilationErrors = false)
         {
@@ -96,13 +96,13 @@ namespace ComponentAutoBindTool.Editor
             if (!scene.IsValid() || !scene.isLoaded || EditorSceneManager.IsPreviewScene(scene))
                 throw new InvalidOperationException("当前没有可用的普通场景。");
             UseSavedPaths();
-            m_Definition = definition;
-            m_Parent = ResolveParent(context, scene);
-            m_HadParent = m_Parent != null;
-            m_SceneHandle = scene.handle;
-            m_Instance = null;
-            m_Files.Clear();
-            m_Directories.Clear();
+            _definition = definition;
+            _parent = ResolveParent(context, scene);
+            _hadParent = _parent != null;
+            _sceneHandle = scene.handle;
+            _instance = null;
+            _files.Clear();
+            _directories.Clear();
             Run(() =>
             {
                 PrepareCompilation(AutoBindTemplatePhase.HostCompilation, "第 1/2 轮：等待宿主骨架编译……");
@@ -135,8 +135,8 @@ namespace ComponentAutoBindTool.Editor
         internal void CompilationStarted()
         {
             if (!IsBusy) return;
-            m_CompileErrors.Clear();
-            m_CompilationFinished = false;
+            _compileErrors.Clear();
+            _compilationFinished = false;
         }
 
         internal void AssemblyFinished(CompilerMessage[] messages)
@@ -144,67 +144,67 @@ namespace ComponentAutoBindTool.Editor
             if (!IsBusy) return;
             foreach (var message in messages)
                 if (message.type == CompilerMessageType.Error)
-                    m_CompileErrors.Add(message.file + ":" + message.line + " " + message.message);
+                    _compileErrors.Add(message.file + ":" + message.line + " " + message.message);
         }
 
         internal void CompilationFinished()
         {
             if (!IsBusy) return;
-            m_CompilationFinished = true;
+            _compilationFinished = true;
             // 终止状态只更新会话数据，不依赖资产导入结束，也不会在编译回调里创建对象或写文件。
-            if (m_CompileErrors.Count > 0) FailCompilation();
+            if (_compileErrors.Count > 0) FailCompilation();
         }
 
         private void FailCompilation()
         {
-            Fail((m_ResumePhase == AutoBindTemplatePhase.Clearing ? "文件已清除，但项目仍有编译错误。请修复相关引用后点击重试。备份：" + m_ClearBackupPath : "编译失败，修复错误后点击重试：") + "\n" + string.Join("\n", m_CompileErrors.Take(8)));
+            Fail((_resumePhase == AutoBindTemplatePhase.Clearing ? "文件已清除，但项目仍有编译错误。请修复相关引用后点击重试。备份：" + _clearBackupPath : "编译失败，修复错误后点击重试：") + "\n" + string.Join("\n", _compileErrors.Take(8)));
         }
-        internal void Reloaded() { if (IsBusy) m_Reloaded = true; }
+        internal void Reloaded() { if (IsBusy) _reloaded = true; }
 
         internal void Tick()
         {
-            if (!IsBusy || m_Executing || EditorApplication.isCompiling || EditorApplication.isUpdating) return;
-            if (m_CompilationFinished && m_CompileErrors.Count > 0)
+            if (!IsBusy || _executing || EditorApplication.isCompiling || EditorApplication.isUpdating) return;
+            if (_compilationFinished && _compileErrors.Count > 0)
             {
                 FailCompilation();
                 return;
             }
-            if (!m_Reloaded) return;
+            if (!_reloaded) return;
             Run(() =>
             {
-                if (m_Phase == AutoBindTemplatePhase.Clearing)
+                if (_phase == AutoBindTemplatePhase.Clearing)
                 {
                     string remainingType = RemainingGeneratedType();
                     if (remainingType != null) throw new InvalidOperationException("清除后的类型仍被其他脚本定义，请检查后重试：" + remainingType);
-                    m_LastSuccess = null;
-                    m_Phase = AutoBindTemplatePhase.None;
-                    m_ResumePhase = AutoBindTemplatePhase.None;
-                    m_Message = "清除完成。已保留名称、路径和 Args 选项，可调整后重新创建；场景尚未保存。";
+                    _lastSuccess = null;
+                    _phase = AutoBindTemplatePhase.None;
+                    _resumePhase = AutoBindTemplatePhase.None;
+                    _message = "清除完成。已保留名称、路径和 Args 选项，可调整后重新创建；场景尚未保存。";
                     return;
                 }
                 ValidateContext();
-                if (m_Phase == AutoBindTemplatePhase.HostCompilation) GenerateFinalScripts();
+                if (_phase == AutoBindTemplatePhase.HostCompilation) GenerateFinalScripts();
                 else CompletePrefab();
             });
         }
 
         private void PrepareCompilation(AutoBindTemplatePhase phase, string message)
         {
-            m_Phase = phase;
-            m_ResumePhase = phase;
-            m_Message = message;
-            m_Reloaded = false;
-            m_CompilationFinished = false;
-            m_CompileErrors.Clear();
+            _phase = phase;
+            _resumePhase = phase;
+            _message = message;
+            _reloaded = false;
+            _compilationFinished = false;
+            _compileErrors.Clear();
         }
 
         private string RemainingGeneratedType()
         {
-            var names = new List<string> { m_Definition.ViewName, m_Definition.PresenterName, m_Definition.RoutesName };
-            if (m_Definition.UseArgs) names.Add(m_Definition.ArgsName);
+            var names = new List<string> { _definition.ViewName, _definition.PresenterName, _definition.RoutesName };
+            if (_definition.UseArgs) names.Add(_definition.ArgsName);
             foreach (string name in names)
             {
-                string fullName = string.IsNullOrEmpty(m_Definition.Namespace) ? name : m_Definition.Namespace + "." + name;
+                string fullName = string.IsNullOrEmpty(_definition.Namespace) ? name : _definition.Namespace + "." + name;
                 if (AppDomain.CurrentDomain.GetAssemblies().Any(assembly => assembly.GetType(fullName) != null)) return fullName;
             }
             return null;
@@ -212,18 +212,18 @@ namespace ComponentAutoBindTool.Editor
 
         internal void Retry()
         {
-            if (m_Phase != AutoBindTemplatePhase.Failed) return;
+            if (_phase != AutoBindTemplatePhase.Failed) return;
             string blocked = BlockReason(true);
             if (blocked != null) throw new InvalidOperationException(blocked);
             Run(() =>
             {
-                if (m_ResumePhase == AutoBindTemplatePhase.Clearing)
+                if (_resumePhase == AutoBindTemplatePhase.Clearing)
                 {
                     PrepareCompilation(AutoBindTemplatePhase.Clearing, "等待清除后的脚本编译……");
                     // 修复外部引用时，Unity 可能已成功重载；避免等待一次不会发生的空编译重载。
                     if (!EditorUtility.scriptCompilationFailed && RemainingGeneratedType() == null)
                     {
-                        m_Reloaded = true;
+                        _reloaded = true;
                         return;
                     }
                     CompilationPipeline.RequestScriptCompilation(RequestScriptCompilationOptions.CleanBuildCache);
@@ -231,37 +231,37 @@ namespace ComponentAutoBindTool.Editor
                 }
                 ValidateContext();
                 AssertUnchanged();
-                var script = AssetDatabase.LoadAssetAtPath<MonoScript>(m_Definition.ViewPath);
+                var script = AssetDatabase.LoadAssetAtPath<MonoScript>(_definition.ViewPath);
                 Type loaded = script != null ? script.GetClass() : null;
-                bool ready = loaded != null && (m_ResumePhase == AutoBindTemplatePhase.HostCompilation ||
+                bool ready = loaded != null && (_resumePhase == AutoBindTemplatePhase.HostCompilation ||
                     (loaded.GetNestedType("UIView") != null && loaded.Assembly.GetType(
-                        string.IsNullOrEmpty(m_Definition.Namespace) ? m_Definition.PresenterName :
-                        m_Definition.Namespace + "." + m_Definition.PresenterName) != null));
+                        string.IsNullOrEmpty(_definition.Namespace) ? _definition.PresenterName :
+                        _definition.Namespace + "." + _definition.PresenterName) != null));
                 if (!EditorUtility.scriptCompilationFailed && ready)
                 {
-                    PrepareCompilation(m_ResumePhase, "重试：继续已编译的创建阶段……");
-                    m_Reloaded = true;
+                    PrepareCompilation(_resumePhase, "重试：继续已编译的创建阶段……");
+                    _reloaded = true;
                     return;
                 }
-                if (m_ResumePhase == AutoBindTemplatePhase.HostCompilation)
+                if (_resumePhase == AutoBindTemplatePhase.HostCompilation)
                     WriteBatch(() =>
                     {
-                        Write(m_Definition.ViewPath, m_Definition.ViewSource(false));
-                        if (m_Definition.UseArgs) Write(m_Definition.ArgsPath, m_Definition.ArgsSource());
-                        Write(m_Definition.RoutesPath, m_Definition.RoutesSource());
+                        Write(_definition.ViewPath, _definition.ViewSource(false));
+                        if (_definition.UseArgs) Write(_definition.ArgsPath, _definition.ArgsSource());
+                        Write(_definition.RoutesPath, _definition.RoutesSource());
                     });
-                PrepareCompilation(m_ResumePhase, "重试：等待脚本编译……");
+                PrepareCompilation(_resumePhase, "重试：等待脚本编译……");
                 CompilationPipeline.RequestScriptCompilation(RequestScriptCompilationOptions.CleanBuildCache);
             });
         }
 
         private ViewBase BuildRoot(Scene preview)
         {
-            var script = AssetDatabase.LoadAssetAtPath<MonoScript>(m_Definition.ViewPath);
+            var script = AssetDatabase.LoadAssetAtPath<MonoScript>(_definition.ViewPath);
             Type type = script != null ? script.GetClass() : null;
-            if (type == null || !typeof(ViewBase).IsAssignableFrom(type) || type.FullName != m_Definition.FullViewName)
-                throw new InvalidOperationException("无法加载新宿主类型，请确认脚本编译成功：" + m_Definition.FullViewName);
-            var root = new GameObject(m_Definition.ViewName, typeof(RectTransform));
+            if (type == null || !typeof(ViewBase).IsAssignableFrom(type) || type.FullName != _definition.FullViewName)
+                throw new InvalidOperationException("无法加载新宿主类型，请确认脚本编译成功：" + _definition.FullViewName);
+            var root = new GameObject(_definition.ViewName, typeof(RectTransform));
             SceneManager.MoveGameObjectToScene(root, preview);
             var host = (ViewBase)root.AddComponent(type);
             root.GetComponent<Core.ComponentAutoBindTool>().m_targetScript = host;
@@ -280,17 +280,17 @@ namespace ComponentAutoBindTool.Editor
 
         private void GenerateBinding(ViewBase host)
         {
-            EnsureAvailable(m_Definition.BindingPath);
+            EnsureAvailable(_definition.BindingPath);
             var setting = Object.Instantiate(ReadConfiguration());
             try
             {
                 var data = new SerializedObject(setting);
-                data.FindProperty("m_UseGlobalDefaultSavePath").boolValue = true;
+                data.FindProperty("_useGlobalDefaultSavePath").boolValue = true;
                 data.ApplyModifiedPropertiesWithoutUndo();
                 var map = AutoBindEditorAssetLocator.LoadSingletonAsset<AutoBindKeyMapSetting>();
                 var report = AutoBindBuildPipeline.GenerateCode(host.GetComponent<Core.ComponentAutoBindTool>(), setting, map);
                 if (!report.Succeeded) throw new InvalidOperationException(report.ValidationResult.BuildReport());
-                Remember(m_Definition.BindingPath);
+                Remember(_definition.BindingPath);
             }
             finally { Object.DestroyImmediate(setting); }
         }
@@ -305,8 +305,8 @@ namespace ComponentAutoBindTool.Editor
                 WriteBatch(() =>
                 {
                     GenerateBinding(host);
-                    Write(m_Definition.ViewPath, m_Definition.ViewSource(true));
-                    Write(m_Definition.PresenterPath, m_Definition.PresenterSource());
+                    Write(_definition.ViewPath, _definition.ViewSource(true));
+                    Write(_definition.PresenterPath, _definition.PresenterSource());
                 });
             }
             finally { EditorSceneManager.ClosePreviewScene(preview); }
@@ -317,7 +317,7 @@ namespace ComponentAutoBindTool.Editor
         private void CompletePrefab()
         {
             AssertUnchanged();
-            EnsureAvailable(m_Definition.PrefabPath);
+            EnsureAvailable(_definition.PrefabPath);
             Scene preview = EditorSceneManager.NewPreviewScene();
             GameObject prefab;
             try
@@ -326,28 +326,28 @@ namespace ComponentAutoBindTool.Editor
                 GenerateBinding(host);
                 ((IAutoBindHost)host).EnsureAutoBind(host.gameObject);
                 if (!((IAutoBindHost)host).IsAutoBound) throw new InvalidOperationException("模板宿主绑定验证失败。");
-                EnsureDirectory(Path.GetDirectoryName(m_Definition.PrefabPath));
+                EnsureDirectory(Path.GetDirectoryName(_definition.PrefabPath));
                 try
                 {
-                    prefab = PrefabUtility.SaveAsPrefabAsset(host.gameObject, m_Definition.PrefabPath, out bool saved);
+                    prefab = PrefabUtility.SaveAsPrefabAsset(host.gameObject, _definition.PrefabPath, out bool saved);
                     if (!saved || prefab == null) throw new IOException("模板 Prefab 保存失败。");
                 }
-                finally { if (File.Exists(m_Definition.PrefabPath)) Remember(m_Definition.PrefabPath); }
+                finally { if (File.Exists(_definition.PrefabPath)) Remember(_definition.PrefabPath); }
             }
             finally { EditorSceneManager.ClosePreviewScene(preview); }
             CreateSceneInstance(prefab);
             CaptureMetas();
-            m_LastSuccess = new CreationReceipt
+            _lastSuccess = new CreationReceipt
             {
-                Definition = JsonUtility.FromJson<AutoBindViewTemplateDefinition>(JsonUtility.ToJson(m_Definition)),
-                Files = m_Files.Select(file => new OwnedFile { Path = file.Path, Hash = file.Hash, MetaHash = file.MetaHash }).ToList(),
-                Instance = m_Instance, Parent = m_Instance.transform.parent.gameObject,
-                SceneHandle = m_Instance.scene.handle, SceneSnapshot = CaptureInstance(m_Instance)
+                Definition = JsonUtility.FromJson<AutoBindViewTemplateDefinition>(JsonUtility.ToJson(_definition)),
+                Files = _files.Select(file => new OwnedFile { Path = file.Path, Hash = file.Hash, MetaHash = file.MetaHash }).ToList(),
+                Instance = _instance, Parent = _instance.transform.parent.gameObject,
+                SceneHandle = _instance.scene.handle, SceneSnapshot = CaptureInstance(_instance)
             };
-            m_Phase = AutoBindTemplatePhase.Completed;
-            m_Message = "创建完成：" + (m_Definition.UseArgs ? "五" : "四") + "份脚本与 Prefab 已生成。场景尚未保存，可按需保存。";
-            Selection.activeGameObject = m_Instance;
-            EditorGUIUtility.PingObject(m_Instance);
+            _phase = AutoBindTemplatePhase.Completed;
+            _message = "创建完成：" + (_definition.UseArgs ? "五" : "四") + "份脚本与 Prefab 已生成。场景尚未保存，可按需保存。";
+            Selection.activeGameObject = _instance;
+            EditorGUIUtility.PingObject(_instance);
         }
 
         private void CreateSceneInstance(GameObject prefab)
@@ -358,7 +358,7 @@ namespace ComponentAutoBindTool.Editor
             Undo.SetCurrentGroupName("创建 UI View Template");
             try
             {
-                Transform parent = m_Parent != null ? m_Parent.transform : null;
+                Transform parent = _parent != null ? _parent.transform : null;
                 if (parent == null)
                 {
                     var canvas = new GameObject("Canvas", typeof(RectTransform), typeof(Canvas), typeof(UnityEngine.UI.CanvasScaler), typeof(UnityEngine.UI.GraphicRaycaster));
@@ -385,26 +385,26 @@ namespace ComponentAutoBindTool.Editor
                     events.AddComponent<StandaloneInputModule>();
 #endif
                 }
-                m_Instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, scene);
-                Undo.RegisterCreatedObjectUndo(m_Instance, "创建 UI 界面实例");
-                Undo.SetTransformParent(m_Instance.transform, parent, "创建 UI 界面实例");
-                var rect = (RectTransform)m_Instance.transform;
+                _instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, scene);
+                Undo.RegisterCreatedObjectUndo(_instance, "创建 UI 界面实例");
+                Undo.SetTransformParent(_instance.transform, parent, "创建 UI 界面实例");
+                var rect = (RectTransform)_instance.transform;
                 rect.localScale = Vector3.one;
                 rect.localRotation = Quaternion.identity;
                 rect.offsetMin = Vector2.zero;
                 rect.offsetMax = Vector2.zero;
                 int layer = parent.GetComponentInParent<Canvas>(true).gameObject.layer;
-                foreach (Transform child in m_Instance.GetComponentsInChildren<Transform>(true))
+                foreach (Transform child in _instance.GetComponentsInChildren<Transform>(true))
                 {
                     child.gameObject.layer = layer;
                     PrefabUtility.RecordPrefabInstancePropertyModifications(child.gameObject);
                 }
                 PrefabUtility.RecordPrefabInstancePropertyModifications(rect);
-                Undo.RegisterFullObjectHierarchyUndo(m_Instance, "创建 UI 界面实例");
+                Undo.RegisterFullObjectHierarchyUndo(_instance, "创建 UI 界面实例");
                 Undo.CollapseUndoOperations(group);
                 EditorSceneManager.MarkSceneDirty(scene);
             }
-            catch { Undo.RevertAllDownToGroup(group); m_Instance = null; throw; }
+            catch { Undo.RevertAllDownToGroup(group); _instance = null; throw; }
         }
 
         private Scene ValidateContext()
@@ -415,9 +415,9 @@ namespace ComponentAutoBindTool.Editor
             for (int i = 0; i < SceneManager.sceneCount; i++)
             {
                 Scene candidate = SceneManager.GetSceneAt(i);
-                if (candidate.handle == m_SceneHandle) { scene = candidate; break; }
+                if (candidate.handle == _sceneHandle) { scene = candidate; break; }
             }
-            if (!scene.IsValid() || !scene.isLoaded || (m_HadParent && (m_Parent == null || m_Parent.scene != scene)))
+            if (!scene.IsValid() || !scene.isLoaded || (_hadParent && (_parent == null || _parent.scene != scene)))
                 throw new InvalidOperationException("原场景或父节点已失效，任务已停止，不会改到其他场景创建。");
             return scene;
         }
@@ -456,12 +456,12 @@ namespace ComponentAutoBindTool.Editor
             if (Directory.Exists(path)) return;
             EnsureDirectory(Path.GetDirectoryName(path));
             Directory.CreateDirectory(path);
-            m_Directories.Add(path);
+            _directories.Add(path);
         }
 
         private void EnsureAvailable(string path)
         {
-            OwnedFile owned = m_Files.Find(item => item.Path == path);
+            OwnedFile owned = _files.Find(item => item.Path == path);
             if (owned != null) { CheckFile(owned); return; }
             if (File.Exists(path) || Directory.Exists(path) || File.Exists(path + ".meta"))
                 throw new IOException("目标在创建期间被占用，不会覆盖：" + path);
@@ -469,8 +469,8 @@ namespace ComponentAutoBindTool.Editor
 
         private void Remember(string path)
         {
-            var owned = m_Files.Find(item => item.Path == path);
-            if (owned == null) { owned = new OwnedFile { Path = path }; m_Files.Add(owned); }
+            var owned = _files.Find(item => item.Path == path);
+            if (owned == null) { owned = new OwnedFile { Path = path }; _files.Add(owned); }
             owned.Hash = Hash(path);
             if (owned.MetaHash == null && File.Exists(path + ".meta")) owned.MetaHash = Hash(path + ".meta");
         }
@@ -483,7 +483,7 @@ namespace ComponentAutoBindTool.Editor
 
         private void CaptureMetas()
         {
-            foreach (var file in m_Files)
+            foreach (var file in _files)
                 if (file.MetaHash == null && File.Exists(file.Path + ".meta")) file.MetaHash = Hash(file.Path + ".meta");
         }
 
@@ -495,7 +495,7 @@ namespace ComponentAutoBindTool.Editor
                 throw new IOException("产物已被修改或移走，不会覆盖或删除：" + file.Path);
         }
 
-        private void AssertUnchanged() { foreach (var file in m_Files) CheckFile(file); }
+        private void AssertUnchanged() { foreach (var file in _files) CheckFile(file); }
 
         private static string CaptureInstance(GameObject instance)
         {
@@ -519,7 +519,7 @@ namespace ComponentAutoBindTool.Editor
             if (!CanClearCompleted) throw new InvalidOperationException("当前没有可清除的成功创建记录，或仍有任务未完成。");
             string blocked = BlockReason(true);
             if (blocked != null) throw new InvalidOperationException(blocked);
-            var receipt = m_LastSuccess;
+            var receipt = _lastSuccess;
             foreach (var file in receipt.Files) CheckFile(file);
             if (receipt.Instance == null || !receipt.Instance.scene.isLoaded || receipt.Instance.scene.handle != receipt.SceneHandle ||
                 CaptureInstance(receipt.Instance) != receipt.SceneSnapshot)
@@ -551,12 +551,12 @@ namespace ComponentAutoBindTool.Editor
         internal void ClearCompleted()
         {
             PreviewCompletedClear();
-            var receipt = m_LastSuccess;
+            var receipt = _lastSuccess;
             var snapshot = AutoBindTemplateAssetDeletion.Capture(receipt.Files.Select(file => file.Path));
             foreach (var file in receipt.Files) CheckFile(file);
             WriteBatch(() =>
             {
-                AutoBindTemplateAssetDeletion.Delete(snapshot, out m_ClearBackupPath);
+                AutoBindTemplateAssetDeletion.Delete(snapshot, out _clearBackupPath);
                 var scene = receipt.Instance.scene;
                 foreach (Transform child in receipt.Instance.GetComponentsInChildren<Transform>(true))
                 {
@@ -565,11 +565,11 @@ namespace ComponentAutoBindTool.Editor
                 }
                 Object.DestroyImmediate(receipt.Instance);
                 EditorSceneManager.MarkSceneDirty(scene);
-                m_Definition = receipt.Definition;
-                m_RecreationRecipe = receipt.Definition;
-                m_RecreationParent = receipt.Parent;
-                m_Instance = null;
-                m_Files.Clear();
+                _definition = receipt.Definition;
+                _recreationRecipe = receipt.Definition;
+                _recreationParent = receipt.Parent;
+                _instance = null;
+                _files.Clear();
                 PrepareCompilation(AutoBindTemplatePhase.Clearing, "产物已清除，等待脚本重载后可重新创建……");
             });
             CompilationPipeline.RequestScriptCompilation();
@@ -578,12 +578,12 @@ namespace ComponentAutoBindTool.Editor
         internal void InvalidateDeletedOutputs(IEnumerable<string> deletedPaths)
         {
             var paths = new HashSet<string>(deletedPaths, StringComparer.OrdinalIgnoreCase);
-            if (m_LastSuccess?.Files != null && m_LastSuccess.Files.Any(file => paths.Contains(file.Path))) m_LastSuccess = null;
-            if (m_Phase == AutoBindTemplatePhase.Completed && m_Definition?.IsInitialized == true && m_Definition.OutputPaths.Any(paths.Contains))
+            if (_lastSuccess?.Files != null && _lastSuccess.Files.Any(file => paths.Contains(file.Path))) _lastSuccess = null;
+            if (_phase == AutoBindTemplatePhase.Completed && _definition?.IsInitialized == true && _definition.OutputPaths.Any(paths.Contains))
             {
-                m_Phase = AutoBindTemplatePhase.None;
-                m_Instance = null;
-                m_Message = "对应磁盘产物已删除。场景实例未清除，请按需手动处理。";
+                _phase = AutoBindTemplatePhase.None;
+                _instance = null;
+                _message = "对应磁盘产物已删除。场景实例未清除，请按需手动处理。";
             }
         }
 
@@ -595,15 +595,15 @@ namespace ComponentAutoBindTool.Editor
             try { AssertUnchanged(); }
             catch (IOException error)
             {
-                m_Phase = AutoBindTemplatePhase.None;
-                m_Message = "任务已取消。为保护已修改的产物，本次文件全部保留：\n" + error.Message;
+                _phase = AutoBindTemplatePhase.None;
+                _message = "任务已取消。为保护已修改的产物，本次文件全部保留：\n" + error.Message;
                 return;
             }
             Run(() =>
             {
                 WriteBatch(() =>
                 {
-                    foreach (var file in m_Files.AsEnumerable().Reverse())
+                    foreach (var file in _files.AsEnumerable().Reverse())
                     {
                         if (!AssetDatabase.DeleteAsset(file.Path))
                         {
@@ -611,27 +611,27 @@ namespace ComponentAutoBindTool.Editor
                             if (File.Exists(file.Path + ".meta")) File.Delete(file.Path + ".meta");
                         }
                     }
-                    foreach (string directory in m_Directories.AsEnumerable().Reverse())
+                    foreach (string directory in _directories.AsEnumerable().Reverse())
                         if (Directory.Exists(directory) && !Directory.EnumerateFileSystemEntries(directory).Any())
                         {
                             if (!AssetDatabase.DeleteAsset(directory)) Directory.Delete(directory);
                         }
                 });
-                m_Files.Clear();
-                m_Phase = AutoBindTemplatePhase.None;
-                m_Message = "已取消并清理本次未修改的产物。";
+                _files.Clear();
+                _phase = AutoBindTemplatePhase.None;
+                _message = "已取消并清理本次未修改的产物。";
             });
         }
 
         private void Run(Action action)
         {
-            m_Executing = true;
+            _executing = true;
             try { action(); }
             catch (Exception error) { Fail(error.Message); }
-            finally { m_Executing = false; }
+            finally { _executing = false; }
         }
 
-        private void Fail(string message) { m_Phase = AutoBindTemplatePhase.Failed; m_Message = message; }
+        private void Fail(string message) { _phase = AutoBindTemplatePhase.Failed; _message = message; }
     }
 
     [InitializeOnLoad]

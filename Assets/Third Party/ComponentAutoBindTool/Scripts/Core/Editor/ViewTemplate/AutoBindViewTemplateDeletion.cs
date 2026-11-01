@@ -12,14 +12,17 @@ namespace ComponentAutoBindTool.Editor
 
     internal sealed class AutoBindViewTemplateDeletion : ScriptableSingleton<AutoBindViewTemplateDeletion>
     {
-        [SerializeField] private AutoBindTemplateDeletionPhase m_Phase;
-        [SerializeField] private string m_Message, m_BackupPath;
-        [SerializeField] private bool m_FilesDeleted, m_CompilationFinished, m_Reloaded;
-        [SerializeField] private List<string> m_Errors = new();
-        internal bool IsBusy => m_Phase == AutoBindTemplateDeletionPhase.WaitingForCompilation;
-        internal AutoBindTemplateDeletionPhase Phase => m_Phase;
-        internal string Message => m_Message;
-        internal string BackupPath => m_BackupPath;
+        [SerializeField] private AutoBindTemplateDeletionPhase _phase;
+        [SerializeField] private string _message;
+        [SerializeField] private string _backupPath;
+        [SerializeField] private bool _filesDeleted;
+        [SerializeField] private bool _compilationFinished;
+        [SerializeField] private bool _reloaded;
+        [SerializeField] private List<string> _errors = new();
+        internal bool IsBusy => _phase == AutoBindTemplateDeletionPhase.WaitingForCompilation;
+        internal AutoBindTemplateDeletionPhase Phase => _phase;
+        internal string Message => _message;
+        internal string BackupPath => _backupPath;
 
         internal static string BlockReason()
         {
@@ -47,22 +50,22 @@ namespace ComponentAutoBindTool.Editor
             string blocked = BlockReason();
             if (blocked != null) throw new InvalidOperationException(blocked);
             snapshot.AssertUnchanged();
-            m_FilesDeleted = false;
+            _filesDeleted = false;
             PrepareCompilation();
             AssetDatabase.DisallowAutoRefresh();
             AssetDatabase.StartAssetEditing();
             try
             {
-                AutoBindTemplateAssetDeletion.Delete(snapshot, out m_BackupPath);
-                m_FilesDeleted = true;
+                AutoBindTemplateAssetDeletion.Delete(snapshot, out _backupPath);
+                _filesDeleted = true;
                 AutoBindViewTemplateCreation.instance.InvalidateDeletedOutputs(snapshot.ExistingAssets);
-                m_Message = "磁盘产物已删除，等待 Unity 完成编译/重载。场景实例未清除。";
+                _message = "磁盘产物已删除，等待 Unity 完成编译/重载。场景实例未清除。";
                 if (!snapshot.DeletesScripts) Complete();
             }
             catch (Exception error)
             {
-                m_Phase = AutoBindTemplateDeletionPhase.Failed;
-                m_Message = error.Message;
+                _phase = AutoBindTemplateDeletionPhase.Failed;
+                _message = error.Message;
                 throw;
             }
             finally
@@ -76,61 +79,61 @@ namespace ComponentAutoBindTool.Editor
 
         private void PrepareCompilation()
         {
-            m_Phase = AutoBindTemplateDeletionPhase.WaitingForCompilation;
-            m_CompilationFinished = false;
-            m_Reloaded = false;
-            m_Errors.Clear();
+            _phase = AutoBindTemplateDeletionPhase.WaitingForCompilation;
+            _compilationFinished = false;
+            _reloaded = false;
+            _errors.Clear();
         }
 
         internal void CompilationStarted()
         {
             if (!IsBusy) return;
-            m_CompilationFinished = false;
-            m_Errors.Clear();
+            _compilationFinished = false;
+            _errors.Clear();
         }
 
         internal void AssemblyFinished(CompilerMessage[] messages)
         {
             if (!IsBusy) return;
             foreach (var message in messages)
-                if (message.type == CompilerMessageType.Error) m_Errors.Add(message.file + ":" + message.line + " " + message.message);
+                if (message.type == CompilerMessageType.Error) _errors.Add(message.file + ":" + message.line + " " + message.message);
         }
 
         internal void CompilationFinished()
         {
             if (!IsBusy) return;
-            m_CompilationFinished = true;
-            if (m_Errors.Count == 0) return;
+            _compilationFinished = true;
+            if (_errors.Count == 0) return;
             ReportCompileErrors();
         }
 
         private void ReportCompileErrors()
         {
-            m_Phase = AutoBindTemplateDeletionPhase.CompletedWithCompileErrors;
-            m_Message = "磁盘删除已完成，但项目存在编译错误。请修复相关引用；文件不会自动恢复。备份：" + m_BackupPath + "\n" + (m_Errors.Count > 0 ? string.Join("\n", m_Errors.Take(8)) : "请查看 Console 中已有的编译错误。");
+            _phase = AutoBindTemplateDeletionPhase.CompletedWithCompileErrors;
+            _message = "磁盘删除已完成，但项目存在编译错误。请修复相关引用；文件不会自动恢复。备份：" + _backupPath + "\n" + (_errors.Count > 0 ? string.Join("\n", _errors.Take(8)) : "请查看 Console 中已有的编译错误。");
         }
 
-        internal void Reloaded() { if (IsBusy) m_Reloaded = true; }
+        internal void Reloaded() { if (IsBusy) _reloaded = true; }
         internal void Tick()
         {
-            if (IsBusy && m_FilesDeleted && !EditorApplication.isCompiling && !EditorApplication.isUpdating && (m_CompilationFinished || m_Reloaded)) Complete();
+            if (IsBusy && _filesDeleted && !EditorApplication.isCompiling && !EditorApplication.isUpdating && (_compilationFinished || _reloaded)) Complete();
         }
 
         private void Complete()
         {
             if (EditorUtility.scriptCompilationFailed) { ReportCompileErrors(); return; }
-            m_Phase = AutoBindTemplateDeletionPhase.Completed;
-            m_Message = "磁盘删除完成。场景实例未清除，场景未保存；可按需调整 Args 后重新创建。备份：" + m_BackupPath;
+            _phase = AutoBindTemplateDeletionPhase.Completed;
+            _message = "磁盘删除完成。场景实例未清除，场景未保存；可按需调整 Args 后重新创建。备份：" + _backupPath;
         }
 
         internal void RetryCompilation()
         {
-            if (m_Phase != AutoBindTemplateDeletionPhase.CompletedWithCompileErrors) return;
+            if (_phase != AutoBindTemplateDeletionPhase.CompletedWithCompileErrors) return;
             string blocked = BlockReason();
             if (blocked != null) throw new InvalidOperationException(blocked);
             if (!EditorUtility.scriptCompilationFailed) { Complete(); return; }
             PrepareCompilation();
-            m_Message = "仅重新检测编译，不会重复删除文件……";
+            _message = "仅重新检测编译，不会重复删除文件……";
             CompilationPipeline.RequestScriptCompilation(RequestScriptCompilationOptions.CleanBuildCache);
         }
     }

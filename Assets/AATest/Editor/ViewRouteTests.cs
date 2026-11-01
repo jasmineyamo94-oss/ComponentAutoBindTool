@@ -22,9 +22,9 @@ namespace ComponentAutoBindTool.Tests
         }
         private sealed class Environment : IViewPrefabHelper, IViewRootHelper, IDisposable
         {
-            private readonly Dictionary<string, GameObject> m_Prefabs = new();
-            private readonly GameObject m_Root = new("路由测试");
-            private readonly IObjectResolver m_Scope;
+            private readonly Dictionary<string, GameObject> _prefabs = new();
+            private readonly GameObject _root = new("路由测试");
+            private readonly IObjectResolver _scope;
             public readonly RouteProbe Probe = new();
             public readonly ViewManager Manager;
             public int Releases, Loads;
@@ -32,24 +32,24 @@ namespace ComponentAutoBindTool.Tests
             {
                 var builder = new ContainerBuilder();
                 builder.RegisterInstance(Probe);
-                m_Scope = builder.Build();
-                Manager = new ViewManager(m_Scope, this, this);
+                _scope = builder.Build();
+                Manager = new ViewManager(_scope, this, this);
             }
             public T Add<T>(string key) where T : RouteViewHost
             {
                 var prefab = new GameObject(key);
-                prefab.transform.SetParent(m_Root.transform);
+                prefab.transform.SetParent(_root.transform);
                 var host = prefab.AddComponent<T>();
-                m_Prefabs.Add(key, prefab);
+                _prefabs.Add(key, prefab);
                 return host;
             }
-            public GameObject GetViewPrefab(string name) { Loads++; return m_Prefabs.GetValueOrDefault(name); }
-            public Transform GetViewRoot(string name, UILayer layer = UILayer.Normal) => m_Root.transform;
+            public GameObject GetViewPrefab(string name) { Loads++; return _prefabs.GetValueOrDefault(name); }
+            public Transform GetViewRoot(string name, UILayer layer = UILayer.Normal) => _root.transform;
             public void ReleaseViewInstance(string name, GameObject instance) { Releases++; Object.DestroyImmediate(instance); }
             public void Dispose()
             {
                 try { Manager.Dispose(); }
-                finally { m_Scope.Dispose(); Object.DestroyImmediate(m_Root); }
+                finally { _scope.Dispose(); Object.DestroyImmediate(_root); }
             }
         }
 

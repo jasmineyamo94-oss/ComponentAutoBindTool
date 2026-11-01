@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
@@ -32,35 +32,35 @@ namespace ComponentAutoBindTool.Core
 
         public List<BindData> BindDatas = new List<BindData>();
 
-        [SerializeField] private string m_ClassName;
+        [SerializeField] private string _className;
 
-        [SerializeField] private string m_Namespace;
+        [SerializeField] private string _namespace;
 
         public MonoBehaviour m_targetScript;
 
-        [SerializeField] private string m_CodePath;
+        [SerializeField] private string _codePath;
 
         public string ClassName
         {
-            get { return m_ClassName; }
+            get { return _className; }
         }
 
         public string Namespace
         {
-            get { return m_Namespace; }
+            get { return _namespace; }
         }
 
         public string CodePath
         {
-            get { return m_CodePath; }
+            get { return _codePath; }
         }
 
 #endif
 
         [SerializeField] public List<Component> m_BindComs = new List<Component>();
-        [SerializeField] private List<string> m_BindFieldNames = new List<string>();
-        [NonSerialized] private Dictionary<string, int> m_BindFieldIndexMap;
-        [NonSerialized] private bool m_BindFieldIndexMapDirty = true;
+        [SerializeField] private List<string> _bindFieldNames = new List<string>();
+        [NonSerialized] private Dictionary<string, int> _bindFieldIndexMap;
+        [NonSerialized] private bool _bindFieldIndexMapDirty = true;
 
         public T GetBindComponent<T>(int index) where T : Component
         {
@@ -134,8 +134,8 @@ namespace ComponentAutoBindTool.Core
         {
             EnsureBindFieldIndexMap();
 
-            if (m_BindFieldIndexMap != null
-                && m_BindFieldIndexMap.TryGetValue(fieldName, out int fieldIndex))
+            if (_bindFieldIndexMap != null
+                && _bindFieldIndexMap.TryGetValue(fieldName, out int fieldIndex))
             {
                 return fieldIndex;
             }
@@ -145,45 +145,45 @@ namespace ComponentAutoBindTool.Core
 
         private void EnsureBindFieldIndexMap()
         {
-            if (!m_BindFieldIndexMapDirty && m_BindFieldIndexMap != null)
+            if (!_bindFieldIndexMapDirty && _bindFieldIndexMap != null)
             {
                 return;
             }
 
-            if (m_BindFieldIndexMap == null)
+            if (_bindFieldIndexMap == null)
             {
-                m_BindFieldIndexMap = new Dictionary<string, int>(m_BindFieldNames.Count, StringComparer.Ordinal);
+                _bindFieldIndexMap = new Dictionary<string, int>(_bindFieldNames.Count, StringComparer.Ordinal);
             }
             else
             {
-                m_BindFieldIndexMap.Clear();
+                _bindFieldIndexMap.Clear();
             }
 
-            for (int i = 0; i < m_BindFieldNames.Count; i++)
+            for (int i = 0; i < _bindFieldNames.Count; i++)
             {
-                string fieldName = m_BindFieldNames[i];
-                if (string.IsNullOrWhiteSpace(fieldName) || m_BindFieldIndexMap.ContainsKey(fieldName))
+                string fieldName = _bindFieldNames[i];
+                if (string.IsNullOrWhiteSpace(fieldName) || _bindFieldIndexMap.ContainsKey(fieldName))
                 {
                     continue;
                 }
 
-                m_BindFieldIndexMap.Add(fieldName, i);
+                _bindFieldIndexMap.Add(fieldName, i);
             }
 
-            m_BindFieldIndexMapDirty = false;
+            _bindFieldIndexMapDirty = false;
         }
 
         private void InvalidateRuntimeCaches()
         {
-            m_BindFieldIndexMapDirty = true;
-            m_BindFieldIndexMap = null;
+            _bindFieldIndexMapDirty = true;
+            _bindFieldIndexMap = null;
         }
 
         private string GetFieldName(int index)
         {
-            if (index >= 0 && index < m_BindFieldNames.Count && !string.IsNullOrWhiteSpace(m_BindFieldNames[index]))
+            if (index >= 0 && index < _bindFieldNames.Count && !string.IsNullOrWhiteSpace(_bindFieldNames[index]))
             {
-                return m_BindFieldNames[index];
+                return _bindFieldNames[index];
             }
 
             return "<unknown>";

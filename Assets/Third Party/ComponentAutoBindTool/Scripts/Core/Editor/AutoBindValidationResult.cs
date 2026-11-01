@@ -5,23 +5,23 @@ namespace ComponentAutoBindTool.Editor
 {
     public sealed class AutoBindValidationResult
     {
-        private readonly List<string> m_Errors = new List<string>();
-        private readonly List<string> m_Warnings = new List<string>();
+        private readonly List<string> _errors = new List<string>();
+        private readonly List<string> _warnings = new List<string>();
 
-        public bool IsValid => m_Errors.Count == 0;
-        public IReadOnlyList<string> Errors => m_Errors;
-        public IReadOnlyList<string> Warnings => m_Warnings;
-        public int ErrorCount => m_Errors.Count;
-        public int WarningCount => m_Warnings.Count;
+        public bool IsValid => _errors.Count == 0;
+        public IReadOnlyList<string> Errors => _errors;
+        public IReadOnlyList<string> Warnings => _warnings;
+        public int ErrorCount => _errors.Count;
+        public int WarningCount => _warnings.Count;
 
         public void AddError(string message)
         {
-            m_Errors.Add(message);
+            _errors.Add(message);
         }
 
         public void AddWarning(string message)
         {
-            m_Warnings.Add(message);
+            _warnings.Add(message);
         }
 
         public string BuildReport()
@@ -29,14 +29,14 @@ namespace ComponentAutoBindTool.Editor
             var builder = new StringBuilder();
             bool hasPreviousSection = false;
 
-            if (m_Errors.Count > 0)
+            if (_errors.Count > 0)
             {
                 builder.AppendLine("错误：");
-                AppendMessages(builder, m_Errors);
+                AppendMessages(builder, _errors);
                 hasPreviousSection = true;
             }
 
-            if (m_Warnings.Count > 0)
+            if (_warnings.Count > 0)
             {
                 if (hasPreviousSection)
                 {
@@ -44,7 +44,7 @@ namespace ComponentAutoBindTool.Editor
                 }
 
                 builder.AppendLine("警告：");
-                AppendMessages(builder, m_Warnings);
+                AppendMessages(builder, _warnings);
                 hasPreviousSection = true;
             }
 

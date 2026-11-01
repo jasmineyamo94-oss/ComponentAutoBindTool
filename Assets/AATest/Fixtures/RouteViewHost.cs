@@ -37,30 +37,30 @@ namespace ComponentAutoBindTool.Tests
 
     public sealed class RouteScopeProbe : IDisposable
     {
-        private readonly RouteProbe m_Probe;
-        public RouteScopeProbe(RouteProbe probe) { m_Probe = probe; }
-        public void Dispose() => m_Probe.ScopeDisposals++;
+        private readonly RouteProbe _probe;
+        public RouteScopeProbe(RouteProbe probe) { _probe = probe; }
+        public void Dispose() => _probe.ScopeDisposals++;
     }
 
     public sealed class RoutePresenter : WindowPresenterBase<object, RouteArgs>
     {
-        private readonly RouteProbe m_Probe;
-        public RoutePresenter(object view, RouteProbe probe, RouteScopeProbe lifetime) : base(view) { m_Probe = probe; }
-        protected override void OnCreate() { m_Probe.Creates++; m_Probe.Contexts[Context.InstanceId] = Context; }
+        private readonly RouteProbe _probe;
+        public RoutePresenter(object view, RouteProbe probe, RouteScopeProbe lifetime) : base(view) { _probe = probe; }
+        protected override void OnCreate() { _probe.Creates++; _probe.Contexts[Context.InstanceId] = Context; }
         protected override void OnOpen(RouteArgs args)
         {
-            m_Probe.Opens++;
-            m_Probe.LastArgs = args;
-            m_Probe.LastValue = args.Value;
-            AddToOpenSession(new SessionCleanup(m_Probe));
+            _probe.Opens++;
+            _probe.LastArgs = args;
+            _probe.LastValue = args.Value;
+            AddToOpenSession(new SessionCleanup(_probe));
         }
-        protected override void OnClose() => m_Probe.Closes++;
-        protected override void OnDestroy() => m_Probe.Destroys++;
+        protected override void OnClose() => _probe.Closes++;
+        protected override void OnDestroy() => _probe.Destroys++;
         private sealed class SessionCleanup : IDisposable
         {
-            private readonly RouteProbe m_Probe;
-            public SessionCleanup(RouteProbe probe) { m_Probe = probe; }
-            public void Dispose() => m_Probe.SessionDisposals++;
+            private readonly RouteProbe _probe;
+            public SessionCleanup(RouteProbe probe) { _probe = probe; }
+            public void Dispose() => _probe.SessionDisposals++;
         }
     }
 
@@ -72,22 +72,22 @@ namespace ComponentAutoBindTool.Tests
 
     public sealed class EmptyRoutePresenter : WindowPresenterBase<object, EmptyViewArgs>
     {
-        private readonly RouteProbe m_Probe;
-        public EmptyRoutePresenter(object view, RouteProbe probe) : base(view) { m_Probe = probe; }
-        protected override void OnOpen(EmptyViewArgs args) { m_Probe.Opens++; m_Probe.LastArgs = args; }
+        private readonly RouteProbe _probe;
+        public EmptyRoutePresenter(object view, RouteProbe probe) : base(view) { _probe = probe; }
+        protected override void OnOpen(EmptyViewArgs args) { _probe.Opens++; _probe.LastArgs = args; }
     }
 
     public sealed class UncontractedRoutePresenter : IWindowPresenter
     {
-        private readonly RouteProbe m_Probe;
-        public UncontractedRoutePresenter(RouteProbe probe, RouteScopeProbe lifetime) { m_Probe = probe; }
+        private readonly RouteProbe _probe;
+        public UncontractedRoutePresenter(RouteProbe probe, RouteScopeProbe lifetime) { _probe = probe; }
         public void InternalAttach(IWindowContext context, IObjectResolver scope) { }
-        public void InternalOnCreate() => m_Probe.Creates++;
-        public void InternalOnOpen(IViewArgs args) => m_Probe.Opens++;
+        public void InternalOnCreate() => _probe.Creates++;
+        public void InternalOnOpen(IViewArgs args) => _probe.Opens++;
         public void InternalOnResume() { }
         public void InternalOnPause() { }
         public void InternalOnClose() { }
-        public void InternalOnDestroy() => m_Probe.Destroys++;
+        public void InternalOnDestroy() => _probe.Destroys++;
         public void InternalTick(float deltaTime) { }
     }
 }

@@ -79,14 +79,14 @@ namespace ComponentAutoBindTool.Tests
 
                     string snapshot = EditorJsonUtility.ToJson(tool);
                     var data = new SerializedObject(setting);
-                    data.FindProperty("m_UseGlobalDefaultSavePath").boolValue = false;
-                    data.FindProperty("m_CodePath").stringValue = Workspace;
+                    data.FindProperty("_useGlobalDefaultSavePath").boolValue = false;
+                    data.FindProperty("_codePath").stringValue = Workspace;
                     data.ApplyModifiedPropertiesWithoutUndo();
                     var invalid = AutoBindBuildPipeline.GenerateCode(tool, setting, keyMap);
                     if (invalid.Succeeded || !invalid.ValidationResult.BuildReport().Contains("同一程序集") ||
                         snapshot != EditorJsonUtility.ToJson(tool) || File.Exists(Workspace + "/" + type.Name + ".BindComponents.cs"))
                         throw new InvalidOperationException("跨程序集生成未被安全拒绝。");
-                    data.FindProperty("m_UseGlobalDefaultSavePath").boolValue = true;
+                    data.FindProperty("_useGlobalDefaultSavePath").boolValue = true;
                     data.ApplyModifiedPropertiesWithoutUndo();
 
                     var inspector = (ComponentAutoBindToolInspector)UnityEditor.Editor.CreateEditor(tool);
@@ -119,7 +119,7 @@ namespace ComponentAutoBindTool.Tests
                 var contract = host as IAutoBindHost;
                 if (contract == null) throw new InvalidOperationException("宿主没有实现绑定契约。");
                 contract.EnsureAutoBind(host.gameObject);
-                var field = host.GetType().GetField("view", BindingFlags.Instance | BindingFlags.NonPublic);
+                var field = host.GetType().GetField("_view", BindingFlags.Instance | BindingFlags.NonPublic);
                 object view = field?.GetValue(host);
                 if (view == null || !ReferenceEquals(view.GetType().GetField("btnValue")?.GetValue(view), tool.GetBindComponent<Button>(0, "btnValue")))
                     throw new InvalidOperationException("接口未执行生成绑定。");

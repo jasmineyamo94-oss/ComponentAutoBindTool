@@ -21,7 +21,7 @@ namespace ComponentAutoBindTool.Editor
             AutoBindTargetScriptSyncUtility.ApplyMetadata(input, serialized);
             if (!same) RebuildBindDatas(bindings, input.Bindings);
             var components = serialized.FindProperty("m_BindComs");
-            var names = serialized.FindProperty("m_BindFieldNames");
+            var names = serialized.FindProperty("_bindFieldNames");
             if (NeedsRuntimeBindingSync(bindings, components, names))
                 SyncRuntimeBindingCaches(bindings, components, names);
             return recordUndo ? serialized.ApplyModifiedProperties() : serialized.ApplyModifiedPropertiesWithoutUndo();

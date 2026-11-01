@@ -8,10 +8,10 @@ namespace ComponentAutoBindTool.Example
     /// <summary>每次实验拥有独立容器；仅由外层 Scope.Update 驱动一次 Tick。</summary>
     public sealed class LabSession : IDisposable
     {
-        private readonly IObjectResolver m_Root;
-        private readonly LabTelemetry m_Trace;
-        private IScopedObjectResolver m_Scope;
-        private int m_Revision;
+        private readonly IObjectResolver _root;
+        private readonly LabTelemetry _trace;
+        private IScopedObjectResolver _scope;
+        private int _revision;
         public ViewManager Manager { get; private set; }
         public int Experiment { get; private set; }
         public int LastInstanceId { get; private set; }
@@ -31,22 +31,22 @@ namespace ComponentAutoBindTool.Example
             new[] { "打开 Widget", "左侧数据 +1", "隐藏 / 恢复", "解绑 Widget", "暂停窗口", "返回栈顶" }
         };
 
-        public LabSession(IObjectResolver root, LabTelemetry trace) { m_Root = root; m_Trace = trace; }
+        public LabSession(IObjectResolver root, LabTelemetry trace) { _root = root; _trace = trace; }
 
         public void Reset(int experiment)
         {
             Dispose();
             Experiment = experiment;
-            m_Revision = 0;
+            _revision = 0;
             LastInstanceId = 0;
-            m_Trace.Clear();
-            m_Scope = m_Root.CreateScope(builder => builder.Register<ViewManager>(Lifetime.Scoped).AsSelf().As<IViewManager>());
-            Manager = m_Scope.Resolve<ViewManager>();
+            _trace.Clear();
+            _scope = _root.CreateScope(builder => builder.Register<ViewManager>(Lifetime.Scoped).AsSelf().As<IViewManager>());
+            Manager = _scope.Resolve<ViewManager>();
         }
 
         public int Open(string name, bool immediately = true)
         {
-            var args = new LabOpenArgs("参数修订", ++m_Revision);
+            var args = new LabOpenArgs("参数修订", ++_revision);
             var route = LabRoutes.Find(name);
             int id;
             if (route == null) id = Manager.ShowView(name, args, immediately);
@@ -57,13 +57,13 @@ namespace ComponentAutoBindTool.Example
                 id = 0;
             }
             if (id > 0) LastInstanceId = id;
-            m_Trace.Log($"ShowView({name}, immediately:{immediately}) → {id}");
+            _trace.Log($"ShowView({name}, immediately:{immediately}) → {id}");
             return id;
         }
 
         public void Act(int action)
         {
-            m_Trace.Log("操作：" + Captions[Experiment][action]);
+            _trace.Log("操作：" + Captions[Experiment][action]);
             switch (Experiment)
             {
                 case 0:
@@ -86,13 +86,13 @@ namespace ComponentAutoBindTool.Example
                     if (action == 0) Open("AutoBindTest");
                     if (action == 1) Open("Cover", false);
                     if (action == 2) Open("Multi", false);
-                    if (action == 3) LastInstanceId = Manager.ReplaceTopView(LabRoutes.Cover, new LabOpenArgs("替换", ++m_Revision));
+                    if (action == 3) LastInstanceId = Manager.ReplaceTopView(LabRoutes.Cover, new LabOpenArgs("替换", ++_revision));
                     if (action == 4) Manager.ReplaceTopView("MissingPrefab", new LabOpenArgs("预期失败", 0));
                     if (action == 5) Manager.TryNavigateBack();
                     break;
                 case 4:
                     if (action == 0) Open("Widgets");
-                    var presenter = m_Trace.Windows.Values.LastOrDefault(r => r.Context.ViewName == "Widgets" &&
+                    var presenter = _trace.Windows.Values.LastOrDefault(r => r.Context.ViewName == "Widgets" &&
                         r.Context.State != WindowState.Destroyed)?.Presenter as AutoBindTestPresenter;
                     if (action == 1) presenter?.Group?.Left.Increment();
                     if (action == 2) presenter?.Group?.ToggleLeft();
@@ -104,6 +104,6 @@ namespace ComponentAutoBindTool.Example
         }
 
         public void Tick() => Manager?.Tick();
-        public void Dispose() { m_Scope?.Dispose(); m_Scope = null; Manager = null; }
+        public void Dispose() { _scope?.Dispose(); _scope = null; Manager = null; }
     }
 }

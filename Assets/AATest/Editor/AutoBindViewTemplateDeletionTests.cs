@@ -14,20 +14,20 @@ namespace ComponentAutoBindTool.Tests
 {
     public sealed class AutoBindViewTemplateDeletionTests
     {
-        private string m_Root, m_Scripts, m_Prefab;
-        private bool m_AutoRefreshSuppressed;
+        private string _root, _scripts, _prefab;
+        private bool _autoRefreshSuppressed;
 
         [SetUp]
         public void SetUp()
         {
-            m_AutoRefreshSuppressed = false;
-            m_Root = "Assets/AATest/TemplateDiskTests" + Guid.NewGuid().ToString("N");
-            AssetDatabase.CreateFolder("Assets/AATest", Path.GetFileName(m_Root));
-            AssetDatabase.CreateFolder(m_Root, "Inventory");
-            m_Scripts = m_Root + "/Inventory";
-            m_Prefab = m_Root + "/InventoryView.prefab";
+            _autoRefreshSuppressed = false;
+            _root = "Assets/AATest/TemplateDiskTests" + Guid.NewGuid().ToString("N");
+            AssetDatabase.CreateFolder("Assets/AATest", Path.GetFileName(_root));
+            AssetDatabase.CreateFolder(_root, "Inventory");
+            _scripts = _root + "/Inventory";
+            _prefab = _root + "/InventoryView.prefab";
             AssetDatabase.DisallowAutoRefresh();
-            m_AutoRefreshSuppressed = true;
+            _autoRefreshSuppressed = true;
         }
 
         [TearDown]
@@ -36,22 +36,22 @@ namespace ComponentAutoBindTool.Tests
             TemplateDiskDeletionFault.Release();
             SessionState.SetString("AutoBind.TemplateDiskDeletion.Blocked", "");
             SessionState.SetString("AutoBind.TemplateDiskDeletion.LockFolderMeta", "");
-            AssetDatabase.DeleteAsset(m_Root);
-            if (m_AutoRefreshSuppressed) AssetDatabase.AllowAutoRefresh();
-            m_AutoRefreshSuppressed = false;
+            AssetDatabase.DeleteAsset(_root);
+            if (_autoRefreshSuppressed) AssetDatabase.AllowAutoRefresh();
+            _autoRefreshSuppressed = false;
         }
 
-        private AutoBindTemplateAssetDeletion.Snapshot Locate() => AutoBindViewTemplateDeletion.Locate("Inventory", m_Scripts, m_Prefab);
+        private AutoBindTemplateAssetDeletion.Snapshot Locate() => AutoBindViewTemplateDeletion.Locate("Inventory", _scripts, _prefab);
         private string OrphanMeta(string name = "InventoryArgs.cs")
         {
-            string path = m_Scripts + "/" + name + ".meta";
+            string path = _scripts + "/" + name + ".meta";
             File.WriteAllText(path, "fileFormatVersion: 2\nguid: " + Guid.NewGuid().ToString("N") + "\n");
             return path;
         }
 
         private string TextAsset(string name)
         {
-            string path = m_Scripts + "/" + name + ".txt";
+            string path = _scripts + "/" + name + ".txt";
             File.WriteAllText(path, name);
             AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceSynchronousImport);
             return path;
@@ -67,7 +67,7 @@ namespace ComponentAutoBindTool.Tests
         [Test]
         public void LocateUsesAllFiveExactNamesWithoutAReceiptOrType()
         {
-            File.WriteAllText(m_Scripts + "/InventoryView.cs", "// 已经编辑的宿主\n");
+            File.WriteAllText(_scripts + "/InventoryView.cs", "// 已经编辑的宿主\n");
             string orphan = OrphanMeta();
             var preview = Locate();
             Assert.That(preview.Entries.Select(entry => Path.GetFileName(entry.Path)), Is.EqualTo(new[]
@@ -91,7 +91,7 @@ namespace ComponentAutoBindTool.Tests
             Assert.That(AutoBindViewTemplateDeletionWindow.ConfirmDeletion(Locate(), (title, message, button) => ++calls != cancelAt), Is.False);
             Assert.That(calls, Is.EqualTo(cancelAt));
             Assert.That(File.ReadAllText(meta), Is.EqualTo(original));
-            Assert.That(Directory.Exists(m_Scripts), Is.True);
+            Assert.That(Directory.Exists(_scripts), Is.True);
         }
 
         [Test]
@@ -107,7 +107,7 @@ namespace ComponentAutoBindTool.Tests
             }), Is.True);
             Assert.Throws<IOException>(() => Delete(preview));
             Assert.That(File.ReadAllText(meta), Does.Contain("确认期间"));
-            Assert.That(Directory.Exists(m_Scripts), Is.True);
+            Assert.That(Directory.Exists(_scripts), Is.True);
         }
 
         [Test]
@@ -117,7 +117,7 @@ namespace ComponentAutoBindTool.Tests
             OrphanMeta();
             Assert.Throws<IOException>(preview.AssertUnchanged);
             var updated = Locate();
-            File.WriteAllText(m_Scripts + "/Business.txt", "新增业务文件");
+            File.WriteAllText(_scripts + "/Business.txt", "新增业务文件");
             Assert.Throws<IOException>(updated.AssertUnchanged);
         }
 
@@ -125,14 +125,14 @@ namespace ComponentAutoBindTool.Tests
         public void ExtraFilesAndSharedFoldersArePreserved()
         {
             OrphanMeta();
-            File.WriteAllText(m_Scripts + "/InventoryView.Extra.cs", "// 额外文件\n");
+            File.WriteAllText(_scripts + "/InventoryView.Extra.cs", "// 额外文件\n");
             var preview = Locate();
             Assert.That(preview.HasEmptyDirectory, Is.False);
             string backup = Delete(preview);
-            Assert.That(File.Exists(m_Scripts + "/InventoryView.Extra.cs"), Is.True);
-            Assert.That(Directory.Exists(m_Scripts), Is.True);
+            Assert.That(File.Exists(_scripts + "/InventoryView.Extra.cs"), Is.True);
+            Assert.That(Directory.Exists(_scripts), Is.True);
             Assert.That(Directory.Exists(backup), Is.True);
-            Assert.That(AutoBindViewTemplateDeletion.Locate("Inventory", m_Root, m_Prefab).HasEmptyDirectory, Is.False);
+            Assert.That(AutoBindViewTemplateDeletion.Locate("Inventory", _root, _prefab).HasEmptyDirectory, Is.False);
         }
 
         [Test]
@@ -143,7 +143,7 @@ namespace ComponentAutoBindTool.Tests
             try
             {
                 var data = new SerializedObject(settings);
-                data.FindProperty("m_PrefabRoot").stringValue = m_Scripts;
+                data.FindProperty("_prefabRoot").stringValue = _scripts;
                 data.ApplyModifiedPropertiesWithoutUndo();
                 Assert.That(Locate().HasEmptyDirectory, Is.False);
             }
@@ -154,15 +154,15 @@ namespace ComponentAutoBindTool.Tests
         public void OrphanMetaAndEmptyLeafAreBackedUpIncludingFolderGuid()
         {
             string meta = OrphanMeta();
-            string folderMeta = File.ReadAllText(m_Scripts + ".meta");
+            string folderMeta = File.ReadAllText(_scripts + ".meta");
             var preview = Locate();
             Assert.That(preview.HasEmptyDirectory, Is.True);
             string backup = Delete(preview);
             Assert.That(File.Exists(meta), Is.False);
-            Assert.That(Directory.Exists(m_Scripts), Is.False);
-            Assert.That(File.ReadAllText(Path.Combine(backup, m_Scripts + ".meta")), Is.EqualTo(folderMeta));
+            Assert.That(Directory.Exists(_scripts), Is.False);
+            Assert.That(File.ReadAllText(Path.Combine(backup, _scripts + ".meta")), Is.EqualTo(folderMeta));
             Assert.That(File.Exists(Path.Combine(backup, meta)), Is.True);
-            Assert.That(Directory.Exists(m_Root), Is.True);
+            Assert.That(Directory.Exists(_root), Is.True);
         }
 
         [Test]
@@ -187,10 +187,10 @@ namespace ComponentAutoBindTool.Tests
         [Test]
         public void DirectoryCannotPretendToBeAnAssetOrItsMeta()
         {
-            Directory.CreateDirectory(m_Prefab);
+            Directory.CreateDirectory(_prefab);
             Assert.Throws<IOException>(() => Locate());
-            Directory.Delete(m_Prefab);
-            Directory.CreateDirectory(m_Scripts + "/InventoryArgs.cs.meta");
+            Directory.Delete(_prefab);
+            Directory.CreateDirectory(_scripts + "/InventoryArgs.cs.meta");
             Assert.Throws<IOException>(() => Locate());
         }
 
@@ -199,7 +199,7 @@ namespace ComponentAutoBindTool.Tests
         {
             string first = TextAsset("First"), second = TextAsset("Second");
             string guid = AssetDatabase.AssetPathToGUID(second);
-            var snapshot = AutoBindTemplateAssetDeletion.Capture(new[] { first, second }, m_Scripts);
+            var snapshot = AutoBindTemplateAssetDeletion.Capture(new[] { first, second }, _scripts);
             SessionState.SetString("AutoBind.TemplateDiskDeletion.Blocked", first);
             Assert.Throws<IOException>(() => Delete(snapshot));
             Assert.That(File.ReadAllText(first), Is.EqualTo("First"));
@@ -212,13 +212,13 @@ namespace ComponentAutoBindTool.Tests
         public void FailureAfterLeafRemovalRestoresFolderAndItsGuid()
         {
             string asset = TextAsset("Last");
-            string folderMeta = File.ReadAllText(m_Scripts + ".meta");
-            var snapshot = AutoBindTemplateAssetDeletion.Capture(new[] { asset }, m_Scripts);
+            string folderMeta = File.ReadAllText(_scripts + ".meta");
+            var snapshot = AutoBindTemplateAssetDeletion.Capture(new[] { asset }, _scripts);
             SessionState.SetString("AutoBind.TemplateDiskDeletion.LockFolderMeta", asset);
             try { Assert.Throws<IOException>(() => Delete(snapshot)); }
             finally { TemplateDiskDeletionFault.Release(); }
-            Assert.That(Directory.Exists(m_Scripts), Is.True);
-            Assert.That(File.ReadAllText(m_Scripts + ".meta"), Is.EqualTo(folderMeta));
+            Assert.That(Directory.Exists(_scripts), Is.True);
+            Assert.That(File.ReadAllText(_scripts + ".meta"), Is.EqualTo(folderMeta));
             Assert.That(File.ReadAllText(asset), Is.EqualTo("Last"));
             Assert.DoesNotThrow(snapshot.AssertUnchanged);
         }
@@ -227,7 +227,7 @@ namespace ComponentAutoBindTool.Tests
         public IEnumerator DeletionWindowShowsIndependentPathsAndReadOnlyTargets()
         {
             OrphanMeta();
-            AutoBindViewTemplateDeletionWindow.Open("Inventory", m_Scripts, m_Prefab);
+            AutoBindViewTemplateDeletionWindow.Open("Inventory", _scripts, _prefab);
             var window = Resources.FindObjectsOfTypeAll<AutoBindViewTemplateDeletionWindow>().Single();
             try
             {

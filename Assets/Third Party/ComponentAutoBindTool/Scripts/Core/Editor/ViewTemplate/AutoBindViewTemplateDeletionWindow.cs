@@ -9,20 +9,22 @@ namespace ComponentAutoBindTool.Editor
 {
     public sealed class AutoBindViewTemplateDeletionWindow : EditorWindow
     {
-        [SerializeField] private string m_BaseName, m_ScriptDirectory, m_PrefabPath;
-        [SerializeReference] private AutoBindTemplateAssetDeletion.Snapshot m_Preview;
-        private HelpBox m_Status;
-        private VisualElement m_Files;
-        private Button m_Delete, m_Backup, m_Retry;
-        private TextField m_Scripts, m_Prefab;
-        private string m_Error;
+        [SerializeField] private string _baseName;
+        [SerializeField] private string _scriptDirectory;
+        [SerializeField] private string _prefabPath;
+        [SerializeReference] private AutoBindTemplateAssetDeletion.Snapshot _preview;
+        private HelpBox _status;
+        private VisualElement _files;
+        private Button _delete, _backup, _retry;
+        private TextField _scripts, _prefab;
+        private string _error;
 
         internal static void Open(string name, string scriptDirectory, string prefabPath)
         {
             var window = GetWindow<AutoBindViewTemplateDeletionWindow>("按位置删除 UI 模板");
-            window.m_BaseName = AutoBindViewTemplateDefinition.ValidateBaseName(name);
-            window.m_ScriptDirectory = scriptDirectory;
-            window.m_PrefabPath = prefabPath;
+            window._baseName = AutoBindViewTemplateDefinition.ValidateBaseName(name);
+            window._scriptDirectory = scriptDirectory;
+            window._prefabPath = prefabPath;
             window.CreateGUI();
             window.Show();
             window.Focus();
@@ -36,18 +38,18 @@ namespace ComponentAutoBindTool.Editor
             var body = new ScrollView(); body.AddToClassList("template-body"); rootVisualElement.Add(body);
             var title = new Label("按位置删除已有模板"); title.AddToClassList("template-title"); body.Add(title);
             body.Add(new HelpBox("只删除以下磁盘产物及元数据，包括已经编辑过的内容。不会清除任何场景实例，也不会保存场景。", HelpBoxMessageType.Warning));
-            body.Add(new TextField("界面基础名") { value = m_BaseName ?? "", isReadOnly = true, name = "deleteBaseName" });
-            m_Scripts = AddPath(body, "脚本所在目录", "deleteScriptDirectory", m_ScriptDirectory, value => m_ScriptDirectory = value, true);
-            m_Prefab = AddPath(body, "Prefab 文件路径", "deletePrefabPath", m_PrefabPath, value => m_PrefabPath = value, false);
+            body.Add(new TextField("界面基础名") { value = _baseName ?? "", isReadOnly = true, name = "deleteBaseName" });
+            _scripts = AddPath(body, "脚本所在目录", "deleteScriptDirectory", _scriptDirectory, value => _scriptDirectory = value, true);
+            _prefab = AddPath(body, "Prefab 文件路径", "deletePrefabPath", _prefabPath, value => _prefabPath = value, false);
             var refresh = new VisualElement(); refresh.AddToClassList("template-actions"); body.Add(refresh);
             refresh.Add(new Button(RebuildPreview) { text = "刷新删除清单", name = "refreshDeletionPreview" });
-            m_Files = new VisualElement(); body.Add(m_Files);
-            m_Status = new HelpBox("", HelpBoxMessageType.Info) { name = "deletionStatus" }; body.Add(m_Status);
+            _files = new VisualElement(); body.Add(_files);
+            _status = new HelpBox("", HelpBoxMessageType.Info) { name = "deletionStatus" }; body.Add(_status);
             var actions = new VisualElement(); actions.AddToClassList("template-actions"); body.Add(actions);
-            m_Delete = new Button(() => Execute(() => ConfirmAndDelete(m_Preview, AutoBindViewTemplateConfirmationWindow.Confirm))) { text = "删除…", name = "deleteLocatedTemplate" };
-            m_Backup = new Button(() => EditorUtility.RevealInFinder(AutoBindViewTemplateDeletion.instance.BackupPath)) { text = "打开删除备份", name = "openDeletionBackup" };
-            m_Retry = new Button(() => Execute(AutoBindViewTemplateDeletion.instance.RetryCompilation)) { text = "重新检测编译", name = "retryDeletionCompilation" };
-            actions.Add(m_Delete); actions.Add(m_Backup); actions.Add(m_Retry);
+            _delete = new Button(() => Execute(() => ConfirmAndDelete(_preview, AutoBindViewTemplateConfirmationWindow.Confirm))) { text = "删除…", name = "deleteLocatedTemplate" };
+            _backup = new Button(() => EditorUtility.RevealInFinder(AutoBindViewTemplateDeletion.instance.BackupPath)) { text = "打开删除备份", name = "openDeletionBackup" };
+            _retry = new Button(() => Execute(AutoBindViewTemplateDeletion.instance.RetryCompilation)) { text = "重新检测编译", name = "retryDeletionCompilation" };
+            actions.Add(_delete); actions.Add(_backup); actions.Add(_retry);
             RebuildPreview();
             rootVisualElement.schedule.Execute(UpdateState).Every(200);
         }
@@ -73,29 +75,29 @@ namespace ComponentAutoBindTool.Editor
             if (asset != null) EditorGUIUtility.PingObject(asset);
         }
 
-        private void OnProjectChange() { if (m_Files != null) RebuildPreview(); }
+        private void OnProjectChange() { if (_files != null) RebuildPreview(); }
 
         private void RebuildPreview()
         {
-            if (m_Files == null) return;
-            m_Error = null;
-            m_Preview = null;
-            m_Files.Clear();
+            if (_files == null) return;
+            _error = null;
+            _preview = null;
+            _files.Clear();
             try
             {
-                m_Preview = AutoBindViewTemplateDeletion.Locate(m_BaseName, m_ScriptDirectory, m_PrefabPath);
+                _preview = AutoBindViewTemplateDeletion.Locate(_baseName, _scriptDirectory, _prefabPath);
                 int index = 0;
-                foreach (var entry in m_Preview.Entries)
+                foreach (var entry in _preview.Entries)
                 {
-                    var name = new Label(Path.GetFileName(entry.Path)); name.AddToClassList("template-file-name"); m_Files.Add(name);
-                    var row = new VisualElement(); row.AddToClassList("template-folder"); m_Files.Add(row);
+                    var name = new Label(Path.GetFileName(entry.Path)); name.AddToClassList("template-file-name"); _files.Add(name);
+                    var row = new VisualElement(); row.AddToClassList("template-folder"); _files.Add(row);
                     row.Add(new TextField { isReadOnly = true, value = Path.GetFullPath(entry.Path), name = "deleteOutput" + index++ });
                     row.Add(new Label(entry.HasFile ? entry.HasMeta ? "文件及 .meta 存在" : "文件存在" : entry.HasMeta ? "仅 .meta 存在" : "不存在，跳过"));
                     row.Add(new Button(() => Ping(entry.Path)) { text = "定位" });
                 }
-                m_Files.Add(new HelpBox(m_Preview.HasEmptyDirectory ? "清单同时包含空叶目录及其元数据：" + m_Preview.EmptyDirectory : "脚本目录保留；额外文件、子目录和共享目录不会删除。", HelpBoxMessageType.Info));
+                _files.Add(new HelpBox(_preview.HasEmptyDirectory ? "清单同时包含空叶目录及其元数据：" + _preview.EmptyDirectory : "脚本目录保留；额外文件、子目录和共享目录不会删除。", HelpBoxMessageType.Info));
             }
-            catch (Exception error) { m_Error = error.Message; }
+            catch (Exception error) { _error = error.Message; }
             UpdateState();
         }
 
@@ -120,24 +122,24 @@ namespace ComponentAutoBindTool.Editor
 
         private void Execute(Action action)
         {
-            m_Error = null;
+            _error = null;
             try { action(); }
-            catch (Exception error) { m_Error = error.Message; }
+            catch (Exception error) { _error = error.Message; }
             UpdateState();
         }
 
         private void UpdateState()
         {
-            if (m_Status == null) return;
+            if (_status == null) return;
             var task = AutoBindViewTemplateDeletion.instance;
             string blocked = AutoBindViewTemplateDeletion.BlockReason();
-            m_Delete.SetEnabled(blocked == null && m_Preview?.HasAnything == true);
-            m_Scripts.SetEnabled(!task.IsBusy);
-            m_Prefab.SetEnabled(!task.IsBusy);
-            m_Backup.SetEnabled(!string.IsNullOrEmpty(task.BackupPath) && Directory.Exists(task.BackupPath));
-            m_Retry.SetEnabled(blocked == null && task.Phase == AutoBindTemplateDeletionPhase.CompletedWithCompileErrors);
-            m_Status.text = m_Error ?? blocked ?? task.Message ?? (m_Preview?.HasAnything == true ? "请核对完整路径；删除前会连续显示两次确认。" : "未找到可删除的固定产物。");
-            m_Status.messageType = m_Error != null || task.Phase == AutoBindTemplateDeletionPhase.Failed || task.Phase == AutoBindTemplateDeletionPhase.CompletedWithCompileErrors ? HelpBoxMessageType.Error : HelpBoxMessageType.Info;
+            _delete.SetEnabled(blocked == null && _preview?.HasAnything == true);
+            _scripts.SetEnabled(!task.IsBusy);
+            _prefab.SetEnabled(!task.IsBusy);
+            _backup.SetEnabled(!string.IsNullOrEmpty(task.BackupPath) && Directory.Exists(task.BackupPath));
+            _retry.SetEnabled(blocked == null && task.Phase == AutoBindTemplateDeletionPhase.CompletedWithCompileErrors);
+            _status.text = _error ?? blocked ?? task.Message ?? (_preview?.HasAnything == true ? "请核对完整路径；删除前会连续显示两次确认。" : "未找到可删除的固定产物。");
+            _status.messageType = _error != null || task.Phase == AutoBindTemplateDeletionPhase.Failed || task.Phase == AutoBindTemplateDeletionPhase.CompletedWithCompileErrors ? HelpBoxMessageType.Error : HelpBoxMessageType.Info;
         }
     }
 }

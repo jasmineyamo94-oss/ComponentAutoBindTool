@@ -32,19 +32,19 @@ namespace ComponentAutoBindTool.Tests
 
     public sealed class EnhancementPresenter : WindowPresenterBase<object>
     {
-        private readonly EnhancementProbe m_Probe;
+        private readonly EnhancementProbe _probe;
 
         public EnhancementPresenter(object view, EnhancementProbe probe) : base(view)
         {
-            m_Probe = probe;
+            _probe = probe;
         }
 
-        protected override void OnCreate() => m_Probe.Record("Create", Context);
-        protected override void OnOpen(IViewArgs args) => m_Probe.Record("Open", Context);
-        protected override void OnResume() => m_Probe.Record("Resume", Context);
-        protected override void OnPause() => m_Probe.Record("Pause", Context);
-        protected override void OnClose() => m_Probe.Record("Close", Context);
-        protected override void OnDestroy() => m_Probe.Record("Destroy", Context);
+        protected override void OnCreate() => _probe.Record("Create", Context);
+        protected override void OnOpen(IViewArgs args) => _probe.Record("Open", Context);
+        protected override void OnResume() => _probe.Record("Resume", Context);
+        protected override void OnPause() => _probe.Record("Pause", Context);
+        protected override void OnClose() => _probe.Record("Close", Context);
+        protected override void OnDestroy() => _probe.Record("Destroy", Context);
     }
 }
 

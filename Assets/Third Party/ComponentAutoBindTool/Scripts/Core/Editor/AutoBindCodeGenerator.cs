@@ -46,13 +46,13 @@ namespace ComponentAutoBindTool.Editor
             }
             Line(member + "}");
             Line();
-            Line(member + "private UIView view;");
-            Line(member + "bool " + HostInterface + ".IsAutoBound => view != null;");
+            Line(member + "private UIView _view;");
+            Line(member + "bool " + HostInterface + ".IsAutoBound => _view != null;");
             Line();
             string modifier = ensure == null ? "public" : Access(ensure, type) + " override";
             Line(member + modifier + " void EnsureAutoBind(global::UnityEngine.GameObject go)");
             Line(member + "{");
-            Line(body + "if (view != null) return;");
+            Line(body + "if (_view != null) return;");
             Line(body + "if (go == null || !go.TryGetComponent<global::ComponentAutoBindTool.Core.ComponentAutoBindTool>(out var autoBindTool))");
             Line(body + "{");
             Line(body + "    global::UnityEngine.Debug.LogError(\"[" + type.Name + "] AutoBind 根节点或绑定组件不存在。\", go);");
@@ -91,7 +91,7 @@ namespace ComponentAutoBindTool.Editor
                 Line(body + "    return;");
                 Line(body + "}");
             }
-            Line(body + "view = boundView;");
+            Line(body + "_view = boundView;");
             Line(member + "}");
             if (ensure != null && !publicOverride)
             {
@@ -102,8 +102,8 @@ namespace ComponentAutoBindTool.Editor
                 Line();
                 Line(member + Access(getter, type) + " override object GetGeneratedUIView()");
                 Line(member + "{");
-                Line(body + "if (view == null) EnsureAutoBind(gameObject);");
-                Line(body + "return view;");
+                Line(body + "if (_view == null) EnsureAutoBind(gameObject);");
+                Line(body + "return _view;");
                 Line(member + "}");
             }
             Line(indent + "}");

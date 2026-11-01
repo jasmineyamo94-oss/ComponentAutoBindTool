@@ -3,7 +3,7 @@ namespace ComponentAutoBindTool.Tests
 {
     public partial class AutoBindPartialConflictHost
     {
-        private object @view;
+        private object @_view;
     }
 }
 #endif

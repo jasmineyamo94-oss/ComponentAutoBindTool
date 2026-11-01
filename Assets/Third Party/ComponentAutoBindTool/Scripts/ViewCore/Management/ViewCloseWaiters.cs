@@ -40,27 +40,27 @@ namespace ComponentAutoBindTool.ViewCore
             }
         }
 
-        private readonly int m_MainThreadId = Thread.CurrentThread.ManagedThreadId;
-        private readonly Dictionary<int, Batch> m_ActiveBatches = new();
-        private readonly HashSet<Batch> m_DetachedBatches = new();
-        private readonly Stack<AwaitableCompletionSource> m_SourcePool = new();
-        private bool m_IsDisposed;
+        private readonly int _mainThreadId = Thread.CurrentThread.ManagedThreadId;
+        private readonly Dictionary<int, Batch> _activeBatches = new();
+        private readonly HashSet<Batch> _detachedBatches = new();
+        private readonly Stack<AwaitableCompletionSource> _sourcePool = new();
+        private bool _isDisposed;
 
         internal async Awaitable Wait(int instanceId, CancellationToken cancellationToken = default)
         {
             EnsureMainThread();
-            if (m_IsDisposed) return;
+            if (_isDisposed) return;
             cancellationToken.ThrowIfCancellationRequested();
 
-            if (!m_ActiveBatches.TryGetValue(instanceId, out Batch batch))
+            if (!_activeBatches.TryGetValue(instanceId, out Batch batch))
             {
                 batch = new Batch(this, instanceId);
-                m_ActiveBatches.Add(instanceId, batch);
+                _activeBatches.Add(instanceId, batch);
             }
 
             // 新建源已准备好；池中源只在上一次 await 消费后 Reset 一次。
-            AwaitableCompletionSource source = m_SourcePool.Count > 0
-                ? m_SourcePool.Pop()
+            AwaitableCompletionSource source = _sourcePool.Count > 0
+                ? _sourcePool.Pop()
                 : new AwaitableCompletionSource();
             var waiter = new Waiter(batch, source);
             batch.Waiters.Add(waiter);
@@ -84,10 +84,10 @@ namespace ComponentAutoBindTool.ViewCore
                 // 注销并等待正在执行的取消注册，随后才允许复用完成源。
                 waiter.Registration.Dispose();
                 waiter.Source = null;
-                if (!m_IsDisposed)
+                if (!_isDisposed)
                 {
                     source.Reset();
-                    m_SourcePool.Push(source);
+                    _sourcePool.Push(source);
                 }
             }
         }
@@ -95,9 +95,9 @@ namespace ComponentAutoBindTool.ViewCore
         internal Batch Detach(int instanceId)
         {
             EnsureMainThread();
-            if (!m_ActiveBatches.Remove(instanceId, out Batch batch)) return null;
+            if (!_activeBatches.Remove(instanceId, out Batch batch)) return null;
             batch.Detached = true;
-            m_DetachedBatches.Add(batch);
+            _detachedBatches.Add(batch);
             return batch;
         }
 
@@ -111,7 +111,7 @@ namespace ComponentAutoBindTool.ViewCore
 
             // 先提交批次终态，再调用可能同步重入管理器的 continuation。
             batch.Completed = true;
-            m_DetachedBatches.Remove(batch);
+            _detachedBatches.Remove(batch);
             for (int index = 0; index < batch.Waiters.Count; index++)
             {
                 CompleteWaiter(batch.Waiters[index], false);
@@ -122,19 +122,19 @@ namespace ComponentAutoBindTool.ViewCore
         public void Dispose()
         {
             EnsureMainThread();
-            if (m_IsDisposed) return;
-            m_IsDisposed = true;
+            if (_isDisposed) return;
+            _isDisposed = true;
 
             // 首先分离全部批次，后续 continuation 不会修改正在遍历的集合。
-            foreach (Batch batch in m_ActiveBatches.Values)
+            foreach (Batch batch in _activeBatches.Values)
             {
                 batch.Detached = true;
-                m_DetachedBatches.Add(batch);
+                _detachedBatches.Add(batch);
             }
-            m_ActiveBatches.Clear();
-            var pendingBatches = new List<Batch>(m_DetachedBatches);
-            m_DetachedBatches.Clear();
-            m_SourcePool.Clear();
+            _activeBatches.Clear();
+            var pendingBatches = new List<Batch>(_detachedBatches);
+            _detachedBatches.Clear();
+            _sourcePool.Clear();
             foreach (Batch batch in pendingBatches)
             {
                 Complete(batch);
@@ -143,7 +143,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         private void RequestCancellation(Waiter waiter)
         {
-            if (Thread.CurrentThread.ManagedThreadId == m_MainThreadId)
+            if (Thread.CurrentThread.ManagedThreadId == _mainThreadId)
             {
                 CompleteWaiter(waiter, true);
             }
@@ -172,7 +172,7 @@ namespace ComponentAutoBindTool.ViewCore
                 batch.Waiters.Remove(waiter);
                 if (batch.Waiters.Count == 0)
                 {
-                    m_ActiveBatches.Remove(batch.InstanceId);
+                    _activeBatches.Remove(batch.InstanceId);
                 }
             }
 
@@ -183,7 +183,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         private void EnsureMainThread()
         {
-            if (Thread.CurrentThread.ManagedThreadId != m_MainThreadId)
+            if (Thread.CurrentThread.ManagedThreadId != _mainThreadId)
                 throw new InvalidOperationException("关闭等待表只能从创建它的 Unity 主线程访问。");
         }
     }

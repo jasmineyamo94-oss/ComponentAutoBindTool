@@ -114,7 +114,7 @@ AutoBindBuildPipeline.GenerateCode(target, settings, keyMap);
 |---|---|
 | `BindDatas` | 编辑器期可读绑定记录，名称如 `Btn_Close`，附组件引用。 |
 | `m_BindComs` | 按扫描顺序持久化的组件引用，运行时使用。 |
-| `m_BindFieldNames` | 与组件列表对应的生成字段名，如 `btnClose`，运行时用于严格查找。 |
+| `_bindFieldNames` | 与组件列表对应的生成字段名，如 `btnClose`，运行时用于严格查找。 |
 
 [SerializedBindingUtility](Scripts/Core/Editor/AutoBindSerializedBindingUtility.cs) 同步三份数据及宿主元数据。运行时组件反序列化后使字段索引缓存失效，首次查找时按需建立缓存；这里不会重扫 Transform 层级。
 
@@ -190,7 +190,7 @@ sequenceDiagram
 
 Entry 在交付 `OnOpen` 前已标记新打开会话，因此在此回调中调用 `Context.WaitClosedAsync()` 会等待本次关闭，缓存实例重开也相同。若用户在 `OnCreate` 释放管理器，或在 `OnOpen` / `OnResume` 关闭自身，调度器会重新检查有效性，释放未登记的准备实例，并避免发布过期的 `OnViewOpened`。
 
-生成的 `EnsureAutoBind` 先构造临时 UIView，所有字段有效才写入宿主缓存 `view`；失败不会缓存残缺 UIView。`RegisterWindow` 拒绝空 UIView，Widget 的 `BindWidget` 也检查 getter 结果。生成的 Widget getter 可先完成绑定，再返回同一缓存对象；未生成时默认 getter 只提供明确诊断，不阻止骨架编译。
+生成的 `EnsureAutoBind` 先构造临时 UIView，所有字段有效才写入宿主缓存 `_view`；失败不会缓存残缺 UIView。`RegisterWindow` 拒绝空 UIView，Widget 的 `BindWidget` 也检查 getter 结果。生成的 Widget getter 可先完成绑定，再返回同一缓存对象；未生成时默认 getter 只提供明确诊断，不阻止骨架编译。
 
 ### 4.3 Scope 与注册寿命
 
@@ -209,7 +209,7 @@ AutoBindExampleScope：外层根容器
                  └─ Group → Left / Right，无额外 Widget Scope
 ```
 
-示例在 [AutoBindTest.ConfigureWindow](Example/Scripts/AutoBindTest.cs) 中调用 `RegisterWindow<AutoBindTestPresenter, UIView>(builder, view)`；窗口服务按 Scoped 注册，Group 和叶 Widget Presenter 按 Transient 注册。
+示例在 [AutoBindTest.ConfigureWindow](Example/Scripts/AutoBindTest.cs) 中调用 `RegisterWindow<AutoBindTestPresenter, UIView>(builder, _view)`；窗口服务按 Scoped 注册，Group 和叶 Widget Presenter 按 Transient 注册。
 
 **同类型 Widget 同时绑定多个宿主时，Presenter 使用 Transient。** 若用 Scoped，多次 Resolve 会返回同一 Presenter，第二次 Attach 会覆盖第一份 UIView 和上下文。共享窗口服务应保持 Scoped，而不是给每个 Widget 新建容器。
 

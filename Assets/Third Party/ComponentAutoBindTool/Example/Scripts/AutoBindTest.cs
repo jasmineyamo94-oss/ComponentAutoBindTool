@@ -8,7 +8,7 @@ namespace ComponentAutoBindTool
     {
         public override void ConfigureWindow(IContainerBuilder builder)
         {
-            RegisterWindow<AutoBindTestPresenter, UIView>(builder, view);
+            RegisterWindow<AutoBindTestPresenter, UIView>(builder, _view);
             builder.Register<LabScopeProbe>(Lifetime.Scoped);
             builder.Register<LabWidgetGroupPresenter>(Lifetime.Transient);
             builder.Register<AutoBindExampleWidgetPresenter>(Lifetime.Transient);

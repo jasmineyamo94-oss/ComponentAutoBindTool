@@ -153,7 +153,7 @@
 - 大括号独占新行
 - 公有类型、方法使用 PascalCase
 - 接口以 `I` 开头
-- 序列化字段 / 私有字段使用 `m_FieldName`
+- 序列化字段 / 私有字段使用 `_fieldName`
 - Editor 代码必须放在 `Editor/` 目录
 
 ## 7. AutoBind 工作流约束

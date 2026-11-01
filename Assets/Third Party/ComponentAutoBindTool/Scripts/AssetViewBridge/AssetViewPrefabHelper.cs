@@ -8,25 +8,25 @@ namespace ComponentAutoBindTool.ViewCore
 {
     public sealed class AssetViewPrefabHelper : IViewPrefabLeaseHelper, IDisposable
     {
-        private readonly IAssetService m_Assets;
-        private readonly Func<string, string> m_KeyResolver;
-        private readonly Dictionary<string, Stack<AssetHandle<GameObject>>> m_Pending = new(StringComparer.Ordinal);
-        private readonly Dictionary<int, (GameObject Instance, AssetHandle<GameObject> Handle)> m_Instances = new();
-        private bool m_Disposed;
+        private readonly IAssetService _assets;
+        private readonly Func<string, string> _keyResolver;
+        private readonly Dictionary<string, Stack<AssetHandle<GameObject>>> _pending = new(StringComparer.Ordinal);
+        private readonly Dictionary<int, (GameObject Instance, AssetHandle<GameObject> Handle)> _instances = new();
+        private bool _disposed;
         public AssetViewPrefabHelper(IAssetService assetService, Func<string, string> keyResolver = null)
         {
-            m_Assets = assetService ?? throw new ArgumentNullException(nameof(assetService));
-            m_KeyResolver = keyResolver ?? (key => key);
+            _assets = assetService ?? throw new ArgumentNullException(nameof(assetService));
+            _keyResolver = keyResolver ?? (key => key);
         }
         public GameObject GetViewPrefab(string viewName)
         {
             Check();
-            return Retain(viewName, m_Assets.LoadAssetSync<GameObject>(m_KeyResolver(viewName)));
+            return Retain(viewName, _assets.LoadAssetSync<GameObject>(_keyResolver(viewName)));
         }
         public async Awaitable<GameObject> GetViewPrefabAsync(string viewName, CancellationToken cancellationToken = default)
         {
             Check();
-            var handle = await m_Assets.LoadAssetAsync<GameObject>(m_KeyResolver(viewName), cancellationToken: cancellationToken);
+            var handle = await _assets.LoadAssetAsync<GameObject>(_keyResolver(viewName), cancellationToken: cancellationToken);
             try
             {
                 Check();
@@ -37,15 +37,15 @@ namespace ComponentAutoBindTool.ViewCore
         }
         private GameObject Retain(string name, AssetHandle<GameObject> handle)
         {
-            if (!m_Pending.TryGetValue(name, out var pending)) m_Pending.Add(name, pending = new());
+            if (!_pending.TryGetValue(name, out var pending)) _pending.Add(name, pending = new());
             pending.Push(handle);
             return handle.Asset;
         }
         private AssetHandle<GameObject> Take(string name)
         {
-            if (!m_Pending.TryGetValue(name, out var pending) || pending.Count == 0) return null;
+            if (!_pending.TryGetValue(name, out var pending) || pending.Count == 0) return null;
             var handle = pending.Pop();
-            if (pending.Count == 0) m_Pending.Remove(name);
+            if (pending.Count == 0) _pending.Remove(name);
             return handle;
         }
         public void RegisterViewInstance(string viewName, GameObject instance)
@@ -53,27 +53,27 @@ namespace ComponentAutoBindTool.ViewCore
             Check();
             if (instance == null) throw new ArgumentNullException(nameof(instance));
             int id = instance.GetInstanceID();
-            if (m_Instances.ContainsKey(id)) throw new InvalidOperationException("窗口实例已登记租约。");
+            if (_instances.ContainsKey(id)) throw new InvalidOperationException("窗口实例已登记租约。");
             var handle = Take(viewName) ?? throw new InvalidOperationException($"窗口 {viewName} 没有待用 Prefab 租约。");
-            m_Instances.Add(id, (instance, handle));
+            _instances.Add(id, (instance, handle));
         }
         public void ReleaseUninstantiatedPrefab(string viewName) => Take(viewName)?.Dispose();
         public void ReleaseViewInstance(string viewName, GameObject instance)
         {
             if (ReferenceEquals(instance, null)) return;
-            if (!m_Instances.Remove(instance.GetInstanceID(), out var owned)) return;
+            if (!_instances.Remove(instance.GetInstanceID(), out var owned)) return;
             try { Destroy(owned.Instance); }
             finally { owned.Handle.Dispose(); }
         }
         public void Dispose()
         {
-            if (m_Disposed) return;
-            m_Disposed = true;
+            if (_disposed) return;
+            _disposed = true;
             var pending = new List<AssetHandle<GameObject>>();
-            foreach (var stack in m_Pending.Values) pending.AddRange(stack);
-            var instances = new List<(GameObject Instance, AssetHandle<GameObject> Handle)>(m_Instances.Values);
-            m_Pending.Clear();
-            m_Instances.Clear();
+            foreach (var stack in _pending.Values) pending.AddRange(stack);
+            var instances = new List<(GameObject Instance, AssetHandle<GameObject> Handle)>(_instances.Values);
+            _pending.Clear();
+            _instances.Clear();
             List<Exception> errors = null;
             foreach (var instance in instances)
             {
@@ -93,7 +93,7 @@ namespace ComponentAutoBindTool.ViewCore
         }
         private void Check()
         {
-            if (m_Disposed) throw new ObjectDisposedException(nameof(AssetViewPrefabHelper));
+            if (_disposed) throw new ObjectDisposedException(nameof(AssetViewPrefabHelper));
         }
     }
 }

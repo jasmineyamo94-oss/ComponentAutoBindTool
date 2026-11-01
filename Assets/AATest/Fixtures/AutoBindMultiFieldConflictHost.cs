@@ -4,7 +4,7 @@ namespace ComponentAutoBindTool.Tests
 {
     public partial class AutoBindMultiFieldConflictHost : MonoBehaviour
     {
-        private int first = 1 < 2 ? 1 : 0, view = 1;
+        private int first = 1 < 2 ? 1 : 0, _view = 1;
     }
 }
 #endif

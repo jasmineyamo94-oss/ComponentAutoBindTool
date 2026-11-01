@@ -50,8 +50,8 @@ namespace ComponentAutoBindTool.Tests
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene);
             var setting = ScriptableObject.CreateInstance<AutoBindGlobalSetting>();
             var data = new SerializedObject(setting);
-            data.FindProperty("m_UseGlobalDefaultSavePath").boolValue = false;
-            data.FindProperty("m_CodePath").stringValue = Output;
+            data.FindProperty("_useGlobalDefaultSavePath").boolValue = false;
+            data.FindProperty("_codePath").stringValue = Output;
             data.ApplyModifiedPropertiesWithoutUndo();
             var keyMap = ScriptableObject.CreateInstance<AutoBindKeyMapSetting>();
             foreach (Type hostType in new[] { typeof(AutoBindPlainHost), typeof(AutoBindExplicitHost),
@@ -99,7 +99,7 @@ namespace ComponentAutoBindTool.Tests
                 var host = tool.m_targetScript as IAutoBindHost;
                 if (host == null) throw new InvalidOperationException("生成宿主未实现 IAutoBindHost。");
                 host.EnsureAutoBind(tool.gameObject);
-                FieldInfo field = tool.m_targetScript.GetType().GetField("view", BindingFlags.Instance | BindingFlags.NonPublic);
+                FieldInfo field = tool.m_targetScript.GetType().GetField("_view", BindingFlags.Instance | BindingFlags.NonPublic);
                 object view = field?.GetValue(tool.m_targetScript);
                 object button = view?.GetType().GetField("btnValue")?.GetValue(view);
                 if (!ReferenceEquals(button, tool.GetBindComponent<Button>(0, "btnValue")))
@@ -122,7 +122,7 @@ namespace ComponentAutoBindTool.Tests
             var parentHost = parent as IAutoBindHost;
             if (parentHost == null || (object)child is not IAutoBindHost)
                 throw new InvalidOperationException("级联验证宿主未实现生成接口。");
-            FieldInfo childField = child.GetType().GetField("view", BindingFlags.Instance | BindingFlags.NonPublic);
+            FieldInfo childField = child.GetType().GetField("_view", BindingFlags.Instance | BindingFlags.NonPublic);
             if (childField == null || childField.GetValue(child) != null)
                 throw new InvalidOperationException("级联验证子宿主初始状态不符。");
             var childToolBeforeBind = child.GetComponent<Core.ComponentAutoBindTool>();

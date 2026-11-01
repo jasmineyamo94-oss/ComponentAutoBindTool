@@ -162,10 +162,10 @@ namespace ComponentAutoBindTool.Tests
             try
             {
                 var serialized = new SerializedObject(job);
-                serialized.FindProperty("m_Phase").enumValueIndex = (int)AutoBindTemplatePhase.HostCompilation;
-                serialized.FindProperty("m_ResumePhase").enumValueIndex = (int)AutoBindTemplatePhase.HostCompilation;
-                serialized.FindProperty("m_Reloaded").boolValue = false;
-                serialized.FindProperty("m_CompilationFinished").boolValue = false;
+                serialized.FindProperty("_phase").enumValueIndex = (int)AutoBindTemplatePhase.HostCompilation;
+                serialized.FindProperty("_resumePhase").enumValueIndex = (int)AutoBindTemplatePhase.HostCompilation;
+                serialized.FindProperty("_reloaded").boolValue = false;
+                serialized.FindProperty("_compilationFinished").boolValue = false;
                 serialized.ApplyModifiedPropertiesWithoutUndo();
                 Assert.That(job.Phase, Is.EqualTo(AutoBindTemplatePhase.HostCompilation));
                 job.CompilationStarted();
@@ -179,8 +179,8 @@ namespace ComponentAutoBindTool.Tests
             {
                 EditorJsonUtility.FromJsonOverwrite(original, job);
                 var serialized = new SerializedObject(job);
-                serialized.FindProperty("m_Phase").enumValueIndex = (int)AutoBindTemplatePhase.None;
-                serialized.FindProperty("m_ResumePhase").enumValueIndex = (int)AutoBindTemplatePhase.None;
+                serialized.FindProperty("_phase").enumValueIndex = (int)AutoBindTemplatePhase.None;
+                serialized.FindProperty("_resumePhase").enumValueIndex = (int)AutoBindTemplatePhase.None;
                 serialized.ApplyModifiedPropertiesWithoutUndo();
             }
         }
@@ -193,9 +193,9 @@ namespace ComponentAutoBindTool.Tests
             try
             {
                 var serialized = new SerializedObject(job);
-                serialized.FindProperty("m_Phase").enumValueIndex = (int)AutoBindTemplatePhase.Clearing;
-                serialized.FindProperty("m_ResumePhase").enumValueIndex = (int)AutoBindTemplatePhase.Clearing;
-                serialized.FindProperty("m_Reloaded").boolValue = false;
+                serialized.FindProperty("_phase").enumValueIndex = (int)AutoBindTemplatePhase.Clearing;
+                serialized.FindProperty("_resumePhase").enumValueIndex = (int)AutoBindTemplatePhase.Clearing;
+                serialized.FindProperty("_reloaded").boolValue = false;
                 serialized.ApplyModifiedPropertiesWithoutUndo();
                 Assert.That(job.IsBusy, Is.True);
                 Assert.That(job.CanCancel, Is.False);
@@ -212,8 +212,8 @@ namespace ComponentAutoBindTool.Tests
             {
                 EditorJsonUtility.FromJsonOverwrite(original, job);
                 var serialized = new SerializedObject(job);
-                serialized.FindProperty("m_Phase").enumValueIndex = (int)AutoBindTemplatePhase.None;
-                serialized.FindProperty("m_ResumePhase").enumValueIndex = (int)AutoBindTemplatePhase.None;
+                serialized.FindProperty("_phase").enumValueIndex = (int)AutoBindTemplatePhase.None;
+                serialized.FindProperty("_resumePhase").enumValueIndex = (int)AutoBindTemplatePhase.None;
                 serialized.ApplyModifiedPropertiesWithoutUndo();
             }
         }

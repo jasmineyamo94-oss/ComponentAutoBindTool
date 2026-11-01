@@ -15,22 +15,22 @@ namespace ComponentAutoBindTool.Editor
             UILayer.System, UILayer.Top, UILayer.Normal, UILayer.HUD
         };
 
-        private readonly List<IViewManagerDiagnostics> m_Managers = new();
-        private readonly List<string> m_ManagerChoices = new() { "无活跃管理器" };
-        private readonly List<WindowDiagnosticSnapshot> m_WindowBuffer = new(32);
-        private readonly List<QueuedRequestSnapshot> m_QueueBuffer = new(16);
-        private readonly List<Label> m_QueueRows = new();
-        private readonly WindowSection[] m_LayerSections = new WindowSection[4];
-        private IViewManagerDiagnostics m_SelectedManager;
-        private PopupField<string> m_ManagerSelector;
-        private Label m_Summary;
-        private VisualElement m_Actions;
-        private WindowSection m_InactiveSection;
-        private Box m_QueueSection;
-        private Label m_QueueHeader;
-        private Label m_QueueEmpty;
-        private double m_NextRefreshTime;
-        private bool m_IsChangingPlayMode;
+        private readonly List<IViewManagerDiagnostics> _managers = new();
+        private readonly List<string> _managerChoices = new() { "无活跃管理器" };
+        private readonly List<WindowDiagnosticSnapshot> _windowBuffer = new(32);
+        private readonly List<QueuedRequestSnapshot> _queueBuffer = new(16);
+        private readonly List<Label> _queueRows = new();
+        private readonly WindowSection[] _layerSections = new WindowSection[4];
+        private IViewManagerDiagnostics _selectedManager;
+        private PopupField<string> _managerSelector;
+        private Label _summary;
+        private VisualElement _actions;
+        private WindowSection _inactiveSection;
+        private Box _queueSection;
+        private Label _queueHeader;
+        private Label _queueEmpty;
+        private double _nextRefreshTime;
+        private bool _isChangingPlayMode;
 
         [MenuItem("自动绑定UI组件/框架实验台/运行期窗口监控台")]
         public static void Open()
@@ -57,7 +57,7 @@ namespace ComponentAutoBindTool.Editor
             ClearReferences();
             rootVisualElement.Clear();
             rootVisualElement.styleSheets.Clear();
-            m_QueueRows.Clear();
+            _queueRows.Clear();
             string scriptPath = AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(this));
             string stylePath = Path.Combine(Path.GetDirectoryName(scriptPath) ?? string.Empty,
                 "ViewMonitorWindow.uss").Replace('\\', '/');
@@ -69,64 +69,64 @@ namespace ComponentAutoBindTool.Editor
 
             rootVisualElement.AddToClassList("view-monitor");
             rootVisualElement.Add(CreateLabel("VIEWCORE / 运行期窗口监控台", "monitor-title"));
-            m_ManagerSelector = new PopupField<string>("管理器", m_ManagerChoices, 0)
+            _managerSelector = new PopupField<string>("管理器", _managerChoices, 0)
             {
                 name = "managerSelector"
             };
-            m_ManagerSelector.RegisterValueChangedCallback(evt =>
+            _managerSelector.RegisterValueChangedCallback(evt =>
             {
-                int index = m_ManagerChoices.IndexOf(evt.newValue);
-                m_SelectedManager = index >= 0 && index < m_Managers.Count ? m_Managers[index] : null;
+                int index = _managerChoices.IndexOf(evt.newValue);
+                _selectedManager = index >= 0 && index < _managers.Count ? _managers[index] : null;
                 RefreshView();
             });
-            rootVisualElement.Add(m_ManagerSelector);
-            m_Summary = CreateLabel(string.Empty, "monitor-summary");
-            m_Summary.name = "summary";
-            rootVisualElement.Add(m_Summary);
-            m_Actions = new VisualElement { name = "actions" };
-            m_Actions.AddToClassList("monitor-actions");
-            m_Actions.Add(CreateButton("导航返回", "navigateBack", () => Execute(manager => manager.TryNavigateBack())));
-            m_Actions.Add(CreateButton("关闭全部活动窗口", "closeAll", () => Execute(manager => manager.CloseAllViews())));
-            m_Actions.Add(CreateButton("关闭全部并销毁缓存", "destroyAll", () => Execute(manager => manager.CloseAllViews(true))));
-            m_Actions.Add(CreateButton("清空等待队列", "clearQueue", () => Execute(manager => manager.ClearWaitingQueue())));
-            rootVisualElement.Add(m_Actions);
+            rootVisualElement.Add(_managerSelector);
+            _summary = CreateLabel(string.Empty, "monitor-summary");
+            _summary.name = "summary";
+            rootVisualElement.Add(_summary);
+            _actions = new VisualElement { name = "actions" };
+            _actions.AddToClassList("monitor-actions");
+            _actions.Add(CreateButton("导航返回", "navigateBack", () => Execute(manager => manager.TryNavigateBack())));
+            _actions.Add(CreateButton("关闭全部活动窗口", "closeAll", () => Execute(manager => manager.CloseAllViews())));
+            _actions.Add(CreateButton("关闭全部并销毁缓存", "destroyAll", () => Execute(manager => manager.CloseAllViews(true))));
+            _actions.Add(CreateButton("清空等待队列", "clearQueue", () => Execute(manager => manager.ClearWaitingQueue())));
+            rootVisualElement.Add(_actions);
 
             var scroll = new ScrollView(ScrollViewMode.Vertical) { name = "content" };
             scroll.AddToClassList("monitor-scroll");
             rootVisualElement.Add(scroll);
             for (int i = 0; i < s_DisplayLayers.Length; i++)
             {
-                m_LayerSections[i] = new WindowSection(this, "layer" + s_DisplayLayers[i],
+                _layerSections[i] = new WindowSection(this, "layer" + s_DisplayLayers[i],
                     "层级 " + s_DisplayLayers[i]);
-                scroll.Add(m_LayerSections[i].Root);
+                scroll.Add(_layerSections[i].Root);
             }
 
-            m_QueueSection = new Box { name = "queue" };
-            m_QueueSection.AddToClassList("monitor-section");
-            m_QueueHeader = CreateLabel("等待队列", "monitor-header");
-            m_QueueEmpty = new Label("当前没有排队请求。");
-            m_QueueSection.Add(m_QueueHeader);
-            m_QueueSection.Add(m_QueueEmpty);
-            scroll.Add(m_QueueSection);
-            m_InactiveSection = new WindowSection(this, "inactive", "缓存与待销毁池");
-            scroll.Add(m_InactiveSection.Root);
+            _queueSection = new Box { name = "queue" };
+            _queueSection.AddToClassList("monitor-section");
+            _queueHeader = CreateLabel("等待队列", "monitor-header");
+            _queueEmpty = new Label("当前没有排队请求。");
+            _queueSection.Add(_queueHeader);
+            _queueSection.Add(_queueEmpty);
+            scroll.Add(_queueSection);
+            _inactiveSection = new WindowSection(this, "inactive", "缓存与待销毁池");
+            scroll.Add(_inactiveSection.Root);
             RefreshView();
         }
 
         private void OnEditorUpdate()
         {
-            if (EditorApplication.timeSinceStartup < m_NextRefreshTime)
+            if (EditorApplication.timeSinceStartup < _nextRefreshTime)
             {
                 return;
             }
 
-            m_NextRefreshTime = EditorApplication.timeSinceStartup + 0.25d;
+            _nextRefreshTime = EditorApplication.timeSinceStartup + 0.25d;
             RefreshView();
         }
 
         private void OnPlayModeStateChanged(PlayModeStateChange state)
         {
-            m_IsChangingPlayMode = state == PlayModeStateChange.ExitingEditMode ||
+            _isChangingPlayMode = state == PlayModeStateChange.ExitingEditMode ||
                                    state == PlayModeStateChange.ExitingPlayMode;
             ClearReferences();
             RefreshView();
@@ -134,74 +134,74 @@ namespace ComponentAutoBindTool.Editor
 
         internal void RefreshView()
         {
-            if (m_Summary == null)
+            if (_summary == null)
             {
                 return;
             }
 
-            if (!EditorApplication.isPlaying || m_IsChangingPlayMode)
+            if (!EditorApplication.isPlaying || _isChangingPlayMode)
             {
                 ClearReferences();
-                m_Summary.text = "请进入 Play Mode，以监控窗口、缓存与等待队列。";
+                _summary.text = "请进入 Play Mode，以监控窗口、缓存与等待队列。";
                 return;
             }
 
             RefreshManagers();
             var manager = GetActiveManager();
-            m_Actions.SetEnabled(manager != null);
+            _actions.SetEnabled(manager != null);
             if (manager == null)
             {
                 ClearRows();
-                m_Summary.text = "当前没有活跃的 ViewManager 实例。";
+                _summary.text = "当前没有活跃的 ViewManager 实例。";
                 return;
             }
 
-            m_Summary.text = $"活跃管理器：{m_ManagerChoices.IndexOf(m_ManagerSelector.value) + 1}/{m_Managers.Count}  |  " +
+            _summary.text = $"活跃管理器：{_managerChoices.IndexOf(_managerSelector.value) + 1}/{_managers.Count}  |  " +
                              $"总登记实例：{manager.TotalInstanceCount}  |  等待队列：{manager.WaitingQueueCount}";
             for (int i = 0; i < s_DisplayLayers.Length; i++)
             {
-                m_WindowBuffer.Clear();
-                manager.GetLayerSnapshots(s_DisplayLayers[i], m_WindowBuffer);
-                m_LayerSections[i].Bind(manager, m_WindowBuffer, true);
+                _windowBuffer.Clear();
+                manager.GetLayerSnapshots(s_DisplayLayers[i], _windowBuffer);
+                _layerSections[i].Bind(manager, _windowBuffer, true);
             }
 
-            m_WindowBuffer.Clear();
-            manager.GetInactiveSnapshots(m_WindowBuffer);
-            m_InactiveSection.Bind(manager, m_WindowBuffer, false);
-            m_WindowBuffer.Clear();
-            m_QueueBuffer.Clear();
-            manager.GetWaitingQueueSnapshots(m_QueueBuffer);
-            m_QueueHeader.text = $"等待队列 — {m_QueueBuffer.Count} 项";
-            m_QueueEmpty.EnableInClassList("monitor-hidden", m_QueueBuffer.Count != 0);
-            for (int i = 0; i < m_QueueBuffer.Count; i++)
+            _windowBuffer.Clear();
+            manager.GetInactiveSnapshots(_windowBuffer);
+            _inactiveSection.Bind(manager, _windowBuffer, false);
+            _windowBuffer.Clear();
+            _queueBuffer.Clear();
+            manager.GetWaitingQueueSnapshots(_queueBuffer);
+            _queueHeader.text = $"等待队列 — {_queueBuffer.Count} 项";
+            _queueEmpty.EnableInClassList("monitor-hidden", _queueBuffer.Count != 0);
+            for (int i = 0; i < _queueBuffer.Count; i++)
             {
-                if (i == m_QueueRows.Count)
+                if (i == _queueRows.Count)
                 {
                     var row = CreateLabel(string.Empty, "monitor-queue-row");
-                    m_QueueRows.Add(row);
-                    m_QueueSection.Add(row);
+                    _queueRows.Add(row);
+                    _queueSection.Add(row);
                 }
 
-                var request = m_QueueBuffer[i];
-                m_QueueRows[i].text = $"[{request.QueueIndex}] {request.ViewName}  |  优先级：{request.Priority}  |  参数：{request.ArgsTypeName}";
-                m_QueueRows[i].RemoveFromClassList("monitor-hidden");
+                var request = _queueBuffer[i];
+                _queueRows[i].text = $"[{request.QueueIndex}] {request.ViewName}  |  优先级：{request.Priority}  |  参数：{request.ArgsTypeName}";
+                _queueRows[i].RemoveFromClassList("monitor-hidden");
             }
 
-            for (int i = m_QueueBuffer.Count; i < m_QueueRows.Count; i++)
+            for (int i = _queueBuffer.Count; i < _queueRows.Count; i++)
             {
-                m_QueueRows[i].text = string.Empty;
-                m_QueueRows[i].AddToClassList("monitor-hidden");
+                _queueRows[i].text = string.Empty;
+                _queueRows[i].AddToClassList("monitor-hidden");
             }
-            m_QueueBuffer.Clear();
+            _queueBuffer.Clear();
         }
 
         private void RefreshManagers()
         {
             var managers = ViewManagerDebugRegistry.ActiveManagers;
-            bool changed = managers.Count != m_Managers.Count;
+            bool changed = managers.Count != _managers.Count;
             for (int i = 0; !changed && i < managers.Count; i++)
             {
-                changed = !ReferenceEquals(managers[i], m_Managers[i]);
+                changed = !ReferenceEquals(managers[i], _managers[i]);
             }
 
             if (!changed)
@@ -209,38 +209,38 @@ namespace ComponentAutoBindTool.Editor
                 return;
             }
 
-            m_Managers.Clear();
-            m_ManagerChoices.Clear();
+            _managers.Clear();
+            _managerChoices.Clear();
             int selectedIndex = -1;
             for (int i = 0; i < managers.Count; i++)
             {
-                m_Managers.Add(managers[i]);
-                m_ManagerChoices.Add($"{managers[i].GetType().Name} #{i + 1}");
-                if (ReferenceEquals(m_SelectedManager, managers[i]))
+                _managers.Add(managers[i]);
+                _managerChoices.Add($"{managers[i].GetType().Name} #{i + 1}");
+                if (ReferenceEquals(_selectedManager, managers[i]))
                 {
                     selectedIndex = i;
                 }
             }
 
-            if (m_Managers.Count == 0)
+            if (_managers.Count == 0)
             {
-                m_SelectedManager = null;
-                m_ManagerChoices.Add("无活跃管理器");
+                _selectedManager = null;
+                _managerChoices.Add("无活跃管理器");
             }
             else
             {
                 selectedIndex = Math.Max(0, selectedIndex);
-                m_SelectedManager = m_Managers[selectedIndex];
+                _selectedManager = _managers[selectedIndex];
             }
 
-            m_ManagerSelector.choices = m_ManagerChoices;
-            m_ManagerSelector.SetValueWithoutNotify(m_ManagerChoices[Math.Max(0, selectedIndex)]);
-            m_ManagerSelector.SetEnabled(m_Managers.Count > 1);
+            _managerSelector.choices = _managerChoices;
+            _managerSelector.SetValueWithoutNotify(_managerChoices[Math.Max(0, selectedIndex)]);
+            _managerSelector.SetEnabled(_managers.Count > 1);
         }
 
         private IViewManagerDiagnostics GetActiveManager()
         {
-            if (!EditorApplication.isPlaying || m_IsChangingPlayMode || m_SelectedManager == null || m_SelectedManager.IsDisposed)
+            if (!EditorApplication.isPlaying || _isChangingPlayMode || _selectedManager == null || _selectedManager.IsDisposed)
             {
                 return null;
             }
@@ -248,9 +248,9 @@ namespace ComponentAutoBindTool.Editor
             var managers = ViewManagerDebugRegistry.ActiveManagers;
             for (int i = 0; i < managers.Count; i++)
             {
-                if (ReferenceEquals(managers[i], m_SelectedManager))
+                if (ReferenceEquals(managers[i], _selectedManager))
                 {
-                    return m_SelectedManager;
+                    return _selectedManager;
                 }
             }
 
@@ -288,25 +288,25 @@ namespace ComponentAutoBindTool.Editor
 
                 for (int i = 0; i <= s_DisplayLayers.Length; i++)
                 {
-                    m_WindowBuffer.Clear();
+                    _windowBuffer.Clear();
                     if (i == s_DisplayLayers.Length)
                     {
-                        activeManager.GetInactiveSnapshots(m_WindowBuffer);
+                        activeManager.GetInactiveSnapshots(_windowBuffer);
                     }
                     else
                     {
-                        activeManager.GetLayerSnapshots(s_DisplayLayers[i], m_WindowBuffer);
+                        activeManager.GetLayerSnapshots(s_DisplayLayers[i], _windowBuffer);
                     }
 
-                    for (int j = 0; j < m_WindowBuffer.Count; j++)
+                    for (int j = 0; j < _windowBuffer.Count; j++)
                     {
-                        var snapshot = m_WindowBuffer[j];
+                        var snapshot = _windowBuffer[j];
                         if (snapshot.InstanceId != instanceId)
                         {
                             continue;
                         }
 
-                        m_WindowBuffer.Clear();
+                        _windowBuffer.Clear();
                         if (close)
                         {
                             if (CanClose(snapshot.State))
@@ -322,45 +322,45 @@ namespace ComponentAutoBindTool.Editor
                         return;
                     }
                 }
-                m_WindowBuffer.Clear();
+                _windowBuffer.Clear();
             });
         }
 
         private void ClearReferences()
         {
-            m_SelectedManager = null;
-            m_Managers.Clear();
-            m_ManagerChoices.Clear();
-            m_ManagerChoices.Add("无活跃管理器");
-            if (m_ManagerSelector != null)
+            _selectedManager = null;
+            _managers.Clear();
+            _managerChoices.Clear();
+            _managerChoices.Add("无活跃管理器");
+            if (_managerSelector != null)
             {
-                m_ManagerSelector.choices = m_ManagerChoices;
-                m_ManagerSelector.SetValueWithoutNotify(m_ManagerChoices[0]);
-                m_ManagerSelector.SetEnabled(false);
+                _managerSelector.choices = _managerChoices;
+                _managerSelector.SetValueWithoutNotify(_managerChoices[0]);
+                _managerSelector.SetEnabled(false);
             }
 
-            m_Actions?.SetEnabled(false);
+            _actions?.SetEnabled(false);
             ClearRows();
         }
 
         private void ClearRows()
         {
-            m_WindowBuffer.Clear();
-            m_QueueBuffer.Clear();
-            for (int i = 0; i < m_LayerSections.Length; i++)
+            _windowBuffer.Clear();
+            _queueBuffer.Clear();
+            for (int i = 0; i < _layerSections.Length; i++)
             {
-                m_LayerSections[i]?.Clear();
+                _layerSections[i]?.Clear();
             }
-            m_InactiveSection?.Clear();
-            for (int i = 0; i < m_QueueRows.Count; i++)
+            _inactiveSection?.Clear();
+            for (int i = 0; i < _queueRows.Count; i++)
             {
-                m_QueueRows[i].text = string.Empty;
-                m_QueueRows[i].AddToClassList("monitor-hidden");
+                _queueRows[i].text = string.Empty;
+                _queueRows[i].AddToClassList("monitor-hidden");
             }
-            if (m_QueueHeader != null)
+            if (_queueHeader != null)
             {
-                m_QueueHeader.text = "等待队列 — 0 项";
-                m_QueueEmpty.RemoveFromClassList("monitor-hidden");
+                _queueHeader.text = "等待队列 — 0 项";
+                _queueEmpty.RemoveFromClassList("monitor-hidden");
             }
         }
 
@@ -384,51 +384,51 @@ namespace ComponentAutoBindTool.Editor
         private sealed class WindowSection
         {
             public readonly Box Root;
-            private readonly ViewMonitorWindow m_Window;
-            private readonly string m_Title;
-            private readonly Label m_Header;
-            private readonly Label m_Empty;
-            private readonly List<WindowRow> m_Rows = new();
+            private readonly ViewMonitorWindow _window;
+            private readonly string _title;
+            private readonly Label _header;
+            private readonly Label _empty;
+            private readonly List<WindowRow> _rows = new();
 
             public WindowSection(ViewMonitorWindow window, string name, string title)
             {
-                m_Window = window;
-                m_Title = title;
+                _window = window;
+                _title = title;
                 Root = new Box { name = name };
                 Root.AddToClassList("monitor-section");
-                m_Header = CreateLabel(title, "monitor-header");
-                m_Empty = new Label("当前没有窗口。");
-                Root.Add(m_Header);
-                Root.Add(m_Empty);
+                _header = CreateLabel(title, "monitor-header");
+                _empty = new Label("当前没有窗口。");
+                Root.Add(_header);
+                Root.Add(_empty);
             }
 
             public void Bind(IViewManagerDiagnostics manager, List<WindowDiagnosticSnapshot> snapshots, bool reverse)
             {
-                m_Header.text = $"{m_Title} — {snapshots.Count} 项";
-                m_Empty.EnableInClassList("monitor-hidden", snapshots.Count != 0);
+                _header.text = $"{_title} — {snapshots.Count} 项";
+                _empty.EnableInClassList("monitor-hidden", snapshots.Count != 0);
                 for (int i = 0; i < snapshots.Count; i++)
                 {
-                    if (i == m_Rows.Count)
+                    if (i == _rows.Count)
                     {
-                        var row = new WindowRow(m_Window);
-                        m_Rows.Add(row);
+                        var row = new WindowRow(_window);
+                        _rows.Add(row);
                         Root.Add(row.Root);
                     }
-                    m_Rows[i].Bind(manager, snapshots[reverse ? snapshots.Count - i - 1 : i], reverse && i == 0);
+                    _rows[i].Bind(manager, snapshots[reverse ? snapshots.Count - i - 1 : i], reverse && i == 0);
                 }
-                for (int i = snapshots.Count; i < m_Rows.Count; i++)
+                for (int i = snapshots.Count; i < _rows.Count; i++)
                 {
-                    m_Rows[i].Clear();
+                    _rows[i].Clear();
                 }
             }
 
             public void Clear()
             {
-                m_Header.text = m_Title + " — 0 项";
-                m_Empty.RemoveFromClassList("monitor-hidden");
-                for (int i = 0; i < m_Rows.Count; i++)
+                _header.text = _title + " — 0 项";
+                _empty.RemoveFromClassList("monitor-hidden");
+                for (int i = 0; i < _rows.Count; i++)
                 {
-                    m_Rows[i].Clear();
+                    _rows[i].Clear();
                 }
             }
         }
@@ -436,46 +436,46 @@ namespace ComponentAutoBindTool.Editor
         private sealed class WindowRow
         {
             public readonly VisualElement Root = new();
-            private readonly Label m_Info;
-            private readonly Button m_Ping;
-            private readonly Button m_Close;
-            private IViewManagerDiagnostics m_Manager;
-            private int m_InstanceId;
+            private readonly Label _info;
+            private readonly Button _ping;
+            private readonly Button _close;
+            private IViewManagerDiagnostics _manager;
+            private int _instanceId;
 
             public WindowRow(ViewMonitorWindow window)
             {
                 Root.AddToClassList("monitor-row");
-                m_Info = CreateLabel(string.Empty, "monitor-row-info");
-                m_Ping = CreateButton("定位", "ping", () => window.ExecuteRow(m_Manager, m_InstanceId, false));
-                m_Close = CreateButton("关闭", "close", () => window.ExecuteRow(m_Manager, m_InstanceId, true));
-                Root.Add(m_Info);
-                Root.Add(m_Ping);
-                Root.Add(m_Close);
+                _info = CreateLabel(string.Empty, "monitor-row-info");
+                _ping = CreateButton("定位", "ping", () => window.ExecuteRow(_manager, _instanceId, false));
+                _close = CreateButton("关闭", "close", () => window.ExecuteRow(_manager, _instanceId, true));
+                Root.Add(_info);
+                Root.Add(_ping);
+                Root.Add(_close);
             }
 
             public void Bind(IViewManagerDiagnostics manager, WindowDiagnosticSnapshot snapshot, bool top)
             {
-                m_Manager = manager;
-                m_InstanceId = snapshot.InstanceId;
+                _manager = manager;
+                _instanceId = snapshot.InstanceId;
                 string timer = snapshot.State == WindowState.PendingDestroy
                     ? $" · 销毁倒计时 {snapshot.RemainingDestroyTime:F1}s" : string.Empty;
                 string transition = snapshot.IsTransitioning ? " · 过渡中" : string.Empty;
-                m_Info.text = $"#{snapshot.InstanceId} {(top ? "[栈顶] " : string.Empty)}{snapshot.ViewName} [{snapshot.State}]{transition}\n" +
+                _info.text = $"#{snapshot.InstanceId} {(top ? "[栈顶] " : string.Empty)}{snapshot.ViewName} [{snapshot.State}]{transition}\n" +
                               $"Order:{snapshot.SortingOrder} · 子Canvas:{snapshot.SubCanvasCount} · " +
                               $"{snapshot.InstanceMode}/{snapshot.CoverMode}/{snapshot.CloseStrategy} · " +
                               $"允许返回:{snapshot.AllowNavigateBack}{timer}";
-                m_Ping.SetEnabled(snapshot.HostObject != null);
-                m_Close.SetEnabled(CanClose(snapshot.State));
+                _ping.SetEnabled(snapshot.HostObject != null);
+                _close.SetEnabled(CanClose(snapshot.State));
                 Root.RemoveFromClassList("monitor-hidden");
             }
 
             public void Clear()
             {
-                m_Manager = null;
-                m_InstanceId = 0;
-                m_Info.text = string.Empty;
-                m_Ping.SetEnabled(false);
-                m_Close.SetEnabled(false);
+                _manager = null;
+                _instanceId = 0;
+                _info.text = string.Empty;
+                _ping.SetEnabled(false);
+                _close.SetEnabled(false);
                 Root.AddToClassList("monitor-hidden");
             }
         }

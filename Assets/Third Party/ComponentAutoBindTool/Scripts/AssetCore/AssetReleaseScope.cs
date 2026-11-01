@@ -5,7 +5,7 @@ namespace ComponentAutoBindTool.AssetCore
 {
     public sealed class AssetReleaseScope : IAssetReleaseScope
     {
-        private readonly List<IAssetHandle> m_Handles = new();
+        private readonly List<IAssetHandle> _handles = new();
         public AssetReleaseScope(string scopeName = null) =>
             ScopeName = string.IsNullOrWhiteSpace(scopeName) ? nameof(AssetReleaseScope) : scopeName;
         public string ScopeName { get; }
@@ -14,7 +14,7 @@ namespace ComponentAutoBindTool.AssetCore
         {
             if (handle == null) return null;
             if (IsDisposed) handle.Dispose();
-            else m_Handles.Add(handle);
+            else _handles.Add(handle);
             return handle;
         }
         public void Dispose()
@@ -22,12 +22,12 @@ namespace ComponentAutoBindTool.AssetCore
             if (IsDisposed) return;
             IsDisposed = true;
             List<Exception> errors = null;
-            for (int i = m_Handles.Count - 1; i >= 0; i--)
+            for (int i = _handles.Count - 1; i >= 0; i--)
             {
-                try { m_Handles[i].Dispose(); }
+                try { _handles[i].Dispose(); }
                 catch (Exception error) { (errors ??= new()).Add(error); }
             }
-            m_Handles.Clear();
+            _handles.Clear();
             if (errors != null) throw new AggregateException("资源作用域释放失败。", errors);
         }
     }

@@ -48,8 +48,8 @@ namespace ComponentAutoBindTool.Example.Editor
                 var setting = AutoBindEditorAssetLocator.LoadSingletonAsset<AutoBindGlobalSetting>();
                 if (setting == null) throw new InvalidOperationException("未找到唯一全局配置。");
                 var data = new SerializedObject(setting);
-                data.FindProperty("m_CodePath").stringValue = PluginRoot + "/Scripts/ViewBindComponents";
-                data.FindProperty("m_UseGlobalDefaultSavePath").boolValue = true;
+                data.FindProperty("_codePath").stringValue = PluginRoot + "/Scripts/ViewBindComponents";
+                data.FindProperty("_useGlobalDefaultSavePath").boolValue = true;
                 data.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.SaveAssetIfDirty(setting);
 

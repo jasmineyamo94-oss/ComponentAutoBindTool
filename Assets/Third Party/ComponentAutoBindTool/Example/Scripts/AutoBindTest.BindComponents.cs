@@ -15,12 +15,12 @@ namespace @ComponentAutoBindTool
             public global::@ComponentAutoBindTool.@Example.@LabWidgetGroup widgetGroupDetails;
         }
 
-        private UIView view;
-        bool global::ComponentAutoBindTool.ViewCore.IAutoBindHost.IsAutoBound => view != null;
+        private UIView _view;
+        bool global::ComponentAutoBindTool.ViewCore.IAutoBindHost.IsAutoBound => _view != null;
 
         public override void EnsureAutoBind(global::UnityEngine.GameObject go)
         {
-            if (view != null) return;
+            if (_view != null) return;
             if (go == null || !go.TryGetComponent<global::ComponentAutoBindTool.Core.ComponentAutoBindTool>(out var autoBindTool))
             {
                 global::UnityEngine.Debug.LogError("[AutoBindTest] AutoBind 根节点或绑定组件不存在。", go);
@@ -37,7 +37,7 @@ namespace @ComponentAutoBindTool
             if (boundView.btnClose == null) return;
             if (boundView.tMTxtStatus == null) return;
             if (boundView.widgetGroupDetails == null) return;
-            view = boundView;
+            _view = boundView;
         }
     }
 }

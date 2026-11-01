@@ -28,13 +28,13 @@ namespace ComponentAutoBindTool.Example
     // 仅示例观察服务；事件来自正式框架回调，不维护第二套窗口状态机。
     public sealed class LabTelemetry
     {
-        private readonly Queue<string> m_Events = new Queue<string>(200);
+        private readonly Queue<string> _events = new Queue<string>(200);
         public readonly Dictionary<int, LabWindowRecord> Windows = new Dictionary<int, LabWindowRecord>();
         public int ScopesCreated { get; private set; }
         public int ScopesDisposed { get; private set; }
         public int SessionsReleased { get; private set; }
         public int InstancesReleased { get; private set; }
-        public int EventCount => m_Events.Count;
+        public int EventCount => _events.Count;
         public int BeginScope() { int id = ++ScopesCreated; Log("Scope #" + id + " 创建"); return id; }
         public void EndScope(int id) { ScopesDisposed++; Log("Scope #" + id + " 已释放"); }
         public void ReleaseSession(int id) { SessionsReleased++; Log("#" + id + " OpenSession 已清理"); }
@@ -50,14 +50,14 @@ namespace ComponentAutoBindTool.Example
 
         public void Log(string message)
         {
-            if (m_Events.Count == 200) m_Events.Dequeue();
-            m_Events.Enqueue(Time.unscaledTime.ToString("F2") + "  " + message);
+            if (_events.Count == 200) _events.Dequeue();
+            _events.Enqueue(Time.unscaledTime.ToString("F2") + "  " + message);
         }
 
         public void Clear()
         {
             Windows.Clear();
-            m_Events.Clear();
+            _events.Clear();
             Log("新实验 Scope 已就绪");
         }
 
@@ -73,38 +73,38 @@ namespace ComponentAutoBindTool.Example
                     text.AppendLine($"    预计剩余 {Mathf.Max(0, 3 - (Time.unscaledTime - item.ClosedAt)):F1}s");
             }
             text.AppendLine("\n事件时间线 / 最近 200 条");
-            foreach (string line in m_Events.Reverse()) text.AppendLine(line);
+            foreach (string line in _events.Reverse()) text.AppendLine(line);
             return text.ToString();
         }
     }
 
     public sealed class LabScopeProbe : IDisposable
     {
-        private readonly LabTelemetry m_Trace;
+        private readonly LabTelemetry _trace;
         public int Id { get; }
-        public LabScopeProbe(LabTelemetry trace) { m_Trace = trace; Id = trace.BeginScope(); }
-        public void Dispose() => m_Trace.EndScope(Id);
+        public LabScopeProbe(LabTelemetry trace) { _trace = trace; Id = trace.BeginScope(); }
+        public void Dispose() => _trace.EndScope(Id);
     }
 
     public sealed class LabCleanup : IDisposable
     {
-        private Action m_Action;
-        public LabCleanup(Action action) { m_Action = action; }
-        public void Dispose() { var action = m_Action; m_Action = null; action?.Invoke(); }
+        private Action _action;
+        public LabCleanup(Action action) { _action = action; }
+        public void Dispose() { var action = _action; _action = null; action?.Invoke(); }
     }
 
     public sealed class LabResources : IViewPrefabHelper, IViewRootHelper
     {
-        private readonly GameObject[] m_Prefabs;
-        private readonly Transform[] m_Roots;
-        private readonly LabTelemetry m_Trace;
+        private readonly GameObject[] _prefabs;
+        private readonly Transform[] _roots;
+        private readonly LabTelemetry _trace;
         public LabResources(GameObject[] prefabs, Transform[] roots, LabTelemetry trace)
-        { m_Prefabs = prefabs; m_Roots = roots; m_Trace = trace; }
-        public GameObject GetViewPrefab(string viewName) => Array.Find(m_Prefabs, item => item.name == viewName);
-        public Transform GetViewRoot(string viewName, UILayer layer = UILayer.Normal) => m_Roots[(int)layer];
+        { _prefabs = prefabs; _roots = roots; _trace = trace; }
+        public GameObject GetViewPrefab(string viewName) => Array.Find(_prefabs, item => item.name == viewName);
+        public Transform GetViewRoot(string viewName, UILayer layer = UILayer.Normal) => _roots[(int)layer];
         public void ReleaseViewInstance(string viewName, GameObject instance)
         {
-            m_Trace.Log(viewName + " Prefab 实例已释放");
+            _trace.Log(viewName + " Prefab 实例已释放");
             UnityEngine.Object.Destroy(instance);
         }
     }

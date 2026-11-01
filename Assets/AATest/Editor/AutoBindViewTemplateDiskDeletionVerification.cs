@@ -109,7 +109,7 @@ namespace ComponentAutoBindTool.Tests
                     try
                     {
                         var data = new SerializedObject(main);
-                        data.FindProperty("m_BaseName").stringValue = definition.BaseName;
+                        data.FindProperty("_baseName").stringValue = definition.BaseName;
                         data.ApplyModifiedPropertiesWithoutUndo();
                         main.CreateGUI();
                         Require(main.rootVisualElement.Q<Button>("deleteLocatedTemplate").enabledSelf, "按位置删除不可用：" + AutoBindViewTemplateDeletion.BlockReason() + "；基础名：" + main.rootVisualElement.Q<TextField>("baseName").value);

@@ -12,39 +12,39 @@ namespace ComponentAutoBindTool.ViewCore
     {
         protected TUIView View { get; private set; }
         protected IWindowContext WindowContext { get; private set; }
-        private IObjectResolver m_WindowScope;
+        private IObjectResolver _windowScope;
 
         public bool IsVisible { get; private set; } = true;
-        private bool m_IsOpenSessionActive;
-        private bool m_IsResumed;
-        private bool m_IsParentResumed;
-        private bool m_IsPausing;
-        private bool m_IsClosing;
-        private bool m_IsDestroying;
-        private bool m_IsDestroyed;
-        private bool m_CloseRequested;
-        private bool m_DestroyRequested;
+        private bool _isOpenSessionActive;
+        private bool _isResumed;
+        private bool _isParentResumed;
+        private bool _isPausing;
+        private bool _isClosing;
+        private bool _isDestroying;
+        private bool _isDestroyed;
+        private bool _closeRequested;
+        private bool _destroyRequested;
 
-        private readonly List<IDisposable> m_InstanceDisposables = new();
-        private readonly List<IDisposable> m_OpenSessionDisposables = new();
-        private CancellationTokenSource m_InstanceCts = new();
-        private CancellationTokenSource m_OpenSessionCts;
+        private readonly List<IDisposable> _instanceDisposables = new();
+        private readonly List<IDisposable> _openSessionDisposables = new();
+        private CancellationTokenSource _instanceCts = new();
+        private CancellationTokenSource _openSessionCts;
 
-        private readonly List<IWidgetPresenter> m_ChildWidgets = new();
+        private readonly List<IWidgetPresenter> _childWidgets = new();
 
         protected CancellationToken DestroyToken => 
-            m_InstanceCts?.Token ?? CancellationToken.None;
+            _instanceCts?.Token ?? CancellationToken.None;
         protected CancellationToken OpenSessionToken => 
-            m_OpenSessionCts?.Token ?? CancellationToken.None;
+            _openSessionCts?.Token ?? CancellationToken.None;
 
         protected void AddToInstanceLifetime(IDisposable disposable)
         {
-            if (disposable != null) m_InstanceDisposables.Add(disposable);
+            if (disposable != null) _instanceDisposables.Add(disposable);
         }
 
         protected void AddToOpenSession(IDisposable disposable)
         {
-            if (disposable != null) m_OpenSessionDisposables.Add(disposable);
+            if (disposable != null) _openSessionDisposables.Add(disposable);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace ComponentAutoBindTool.ViewCore
         protected TChildPresenter BindWidget<TChildPresenter>(WidgetViewBase childWidgetHost)
             where TChildPresenter : class, IWidgetPresenter
         {
-            if (m_IsClosing || m_IsDestroying || m_IsDestroyed)
+            if (_isClosing || _isDestroying || _isDestroyed)
             {
                 throw new InvalidOperationException("正在关闭或已销毁的 Widget 不能再绑定子控件。");
             }
@@ -66,16 +66,16 @@ namespace ComponentAutoBindTool.ViewCore
                 throw new InvalidOperationException($"[{childWidgetHost.name}] Widget 绑定失败，不能创建 Presenter。");
             }
 
-            var childPresenter = m_WindowScope.Resolve<TChildPresenter>();
-            childPresenter.InternalAttach(childUIView, WindowContext, m_WindowScope);
+            var childPresenter = _windowScope.Resolve<TChildPresenter>();
+            childPresenter.InternalAttach(childUIView, WindowContext, _windowScope);
 
-            m_ChildWidgets.Add(childPresenter);
+            _childWidgets.Add(childPresenter);
             childPresenter.InternalOnCreate();
 
-            if (m_IsOpenSessionActive)
+            if (_isOpenSessionActive)
             {
                 childPresenter.InternalOnOpen();
-                if (m_IsResumed)
+                if (_isResumed)
                 {
                     childPresenter.InternalOnResume();
                 }
@@ -96,7 +96,7 @@ namespace ComponentAutoBindTool.ViewCore
 
         protected void UnbindWidget(IWidgetPresenter presenter)
         {
-            if (presenter != null && m_ChildWidgets.Remove(presenter)) presenter.InternalOnDestroy();
+            if (presenter != null && _childWidgets.Remove(presenter)) presenter.InternalOnDestroy();
         }
 
         /// <summary>
@@ -115,54 +115,54 @@ namespace ComponentAutoBindTool.ViewCore
         {
             View = (TUIView)uiView;
             WindowContext = windowContext;
-            m_WindowScope = windowScope;
+            _windowScope = windowScope;
         }
 
         void IWidgetPresenter.InternalOnCreate() => OnCreate();
 
         void IWidgetPresenter.InternalOnOpen()
         {
-            if (m_IsClosing || m_IsDestroying || m_IsDestroyed) return;
+            if (_isClosing || _isDestroying || _isDestroyed) return;
             ClearOpenSession();
-            m_IsOpenSessionActive = true;
-            m_OpenSessionCts = new CancellationTokenSource();
+            _isOpenSessionActive = true;
+            _openSessionCts = new CancellationTokenSource();
 
             OnOpen();
 
-            for (int i = 0; i < m_ChildWidgets.Count;)
+            for (int i = 0; i < _childWidgets.Count;)
             {
-                IWidgetPresenter child = m_ChildWidgets[i];
+                IWidgetPresenter child = _childWidgets[i];
                 child.InternalOnOpen();
-                if (i < m_ChildWidgets.Count && ReferenceEquals(child, m_ChildWidgets[i])) i++;
+                if (i < _childWidgets.Count && ReferenceEquals(child, _childWidgets[i])) i++;
             }
         }
 
         void IWidgetPresenter.InternalOnResume()
         {
-            if (m_IsClosing || m_IsDestroying || m_IsDestroyed) return;
-            m_IsParentResumed = true;
+            if (_isClosing || _isDestroying || _isDestroyed) return;
+            _isParentResumed = true;
             RefreshEffectiveState();
         }
 
         void IWidgetPresenter.InternalOnPause()
         {
-            m_IsParentResumed = false;
+            _isParentResumed = false;
             RefreshEffectiveState();
         }
 
         private void RefreshEffectiveState()
         {
-            bool active = m_IsOpenSessionActive && m_IsParentResumed && IsVisible;
-            if (m_IsResumed == active) return;
+            bool active = _isOpenSessionActive && _isParentResumed && IsVisible;
+            if (_isResumed == active) return;
             if (active)
             {
-                m_IsResumed = true;
+                _isResumed = true;
                 OnResume();
-                for (int i = 0; i < m_ChildWidgets.Count && m_IsResumed;)
+                for (int i = 0; i < _childWidgets.Count && _isResumed;)
                 {
-                    IWidgetPresenter child = m_ChildWidgets[i];
+                    IWidgetPresenter child = _childWidgets[i];
                     child.InternalOnResume();
-                    if (i < m_ChildWidgets.Count && ReferenceEquals(child, m_ChildWidgets[i])) i++;
+                    if (i < _childWidgets.Count && ReferenceEquals(child, _childWidgets[i])) i++;
                 }
             }
             else
@@ -184,27 +184,27 @@ namespace ComponentAutoBindTool.ViewCore
 
         private void CloseOpenSession(ref List<Exception> exceptions)
         {
-            if (!m_IsOpenSessionActive || m_IsClosing || m_IsDestroyed) return;
-            if (m_IsPausing)
+            if (!_isOpenSessionActive || _isClosing || _isDestroyed) return;
+            if (_isPausing)
             {
-                m_CloseRequested = true;
+                _closeRequested = true;
                 return;
             }
 
-            m_IsClosing = true;
-            m_CloseRequested = false;
+            _isClosing = true;
+            _closeRequested = false;
             // 先让会话失效，回调中再次 Close 不会进入同一轮关闭。
-            m_IsOpenSessionActive = false;
-            m_IsParentResumed = false;
+            _isOpenSessionActive = false;
+            _isParentResumed = false;
             try
             {
                 PauseRunningSubtree(ref exceptions);
-                for (int i = m_ChildWidgets.Count - 1; i >= 0; i--)
+                for (int i = _childWidgets.Count - 1; i >= 0; i--)
                 {
-                    if (i >= m_ChildWidgets.Count) continue;
+                    if (i >= _childWidgets.Count) continue;
                     try
                     {
-                        m_ChildWidgets[i].InternalOnClose();
+                        _childWidgets[i].InternalOnClose();
                     }
                     catch (Exception exception)
                     {
@@ -223,7 +223,7 @@ namespace ComponentAutoBindTool.ViewCore
             finally
             {
                 ClearOpenSession(ref exceptions);
-                m_IsClosing = false;
+                _isClosing = false;
             }
         }
 
@@ -237,24 +237,24 @@ namespace ComponentAutoBindTool.ViewCore
 
         private void Destroy(ref List<Exception> exceptions)
         {
-            if (m_IsDestroyed || m_IsDestroying) return;
-            if (m_IsClosing || m_IsPausing)
+            if (_isDestroyed || _isDestroying) return;
+            if (_isClosing || _isPausing)
             {
                 // 让当前子树的 Pause/Close 完成后再进入销毁阶段。
-                m_DestroyRequested = true;
+                _destroyRequested = true;
                 return;
             }
 
-            m_IsDestroying = true;
-            m_DestroyRequested = false;
+            _isDestroying = true;
+            _destroyRequested = false;
             try
             {
                 CloseOpenSession(ref exceptions);
-                while (m_ChildWidgets.Count > 0)
+                while (_childWidgets.Count > 0)
                 {
-                    int index = m_ChildWidgets.Count - 1;
-                    IWidgetPresenter child = m_ChildWidgets[index];
-                    m_ChildWidgets.RemoveAt(index);
+                    int index = _childWidgets.Count - 1;
+                    IWidgetPresenter child = _childWidgets[index];
+                    _childWidgets.RemoveAt(index);
                     try
                     {
                         child.InternalOnDestroy();
@@ -275,31 +275,31 @@ namespace ComponentAutoBindTool.ViewCore
             }
             finally
             {
-                m_ChildWidgets.Clear();
-                m_IsOpenSessionActive = false;
-                m_IsResumed = false;
-                m_IsParentResumed = false;
+                _childWidgets.Clear();
+                _isOpenSessionActive = false;
+                _isResumed = false;
+                _isParentResumed = false;
                 ClearOpenSession(ref exceptions);
-                CancelAndDispose(ref m_InstanceCts, ref exceptions);
-                ReleaseDisposables(m_InstanceDisposables, ref exceptions);
-                m_CloseRequested = false;
-                m_DestroyRequested = false;
-                m_IsDestroyed = true;
-                m_IsDestroying = false;
+                CancelAndDispose(ref _instanceCts, ref exceptions);
+                ReleaseDisposables(_instanceDisposables, ref exceptions);
+                _closeRequested = false;
+                _destroyRequested = false;
+                _isDestroyed = true;
+                _isDestroying = false;
             }
         }
 
         private void PauseRunningSubtree(ref List<Exception> exceptions)
         {
-            if (!m_IsResumed) return;
+            if (!_isResumed) return;
 
-            m_IsResumed = false;
-            m_IsPausing = true;
+            _isResumed = false;
+            _isPausing = true;
             try
             {
-                for (int i = 0; i < m_ChildWidgets.Count;)
+                for (int i = 0; i < _childWidgets.Count;)
                 {
-                    IWidgetPresenter child = m_ChildWidgets[i];
+                    IWidgetPresenter child = _childWidgets[i];
                     try
                     {
                         child.InternalOnPause();
@@ -308,7 +308,7 @@ namespace ComponentAutoBindTool.ViewCore
                     {
                         AddException(ref exceptions, exception);
                     }
-                    if (i < m_ChildWidgets.Count && ReferenceEquals(child, m_ChildWidgets[i])) i++;
+                    if (i < _childWidgets.Count && ReferenceEquals(child, _childWidgets[i])) i++;
                 }
                 try
                 {
@@ -321,34 +321,34 @@ namespace ComponentAutoBindTool.ViewCore
             }
             finally
             {
-                m_IsPausing = false;
+                _isPausing = false;
             }
         }
 
         private void CompleteRequestedTransitions(ref List<Exception> exceptions)
         {
-            if (m_IsPausing || m_IsClosing || m_IsDestroying || m_IsDestroyed) return;
-            if (m_DestroyRequested)
+            if (_isPausing || _isClosing || _isDestroying || _isDestroyed) return;
+            if (_destroyRequested)
             {
                 Destroy(ref exceptions);
             }
-            else if (m_CloseRequested)
+            else if (_closeRequested)
             {
                 CloseOpenSession(ref exceptions);
-                if (m_DestroyRequested) Destroy(ref exceptions);
+                if (_destroyRequested) Destroy(ref exceptions);
             }
         }
 
         void IWidgetPresenter.InternalTick(float deltaTime)
         {
-            if (!IsVisible || !m_IsOpenSessionActive || !m_IsResumed) return;
+            if (!IsVisible || !_isOpenSessionActive || !_isResumed) return;
 
             OnWidgetTick(deltaTime);
-            for (int i = 0; i < m_ChildWidgets.Count;)
+            for (int i = 0; i < _childWidgets.Count;)
             {
-                IWidgetPresenter child = m_ChildWidgets[i];
+                IWidgetPresenter child = _childWidgets[i];
                 child.InternalTick(deltaTime);
-                if (i < m_ChildWidgets.Count && ReferenceEquals(child, m_ChildWidgets[i])) i++;
+                if (i < _childWidgets.Count && ReferenceEquals(child, _childWidgets[i])) i++;
             }
         }
 
@@ -361,8 +361,8 @@ namespace ComponentAutoBindTool.ViewCore
 
         private void ClearOpenSession(ref List<Exception> exceptions)
         {
-            CancelAndDispose(ref m_OpenSessionCts, ref exceptions);
-            ReleaseDisposables(m_OpenSessionDisposables, ref exceptions);
+            CancelAndDispose(ref _openSessionCts, ref exceptions);
+            ReleaseDisposables(_openSessionDisposables, ref exceptions);
         }
 
         private static void CancelAndDispose(ref CancellationTokenSource source, ref List<Exception> exceptions)

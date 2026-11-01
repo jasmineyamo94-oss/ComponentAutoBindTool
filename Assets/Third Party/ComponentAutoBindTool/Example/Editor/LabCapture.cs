@@ -15,7 +15,7 @@ namespace ComponentAutoBindTool.Example.Editor
     [InitializeOnLoad]
     public static class LabCapture
     {
-        private static double m_ReadyAt;
+        private static double _readyAt;
         static LabCapture() { EditorApplication.update += Update; }
         public static void Run()
         {
@@ -28,8 +28,8 @@ namespace ComponentAutoBindTool.Example.Editor
             if (!SessionState.GetBool("AutoBind.Capture", false) || !EditorApplication.isPlaying) return;
             var scope = Object.FindFirstObjectByType<AutoBindExampleScope>();
             if (scope == null || scope.Session == null) return;
-            if (m_ReadyAt == 0) { m_ReadyAt = EditorApplication.timeSinceStartup + 1; return; }
-            if (EditorApplication.timeSinceStartup < m_ReadyAt) return;
+            if (_readyAt == 0) { _readyAt = EditorApplication.timeSinceStartup + 1; return; }
+            if (EditorApplication.timeSinceStartup < _readyAt) return;
             SessionState.SetBool("AutoBind.Capture", false);
             try
             {

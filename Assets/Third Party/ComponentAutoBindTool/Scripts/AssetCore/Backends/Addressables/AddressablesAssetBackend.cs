@@ -11,23 +11,23 @@ namespace ComponentAutoBindTool.AssetCore
     /// <summary>适配 Addressables 2.x；同步加载不适用于 WebGL 的未完成请求。</summary>
     public sealed class AddressablesAssetBackend : IAssetBackend
     {
-        private AsyncOperationHandle<IResourceLocator> m_Initialization;
-        private bool m_Started;
-        private bool m_Disposed;
-        public bool IsInitialized => !m_Disposed && m_Started && m_Initialization.IsValid() &&
-            m_Initialization.Status == AsyncOperationStatus.Succeeded;
+        private AsyncOperationHandle<IResourceLocator> _initialization;
+        private bool _started;
+        private bool _disposed;
+        public bool IsInitialized => !_disposed && _started && _initialization.IsValid() &&
+            _initialization.Status == AsyncOperationStatus.Succeeded;
         public async Awaitable InitializeAsync(CancellationToken cancellationToken = default)
         {
             Check();
             cancellationToken.ThrowIfCancellationRequested();
-            if (!m_Started)
+            if (!_started)
             {
-                m_Initialization = Addressables.InitializeAsync(false);
-                m_Started = true;
+                _initialization = Addressables.InitializeAsync(false);
+                _started = true;
             }
-            while (!m_Initialization.IsDone) await Awaitable.NextFrameAsync(cancellationToken);
+            while (!_initialization.IsDone) await Awaitable.NextFrameAsync(cancellationToken);
             cancellationToken.ThrowIfCancellationRequested();
-            EnsureSucceeded(m_Initialization, "初始化");
+            EnsureSucceeded(_initialization, "初始化");
         }
         public (T Asset, object RawHandle) LoadAssetSync<T>(string key) where T : UnityEngine.Object
         {
@@ -92,13 +92,13 @@ namespace ComponentAutoBindTool.AssetCore
         }
         public void Dispose()
         {
-            if (m_Disposed) return;
-            m_Disposed = true;
-            if (m_Started && m_Initialization.IsValid()) Addressables.Release(m_Initialization);
+            if (_disposed) return;
+            _disposed = true;
+            if (_started && _initialization.IsValid()) Addressables.Release(_initialization);
         }
         private void Check()
         {
-            if (m_Disposed) throw new ObjectDisposedException(nameof(AddressablesAssetBackend));
+            if (_disposed) throw new ObjectDisposedException(nameof(AddressablesAssetBackend));
         }
         private static void EnsureSucceeded(AsyncOperationHandle handle, string key)
         {

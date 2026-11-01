@@ -4413,10 +4413,10 @@ MonoBehaviour:
     BindCom: {fileID: 1461325524}
   - Name: Rtf_Portrait
     BindCom: {fileID: 1399878756}
-  m_ClassName: LabShellView
-  m_Namespace: ComponentAutoBindTool.Example
+  _className: LabShellView
+  _namespace: ComponentAutoBindTool.Example
   m_targetScript: {fileID: 1534566556}
-  m_CodePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
+  _codePath: Assets/Third Party/ComponentAutoBindTool/Example/Scripts
   m_BindComs:
   - {fileID: 197153345}
   - {fileID: 160707518}
@@ -4438,7 +4438,7 @@ MonoBehaviour:
   - {fileID: 502143367}
   - {fileID: 1461325524}
   - {fileID: 1399878756}
-  m_BindFieldNames:
+  _bindFieldNames:
   - tMTxtTopic
   - btnObserve
   - btnNav1

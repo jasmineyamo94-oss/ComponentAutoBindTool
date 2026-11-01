@@ -16,12 +16,12 @@ namespace @ComponentAutoBindTool.@Example
             public global::@UnityEngine.@UI.@Button btnUnbind;
         }
 
-        private UIView view;
-        bool global::ComponentAutoBindTool.ViewCore.IAutoBindHost.IsAutoBound => view != null;
+        private UIView _view;
+        bool global::ComponentAutoBindTool.ViewCore.IAutoBindHost.IsAutoBound => _view != null;
 
         public override void EnsureAutoBind(global::UnityEngine.GameObject go)
         {
-            if (view != null) return;
+            if (_view != null) return;
             if (go == null || !go.TryGetComponent<global::ComponentAutoBindTool.Core.ComponentAutoBindTool>(out var autoBindTool))
             {
                 global::UnityEngine.Debug.LogError("[LabWidgetGroup] AutoBind 根节点或绑定组件不存在。", go);
@@ -40,13 +40,13 @@ namespace @ComponentAutoBindTool.@Example
             if (boundView.widgetRight == null) return;
             if (boundView.btnToggle == null) return;
             if (boundView.btnUnbind == null) return;
-            view = boundView;
+            _view = boundView;
         }
 
         public override object GetGeneratedUIView()
         {
-            if (view == null) EnsureAutoBind(gameObject);
-            return view;
+            if (_view == null) EnsureAutoBind(gameObject);
+            return _view;
         }
     }
 }

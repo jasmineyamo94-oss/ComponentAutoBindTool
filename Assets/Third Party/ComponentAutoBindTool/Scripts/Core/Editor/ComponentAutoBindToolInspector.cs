@@ -7,50 +7,50 @@ namespace ComponentAutoBindTool.Editor
     [CustomEditor(typeof(Core.ComponentAutoBindTool), true)]
     public class ComponentAutoBindToolInspector : UnityEditor.Editor
     {
-        private Core.ComponentAutoBindTool m_Target;
-        private AutoBindGlobalSetting m_Setting;
-        private AutoBindKeyMapSetting m_KeyMapSetting;
-        private SerializedProperty m_BindDatas;
-        private SerializedProperty m_BindComs;
-        private SerializedProperty m_BindFieldNames;
-        private SerializedProperty m_TargetScript;
-        private bool m_ShowBindings;
-        private bool m_ShowKeyMap;
-        private string m_LastReport;
-        private string m_MetadataError;
+        private Core.ComponentAutoBindTool _target;
+        private AutoBindGlobalSetting _setting;
+        private AutoBindKeyMapSetting _keyMapSetting;
+        private SerializedProperty _bindDatas;
+        private SerializedProperty _bindComs;
+        private SerializedProperty _bindFieldNames;
+        private SerializedProperty _targetScript;
+        private bool _showBindings;
+        private bool _showKeyMap;
+        private string _lastReport;
+        private string _metadataError;
 
         private void OnEnable()
         {
-            m_Target = (Core.ComponentAutoBindTool)target;
-            m_BindDatas = serializedObject.FindProperty("BindDatas");
-            m_BindComs = serializedObject.FindProperty("m_BindComs");
-            m_BindFieldNames = serializedObject.FindProperty("m_BindFieldNames");
-            m_TargetScript = serializedObject.FindProperty("m_targetScript");
+            _target = (Core.ComponentAutoBindTool)target;
+            _bindDatas = serializedObject.FindProperty("BindDatas");
+            _bindComs = serializedObject.FindProperty("m_BindComs");
+            _bindFieldNames = serializedObject.FindProperty("_bindFieldNames");
+            _targetScript = serializedObject.FindProperty("m_targetScript");
             LoadSettings();
         }
 
         private void LoadSettings()
         {
-            m_Setting = AutoBindEditorAssetLocator.LoadSingletonAsset<AutoBindGlobalSetting>();
-            m_KeyMapSetting = AutoBindEditorAssetLocator.LoadSingletonAsset<AutoBindKeyMapSetting>();
+            _setting = AutoBindEditorAssetLocator.LoadSingletonAsset<AutoBindGlobalSetting>();
+            _keyMapSetting = AutoBindEditorAssetLocator.LoadSingletonAsset<AutoBindKeyMapSetting>();
         }
 
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
             EditorGUI.BeginChangeCheck();
-            EditorGUILayout.PropertyField(m_TargetScript, new GUIContent("脚本"));
-            if (EditorGUI.EndChangeCheck()) ApplyTargetScriptChange(m_Setting, out _);
-            if (!string.IsNullOrEmpty(m_MetadataError)) EditorGUILayout.HelpBox(m_MetadataError, MessageType.Error);
+            EditorGUILayout.PropertyField(_targetScript, new GUIContent("脚本"));
+            if (EditorGUI.EndChangeCheck()) ApplyTargetScriptChange(_setting, out _);
+            if (!string.IsNullOrEmpty(_metadataError)) EditorGUILayout.HelpBox(_metadataError, MessageType.Error);
 
             // 摘要始终取实际脚本与当前配置；重绘不会把候选写回组件。
-            if (AutoBindTargetScriptSyncUtility.TryResolveMetadata(m_Target.m_targetScript, m_Setting,
+            if (AutoBindTargetScriptSyncUtility.TryResolveMetadata(_target.m_targetScript, _setting,
                 out var metadata, out string previewError))
                 AutoBindInspectorDrawer.DrawSettingsSection(metadata.Namespace, metadata.ClassName, metadata.CodePath);
-            else if (m_Setting != null)
+            else if (_setting != null)
                 EditorGUILayout.HelpBox(previewError, MessageType.Error);
 
-            if (m_Setting == null || m_KeyMapSetting == null)
+            if (_setting == null || _keyMapSetting == null)
             {
                 EditorGUILayout.HelpBox("缺少唯一的 AutoBind 全局配置或组件映射配置，请修复配置后重试。", MessageType.Error);
                 if (GUILayout.Button("重新加载配置")) LoadSettings();
@@ -60,47 +60,47 @@ namespace ComponentAutoBindTool.Editor
             {
                 AutoBindInspectorDrawer.DrawActionSection(HandleAutoBindAndValidate, HandleGenerateCode, HandleRemoveAll);
             }
-            AutoBindInspectorDrawer.DrawBindComponentFoldout(m_BindDatas, ref m_ShowBindings, DrawBindings);
-            AutoBindInspectorDrawer.DrawKeyMapTip(m_KeyMapSetting, ref m_ShowKeyMap);
-            if (!string.IsNullOrEmpty(m_LastReport)) EditorGUILayout.HelpBox(m_LastReport, MessageType.None);
+            AutoBindInspectorDrawer.DrawBindComponentFoldout(_bindDatas, ref _showBindings, DrawBindings);
+            AutoBindInspectorDrawer.DrawKeyMapTip(_keyMapSetting, ref _showKeyMap);
+            if (!string.IsNullOrEmpty(_lastReport)) EditorGUILayout.HelpBox(_lastReport, MessageType.None);
         }
 
         internal bool ApplyTargetScriptChange(AutoBindGlobalSetting setting, out string error)
         {
-            if (!AutoBindTargetScriptSyncUtility.SyncFromTargetScript(m_TargetScript,
-                serializedObject.FindProperty("m_Namespace"), serializedObject.FindProperty("m_ClassName"),
-                serializedObject.FindProperty("m_CodePath"), setting, out error))
+            if (!AutoBindTargetScriptSyncUtility.SyncFromTargetScript(_targetScript,
+                serializedObject.FindProperty("_namespace"), serializedObject.FindProperty("_className"),
+                serializedObject.FindProperty("_codePath"), setting, out error))
             {
                 serializedObject.Update();
-                m_MetadataError = "此次脚本选择未应用：" + error;
+                _metadataError = "此次脚本选择未应用：" + error;
                 return false;
             }
             serializedObject.ApplyModifiedProperties();
-            m_MetadataError = null;
+            _metadataError = null;
             return true;
         }
 
         private void DrawBindings()
         {
             EditorGUI.BeginChangeCheck();
-            int index = AutoBindInspectorDrawer.DrawBindDataList(m_BindDatas);
+            int index = AutoBindInspectorDrawer.DrawBindDataList(_bindDatas);
             if (index >= 0)
             {
-                m_BindDatas.DeleteArrayElementAtIndex(index);
+                _bindDatas.DeleteArrayElementAtIndex(index);
                 GUI.changed = true;
             }
             if (EditorGUI.EndChangeCheck())
             {
-                AutoBindSerializedBindingUtility.SyncRuntimeBindingCaches(m_BindDatas, m_BindComs, m_BindFieldNames);
+                AutoBindSerializedBindingUtility.SyncRuntimeBindingCaches(_bindDatas, _bindComs, _bindFieldNames);
                 serializedObject.ApplyModifiedProperties();
             }
         }
 
         private void HandleRemoveAll()
         {
-            m_BindDatas.ClearArray();
-            m_BindComs.ClearArray();
-            m_BindFieldNames.ClearArray();
+            _bindDatas.ClearArray();
+            _bindComs.ClearArray();
+            _bindFieldNames.ClearArray();
             serializedObject.ApplyModifiedProperties();
         }
 
@@ -112,20 +112,20 @@ namespace ComponentAutoBindTool.Editor
         {
             serializedObject.ApplyModifiedProperties();
             AutoBindPipelineReport report = generate
-                ? AutoBindBuildPipeline.GenerateCode(m_Target, settingsOverride ?? m_Setting, keyMapOverride ?? m_KeyMapSetting)
-                : AutoBindBuildPipeline.RescanAndValidate(m_Target, settingsOverride ?? m_Setting, keyMapOverride ?? m_KeyMapSetting);
+                ? AutoBindBuildPipeline.GenerateCode(_target, settingsOverride ?? _setting, keyMapOverride ?? _keyMapSetting)
+                : AutoBindBuildPipeline.RescanAndValidate(_target, settingsOverride ?? _setting, keyMapOverride ?? _keyMapSetting);
             serializedObject.Update();
             string title = report.Succeeded ? (generate ? "生成完成" : "校验通过") : "操作失败";
-            m_LastReport = title + "\n" + report.ValidationResult.BuildReport();
+            _lastReport = title + "\n" + report.ValidationResult.BuildReport();
             if (generate && report.Succeeded)
-                m_LastReport += report.CodeFileUpdated ? "\n已更新代码；绑定引用已更新到内存，请按需保存场景或 Prefab。" : "\n代码内容未变化，已跳过写入。";
+                _lastReport += report.CodeFileUpdated ? "\n已更新代码；绑定引用已更新到内存，请按需保存场景或 Prefab。" : "\n代码内容未变化，已跳过写入。";
             if (report.Succeeded)
             {
-                if (report.ValidationResult.WarningCount > 0) Debug.LogWarning(m_LastReport, m_Target);
-                else Debug.Log(m_LastReport, m_Target);
+                if (report.ValidationResult.WarningCount > 0) Debug.LogWarning(_lastReport, _target);
+                else Debug.Log(_lastReport, _target);
             }
-            else Debug.LogError(m_LastReport, m_Target);
-            if (showDialog && !Application.isBatchMode) EditorUtility.DisplayDialog(title, m_LastReport, "确定");
+            else Debug.LogError(_lastReport, _target);
+            if (showDialog && !Application.isBatchMode) EditorUtility.DisplayDialog(title, _lastReport, "确定");
             return report;
         }
     }
