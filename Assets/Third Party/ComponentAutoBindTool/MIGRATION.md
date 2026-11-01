@@ -123,3 +123,11 @@ AutoBindGeneratedCodeVerification 提供额外两阶段验证：在项目副本�
 ## 可选资源后端与异步开窗
 
 使用方式、版本范围、组合根注册与租约规则见 [资源接入说明](Scripts/AssetCore/README.md)。不使用外部加载包时可直接接入 DirectCatalogBackend。动态列表通过父 Presenter 的 CreateWidgetPool 创建复用池，Spawn/Despawn 不反复 Resolve；池随父实例释放。
+
+## 快捷创建完整窗口模板
+
+Hierarchy 右键 **UI (Canvas) → UI View Template**，输入基础名后自动创建 View/Presenter/Routes/绑定脚本与空白 Prefab；默认勾选生成专属 Args，取消后使用 EmptyViewArgs。创建完成后在当前 Canvas 下留下实例。固定命名、项目共享路径设置、两轮编译及失败处理见 [UI View Template](Scripts/Core/Editor/ViewTemplate/README.md)。场景不会自动保存；后续编辑层级后仍按原 Inspector 重扫、生成工作流更新绑定。
+
+Args 选错且模板尚未编辑时，可点击“清除并重新创建”，确认删除清单，等待重载后修改 Args 选项重新创建。清除仅覆盖最近一次成功回执，保留名称和原输出路径；已修改的产物、失效或额外场景实例会阻止清除。备份保存在 Library，场景不自动保存。
+
+没有有效回执时，输入原基础名，使用“按位置删除已有模板…”选择脚本目录和对应 Prefab。经过两次确认后可删除固定产物及元数据，包括已编辑内容；额外文件保留。该入口仅删除磁盘资产，场景实例须自行处理，可能出现 Missing Script/Missing Prefab；不会保存场景，备份仍在 Library，编译重试不会再次删除。

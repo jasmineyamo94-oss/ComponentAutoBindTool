@@ -1,0 +1,44 @@
+.view-template .template-body {
+    padding: 16px;
+    flex-grow: 1;
+}
+.view-template .template-title {
+    font-size: 18px;
+    -unity-font-style: bold;
+    margin-bottom: 8px;
+}
+.view-template .template-description {
+    white-space: normal;
+    margin-bottom: 14px;
+}
+.view-template TextField {
+    margin-bottom: 6px;
+}
+.view-template .template-output {
+    margin-bottom: 5px;
+}
+.view-template .template-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.view-template .template-actions Button {
+    min-height: 26px;
+    margin-right: 6px;
+}
+.view-template .template-folder {
+    flex-direction: row;
+    margin-bottom: 8px;
+}
+.view-template .template-folder TextField {
+    flex-grow: 1;
+}
+.view-template HelpBox {
+    margin-top: 10px;
+    white-space: normal;
+}
+.view-template .template-file-name {
+    -unity-font-style: bold;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}

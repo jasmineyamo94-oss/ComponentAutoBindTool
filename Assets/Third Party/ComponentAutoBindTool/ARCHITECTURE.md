@@ -20,6 +20,7 @@
 | 理解整体调用链 | 本文第 2～5 节 |
 | 修改扫描、校验、生成或保存行为 | [AutoBindBuildPipeline.cs](Scripts/Core/Editor/AutoBindBuildPipeline.cs) → 第 3 节 |
 | 接入一个普通业务窗口或 Widget | 第 4、5、8 节 → [迁移说明](MIGRATION.md) |
+| 快捷创建完整窗口模板 | [UI View Template](Scripts/Core/Editor/ViewTemplate/README.md) |
 | 声明强类型开窗路由 | 第 5.8 节 → Example/Scripts/LabRoutes.cs |
 | 修改层级、导航、实例复用、关闭策略 | [ViewManager.cs](Scripts/ViewCore/Management/ViewManager.cs) 与 [WindowEntry.cs](Scripts/ViewCore/Management/WindowEntry.cs) |
 | 调查 Widget 可见性、Tick、生命周期 | [WidgetPresenterBase.cs](Scripts/ViewCore/Presenters/WidgetPresenterBase.cs) → 第 5 节 |
@@ -136,6 +137,18 @@ AutoBindBuildPipeline.GenerateCode(target, settings, keyMap);
 配置输入采用广泛旧格式兼容：除项目 Assets 绝对前缀、盘符和 UNC 外，单斜杠路径按 Assets 相对路径解释；因此 `/Third Party/...` 和 `/tmp/Output` 都写入项目 Assets 内对应目录。配置只解释一次；边界检查与绝对路径转 Asset 路径不会再次套用兼容规则，所以 `Assets/../Outside` 和 `AssetsBackup` 仍被拒绝。文件夹选择器使用真实绝对路径检查，不能选择工程外目录。
 
 Inspector 仅在显式切换目标脚本时同步类名、命名空间和路径，引用与元数据构成一次 Undo；清空引用会清空摘要。摘要同时只读反映当前配置。选择、重绘和配置变化不会隐式修改绑定数据；缺配置或解析失败不会留下部分更新的元数据。
+
+### 3.5 快捷创建完整窗口模板
+
+Hierarchy 右键 **UI (Canvas) → UI View Template**。输入基础名并选择是否使用 Args，固定派生 View、Presenter、Routes、BindComponents、可选 Args 脚本和一个 Prefab，所有产物名与输出路径只读预览。独立路径设置保存至 ProjectSettings，可由项目共享；不修改 AutoBind 全局配置。
+
+创建协调器在当前 Editor 会话中通过 ScriptableSingleton 保留场景引用、阶段与文件所有权，跨两轮脚本编译完成宿主挂载、正式流水线绑定生成和最终 Prefab 保存。最后在原 Canvas 下创建实例，必要时补建 Canvas/EventSystem；仅保存新 Prefab，不保存整个场景。支持失败重试、保守清理与场景 Undo/Redo，原场景或父节点失效时停止任务。
+
+成功后可通过“清除并重新创建”调整 Args 模式：基于独立成功回执验证登记文件、元数据、Prefab 与完整场景实例快照，确认后清除并等待实际脚本重载，保留原命名和路径。用户已编辑产物、原实例失效或存在额外实例时拒绝清除。备份保存在 Library，清除不支持 Undo；Canvas、EventSystem 和其他对象保留。
+
+“按位置删除已有模板…”独立于成功回执、运行时类型与 AutoBind 全局配置，按基础名和用户确认的目录定位固定产物。两次默认取消的确认后，只删除磁盘文件及元数据，不操作场景实例或 Undo；精确空叶目录采用非递归删除。该入口和安全清除复用备份/失败恢复事务，编译错误只报告、不自动恢复已删文件；重试只检查编译。可空预览跨重载使用引用序列化。
+
+目录、命名、程序集要求及具体操作以 [模板接入说明](Scripts/Core/Editor/ViewTemplate/README.md) 为准。模板为空白 Content 骨架，不自动注册项目资源目录或 LifetimeScope；运行时接口保持原状。
 
 ## 4. 运行时：宿主、窗口实例与依赖注入
 
