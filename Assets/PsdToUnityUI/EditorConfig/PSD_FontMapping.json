@@ -1,0 +1,24 @@
+{
+    "entries": [
+        {
+            "psdFontName": "HYYaKuHeiW",
+            "legacyFontAssetPath": "Library/unity default resources",
+            "tmpFontAssetPath": ""
+        },
+        {
+            "psdFontName": "Rubik-Medium",
+            "legacyFontAssetPath": "Library/unity default resources",
+            "tmpFontAssetPath": "Assets/Third Party/ComponentAutoBindTool/Example/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset"
+        },
+        {
+            "psdFontName": "TOXIA",
+            "legacyFontAssetPath": "Library/unity default resources",
+            "tmpFontAssetPath": "Assets/Third Party/ComponentAutoBindTool/Example/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset"
+        },
+        {
+            "psdFontName": "JiangChengYuanTi-500W",
+            "legacyFontAssetPath": "Library/unity default resources",
+            "tmpFontAssetPath": "Assets/Third Party/ComponentAutoBindTool/Example/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "name": "PsdTools.Editor",
+    "rootNamespace": "PsdTools",
+    "references": [
+        "Unity.TextMeshPro",
+        "Unity.ugui",
+        "PsdTools.Runtime",
+        "PrefabAutoBind.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.textmeshpro",
+            "expression": "",
+            "define": "USE_TMP"
+        },
+        {
+            "name": "com.unity.ugui",
+            "expression": "2.0.0",
+            "define": "USE_TMP"
+        }
+    ],
+    "noEngineReferences": false
+}

@@ -1,0 +1,621 @@
+﻿{
+    "prefabPath": "Assets/psdui.prefab",
+    "entries": [
+        {
+            "fileId": 3777585685279770364,
+            "layerId": 13,
+            "layerName": "background",
+            "path": "psdui/background::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":37.0,\"anchoredPositionY\":-20.0,\"sizeDeltaX\":1408.0,\"sizeDeltaY\":768.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"9ab37e42391ab4101bf0f5e305d83118\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5033810314508496222,
+            "layerId": 32,
+            "layerName": "node_left",
+            "path": "psdui/node_left::4",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-428.5,\"anchoredPositionY\":-40.5,\"sizeDeltaX\":221.0,\"sizeDeltaY\":269.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 2181660921837110504,
+            "layerId": 5,
+            "layerName": "AAA",
+            "path": "psdui/node_left::4/AAA::4",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-67.0,\"anchoredPositionY\":22.5,\"sizeDeltaX\":51.0,\"sizeDeltaY\":18.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"AAA\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":22,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"TextGradient\":{\"enabled\":true},\"Outline\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1794283437251250724,
+            "layerId": 3,
+            "layerName": "AAAa AA ",
+            "path": "psdui/node_left::4/AAAa AA ::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-68.5,\"anchoredPositionY\":64.0,\"sizeDeltaX\":48.0,\"sizeDeltaY\":37.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"AAAa\\nAA\\n\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":17,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":1.0,\"colorG\":0.9497799873352051,\"colorB\":0.8784300088882446,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"Outline\":{\"enabled\":true},\"Shadow\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1118954832970818263,
+            "layerId": 6,
+            "layerName": "BBB",
+            "path": "psdui/node_left::4/BBB::5",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":36.0,\"anchoredPositionY\":22.5,\"sizeDeltaX\":51.0,\"sizeDeltaY\":18.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"AAA\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":22,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"TextGradient\":{\"enabled\":true},\"Outline\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4173313152516628301,
+            "layerId": 403,
+            "layerName": "bg",
+            "path": "psdui/node_left::4/bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":221.0,\"sizeDeltaY\":269.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8977653553554625713,
+            "layerId": 11,
+            "layerName": "node_edit",
+            "path": "psdui/node_left::4/node_edit::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":-14.5,\"sizeDeltaX\":200.0,\"sizeDeltaY\":30.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"InputField\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 9079768090799691200,
+            "layerId": 379,
+            "layerName": "edit_bg",
+            "path": "psdui/node_left::4/node_edit::2/edit_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":200.0,\"sizeDeltaY\":30.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5267520434901210712,
+            "layerId": 485,
+            "layerName": "textviewport",
+            "path": "psdui/node_left::4/node_edit::2/textviewport::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-70.5,\"anchoredPositionY\":-0.5,\"sizeDeltaX\":35.0,\"sizeDeltaY\":13.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 456943626600835960,
+            "layerId": 10,
+            "layerName": "placeholder",
+            "path": "psdui/node_left::4/node_edit::2/textviewport::1/placeholder::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":35.0,\"sizeDeltaY\":13.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"Plain \",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":13,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":0.7706000208854675,\"colorG\":0.6137400269508362,\"colorB\":0.4529399871826172,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":false},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1132316196874361644,
+            "layerId": 9,
+            "layerName": "text",
+            "path": "psdui/node_left::4/node_edit::2/textviewport::1/text::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":35.0,\"sizeDeltaY\":13.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":13,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":false,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":0.07451999932527542,\"colorG\":0.0,\"colorB\":0.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2991764512543319412,
+            "layerId": 8,
+            "layerName": "Plain ",
+            "path": "psdui/node_left::4/Plain ::6",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-74.5,\"anchoredPositionY\":106.5,\"sizeDeltaX\":38.0,\"sizeDeltaY\":14.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"Plain \",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":15,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":0.07451999932527542,\"colorG\":0.0,\"colorB\":0.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2067662074174779706,
+            "layerId": 25,
+            "layerName": "scrollview",
+            "path": "psdui/node_left::4/scrollview::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-0.5,\"anchoredPositionY\":-78.5,\"sizeDeltaX\":204.0,\"sizeDeltaY\":92.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"ScrollRect\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3542723219513106157,
+            "layerId": 38,
+            "layerName": "scroll_bg",
+            "path": "psdui/node_left::4/scrollview::1/scroll_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":204.0,\"sizeDeltaY\":92.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"a2dd06d84aa83496bbd9c958ad72feff\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5751996719214672427,
+            "layerId": 483,
+            "layerName": "viewport",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":3.5,\"anchoredPositionY\":-1.0,\"sizeDeltaX\":191.0,\"sizeDeltaY\":76.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"0000000000000000f000000000000000\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"Mask\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6160846207957588285,
+            "layerId": 39,
+            "layerName": "content",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":70.0,\"sizeDeltaY\":72.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 1980277063929474844,
+            "layerId": 217,
+            "layerName": "node1",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node1::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":25.5,\"sizeDeltaX\":70.0,\"sizeDeltaY\":21.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 4644159517897859085,
+            "layerId": 226,
+            "layerName": "check",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node1::0/check::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-23.5,\"anchoredPositionY\":0.0,\"sizeDeltaX\":23.0,\"sizeDeltaY\":21.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"bce18ac892aa44295a511eb96cbc1b9e\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7461357410811418796,
+            "layerId": 385,
+            "layerName": "check_bg",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node1::0/check_bg::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-23.0,\"anchoredPositionY\":-0.5,\"sizeDeltaX\":20.0,\"sizeDeltaY\":20.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"cf58f7d4eca02464d8aeaf72b84f99a2\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 482191550664306476,
+            "layerId": 24,
+            "layerName": "Plain ",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node1::0/Plain ::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":16.0,\"anchoredPositionY\":-0.5,\"sizeDeltaX\":38.0,\"sizeDeltaY\":14.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"Plain \",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":15,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":0.07451999932527542,\"colorG\":0.0,\"colorB\":0.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8166605128646902155,
+            "layerId": 231,
+            "layerName": "node2",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node2::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.5,\"sizeDeltaX\":70.0,\"sizeDeltaY\":21.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 2819948021995847506,
+            "layerId": 230,
+            "layerName": "check",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node2::1/check::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-23.5,\"anchoredPositionY\":0.0,\"sizeDeltaX\":23.0,\"sizeDeltaY\":21.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"bce18ac892aa44295a511eb96cbc1b9e\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4726956718653750717,
+            "layerId": 383,
+            "layerName": "check_bg",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node2::1/check_bg::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-23.0,\"anchoredPositionY\":-0.5,\"sizeDeltaX\":20.0,\"sizeDeltaY\":20.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"cf58f7d4eca02464d8aeaf72b84f99a2\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2361734184209543344,
+            "layerId": 228,
+            "layerName": "Plain ",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node2::1/Plain ::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":16.0,\"anchoredPositionY\":-0.5,\"sizeDeltaX\":38.0,\"sizeDeltaY\":14.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"Plain \",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":15,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":0.07451999932527542,\"colorG\":0.0,\"colorB\":0.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4157124170252138036,
+            "layerId": 236,
+            "layerName": "node3",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node3::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":-25.5,\"sizeDeltaX\":70.0,\"sizeDeltaY\":21.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 681804779831058532,
+            "layerId": 235,
+            "layerName": "check",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node3::2/check::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-23.5,\"anchoredPositionY\":0.0,\"sizeDeltaX\":23.0,\"sizeDeltaY\":21.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"bce18ac892aa44295a511eb96cbc1b9e\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3659760703805597641,
+            "layerId": 381,
+            "layerName": "check_bg",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node3::2/check_bg::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-23.0,\"anchoredPositionY\":-0.5,\"sizeDeltaX\":20.0,\"sizeDeltaY\":20.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"cf58f7d4eca02464d8aeaf72b84f99a2\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2946000346654242954,
+            "layerId": 233,
+            "layerName": "Plain ",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/content::1/node3::2/Plain ::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":16.0,\"anchoredPositionY\":-0.5,\"sizeDeltaX\":38.0,\"sizeDeltaY\":14.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"Plain \",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":15,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":0.07451999932527542,\"colorG\":0.0,\"colorB\":0.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1632802257204594659,
+            "layerId": 37,
+            "layerName": "scrollbar",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/scrollbar::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":87.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":17.0,\"sizeDeltaY\":76.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Scrollbar\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8592459592672899899,
+            "layerId": 389,
+            "layerName": "bar_bg",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/scrollbar::0/bar_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":11.0,\"sizeDeltaY\":76.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"6d2fb5cb5c1c74423befc003a6df66d1\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6069103130285823808,
+            "layerId": 387,
+            "layerName": "handle",
+            "path": "psdui/node_left::4/scrollview::1/viewport::1/scrollbar::0/handle::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.0,\"anchorMinY\":0.0,\"anchorMaxX\":0.0,\"anchorMaxY\":0.0,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":0.0,\"sizeDeltaY\":0.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"296ab9b8182464c14a3c5f9074c14efe\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2664059629221507177,
+            "layerId": 262,
+            "layerName": "node_main",
+            "path": "psdui/node_main::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":5.5,\"anchoredPositionY\":-2.0,\"sizeDeltaX\":531.0,\"sizeDeltaY\":418.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 2898664479625800016,
+            "layerId": 50,
+            "layerName": "dropdown",
+            "path": "psdui/node_main::2/dropdown::6",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-176.5,\"anchoredPositionY\":1.0,\"sizeDeltaX\":178.0,\"sizeDeltaY\":130.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Dropdown\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8289307288554486493,
+            "layerId": 54,
+            "layerName": "arrow",
+            "path": "psdui/node_main::2/dropdown::6/arrow::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":56.0,\"anchoredPositionY\":32.5,\"sizeDeltaX\":18.0,\"sizeDeltaY\":15.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"726abe9978c7648bf8e67029333a6f31\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3261512340553328587,
+            "layerId": 397,
+            "layerName": "select_bg",
+            "path": "psdui/node_main::2/dropdown::6/select_bg::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":34.0,\"sizeDeltaX\":178.0,\"sizeDeltaY\":62.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"80118d5fb0ed544799cc6b0686bdcd9e\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4389966449958224089,
+            "layerId": 440,
+            "layerName": "template",
+            "path": "psdui/node_main::2/dropdown::6/template::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":-8.5,\"sizeDeltaX\":144.0,\"sizeDeltaY\":113.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 5176303221420465713,
+            "layerId": 399,
+            "layerName": "img_bg",
+            "path": "psdui/node_main::2/dropdown::6/template::0/img_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":144.0,\"sizeDeltaY\":113.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3802071866593301874,
+            "layerId": 64,
+            "layerName": "item",
+            "path": "psdui/node_main::2/dropdown::6/template::0/item::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-25.0,\"anchoredPositionY\":12.5,\"sizeDeltaX\":68.0,\"sizeDeltaY\":24.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Toggle\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6322823083600689266,
+            "layerId": 395,
+            "layerName": "check",
+            "path": "psdui/node_main::2/dropdown::6/template::0/item::1/check::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-24.0,\"anchoredPositionY\":-2.0,\"sizeDeltaX\":20.0,\"sizeDeltaY\":20.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"cf58f7d4eca02464d8aeaf72b84f99a2\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2544991529229623420,
+            "layerId": 63,
+            "layerName": "check_bg",
+            "path": "psdui/node_main::2/dropdown::6/template::0/item::1/check_bg::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-20.5,\"anchoredPositionY\":1.5,\"sizeDeltaX\":23.0,\"sizeDeltaY\":21.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"bce18ac892aa44295a511eb96cbc1b9e\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5044132302587635988,
+            "layerId": 57,
+            "layerName": "Plain",
+            "path": "psdui/node_main::2/dropdown::6/template::0/item::1/Plain::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":15.0,\"anchoredPositionY\":-2.0,\"sizeDeltaX\":38.0,\"sizeDeltaY\":14.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"Plain \",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":15,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":0.07451999932527542,\"colorG\":0.0,\"colorB\":0.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 16063347035744519,
+            "layerId": 55,
+            "layerName": "text1",
+            "path": "psdui/node_main::2/dropdown::6/text1::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-40.0,\"anchoredPositionY\":34.0,\"sizeDeltaX\":38.0,\"sizeDeltaY\":14.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":15,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":0.07451999932527542,\"colorG\":0.0,\"colorB\":0.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8964353334337651668,
+            "layerId": 46,
+            "layerName": "item1",
+            "path": "psdui/node_main::2/item1::5",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-177.5,\"anchoredPositionY\":109.5,\"sizeDeltaX\":168.0,\"sizeDeltaY\":199.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 3607610535659831711,
+            "layerId": 517,
+            "layerName": "btn_buy",
+            "path": "psdui/node_main::2/item1::5/btn_buy::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-0.5,\"anchoredPositionY\":-79.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Button\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1159716486558247354,
+            "layerId": 515,
+            "layerName": "btn_bg",
+            "path": "psdui/node_main::2/item1::5/btn_buy::2/btn_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"aad53d8c9b60b494cbbca74052dfda47\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7263857574415866504,
+            "layerId": 516,
+            "layerName": "BUY",
+            "path": "psdui/node_main::2/item1::5/btn_buy::2/BUY::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":-1.0,\"sizeDeltaX\":47.0,\"sizeDeltaY\":17.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"BUY\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":20,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"Outline\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6791031075039679711,
+            "layerId": 43,
+            "layerName": "img_bg1",
+            "path": "psdui/node_main::2/item1::5/img_bg1::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.5,\"sizeDeltaX\":156.0,\"sizeDeltaY\":174.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5052954395579883060,
+            "layerId": 42,
+            "layerName": "img_bg2",
+            "path": "psdui/node_main::2/item1::5/img_bg2::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.0,\"sizeDeltaX\":168.0,\"sizeDeltaY\":187.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"79728d88de2b14ff59bdf3e4e635aac0\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4243944480208034055,
+            "layerId": 44,
+            "layerName": "img_icon",
+            "path": "psdui/node_main::2/item1::5/img_icon::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.5,\"anchoredPositionY\":16.0,\"sizeDeltaX\":93.0,\"sizeDeltaY\":77.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"a6821e0cd68604c98938aee34a1bbdfa\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 388745684358826157,
+            "layerId": 69,
+            "layerName": "item2",
+            "path": "psdui/node_main::2/item2::4",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.5,\"anchoredPositionY\":109.5,\"sizeDeltaX\":168.0,\"sizeDeltaY\":199.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 4922695409875220963,
+            "layerId": 81,
+            "layerName": "btn_buy",
+            "path": "psdui/node_main::2/item2::4/btn_buy::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":-79.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Button\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8371090841851294981,
+            "layerId": 238,
+            "layerName": "btn_bg",
+            "path": "psdui/node_main::2/item2::4/btn_buy::2/btn_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"aad53d8c9b60b494cbbca74052dfda47\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4220855885449171971,
+            "layerId": 79,
+            "layerName": "BUY",
+            "path": "psdui/node_main::2/item2::4/btn_buy::2/BUY::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":-1.0,\"sizeDeltaX\":47.0,\"sizeDeltaY\":17.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"BUY\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":20,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"Outline\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4265039757312806430,
+            "layerId": 67,
+            "layerName": "img_bg1",
+            "path": "psdui/node_main::2/item2::4/img_bg1::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.5,\"sizeDeltaX\":156.0,\"sizeDeltaY\":174.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7486478590461138221,
+            "layerId": 66,
+            "layerName": "img_bg2",
+            "path": "psdui/node_main::2/item2::4/img_bg2::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.0,\"sizeDeltaX\":168.0,\"sizeDeltaY\":187.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"79728d88de2b14ff59bdf3e4e635aac0\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6273080645879526336,
+            "layerId": 68,
+            "layerName": "img_icon",
+            "path": "psdui/node_main::2/item2::4/img_icon::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":15.5,\"sizeDeltaX\":111.0,\"sizeDeltaY\":92.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"a6821e0cd68604c98938aee34a1bbdfa\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5607938885837460361,
+            "layerId": 74,
+            "layerName": "item3",
+            "path": "psdui/node_main::2/item3::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":181.5,\"anchoredPositionY\":108.5,\"sizeDeltaX\":168.0,\"sizeDeltaY\":201.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 1136501021955974450,
+            "layerId": 88,
+            "layerName": "btn_buy",
+            "path": "psdui/node_main::2/item3::3/btn_buy::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-0.5,\"anchoredPositionY\":-80.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Button\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3523226322391170265,
+            "layerId": 77,
+            "layerName": "btn_bg",
+            "path": "psdui/node_main::2/item3::3/btn_buy::2/btn_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"aad53d8c9b60b494cbbca74052dfda47\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5026861051995348223,
+            "layerId": 87,
+            "layerName": "BUY",
+            "path": "psdui/node_main::2/item3::3/btn_buy::2/BUY::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":2.0,\"anchoredPositionY\":1.0,\"sizeDeltaX\":47.0,\"sizeDeltaY\":17.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"BUY\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":20,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"Outline\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5446938419751664420,
+            "layerId": 72,
+            "layerName": "img_bg1",
+            "path": "psdui/node_main::2/item3::3/img_bg1::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":7.5,\"sizeDeltaX\":156.0,\"sizeDeltaY\":174.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2511734732537125863,
+            "layerId": 71,
+            "layerName": "img_bg2",
+            "path": "psdui/node_main::2/item3::3/img_bg2::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":7.0,\"sizeDeltaX\":168.0,\"sizeDeltaY\":187.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"79728d88de2b14ff59bdf3e4e635aac0\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 777709815935289355,
+            "layerId": 73,
+            "layerName": "img_icon",
+            "path": "psdui/node_main::2/item3::3/img_icon::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":16.5,\"sizeDeltaX\":130.0,\"sizeDeltaY\":108.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"a6821e0cd68604c98938aee34a1bbdfa\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1645715451047676563,
+            "layerId": 150,
+            "layerName": "item4",
+            "path": "psdui/node_main::2/item4::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-177.5,\"anchoredPositionY\":-109.5,\"sizeDeltaX\":168.0,\"sizeDeltaY\":199.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 5652663303633510621,
+            "layerId": 178,
+            "layerName": "btn_buy",
+            "path": "psdui/node_main::2/item4::2/btn_buy::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":-79.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Button\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7097211118171374695,
+            "layerId": 176,
+            "layerName": "btn_bg",
+            "path": "psdui/node_main::2/item4::2/btn_buy::2/btn_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"aad53d8c9b60b494cbbca74052dfda47\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4299042268465186217,
+            "layerId": 177,
+            "layerName": "BUY",
+            "path": "psdui/node_main::2/item4::2/btn_buy::2/BUY::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":-1.0,\"sizeDeltaX\":47.0,\"sizeDeltaY\":17.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"BUY\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":20,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"Outline\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7031887039642614088,
+            "layerId": 133,
+            "layerName": "img_bg1",
+            "path": "psdui/node_main::2/item4::2/img_bg1::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.5,\"sizeDeltaX\":156.0,\"sizeDeltaY\":174.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7729522519500168494,
+            "layerId": 132,
+            "layerName": "img_bg2",
+            "path": "psdui/node_main::2/item4::2/img_bg2::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.0,\"sizeDeltaX\":168.0,\"sizeDeltaY\":187.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"f746499ddf4014a9c974000835da15f2\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 814276065337875874,
+            "layerId": 184,
+            "layerName": "img_icon",
+            "path": "psdui/node_main::2/item4::2/img_icon::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":15.5,\"sizeDeltaX\":98.0,\"sizeDeltaY\":124.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"ea86c5ef8f2bf48bc94080330819b1d2\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8880056068005728231,
+            "layerId": 161,
+            "layerName": "item5",
+            "path": "psdui/node_main::2/item5::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.5,\"anchoredPositionY\":-109.5,\"sizeDeltaX\":168.0,\"sizeDeltaY\":199.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 3334356725236104069,
+            "layerId": 160,
+            "layerName": "btn_buy",
+            "path": "psdui/node_main::2/item5::1/btn_buy::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":-79.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Button\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3435352143864972401,
+            "layerId": 158,
+            "layerName": "btn_bg",
+            "path": "psdui/node_main::2/item5::1/btn_buy::2/btn_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"aad53d8c9b60b494cbbca74052dfda47\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5300473636947925614,
+            "layerId": 159,
+            "layerName": "BUY",
+            "path": "psdui/node_main::2/item5::1/btn_buy::2/BUY::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":-1.0,\"sizeDeltaX\":47.0,\"sizeDeltaY\":17.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"BUY\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":20,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"Outline\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6796774782245500290,
+            "layerId": 153,
+            "layerName": "img_bg1",
+            "path": "psdui/node_main::2/item5::1/img_bg1::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.5,\"sizeDeltaX\":156.0,\"sizeDeltaY\":174.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6268927221179842200,
+            "layerId": 152,
+            "layerName": "img_bg2",
+            "path": "psdui/node_main::2/item5::1/img_bg2::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.0,\"sizeDeltaX\":168.0,\"sizeDeltaY\":187.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"d911b68768e94440ba2cc810a226202c\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 422822240666402898,
+            "layerId": 180,
+            "layerName": "img_icon",
+            "path": "psdui/node_main::2/item5::1/img_icon::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":15.5,\"sizeDeltaX\":98.0,\"sizeDeltaY\":124.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"ea86c5ef8f2bf48bc94080330819b1d2\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2625486648247026030,
+            "layerId": 172,
+            "layerName": "item6",
+            "path": "psdui/node_main::2/item6::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":181.5,\"anchoredPositionY\":-109.5,\"sizeDeltaX\":168.0,\"sizeDeltaY\":199.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 5065619402261907962,
+            "layerId": 171,
+            "layerName": "btn_buy",
+            "path": "psdui/node_main::2/item6::0/btn_buy::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":-79.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Button\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7255686305240363970,
+            "layerId": 169,
+            "layerName": "btn_bg",
+            "path": "psdui/node_main::2/item6::0/btn_buy::2/btn_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":111.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"aad53d8c9b60b494cbbca74052dfda47\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1639294601540289913,
+            "layerId": 170,
+            "layerName": "BUY",
+            "path": "psdui/node_main::2/item6::0/btn_buy::2/BUY::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":-1.0,\"sizeDeltaX\":47.0,\"sizeDeltaY\":17.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Text\":{\"enabled\":true,\"text\":\"BUY\",\"fontGuid\":\"0000000000000000e000000000000000\",\"fontSize\":20,\"fontStyle\":0,\"resizeTextForBestFit\":false,\"alignment\":4,\"alignByGeometry\":false,\"lineSpacing\":1.0,\"supportRichText\":true,\"horizontalOverflow\":false,\"verticalOverflow\":false,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true},\"Outline\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6268878961756847571,
+            "layerId": 164,
+            "layerName": "img_bg1",
+            "path": "psdui/node_main::2/item6::0/img_bg1::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.5,\"sizeDeltaX\":156.0,\"sizeDeltaY\":174.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7367439060561152914,
+            "layerId": 163,
+            "layerName": "img_bg2",
+            "path": "psdui/node_main::2/item6::0/img_bg2::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":6.0,\"sizeDeltaX\":168.0,\"sizeDeltaY\":187.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"4491d7250e710447c9d55e4388c4f3b6\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5169258823570726957,
+            "layerId": 181,
+            "layerName": "img_icon",
+            "path": "psdui/node_main::2/item6::0/img_icon::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":15.5,\"sizeDeltaX\":98.0,\"sizeDeltaY\":124.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"ea86c5ef8f2bf48bc94080330819b1d2\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2742954866191260126,
+            "layerId": 401,
+            "layerName": "right_bg",
+            "path": "psdui/right_bg::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":9.0,\"anchoredPositionY\":-21.0,\"sizeDeltaX\":600.0,\"sizeDeltaY\":514.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"943417996456048a2bbf4cf0ef85f53b\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2514804444604514989,
+            "layerId": 17,
+            "layerName": "slider",
+            "path": "psdui/slider::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":7.5,\"anchoredPositionY\":-245.5,\"sizeDeltaX\":523.0,\"sizeDeltaY\":29.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true},\"Slider\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7983959883357270941,
+            "layerId": 391,
+            "layerName": "fillrect",
+            "path": "psdui/slider::3/fillrect::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.0,\"anchorMinY\":0.0,\"anchorMaxX\":0.0,\"anchorMaxY\":0.0,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":0.0,\"sizeDeltaY\":0.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"39d3225c521ab451fb38783092296a8c\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2825523605431707622,
+            "layerId": 393,
+            "layerName": "slider_bg",
+            "path": "psdui/slider::3/slider_bg::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":3.5,\"sizeDeltaX\":522.0,\"sizeDeltaY\":22.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"7117ceb67473147eea64639fa409de6e\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        }
+    ]
+}

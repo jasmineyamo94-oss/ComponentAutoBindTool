@@ -1,0 +1,1452 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7ecb1971f06b04282df6f2fc912b9b, type: 3}
+  m_Name: "\u6218\u6597-\u4E3B\u83DC\u5355\u754C\u9762.PrefabAutoBind"
+  m_EditorClassIdentifier: PsdTools.Editor::PrefabAutoBind.PrefabAutoBindConfig
+  schemaVersion: 3
+  prefab: {fileID: 4727992099634968481, guid: 8912565f437e3624794d2e944c43d7e2, type: 3}
+  className: LevelMenuView
+  settings: {fileID: 11400000, guid: 2f70830c60fcc584c950603bdd64017b, type: 2}
+  exportMode: 0
+  nodes:
+  - nodeId:
+      targetObjectId: 4727992099634968481
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 0
+      targetPrefabId: 0
+    nodePath: 
+    nodeName: "\u6218\u6597-\u4E3B\u83DC\u5355\u754C\u9762"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 175221130057472035
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 4727992099634968481
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807"
+    nodeName: "\u53F3\u4FA7\u56FE\u6807"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 1701011224842277026
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 175221130057472035
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D"
+    nodeName: "\u7EC4 1 \u62F7\u8D1D"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components:
+    - componentTypeName: UnityEngine.RectTransform, UnityEngine.CoreModule
+      componentIndex: 0
+      fieldName: "\u7EC4_1_\u62F7\u8D1D"
+      accessModifier: 0
+      containerKind: 0
+      containerName: 
+      events: 
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5352278621498129638
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 1701011224842277026
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D/\u5F62\u72B6 1"
+    nodeName: "\u5F62\u72B6 1"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 8549855052617951522
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 1701011224842277026
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6
+      2"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 2"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 4067230266909137419
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 1701011224842277026
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D/1_10"
+    nodeName: 1_10
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 1004973493383339479
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 1701011224842277026
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D/5"
+    nodeName: 5
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5709352462249095833
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 175221130057472035
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1"
+    nodeName: "\u7EC4 1"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 8783997213317954674
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 5709352462249095833
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1/\u5F62\u72B6 1"
+    nodeName: "\u5F62\u72B6 1"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 728783086625480502
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 5709352462249095833
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1/\u8272\u9636 2"
+    nodeName: "\u8272\u9636 2"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 1040804018866870184
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 5709352462249095833
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1/10_10"
+    nodeName: 10_10
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 8495180389174288385
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 5709352462249095833
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1/4"
+    nodeName: 4
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 224558517015556571
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 175221130057472035
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D 3"
+    nodeName: "\u7EC4 1 \u62F7\u8D1D 3"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 4697100107377417406
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 224558517015556571
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D 3/\u5F62\u72B6 1"
+    nodeName: "\u5F62\u72B6 1"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 6661806990080457577
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 224558517015556571
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D 3/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6
+      3"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 3"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 1192472100204135521
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 224558517015556571
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D 3/3"
+    nodeName: 3
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 2547411990534743208
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 175221130057472035
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D 4"
+    nodeName: "\u7EC4 1 \u62F7\u8D1D 4"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5200931773946763245
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2547411990534743208
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D 4/\u5F62\u72B6 1"
+    nodeName: "\u5F62\u72B6 1"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5394770351268965043
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2547411990534743208
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D 4/\u8272\u9636 3"
+    nodeName: "\u8272\u9636 3"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 4383339374783487756
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2547411990534743208
+      targetPrefabId: 0
+    nodePath: "\u53F3\u4FA7\u56FE\u6807/\u7EC4 1 \u62F7\u8D1D 4/5"
+    nodeName: 5
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 2264293599127062653
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 4727992099634968481
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F"
+    nodeName: "\u4E0B\u680F"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 2411891156906315080
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2264293599127062653
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u80CC\u5305"
+    nodeName: "\u80CC\u5305"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 4129743003770369485
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2411891156906315080
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u80CC\u5305/\u56FE\u5C42 166"
+    nodeName: "\u56FE\u5C42 166"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components:
+    - componentTypeName: UnityEngine.UI.Image, UnityEngine.UI
+      componentIndex: 0
+      fieldName: "\u56FE\u5C42_166"
+      accessModifier: 0
+      containerKind: 0
+      containerName: 
+      events: 
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5931567151504060480
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2411891156906315080
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u80CC\u5305/Backpack"
+    nodeName: Backpack
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 6311298035887736746
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2264293599127062653
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u547C\u53EB\u673A"
+    nodeName: "\u547C\u53EB\u673A"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 3817859339480439605
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 6311298035887736746
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u547C\u53EB\u673A/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 22"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 22"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 7828285137346688821
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 6311298035887736746
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u547C\u53EB\u673A/\u77E9\u5F62 1"
+    nodeName: "\u77E9\u5F62 1"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 363490897087927937
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 6311298035887736746
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u547C\u53EB\u673A/\u5F62\u72B6 11"
+    nodeName: "\u5F62\u72B6 11"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 9022256787315994865
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 6311298035887736746
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u547C\u53EB\u673A/Emergency"
+    nodeName: Emergency
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 6746099630096035782
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2264293599127062653
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 12"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 12"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 447960215193265460
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2264293599127062653
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131"
+    nodeName: "\u7EC4 131"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5537991131209685693
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 447960215193265460
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131/\u7EC4 129"
+    nodeName: "\u7EC4 129"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 210439900639950773
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 447960215193265460
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 11"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 11"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 4934014982877352448
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 447960215193265460
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131/60"
+    nodeName: 60
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 8608973896624181480
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 447960215193265460
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131/\u8272\u9636 4"
+    nodeName: "\u8272\u9636 4"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 6620642611715590097
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2264293599127062653
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131"
+    nodeName: "\u7EC4 131"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5083095074932338373
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 6620642611715590097
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131/\u7EC4 129"
+    nodeName: "\u7EC4 129"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 983522635247595249
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 6620642611715590097
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 11"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 11"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5038585290384979868
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 6620642611715590097
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131/60"
+    nodeName: 60
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 7009271783621446635
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 6620642611715590097
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 131/\u8272\u9636 4"
+    nodeName: "\u8272\u9636 4"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 3532691872938747041
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2264293599127062653
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 142"
+    nodeName: "\u7EC4 142"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5739232088374437140
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 3532691872938747041
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 142/\u8272\u9636 4"
+    nodeName: "\u8272\u9636 4"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 1779760676797657620
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 3532691872938747041
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 142/600_600"
+    nodeName: 600_600
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 8384928338913017753
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 2264293599127062653
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 144"
+    nodeName: "\u7EC4 144"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 8488959094562211462
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 8384928338913017753
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 144/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 11"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 11"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 29944972277908924
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 8384928338913017753
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 144/3_3"
+    nodeName: 3_3
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 3639748238125018666
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 8384928338913017753
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 144/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 13"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 13"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 7552301116887507480
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 8384928338913017753
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 144/\u56FE\u5C42 177"
+    nodeName: "\u56FE\u5C42 177"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 3093182466005604397
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 8384928338913017753
+      targetPrefabId: 0
+    nodePath: "\u4E0B\u680F/\u7EC4 144/\u56FE\u5C42 179"
+    nodeName: "\u56FE\u5C42 179"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 3962366548643144338
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 4727992099634968481
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F"
+    nodeName: "\u4E0A\u680F"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 1134436572995772442
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 3962366548643144338
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 129"
+    nodeName: "\u7EC4 129"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 471538086112705627
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 3962366548643144338
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 129 \u62F7\u8D1D"
+    nodeName: "\u7EC4 129 \u62F7\u8D1D"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5756583992966525373
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 3962366548643144338
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 129 \u62F7\u8D1D 2"
+    nodeName: "\u7EC4 129 \u62F7\u8D1D 2"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 1907452914165955934
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 3962366548643144338
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 127"
+    nodeName: "\u7EC4 127"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 8866294936649328054
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 1907452914165955934
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 127/16  4Zombie  "
+    nodeName: '16  4Zombie  '
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5545586135183596431
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 1907452914165955934
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 127/Hell"
+    nodeName: Hell
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 2392196287686329405
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 1907452914165955934
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 127/-"
+    nodeName: '-'
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 6666624036668666055
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 1907452914165955934
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 127/."
+    nodeName: .
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 5482314848674583372
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 3962366548643144338
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 128"
+    nodeName: "\u7EC4 128"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 2746645754901430079
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 5482314848674583372
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 128/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 16"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 16"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 2547374414257700814
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 5482314848674583372
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 128/29:51"
+    nodeName: 29:51
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 359503477983820665
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 3962366548643144338
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u91D1\u5E01\u680F"
+    nodeName: "\u91D1\u5E01\u680F"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 7604490007921826020
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 359503477983820665
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u91D1\u5E01\u680F/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 11"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 11"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 3679656726164450620
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 359503477983820665
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u91D1\u5E01\u680F/\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 7"
+    nodeName: "\u4EAE\u5EA6_\u5BF9\u6BD4\u5EA6 7"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 560362581292573097
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 359503477983820665
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u91D1\u5E01\u680F/43"
+    nodeName: 43
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 4555890628219855038
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 3962366548643144338
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 146"
+    nodeName: "\u7EC4 146"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 1753672845515905293
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 4555890628219855038
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 146/\u7EC4 150"
+    nodeName: "\u7EC4 150"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 3826521496982974140
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 4555890628219855038
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 146/\u8272\u76F8_\u9971\u548C\u5EA6 771"
+    nodeName: "\u8272\u76F8_\u9971\u548C\u5EA6 771"
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 6077449357547556948
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 4555890628219855038
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 146/0"
+    nodeName: 0
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  - nodeId:
+      targetObjectId: 8248548277940199582
+      targetPrefabId: 0
+    parentNodeId:
+      targetObjectId: 4555890628219855038
+      targetPrefabId: 0
+    nodePath: "\u4E0A\u680F/\u7EC4 146/Energy Level"
+    nodeName: Energy Level
+    nodeKind: 0
+    viewClassName: 
+    viewContainerKind: 0
+    viewContainerName: 
+    settings: {fileID: 0}
+    exportMode: 0
+    components: []
+    inheritLogicOutputDirectory: 1
+    logicOutputDirectory: 
+    inheritPartialOutputDirectory: 1
+    partialOutputDirectory: 
+    inheritExportMode: 1
+  generatedNamespace: 
+  parentClassName: 
+  eventTemplate: AddEvent(${event_obj}, "${event_name}", ${handler_name});
+  removeEventTemplate: ${event_obj}.${event_name}.RemoveAllListeners();
+  eventNameRule: On${event_obj}${event_name}
+  bindTemplate: "${usings}\n\npublic partial class ${class_name}\n{\n    ${fields}\n\n   
+    private void OnEnable()\n    {\n        RegisterEvent();\n    }\n\n    private
+    void OnDisable()\n    {\n        UnregisterEvent();\n    }\n\n    private void
+    RegisterEvent()\n    {\n        ${add_event_statements}\n    }\n\n    private
+    void UnregisterEvent()\n    {\n        ${remove_event_statements}\n    }\n\n   
+    public void Bind(GameObject ${root_object})\n    {\n        UnregisterEvent();\n       
+    ${find_statements}\n        RegisterEvent();\n    }\n\n    ${event_handlers}\n}\n"
+  rootTransform: root
+  findTemplate: ${obj_name} = FindChild(${parent_obj}.transform, "${path}", typeof(${component}));
+  logicOutputDirectory: Assets/Scripts/Logic
+  partialOutputDirectory: Assets/Scripts/Logic/Generated

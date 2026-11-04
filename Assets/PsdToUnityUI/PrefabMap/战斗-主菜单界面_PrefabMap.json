@@ -1,0 +1,488 @@
+﻿{
+    "prefabPath": "Assets/PsdToUnityUI Res/View Prefabs/战斗-主菜单界面.prefab",
+    "entries": [
+        {
+            "fileId": 3962366548643144338,
+            "layerId": 1093,
+            "layerName": "上栏",
+            "path": "战斗-主菜单界面/上栏::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":10.0,\"anchoredPositionY\":924.5,\"sizeDeltaX\":1040.0,\"sizeDeltaY\":369.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 1907452914165955934,
+            "layerId": 1061,
+            "layerName": "组 127",
+            "path": "战斗-主菜单界面/上栏::2/组 127::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-9.0,\"anchoredPositionY\":153.5,\"sizeDeltaX\":418.0,\"sizeDeltaY\":42.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 6666624036668666055,
+            "layerId": 1060,
+            "layerName": ".",
+            "path": "战斗-主菜单界面/上栏::2/组 127::3/.::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":94.5,\"anchoredPositionY\":-3.0,\"sizeDeltaX\":9.0,\"sizeDeltaY\":10.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\".\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":48.0,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8431400060653687,\"colorG\":0.6941199898719788,\"colorB\":0.45489999651908877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2392196287686329405,
+            "layerId": 1059,
+            "layerName": "-",
+            "path": "战斗-主菜单界面/上栏::2/组 127::3/-::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-141.5,\"anchoredPositionY\":-1.0,\"sizeDeltaX\":15.0,\"sizeDeltaY\":6.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"-\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":48.0,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8431400060653687,\"colorG\":0.6941199898719788,\"colorB\":0.45489999651908877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8866294936649328054,
+            "layerId": 1057,
+            "layerName": "16  4Zombie  ",
+            "path": "战斗-主菜单界面/上栏::2/组 127::3/16  4Zombie  ::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-67.0,\"anchoredPositionY\":-0.5,\"sizeDeltaX\":284.0,\"sizeDeltaY\":41.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"16  4Zombie  \",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":48.0,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8431400060653687,\"colorG\":0.6941199898719788,\"colorB\":0.45489999651908877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5545586135183596431,
+            "layerId": 1058,
+            "layerName": "Hell",
+            "path": "战斗-主菜单界面/上栏::2/组 127::3/Hell::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":160.5,\"anchoredPositionY\":0.0,\"sizeDeltaX\":97.0,\"sizeDeltaY\":42.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"Hell\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":48.0,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8431400060653687,\"colorG\":0.6944800019264221,\"colorB\":0.45298001170158389,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5482314848674583372,
+            "layerId": 1068,
+            "layerName": "组 128",
+            "path": "战斗-主菜单界面/上栏::2/组 128::4",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-10.0,\"anchoredPositionY\":89.0,\"sizeDeltaX\":250.0,\"sizeDeltaY\":49.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 2547374414257700814,
+            "layerId": 1067,
+            "layerName": "29:51",
+            "path": "战斗-主菜单界面/上栏::2/组 128::4/29:51::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.5,\"anchoredPositionY\":1.5,\"sizeDeltaX\":91.0,\"sizeDeltaY\":26.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"29:51\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":30.0,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.7035599946975708,\"colorG\":0.7106099724769592,\"colorB\":0.7176499962806702,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2746645754901430079,
+            "layerId": 1064,
+            "layerName": "亮度/对比度 16",
+            "path": "战斗-主菜单界面/上栏::2/组 128::4/亮度_对比度 16::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":250.0,\"sizeDeltaY\":49.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"aa4c026cf23b41d4cb0c7a9a1fcf3168\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5756583992966525373,
+            "layerId": 1055,
+            "layerName": "组 129 拷贝 2",
+            "path": "战斗-主菜单界面/上栏::2/组 129 拷贝 2::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-481.5,\"anchoredPositionY\":-100.0,\"sizeDeltaX\":77.0,\"sizeDeltaY\":89.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"68293637785531740b173e6bdc03d692\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 471538086112705627,
+            "layerId": 1046,
+            "layerName": "组 129 拷贝",
+            "path": "战斗-主菜单界面/上栏::2/组 129 拷贝::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-481.5,\"anchoredPositionY\":20.0,\"sizeDeltaX\":77.0,\"sizeDeltaY\":89.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"9f1a2a766ac8175488055d16afa8abea\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1134436572995772442,
+            "layerId": 1037,
+            "layerName": "组 129",
+            "path": "战斗-主菜单界面/上栏::2/组 129::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-481.5,\"anchoredPositionY\":140.0,\"sizeDeltaX\":77.0,\"sizeDeltaY\":89.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"9f1a2a766ac8175488055d16afa8abea\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4555890628219855038,
+            "layerId": 1092,
+            "layerName": "组 146",
+            "path": "战斗-主菜单界面/上栏::2/组 146::6",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-10.0,\"anchoredPositionY\":-51.0,\"sizeDeltaX\":294.0,\"sizeDeltaY\":267.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 6077449357547556948,
+            "layerId": 1090,
+            "layerName": "0",
+            "path": "战斗-主菜单界面/上栏::2/组 146::6/0::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.5,\"anchoredPositionY\":-1.5,\"sizeDeltaX\":27.0,\"sizeDeltaY\":38.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"0\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":49.999996185302737,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8823500275611877,\"colorG\":0.8823500275611877,\"colorB\":0.8823500275611877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8248548277940199582,
+            "layerId": 1091,
+            "layerName": "Energy Level",
+            "path": "战斗-主菜单界面/上栏::2/组 146::6/Energy Level::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":-110.0,\"sizeDeltaX\":229.0,\"sizeDeltaY\":35.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"Energy Level\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":34.0,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.4684999883174896,\"colorG\":0.7581800222396851,\"colorB\":0.8784300088882446,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1753672845515905293,
+            "layerId": 1406,
+            "layerName": "组 150",
+            "path": "战斗-主菜单界面/上栏::2/组 146::6/组 150::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":0.0,\"sizeDeltaX\":294.0,\"sizeDeltaY\":267.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"2f6a54847d1f20d4786972e876b653b2\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3826521496982974140,
+            "layerId": 1096,
+            "layerName": "色相/饱和度 771",
+            "path": "战斗-主菜单界面/上栏::2/组 146::6/色相_饱和度 771::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.0,\"anchoredPositionY\":-1.5,\"sizeDeltaX\":156.0,\"sizeDeltaY\":154.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"bbecb99b433f06d4f92792cdacbf8f15\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 359503477983820665,
+            "layerId": 1083,
+            "layerName": "金币栏",
+            "path": "战斗-主菜单界面/上栏::2/金币栏::5",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":439.0,\"anchoredPositionY\":148.5,\"sizeDeltaX\":162.0,\"sizeDeltaY\":58.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 560362581292573097,
+            "layerId": 1081,
+            "layerName": "43",
+            "path": "战斗-主菜单界面/上栏::2/金币栏::5/43::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":14.5,\"anchoredPositionY\":2.0,\"sizeDeltaX\":45.0,\"sizeDeltaY\":34.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"43\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":40.0,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.7019699811935425,\"colorG\":0.7098100185394287,\"colorB\":0.7176499962806702,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7604490007921826020,
+            "layerId": 1078,
+            "layerName": "亮度/对比度 11",
+            "path": "战斗-主菜单界面/上栏::2/金币栏::5/亮度_对比度 11::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":5.0,\"anchoredPositionY\":-2.0,\"sizeDeltaX\":152.0,\"sizeDeltaY\":48.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"8524b60d2c897db4c87069f28f0a5f9d\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3679656726164450620,
+            "layerId": 1080,
+            "layerName": "亮度/对比度 7",
+            "path": "战斗-主菜单界面/上栏::2/金币栏::5/亮度_对比度 7::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-49.5,\"anchoredPositionY\":0.0,\"sizeDeltaX\":63.0,\"sizeDeltaY\":58.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"857fdb5e6e1e70d4ebf1d358feefe4bf\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2264293599127062653,
+            "layerId": 1028,
+            "layerName": "下栏",
+            "path": "战斗-主菜单界面/下栏::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":7.0,\"anchoredPositionY\":-764.0,\"sizeDeltaX\":1064.0,\"sizeDeltaY\":690.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 6746099630096035782,
+            "layerId": 1013,
+            "layerName": "亮度/对比度 12",
+            "path": "战斗-主菜单界面/下栏::1/亮度_对比度 12::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":427.5,\"anchoredPositionY\":86.5,\"sizeDeltaX\":209.0,\"sizeDeltaY\":517.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"495010af40527fa4a8120f5be4d7e6a0\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6311298035887736746,
+            "layerId": 995,
+            "layerName": "呼叫机",
+            "path": "战斗-主菜单界面/下栏::1/呼叫机::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":411.0,\"anchoredPositionY\":-254.5,\"sizeDeltaX\":210.0,\"sizeDeltaY\":181.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 9022256787315994865,
+            "layerId": 994,
+            "layerName": "Emergency",
+            "path": "战斗-主菜单界面/下栏::1/呼叫机::1/Emergency::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":-73.0,\"sizeDeltaX\":210.0,\"sizeDeltaY\":35.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"Emergency\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":38.000003814697269,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8823500275611877,\"colorG\":0.8823500275611877,\"colorB\":0.8823500275611877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3817859339480439605,
+            "layerId": 1303,
+            "layerName": "亮度/对比度 22",
+            "path": "战斗-主菜单界面/下栏::1/呼叫机::1/亮度_对比度 22::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":9.5,\"anchoredPositionY\":10.5,\"sizeDeltaX\":183.0,\"sizeDeltaY\":160.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"d3864712d91631848a59f1e99b557185\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 363490897087927937,
+            "layerId": 987,
+            "layerName": "形状 11",
+            "path": "战斗-主菜单界面/下栏::1/呼叫机::1/形状 11::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":29.5,\"anchoredPositionY\":-30.5,\"sizeDeltaX\":11.0,\"sizeDeltaY\":30.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"5c58218e1d8a4de49a9620f30e651d95\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7828285137346688821,
+            "layerId": 986,
+            "layerName": "矩形 1",
+            "path": "战斗-主菜单界面/下栏::1/呼叫机::1/矩形 1::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":62.5,\"anchoredPositionY\":-30.5,\"sizeDeltaX\":85.0,\"sizeDeltaY\":38.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"29accc8350be8594299834c46f2b8913\",\"imageType\":1,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 447960215193265460,
+            "layerId": 1003,
+            "layerName": "组 131",
+            "path": "战斗-主菜单界面/下栏::1/组 131::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":434.0,\"anchoredPositionY\":176.0,\"sizeDeltaX\":152.0,\"sizeDeltaY\":176.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 4934014982877352448,
+            "layerId": 1001,
+            "layerName": "60",
+            "path": "战斗-主菜单界面/下栏::1/组 131::3/60::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":16.5,\"anchoredPositionY\":-60.5,\"sizeDeltaX\":41.0,\"sizeDeltaY\":27.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"60\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":34.0,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":1.0,\"colorG\":0.3684900104999542,\"colorB\":0.2156900018453598,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 210439900639950773,
+            "layerId": 1404,
+            "layerName": "亮度/对比度 11",
+            "path": "战斗-主菜单界面/下栏::1/组 131::3/亮度_对比度 11::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":-64.0,\"sizeDeltaX\":152.0,\"sizeDeltaY\":48.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"8524b60d2c897db4c87069f28f0a5f9d\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5537991131209685693,
+            "layerId": 998,
+            "layerName": "组 129",
+            "path": "战斗-主菜单界面/下栏::1/组 131::3/组 129::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":27.0,\"sizeDeltaX\":121.0,\"sizeDeltaY\":122.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"1de5bd42889c9f74ba24d3a742fd4c9c\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8608973896624181480,
+            "layerId": 1002,
+            "layerName": "色阶 4",
+            "path": "战斗-主菜单界面/下栏::1/组 131::3/色阶 4::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-26.5,\"anchoredPositionY\":-60.5,\"sizeDeltaX\":25.0,\"sizeDeltaY\":39.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"427f9dfe8708fe44f912144060ebb424\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6620642611715590097,
+            "layerId": 1010,
+            "layerName": "组 131",
+            "path": "战斗-主菜单界面/下栏::1/组 131::4",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":434.0,\"anchoredPositionY\":-41.0,\"sizeDeltaX\":152.0,\"sizeDeltaY\":176.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 5038585290384979868,
+            "layerId": 1008,
+            "layerName": "60",
+            "path": "战斗-主菜单界面/下栏::1/组 131::4/60::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":16.5,\"anchoredPositionY\":-60.5,\"sizeDeltaX\":41.0,\"sizeDeltaY\":27.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"60\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":34.0,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":1.0,\"colorG\":0.3725599944591522,\"colorB\":0.21960000693798066,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 983522635247595249,
+            "layerId": 1403,
+            "layerName": "亮度/对比度 11",
+            "path": "战斗-主菜单界面/下栏::1/组 131::4/亮度_对比度 11::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":-64.0,\"sizeDeltaX\":152.0,\"sizeDeltaY\":48.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"8524b60d2c897db4c87069f28f0a5f9d\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5083095074932338373,
+            "layerId": 1005,
+            "layerName": "组 129",
+            "path": "战斗-主菜单界面/下栏::1/组 131::4/组 129::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":27.0,\"sizeDeltaX\":121.0,\"sizeDeltaY\":122.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"1de5bd42889c9f74ba24d3a742fd4c9c\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7009271783621446635,
+            "layerId": 1009,
+            "layerName": "色阶 4",
+            "path": "战斗-主菜单界面/下栏::1/组 131::4/色阶 4::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-26.5,\"anchoredPositionY\":-60.5,\"sizeDeltaX\":25.0,\"sizeDeltaY\":39.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"427f9dfe8708fe44f912144060ebb424\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3532691872938747041,
+            "layerId": 1016,
+            "layerName": "组 142",
+            "path": "战斗-主菜单界面/下栏::1/组 142::5",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":421.0,\"anchoredPositionY\":316.5,\"sizeDeltaX\":162.0,\"sizeDeltaY\":39.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 1779760676797657620,
+            "layerId": 1015,
+            "layerName": "600/600",
+            "path": "战斗-主菜单界面/下栏::1/组 142::5/600_600::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":17.5,\"anchoredPositionY\":0.5,\"sizeDeltaX\":127.0,\"sizeDeltaY\":26.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"600/600\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":27.999996185302736,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8823500275611877,\"colorG\":0.8823500275611877,\"colorB\":0.8823500275611877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5739232088374437140,
+            "layerId": 1014,
+            "layerName": "色阶 4",
+            "path": "战斗-主菜单界面/下栏::1/组 142::5/色阶 4::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-68.5,\"anchoredPositionY\":0.0,\"sizeDeltaX\":25.0,\"sizeDeltaY\":39.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"427f9dfe8708fe44f912144060ebb424\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8384928338913017753,
+            "layerId": 1027,
+            "layerName": "组 144",
+            "path": "战斗-主菜单界面/下栏::1/组 144::6",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-445.0,\"anchoredPositionY\":-19.0,\"sizeDeltaX\":168.0,\"sizeDeltaY\":220.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 29944972277908924,
+            "layerId": 1020,
+            "layerName": "3/3",
+            "path": "战斗-主菜单界面/下栏::1/组 144::6/3_3::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-1.0,\"anchoredPositionY\":-83.0,\"sizeDeltaX\":50.0,\"sizeDeltaY\":28.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"3/3\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":30.000001907348634,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.7293999791145325,\"colorG\":0.7686200141906738,\"colorB\":0.792140007019043,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8488959094562211462,
+            "layerId": 1402,
+            "layerName": "亮度/对比度 11",
+            "path": "战斗-主菜单界面/下栏::1/组 144::6/亮度_对比度 11::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-1.0,\"anchoredPositionY\":-86.0,\"sizeDeltaX\":152.0,\"sizeDeltaY\":48.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"8524b60d2c897db4c87069f28f0a5f9d\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3639748238125018666,
+            "layerId": 1023,
+            "layerName": "亮度/对比度 13",
+            "path": "战斗-主菜单界面/下栏::1/组 144::6/亮度_对比度 13::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-1.0,\"anchoredPositionY\":27.0,\"sizeDeltaX\":166.0,\"sizeDeltaY\":166.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"cfe546725a543b54db728ee8a7838b61\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 7552301116887507480,
+            "layerId": 1024,
+            "layerName": "图层 177",
+            "path": "战斗-主菜单界面/下栏::1/组 144::6/图层 177::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":15.0,\"anchoredPositionY\":36.0,\"sizeDeltaX\":138.0,\"sizeDeltaY\":138.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"36368c90b8a7276498765be3da22ea6b\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 3093182466005604397,
+            "layerId": 1026,
+            "layerName": "图层 179",
+            "path": "战斗-主菜单界面/下栏::1/组 144::6/图层 179::4",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":56.5,\"anchoredPositionY\":56.5,\"sizeDeltaX\":45.0,\"sizeDeltaY\":51.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"21633057ead1e4143b5db2524c143dce\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2411891156906315080,
+            "layerId": 980,
+            "layerName": "背包",
+            "path": "战斗-主菜单界面/下栏::1/背包::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-439.5,\"anchoredPositionY\":-255.5,\"sizeDeltaX\":185.0,\"sizeDeltaY\":179.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 5931567151504060480,
+            "layerId": 979,
+            "layerName": "Backpack",
+            "path": "战斗-主菜单界面/下栏::1/背包::0/Backpack::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":-71.0,\"sizeDeltaX\":185.0,\"sizeDeltaY\":37.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"Backpack\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":38.000003814697269,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8823500275611877,\"colorG\":0.8823500275611877,\"colorB\":0.8823500275611877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4129743003770369485,
+            "layerId": 978,
+            "layerName": "图层 166",
+            "path": "战斗-主菜单界面/下栏::1/背包::0/图层 166::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-1.0,\"anchoredPositionY\":16.5,\"sizeDeltaX\":151.0,\"sizeDeltaY\":146.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"df81a47e337248c45a1d2715ed76761e\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 175221130057472035,
+            "layerId": 971,
+            "layerName": "右侧图标",
+            "path": "战斗-主菜单界面/右侧图标::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":452.0,\"anchoredPositionY\":569.5,\"sizeDeltaX\":130.0,\"sizeDeltaY\":591.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 224558517015556571,
+            "layerId": 960,
+            "layerName": "组 1 拷贝 3",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝 3::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.5,\"anchoredPositionY\":-78.0,\"sizeDeltaX\":117.0,\"sizeDeltaY\":123.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 1192472100204135521,
+            "layerId": 959,
+            "layerName": "3",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝 3::2/3::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":41.0,\"anchoredPositionY\":44.5,\"sizeDeltaX\":19.0,\"sizeDeltaY\":34.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"3\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":40.000003814697269,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8823500275611877,\"colorG\":0.8823500275611877,\"colorB\":0.8823500275611877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 6661806990080457577,
+            "layerId": 957,
+            "layerName": "亮度/对比度 3",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝 3::2/亮度_对比度 3::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.5,\"anchoredPositionY\":0.5,\"sizeDeltaX\":96.0,\"sizeDeltaY\":76.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"3e2cfb2eab45b8642a1c8fb9e58b0dba\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 4697100107377417406,
+            "layerId": 953,
+            "layerName": "形状 1",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝 3::2/形状 1::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":-2.5,\"sizeDeltaX\":117.0,\"sizeDeltaY\":118.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"79cf83b8bce7f8240a04a360865abd06\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 2547411990534743208,
+            "layerId": 970,
+            "layerName": "组 1 拷贝 4",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝 4::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":4.0,\"anchoredPositionY\":-230.5,\"sizeDeltaX\":122.0,\"sizeDeltaY\":130.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 4383339374783487756,
+            "layerId": 969,
+            "layerName": "5",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝 4::3/5::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":39.0,\"anchoredPositionY\":41.0,\"sizeDeltaX\":20.0,\"sizeDeltaY\":32.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"5\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":40.000003814697269,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8823500275611877,\"colorG\":0.8823500275611877,\"colorB\":0.8823500275611877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5200931773946763245,
+            "layerId": 964,
+            "layerName": "形状 1",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝 4::3/形状 1::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-2.5,\"anchoredPositionY\":-6.0,\"sizeDeltaX\":117.0,\"sizeDeltaY\":118.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"79cf83b8bce7f8240a04a360865abd06\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5394770351268965043,
+            "layerId": 967,
+            "layerName": "色阶 3",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝 4::3/色阶 3::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":10.0,\"anchoredPositionY\":7.0,\"sizeDeltaX\":102.0,\"sizeDeltaY\":116.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"2563f80f71d4f3d4dbaeb3c453fea693\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1701011224842277026,
+            "layerId": 938,
+            "layerName": "组 1 拷贝",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":1.5,\"anchoredPositionY\":231.5,\"sizeDeltaX\":119.0,\"sizeDeltaY\":128.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 4067230266909137419,
+            "layerId": 936,
+            "layerName": "1/10",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝::0/1_10::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-27.0,\"anchoredPositionY\":-50.0,\"sizeDeltaX\":65.0,\"sizeDeltaY\":28.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"1/10\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":30.000001907348634,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.7293999791145325,\"colorG\":0.7686200141906738,\"colorB\":0.792140007019043,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 1004973493383339479,
+            "layerId": 937,
+            "layerName": "5",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝::0/5::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":41.5,\"anchoredPositionY\":48.0,\"sizeDeltaX\":20.0,\"sizeDeltaY\":32.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"5\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":40.000003814697269,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8823500275611877,\"colorG\":0.8823500275611877,\"colorB\":0.8823500275611877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8549855052617951522,
+            "layerId": 935,
+            "layerName": "亮度/对比度 2",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝::0/亮度_对比度 2::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":2.5,\"anchoredPositionY\":3.5,\"sizeDeltaX\":114.0,\"sizeDeltaY\":95.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"e0ee7928a2c4e734a8c3920e32fde959\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5352278621498129638,
+            "layerId": 932,
+            "layerName": "形状 1",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1 拷贝::0/形状 1::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":0.0,\"anchoredPositionY\":1.0,\"sizeDeltaX\":117.0,\"sizeDeltaY\":118.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"79cf83b8bce7f8240a04a360865abd06\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 5709352462249095833,
+            "layerId": 949,
+            "layerName": "组 1",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-2.5,\"anchoredPositionY\":77.0,\"sizeDeltaX\":125.0,\"sizeDeltaY\":127.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"GameObject\":{\"activeSelf\":true}}"
+        },
+        {
+            "fileId": 1040804018866870184,
+            "layerId": 947,
+            "layerName": "10/10",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1::1/10_10::2",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-27.5,\"anchoredPositionY\":-52.5,\"sizeDeltaX\":70.0,\"sizeDeltaY\":22.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"10/10\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":23.999998092651368,\"fontSizeMin\":0.0,\"fontSizeMax\":0.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.7293999791145325,\"colorG\":0.7686200141906738,\"colorB\":0.792140007019043,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":false},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8495180389174288385,
+            "layerId": 948,
+            "layerName": "4",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1::1/4::3",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":45.5,\"anchoredPositionY\":46.5,\"sizeDeltaX\":22.0,\"sizeDeltaY\":34.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"TextMeshProUGUI\":{\"enabled\":true,\"text\":\"4\",\"fontAssetGuid\":\"8f586378b4e144a9851e7b34d9b748ee\",\"fontSize\":40.000003814697269,\"fontSizeMin\":18.0,\"fontSizeMax\":72.0,\"enableAutoSizing\":false,\"fontStyle\":0,\"horizontalAlignment\":2,\"verticalAlignment\":512,\"enableWordWrapping\":false,\"overflowMode\":0,\"richText\":true,\"characterSpacing\":0.0,\"wordSpacing\":0.0,\"lineSpacing\":0.0,\"paragraphSpacing\":0.0,\"colorR\":0.8823500275611877,\"colorG\":0.8823500275611877,\"colorB\":0.8823500275611877,\"colorA\":1.0,\"enableVertexGradient\":false,\"raycastTarget\":false,\"maskable\":true},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 8783997213317954674,
+            "layerId": 942,
+            "layerName": "形状 1",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1::1/形状 1::0",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":4.0,\"anchoredPositionY\":-0.5,\"sizeDeltaX\":117.0,\"sizeDeltaY\":118.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"79cf83b8bce7f8240a04a360865abd06\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        },
+        {
+            "fileId": 728783086625480502,
+            "layerId": 946,
+            "layerName": "色阶 2",
+            "path": "战斗-主菜单界面/右侧图标::0/组 1::1/色阶 2::1",
+            "componentsJson": "{\"RectTransform\":{\"anchorMinX\":0.5,\"anchorMinY\":0.5,\"anchorMaxX\":0.5,\"anchorMaxY\":0.5,\"anchoredPositionX\":-1.5,\"anchoredPositionY\":3.0,\"sizeDeltaX\":76.0,\"sizeDeltaY\":85.0,\"pivotX\":0.5,\"pivotY\":0.5,\"localEulerX\":0.0,\"localEulerY\":0.0,\"localEulerZ\":0.0,\"localScaleX\":1.0,\"localScaleY\":1.0,\"localScaleZ\":1.0},\"Image\":{\"enabled\":true,\"colorR\":1.0,\"colorG\":1.0,\"colorB\":1.0,\"colorA\":1.0,\"raycastTarget\":true,\"maskable\":true,\"spriteGuid\":\"8c3d1b796cb0023408ceb400820455dd\",\"imageType\":0,\"preserveAspect\":false,\"fillCenter\":true,\"fillMethod\":4,\"fillAmount\":1.0,\"fillClockwise\":true,\"fillOrigin\":0,\"pixelsPerUnitMultiplier\":1.0,\"useSpriteMesh\":false},\"GameObject\":{\"activeSelf\":true},\"CanvasRenderer\":{\"enabled\":true}}"
+        }
+    ]
+}

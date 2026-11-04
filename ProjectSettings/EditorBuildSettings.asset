@@ -5,8 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/AAGame/Scenes/RootScene.unity
+    guid: 3ea7412690d476743824a00ce15f8554
   - enabled: 0
-    path: Assets/ComponentAutoBindTool/Example/Scenes/Example.unity
+    path: Assets/Third Party/ComponentAutoBindTool/Example/Scenes/Example.unity
     guid: 271ecc7c4937e7d48ac3fdc74130b33c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

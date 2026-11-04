@@ -1,0 +1,993 @@
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\AddressableAssetPath.cs ====================
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    public class AddressableAssetPath
+    {
+        /// <summary>
+        /// 普通怪物模板路径
+        /// </summary>
+        public static readonly string NormalMonsterTemplate =
+            "Assets/AAGame/Prefabs/Level/Monster/NormalMonster.prefab";
+
+        /// <summary>
+        /// 角色模板路径
+        /// </summary>
+        public static readonly string RoleViewTemplate =
+            "Assets/AAGame/Prefabs/Survivor/RoleViewTemplate.prefab";
+
+        public static readonly string MonsterDamageNum =
+            "Assets/AAGame/Prefabs/DamageNum/MonsterTakesNormalDamageNum.prefab";
+
+        public static readonly string PlayerMuzzleFlash =
+            "Assets/AAGame/ArtRes/VFX/Prefab/FX_1_Bullet_Spark.prefab";
+
+        public static readonly string MonsterTpTexture = "Assets/AAGame/Sprites/Monster/Tp/{0}.png";
+        public static readonly string MonsterTpSheet = "Assets/AAGame/Sprites/Monster/Tp/{0}.tpsheet";
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\AddressablesAssetHandle.cs ====================
+
+using System;
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    public sealed class AddressablesAssetHandle<T> : IAddressablesHandle
+        where T : UnityEngine.Object
+    {
+        private readonly Action releaseAction;
+        private T asset;
+
+        internal AddressablesAssetHandle(
+            T asset,
+            string debugName,
+            Action releaseAction)
+        {
+            this.asset = asset;
+            DebugName = debugName;
+            this.releaseAction = releaseAction;
+        }
+
+        public T Asset => IsReleased ? null : asset;
+        public bool IsReleased { get; private set; }
+        public string DebugName { get; }
+
+        public void Dispose()
+        {
+            if (IsReleased)
+            {
+                return;
+            }
+
+            IsReleased = true;
+            asset = null;
+            releaseAction?.Invoke();
+        }
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\AddressablesHandleExtensions.cs ====================
+
+using UnityEngine;
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    public static class AddressablesHandleExtensions
+    {
+        public static T GetRequiredComponent<T>(
+            this AddressablesAssetHandle<GameObject> handle)
+            where T : Component
+        {
+            return GetRequiredComponent<T>(handle != null ? handle.Asset : null, handle != null ? handle.DebugName : "AssetHandle");
+        }
+
+        public static T GetRequiredComponent<T>(
+            this AddressablesInstanceHandle handle)
+            where T : Component
+        {
+            return GetRequiredComponent<T>(handle != null ? handle.Instance : null, handle != null ? handle.DebugName : "InstanceHandle");
+        }
+
+        public static T GetRequiredComponent<T>(
+            this GameObject gameObject,
+            string contextName = null)
+            where T : Component
+        {
+            if (gameObject == null)
+            {
+                throw new MissingComponentException(
+                    $"{contextName ?? "GameObject"} 为空，无法获取组件 {typeof(T).Name}。");
+            }
+
+            if (gameObject.TryGetComponent(out T component))
+            {
+                return component;
+            }
+
+            throw new MissingComponentException(
+                $"{contextName ?? gameObject.name} 缺少组件 {typeof(T).Name}。");
+        }
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\AddressablesInstanceHandle.cs ====================
+
+using System;
+using UnityEngine;
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    public sealed class AddressablesInstanceHandle : IAddressablesHandle
+    {
+        private readonly Action releaseAction;
+        private GameObject instance;
+
+        internal AddressablesInstanceHandle(
+            GameObject instance,
+            string debugName,
+            Action releaseAction)
+        {
+            this.instance = instance;
+            DebugName = debugName;
+            this.releaseAction = releaseAction;
+        }
+
+        public GameObject Instance => IsReleased ? null : instance;
+        public bool IsReleased { get; private set; }
+        public string DebugName { get; }
+
+        public bool TryGetComponent<T>(out T component)
+            where T : Component
+        {
+            component = null;
+            return Instance != null && Instance.TryGetComponent(out component);
+        }
+
+        public T GetRequiredComponent<T>()
+            where T : Component
+        {
+            if (!TryGetComponent(out T component))
+            {
+                throw new MissingComponentException(
+                    $"{DebugName} 实例上缺少组件 {typeof(T).Name}。");
+            }
+
+            return component;
+        }
+
+        public void Dispose()
+        {
+            if (IsReleased)
+            {
+                return;
+            }
+
+            IsReleased = true;
+            instance = null;
+            releaseAction?.Invoke();
+        }
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\AddressablesKeyUtility.cs ====================
+
+using System;
+using UnityEngine.AddressableAssets;
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    internal static class AddressablesKeyUtility
+    {
+        public static string BuildAssetCacheKey(Type assetType, object key)
+        {
+            return $"{assetType.FullName}:{Describe(key)}";
+        }
+
+        public static string Describe(object key)
+        {
+            if (key == null)
+            {
+                return "<null>";
+            }
+
+            if (key is AssetReference assetReference)
+            {
+                if (!string.IsNullOrEmpty(assetReference.AssetGUID))
+                {
+                    return assetReference.AssetGUID;
+                }
+
+                if (assetReference.RuntimeKey != null)
+                {
+                    return assetReference.RuntimeKey.ToString();
+                }
+            }
+
+            return key.ToString();
+        }
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\AddressablesPrefabFactory.cs ====================
+
+using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
+using VContainer;
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    public sealed class AddressablesPrefabFactory : IDisposable
+    {
+        private readonly IAddressablesService addressablesService;
+        private readonly IObjectResolver resolver;
+        private readonly AddressablesReleaseScope releaseScope;
+
+        public AddressablesPrefabFactory(
+            IAddressablesService addressablesService,
+            IObjectResolver resolver)
+        {
+            this.addressablesService = addressablesService ?? throw new ArgumentNullException(nameof(addressablesService));
+            this.resolver = resolver ?? throw new ArgumentNullException(nameof(resolver));
+            releaseScope = addressablesService.CreateReleaseScope(nameof(AddressablesPrefabFactory));
+        }
+
+        public IAddressablesReleaseScope ReleaseScope => releaseScope;
+
+        public UniTask<AddressablesAssetHandle<T>> LoadAssetAsync<T>(
+            object key,
+            CancellationToken cancellationToken = default)
+            where T : UnityEngine.Object
+        {
+            return addressablesService.LoadAssetAsync<T>(key, releaseScope, cancellationToken);
+        }
+
+        public UniTask<AddressablesAssetHandle<GameObject>> LoadPrefabAsync(
+            object key,
+            CancellationToken cancellationToken = default)
+        {
+            return addressablesService.LoadAssetAsync<GameObject>(key, releaseScope, cancellationToken);
+        }
+
+        public async UniTask<T> LoadPrefabComponentAsync<T>(
+            object key,
+            CancellationToken cancellationToken = default)
+            where T : Component
+        {
+            AddressablesAssetHandle<GameObject> handle = await LoadPrefabAsync(key, cancellationToken);
+            return handle.GetRequiredComponent<T>();
+        }
+
+        public UniTask<AddressablesInstanceHandle> InstantiateAsync(
+            object key,
+            Transform parent = null,
+            bool worldPositionStays = false,
+            CancellationToken cancellationToken = default)
+        {
+            return addressablesService.InstantiateAsync(
+                key,
+                parent,
+                worldPositionStays,
+                releaseScope,
+                cancellationToken);
+        }
+
+        public UniTask<AddressablesInstanceHandle> InstantiateInjectedAsync(
+            object key,
+            Transform parent = null,
+            bool worldPositionStays = false,
+            CancellationToken cancellationToken = default)
+        {
+            return addressablesService.InstantiateInjectedAsync(
+                key,
+                resolver,
+                parent,
+                worldPositionStays,
+                releaseScope,
+                cancellationToken);
+        }
+
+        public async UniTask<T> InstantiateComponentAsync<T>(
+            object key,
+            Transform parent = null,
+            bool worldPositionStays = false,
+            CancellationToken cancellationToken = default)
+            where T : Component
+        {
+            AddressablesInstanceHandle handle = await InstantiateAsync(
+                key,
+                parent,
+                worldPositionStays,
+                cancellationToken);
+            return handle.GetRequiredComponent<T>();
+        }
+
+        public async UniTask<T> InstantiateInjectedComponentAsync<T>(
+            object key,
+            Transform parent = null,
+            bool worldPositionStays = false,
+            CancellationToken cancellationToken = default)
+            where T : Component
+        {
+            AddressablesInstanceHandle handle = await InstantiateInjectedAsync(
+                key,
+                parent,
+                worldPositionStays,
+                cancellationToken);
+            return handle.GetRequiredComponent<T>();
+        }
+
+        public void Dispose()
+        {
+            releaseScope.Dispose();
+        }
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\AddressablesReleaseScope.cs ====================
+
+using System.Collections.Generic;
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    /// <summary>
+    /// 一个用于管理 Addressables 资源句柄生命周期的工具类。
+    /// </summary>
+    /// <remarks>
+    /// 此类通过跟踪和管理 IAddressablesHandle 的实例，帮助开发者在适当的时候释放 Addressables 资源，
+    /// 以避免内存泄漏或资源浪费。
+    /// </remarks>
+    public sealed class AddressablesReleaseScope : IAddressablesReleaseScope
+    {
+        private readonly List<IAddressablesHandle> _trackedHandles = new();
+
+        public AddressablesReleaseScope(string scopeName = null)
+        {
+            ScopeName = string.IsNullOrWhiteSpace(scopeName) ? "AddressablesReleaseScope" : scopeName;
+        }
+
+        public bool IsDisposed { get; private set; }
+        public string ScopeName { get; }
+
+        /// <summary>
+        /// 跟踪指定的 IAddressablesHandle 实例，以便在生命周期结束时进行释放。
+        /// </summary>
+        /// <param name="handle">需要跟踪的 Addressables 资源句柄实例，如果为 null，则不执行任何操作。</param>
+        public void Track(IAddressablesHandle handle)
+        {
+            if (handle == null)
+            {
+                return;
+            }
+
+            if (IsDisposed)
+            {
+                handle.Dispose();
+                return;
+            }
+
+            _trackedHandles.Add(handle);
+        }
+
+        public void Dispose()
+        {
+            if (IsDisposed)
+            {
+                return;
+            }
+
+            IsDisposed = true;
+
+            for (int i = _trackedHandles.Count - 1; i >= 0; i--)
+            {
+                _trackedHandles[i]?.Dispose();
+            }
+
+            _trackedHandles.Clear();
+        }
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\AddressablesSceneHandle.cs ====================
+
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    public sealed class AddressablesSceneHandle
+    {
+        private readonly System.Func<CancellationToken, UniTask> releaseFunc;
+
+        internal AddressablesSceneHandle(
+            SceneInstance sceneInstance,
+            string debugName,
+            System.Func<CancellationToken, UniTask> releaseFunc)
+        {
+            SceneInstance = sceneInstance;
+            DebugName = debugName;
+            this.releaseFunc = releaseFunc;
+        }
+
+        public SceneInstance SceneInstance { get; }
+        public Scene Scene => SceneInstance.Scene;
+        public string DebugName { get; }
+        public bool IsReleased { get; private set; }
+
+        public async UniTask ReleaseAsync(CancellationToken cancellationToken = default)
+        {
+            if (IsReleased)
+            {
+                return;
+            }
+
+            IsReleased = true;
+            await releaseFunc(cancellationToken);
+        }
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\AddressablesService.cs ====================
+
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.AddressableAssets.ResourceLocators;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
+using VContainer;
+    using VContainer.Unity;
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    /// <summary>
+    /// 基于 Addressables 的资源服务，提供资源的异步加载、缓存复用、自动引用计数和卸载功能。
+    /// 结合 UniTask 提供纯异步体验，并支持通过 VContainer 自动对实例化对象进行依赖注入。
+    /// </summary>
+    public sealed class AddressablesService : IAddressablesService, IDisposable
+    {
+        private readonly Dictionary<string, IAssetCacheEntry> _assetCache = new();
+        private AsyncOperationHandle<IResourceLocator> _initializeHandle;
+        private bool _disposed;
+
+        /// <summary>
+        /// 指示 Addressables 是否已经成功初始化。
+        /// </summary>
+        public bool IsInitialized =>
+            _initializeHandle.IsValid()
+            && _initializeHandle.IsDone
+            && _initializeHandle.Status == AsyncOperationStatus.Succeeded;
+
+        /// <summary>
+        /// 创建一个资源释放作用域（Scope）。
+        /// 通过将加载的资源句柄绑定到该作用域，可以在作用域销毁时统一释放其下的所有资源。
+        /// </summary>
+        /// <param name="scopeName">作用域的可选名称，用于调试和识别。</param>
+        /// <returns>资源释放作用域对象。</returns>
+        public AddressablesReleaseScope CreateReleaseScope(string scopeName = null)
+        {
+            ThrowIfDisposed();
+            return new AddressablesReleaseScope(scopeName);
+        }
+
+        /// <summary>
+        /// 尝试同步获取已经加载并缓存的资源。
+        /// </summary>
+        /// <typeparam name="T">资源类型。</typeparam>
+        /// <param name="key">资源的 Addressables 键值。</param>
+        /// <param name="asset">如果成功找到且已加载完毕，则返回该资源对象。</param>
+        /// <returns>如果缓存中存在该资源且加载成功，则返回 true，否则返回 false。</returns>
+        public bool TryGetLoadedAsset<T>(object key, out T asset)
+            where T : UnityEngine.Object
+        {
+            ThrowIfDisposed();
+
+            string cacheKey = AddressablesKeyUtility.BuildAssetCacheKey(typeof(T), key);
+            if (_assetCache.TryGetValue(cacheKey, out IAssetCacheEntry entry)
+                && entry is AssetCacheEntry<T> typedEntry
+                && typedEntry.OperationHandle.IsValid()
+                && typedEntry.OperationHandle.IsDone
+                && typedEntry.OperationHandle.Status == AsyncOperationStatus.Succeeded)
+            {
+                asset = typedEntry.OperationHandle.Result;
+                return (UnityEngine.Object)asset != null;
+            }
+
+            asset = null;
+            return false;
+        }
+
+        /// <summary>
+        /// 异步初始化 Addressables 系统。
+        /// 多次调用是安全的，如果尚未初始化则会发起初始化请求。
+        /// </summary>
+        /// <param name="cancellationToken">取消令牌。</param>
+        public async UniTask InitializeAsync(CancellationToken cancellationToken = default)
+        {
+            ThrowIfDisposed();
+
+            if (!_initializeHandle.IsValid())
+            {
+                _initializeHandle = UnityEngine.AddressableAssets.Addressables.InitializeAsync();
+            }
+
+            await _initializeHandle.ToUniTask(cancellationToken: cancellationToken);
+
+            if (_initializeHandle.Status != AsyncOperationStatus.Succeeded)
+            {
+                throw new InvalidOperationException("Addressables 初始化失败。");
+            }
+        }
+
+        /// <summary>
+        /// 异步获取指定资源所需下载的数据大小（以字节为单位）。
+        /// </summary>
+        /// <param name="key">资源的 Addressables 键值。</param>
+        /// <param name="cancellationToken">取消令牌。</param>
+        /// <returns>资源需要下载的字节数。</returns>
+        public async UniTask<long> GetDownloadSizeAsync(object key, CancellationToken cancellationToken = default)
+        {
+            ThrowIfDisposed();
+            await InitializeAsync(cancellationToken);
+
+            AsyncOperationHandle<long> handle = UnityEngine.AddressableAssets.Addressables.GetDownloadSizeAsync(key);
+            try
+            {
+                await handle.ToUniTask(cancellationToken: cancellationToken);
+                EnsureSucceeded(handle.Status, $"获取下载大小失败，Key={AddressablesKeyUtility.Describe(key)}");
+                return handle.Result;
+            }
+            finally
+            {
+                if (handle.IsValid())
+                {
+                    UnityEngine.AddressableAssets.Addressables.Release(handle);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 异步下载指定资源的所有依赖项。
+        /// 在需要预加载资源（如热更新包）时非常有用。
+        /// </summary>
+        /// <param name="key">资源的 Addressables 键值。</param>
+        /// <param name="cancellationToken">取消令牌。</param>
+        public async UniTask DownloadDependenciesAsync(object key, CancellationToken cancellationToken = default)
+        {
+            ThrowIfDisposed();
+            await InitializeAsync(cancellationToken);
+
+            AsyncOperationHandle handle =
+                UnityEngine.AddressableAssets.Addressables.DownloadDependenciesAsync(key, false);
+            try
+            {
+                await handle.ToUniTask(cancellationToken: cancellationToken);
+                EnsureSucceeded(handle.Status, $"下载依赖失败，Key={AddressablesKeyUtility.Describe(key)}");
+            }
+            finally
+            {
+                if (handle.IsValid())
+                {
+                    UnityEngine.AddressableAssets.Addressables.Release(handle);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 异步加载指定类型的资源。
+        /// 内部带有缓存机制，重复加载相同的键值只会增加引用计数而不会多次向底层发起加载请求。
+        /// </summary>
+        /// <typeparam name="T">资源的具体类型（如 GameObject, Texture 等）。</typeparam>
+        /// <param name="key">资源的 Addressables 键值。</param>
+        /// <param name="owner">可选的资源释放作用域，传入后会自动跟随该作用域一起释放。</param>
+        /// <param name="cancellationToken">取消令牌。</param>
+        /// <returns>包含资源和对应释放方法的自定义资源句柄。</returns>
+        public async UniTask<AddressablesAssetHandle<T>> LoadAssetAsync<T>(
+            object key,
+            IAddressablesReleaseScope owner = null,
+            CancellationToken cancellationToken = default)
+            where T : UnityEngine.Object
+        {
+            ThrowIfDisposed();
+            await InitializeAsync(cancellationToken);
+
+            string cacheKey = AddressablesKeyUtility.BuildAssetCacheKey(typeof(T), key);
+            AssetCacheEntry<T> entry = GetOrCreateAssetEntry<T>(cacheKey, key);
+            entry.ReferenceCount++;
+
+            try
+            {
+                await entry.OperationHandle.ToUniTask(cancellationToken: cancellationToken);
+                EnsureSucceeded(entry.OperationHandle.Status,
+                    $"加载资源失败，Type={typeof(T).Name}, Key={AddressablesKeyUtility.Describe(key)}");
+
+                AddressablesAssetHandle<T> handle = new(
+                    entry.OperationHandle.Result,
+                    $"Asset<{typeof(T).Name}>:{AddressablesKeyUtility.Describe(key)}",
+                    () => ReleaseAsset(cacheKey));
+
+                owner?.Track(handle);
+                return handle;
+            }
+            catch
+            {
+                ReleaseAsset(cacheKey);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 异步实例化指定的预制体资源。
+        /// 实例化的对象销毁时，请务必调用返回句柄中的 Dispose，或在加载时与其绑定到一个作用域，以确保内存被正确释放。
+        /// </summary>
+        /// <param name="key">预制体资源的 Addressables 键值。</param>
+        /// <param name="parent">实例化的父节点。</param>
+        /// <param name="worldPositionStays">是否保持世界坐标。</param>
+        /// <param name="owner">可选的资源释放作用域。</param>
+        /// <param name="cancellationToken">取消令牌。</param>
+        /// <returns>包含实例化对象和对应释放方法的自定义实例句柄。</returns>
+        public async UniTask<AddressablesInstanceHandle> InstantiateAsync(
+            object key,
+            Transform parent = null,
+            bool worldPositionStays = false,
+            IAddressablesReleaseScope owner = null,
+            CancellationToken cancellationToken = default)
+        {
+            ThrowIfDisposed();
+            await InitializeAsync(cancellationToken);
+
+            AsyncOperationHandle<GameObject> operationHandle =
+                UnityEngine.AddressableAssets.Addressables.InstantiateAsync(key, parent, worldPositionStays, true);
+
+            try
+            {
+                await operationHandle.ToUniTask(cancellationToken: cancellationToken);
+                EnsureSucceeded(operationHandle.Status,
+                    $"实例化资源失败，Key={AddressablesKeyUtility.Describe(key)}");
+
+                AddressablesInstanceHandle handle = new(
+                    operationHandle.Result,
+                    $"Instance:{AddressablesKeyUtility.Describe(key)}",
+                    () =>
+                    {
+                        if (operationHandle.IsValid())
+                        {
+                            UnityEngine.AddressableAssets.Addressables.ReleaseInstance(operationHandle);
+                        }
+                    });
+
+                owner?.Track(handle);
+                return handle;
+            }
+            catch
+            {
+                if (operationHandle.IsValid())
+                {
+                    UnityEngine.AddressableAssets.Addressables.Release(operationHandle);
+                }
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 异步实例化预制体，并使用 VContainer 将依赖自动注入到生成的 GameObject 及其组件中。
+        /// 相比于普通的 InstantiateAsync，该方法会先在内部加载预制体资产，然后使用给定的依赖解析器来实例化对象。
+        /// </summary>
+        /// <param name="key">预制体资源的 Addressables 键值。</param>
+        /// <param name="resolver">VContainer 的依赖注入解析器。</param>
+        /// <param name="parent">实例化的父节点。</param>
+        /// <param name="worldPositionStays">是否保持世界坐标。</param>
+        /// <param name="owner">可选的资源释放作用域。</param>
+        /// <param name="cancellationToken">取消令牌。</param>
+        /// <returns>包含注入后的实例化对象和对应释放方法的自定义实例句柄。</returns>
+        public async UniTask<AddressablesInstanceHandle> InstantiateInjectedAsync(
+            object key,
+            IObjectResolver resolver,
+            Transform parent = null,
+            bool worldPositionStays = false,
+            IAddressablesReleaseScope owner = null,
+            CancellationToken cancellationToken = default)
+        {
+            ThrowIfDisposed();
+
+            if (resolver == null)
+            {
+                throw new ArgumentNullException(nameof(resolver));
+            }
+
+            AddressablesAssetHandle<GameObject> prefabHandle =
+                await LoadAssetAsync<GameObject>(key, null, cancellationToken);
+
+            try
+            {
+                GameObject instance = resolver.Instantiate(prefabHandle.Asset, parent, worldPositionStays);
+                AddressablesInstanceHandle handle = new(
+                    instance,
+                    $"InjectedInstance:{AddressablesKeyUtility.Describe(key)}",
+                    () =>
+                    {
+                        if (instance != null)
+                        {
+                            UnityEngine.Object.Destroy(instance);
+                        }
+
+                        prefabHandle.Dispose();
+                    });
+
+                owner?.Track(handle);
+                return handle;
+            }
+            catch
+            {
+                prefabHandle.Dispose();
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 异步加载指定的场景。
+        /// </summary>
+        /// <param name="key">场景资源的 Addressables 键值。</param>
+        /// <param name="loadMode">场景加载模式（如 Single 或 Additive）。</param>
+        /// <param name="activateOnLoad">场景加载完成后是否立即激活。</param>
+        /// <param name="cancellationToken">取消令牌。</param>
+        /// <returns>包含场景实例和对应卸载方法的自定义场景句柄。</returns>
+        public async UniTask<AddressablesSceneHandle> LoadSceneAsync(
+            object key,
+            LoadSceneMode loadMode = LoadSceneMode.Additive,
+            bool activateOnLoad = true,
+            CancellationToken cancellationToken = default)
+        {
+            ThrowIfDisposed();
+            await InitializeAsync(cancellationToken);
+
+            AsyncOperationHandle<SceneInstance> handle =
+                UnityEngine.AddressableAssets.Addressables.LoadSceneAsync(key, loadMode, activateOnLoad);
+
+            try
+            {
+                await handle.ToUniTask(cancellationToken: cancellationToken);
+                EnsureSucceeded(handle.Status,
+                    $"加载场景失败，Key={AddressablesKeyUtility.Describe(key)}");
+
+                return new AddressablesSceneHandle(
+                    handle.Result,
+                    $"Scene:{AddressablesKeyUtility.Describe(key)}",
+                    token => UnloadSceneInternalAsync(handle, token));
+            }
+            catch
+            {
+                if (handle.IsValid())
+                {
+                    UnityEngine.AddressableAssets.Addressables.Release(handle);
+                }
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 释放服务并清空所有的资源缓存，同时递减内部保留的所有资源句柄引用计数。
+        /// </summary>
+        public void Dispose()
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            _disposed = true;
+
+            foreach (IAssetCacheEntry entry in _assetCache.Values)
+            {
+                entry.Release();
+            }
+
+            _assetCache.Clear();
+
+            if (_initializeHandle.IsValid())
+            {
+                UnityEngine.AddressableAssets.Addressables.Release(_initializeHandle);
+            }
+        }
+
+        /// <summary>
+        /// 获取已有的资源缓存记录；如果没有，则向底层发起加载请求并创建新的记录。
+        /// </summary>
+        private AssetCacheEntry<T> GetOrCreateAssetEntry<T>(string cacheKey, object key)
+            where T : UnityEngine.Object
+        {
+            if (_assetCache.TryGetValue(cacheKey, out IAssetCacheEntry existingEntry))
+            {
+                if (existingEntry is AssetCacheEntry<T> typedEntry)
+                {
+                    return typedEntry;
+                }
+
+                throw new InvalidOperationException(
+                    $"Addressables 资源缓存类型冲突：{cacheKey}");
+            }
+
+            AsyncOperationHandle<T> operationHandle = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<T>(key);
+            AssetCacheEntry<T> newEntry = new(cacheKey, operationHandle);
+            _assetCache.Add(cacheKey, newEntry);
+            return newEntry;
+        }
+
+        /// <summary>
+        /// 减少指定缓存键的资源引用计数。
+        /// 当引用计数归零时，真正从内存中卸载该资源并移除缓存记录。
+        /// </summary>
+        private void ReleaseAsset(string cacheKey)
+        {
+            if (!_assetCache.TryGetValue(cacheKey, out IAssetCacheEntry entry))
+            {
+                return;
+            }
+
+            entry.ReferenceCount--;
+            if (entry.ReferenceCount > 0)
+            {
+                return;
+            }
+
+            _assetCache.Remove(cacheKey);
+            entry.Release();
+        }
+
+        private async UniTask UnloadSceneInternalAsync(
+            AsyncOperationHandle<SceneInstance> handle,
+            CancellationToken cancellationToken)
+        {
+            if (!handle.IsValid())
+            {
+                return;
+            }
+
+            AsyncOperationHandle<SceneInstance> unloadHandle =
+                UnityEngine.AddressableAssets.Addressables.UnloadSceneAsync(handle, true);
+            await unloadHandle.ToUniTask(cancellationToken: cancellationToken);
+
+            EnsureSucceeded(unloadHandle.Status, "卸载场景失败。");
+        }
+
+        private void ThrowIfDisposed()
+        {
+            if (_disposed)
+            {
+                throw new ObjectDisposedException(nameof(AddressablesService));
+            }
+        }
+
+        private static void EnsureSucceeded(AsyncOperationStatus status, string message)
+        {
+            if (status != AsyncOperationStatus.Succeeded)
+            {
+                throw new InvalidOperationException(message);
+            }
+        }
+
+        private interface IAssetCacheEntry
+        {
+            int ReferenceCount { get; set; }
+
+            void Release();
+        }
+
+        private sealed class AssetCacheEntry<T> : IAssetCacheEntry
+            where T : UnityEngine.Object
+        {
+            public AssetCacheEntry(
+                string cacheKey,
+                AsyncOperationHandle<T> operationHandle)
+            {
+                CacheKey = cacheKey;
+                OperationHandle = operationHandle;
+            }
+
+            public string CacheKey { get; }
+            public AsyncOperationHandle<T> OperationHandle { get; }
+            public int ReferenceCount { get; set; }
+
+            public void Release()
+            {
+                if (OperationHandle.IsValid())
+                {
+                    UnityEngine.AddressableAssets.Addressables.Release(OperationHandle);
+                }
+            }
+        }
+    }
+}
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\IAddressablesHandle.cs ====================
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    public interface IAddressablesHandle : System.IDisposable
+    {
+        bool IsReleased { get; }
+        string DebugName { get; }
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\IAddressablesReleaseScope.cs ====================
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    public interface IAddressablesReleaseScope : System.IDisposable
+    {
+        bool IsDisposed { get; }
+        string ScopeName { get; }
+
+        void Track(IAddressablesHandle handle);
+    }
+}
+
+
+==================== FILE: E:\UnityProjects\Sweep\Lun Hui\Assets\AAGame\Scripts\Services\AddressablesTool\IAddressablesService.cs ====================
+
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using VContainer;
+
+namespace AAGame.Scripts.Services.AddressablesTool
+{
+    public interface IAddressablesService
+    {
+        bool IsInitialized { get; }
+
+        AddressablesReleaseScope CreateReleaseScope(string scopeName = null);
+        bool TryGetLoadedAsset<T>(object key, out T asset)
+            where T : UnityEngine.Object;
+
+        UniTask InitializeAsync(CancellationToken cancellationToken = default);
+        UniTask<long> GetDownloadSizeAsync(object key, CancellationToken cancellationToken = default);
+        UniTask DownloadDependenciesAsync(object key, CancellationToken cancellationToken = default);
+        
+        UniTask<AddressablesAssetHandle<T>> LoadAssetAsync<T>(
+            object key,
+            IAddressablesReleaseScope owner = null,
+            CancellationToken cancellationToken = default)
+            where T : UnityEngine.Object;
+        UniTask<AddressablesInstanceHandle> InstantiateAsync(
+            object key,
+            Transform parent = null,
+            bool worldPositionStays = false,
+            IAddressablesReleaseScope owner = null,
+            CancellationToken cancellationToken = default);
+        UniTask<AddressablesInstanceHandle> InstantiateInjectedAsync(
+            object key,
+            IObjectResolver resolver,
+            Transform parent = null,
+            bool worldPositionStays = false,
+            IAddressablesReleaseScope owner = null,
+            CancellationToken cancellationToken = default);
+        UniTask<AddressablesSceneHandle> LoadSceneAsync(
+            object key,
+            LoadSceneMode loadMode = LoadSceneMode.Additive,
+            bool activateOnLoad = true,
+            CancellationToken cancellationToken = default);
+    }
+}
+

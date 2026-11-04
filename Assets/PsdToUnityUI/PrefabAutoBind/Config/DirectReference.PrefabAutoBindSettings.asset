@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90f1e22bf5045ff8b05dd41c6558872, type: 3}
+  m_Name: DirectReference.PrefabAutoBindSettings
+  m_EditorClassIdentifier: PsdTools.Editor::PrefabAutoBind.PrefabAutoBindSettings
+  generatedNamespace: 
+  parentClassName: PrefabAutoBind.DirectReferenceViewBase
+  exportMode: 0
+  logicOutputDirectory: Assets/AAGame/Scripts/UI
+  partialOutputDirectory: Assets/AAGame/Scripts/UI/Generated
+  bindTemplate: "${usings}\n\npublic partial class ${class_name}:${parent_class}\n{\n   
+    ${fields}\n\n    protected override void AddUIEvents()\n    {\n        ${add_event_statements}\n   
+    }\n\n    protected override void RemoveUIEvents()\n    {\n        ${remove_event_statements}\n   
+    }\n\n    ${event_handlers}\n}\n"
+  addEventStatementTemplate: AddUIEvent(${event_obj}.${event_name}, ${handler_name});
+  removeEventStatementTemplate: RemoveUIEvent(${event_obj}.${event_name}, ${handler_name});
+  eventHandlerNameTemplate: On${event_obj}${event_name}
+  rootObjectName: root
+  findStatementTemplate: ${obj_name} = FindUI<${component}>(${parent_obj}.transform,
+    "${path}");
+  plainChildViewBindTemplate: '${obj_name} = TrackChildView(new ${class_name}());
+
+    ${obj_ref}.Bind(${obj_path}.gameObject);'
