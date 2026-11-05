@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/AAGame/Scenes/RootScene.unity
+    path: Assets/AAGame/Scenes/BootstrapScene.unity
     guid: 3ea7412690d476743824a00ce15f8554
+  - enabled: 1
+    path: Assets/AAGame/Scenes/StartScene.unity
+    guid: 41b89aa98073eb94195714d0df30ece4
+  - enabled: 1
+    path: Assets/AAGame/Scenes/MainScene.unity
+    guid: f4034a129d5d1794b8f641f0e84a7a93
+  - enabled: 1
+    path: Assets/AAGame/Scenes/LevelScene.unity
+    guid: 9d3afda18491dae438e91d741c3e9759
   - enabled: 0
     path: Assets/Third Party/ComponentAutoBindTool/Example/Scenes/Example.unity
     guid: 271ecc7c4937e7d48ac3fdc74130b33c

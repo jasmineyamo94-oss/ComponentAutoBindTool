@@ -17,6 +17,7 @@ namespace ComponentAutoBindTool.ViewCore
         private readonly IObjectResolver _parentResolver;
         private readonly IViewPrefabHelper _prefabHelper;
         private readonly IViewRootHelper _rootHelper;
+        private readonly int _sortingOrderOffset;
 
         private sealed class PendingLoad
         {
@@ -72,12 +73,15 @@ namespace ComponentAutoBindTool.ViewCore
         public event Action<IWindowContext> OnViewOpened;
         public event Action<IWindowContext> OnViewClosed;
 
-        [Preserve]
+        [Preserve, Inject]
         public ViewManager(
             IObjectResolver parentResolver,
             IViewPrefabHelper prefabHelper,
-            IViewRootHelper rootHelper)
+            IViewRootHelper rootHelper) : this(parentResolver, prefabHelper, rootHelper, 0) { }
+
+        public ViewManager(IObjectResolver parentResolver, IViewPrefabHelper prefabHelper, IViewRootHelper rootHelper, int sortingOrderOffset)
         {
+            _sortingOrderOffset = sortingOrderOffset;
             _parentResolver = parentResolver;
             _prefabHelper = prefabHelper;
             _rootHelper = rootHelper;
@@ -644,7 +648,7 @@ namespace ComponentAutoBindTool.ViewCore
             try
             {
 
-                int baseOrder = GetLayerBaseOrder(layer);
+                int baseOrder = GetLayerBaseOrder(layer) + _sortingOrderOffset;
                 if (list.Count > MaxWindowsPerLayer)
                 {
                     ViewLogger.Warning($"层级 [{layer}] 当前打开窗口数 ({list.Count}) 超过预算上限 ({MaxWindowsPerLayer})，请注意排序区间！");

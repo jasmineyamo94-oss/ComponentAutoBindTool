@@ -330,6 +330,8 @@ manager.CloseView(Detail);
 
 ### 5.9 动态 Widget 复用与资源加载
 
+项目侧多场景 UI 可分别持有独立 ViewManager。新增四参数构造函数的 `sortingOrderOffset` 会整体平移该管理器的窗口及子 Canvas 排序；原三参数构造函数保持偏移 0，并显式标记为 VContainer 注入入口，旧容器注册无需添加整数依赖。舞台隐藏、场景编排和关卡请求属于 AAGame 组合层，见 `Assets/AAGame/README.md`，不进入 ViewCore。
+
 父 WindowPresenter 或 WidgetPresenter 通过 `CreateWidgetPool<THost, TPresenter>(template, parent)` 建池，自动纳入实例资源袋。`Spawn(out host)` 首次调用绑定并解析 Presenter，`Despawn(presenter)` 只隐藏、Pause 并停止 Tick；再次 Spawn 复用同一 Host/Presenter，不重新 Resolve。TPresenter 需实现 IWidgetVisibility（泛型 WidgetPresenterBase 已实现）。池结束时统一解绑并销毁克隆，模板不销毁；归还不是关闭会话，物品数据与条目级异步任务由业务在取出/归还时更新。
 
 统一资源层见 [资源接入说明](Scripts/AssetCore/README.md)。依赖方向为 AssetViewBridge → AssetCore / ViewCore；ViewCore 不引用第三方资源包。AssetCore 统一句柄、引用计数、实例释放与资源作用域，Addressables 和 YooAsset 仅适配底层引擎；默认可用 DirectCatalogBackend 离线目录。
