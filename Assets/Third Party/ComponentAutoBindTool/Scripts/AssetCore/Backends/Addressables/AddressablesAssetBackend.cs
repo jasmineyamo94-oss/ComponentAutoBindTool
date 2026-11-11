@@ -8,11 +8,14 @@ using UnityEngine.AddressableAssets.ResourceLocators;
 
 namespace ComponentAutoBindTool.AssetCore
 {
-    /// <summary>适配 Addressables 2.x；同步加载不适用于 WebGL 的未完成请求。</summary>
+    /// <summary>适配 Addressables；同步加载不适用于 WebGL 的未完成请求。</summary>
     public sealed class AddressablesAssetBackend : IAssetBackend
     {
         private AsyncOperationHandle<IResourceLocator> _initialization;
         private bool _started;
+        private bool _requiresRestart;
+        private readonly Func<CancellationToken, Awaitable> _preflight;
+        public AddressablesAssetBackend(Func<CancellationToken, Awaitable> preflight = null) => _preflight = preflight;
         private bool _disposed;
         public bool IsInitialized => !_disposed && _started && _initialization.IsValid() &&
             _initialization.Status == AsyncOperationStatus.Succeeded;
@@ -20,14 +23,25 @@ namespace ComponentAutoBindTool.AssetCore
         {
             Check();
             cancellationToken.ThrowIfCancellationRequested();
+            if (_requiresRestart)
+                throw new InvalidOperationException("Addressables SDK 初始化已经失败。当前 SDK 没有公开的初始化重置接口，请退出运行、修复内容后重新进入运行。");
             if (!_started)
             {
+                if (_preflight != null) await _preflight(cancellationToken);
                 _initialization = Addressables.InitializeAsync(false);
                 _started = true;
             }
             while (!_initialization.IsDone) await Awaitable.NextFrameAsync(cancellationToken);
+            Check();
             cancellationToken.ThrowIfCancellationRequested();
-            EnsureSucceeded(_initialization, "初始化");
+            if (_initialization.Status != AsyncOperationStatus.Succeeded)
+            {
+                var error = _initialization.OperationException;
+                Addressables.Release(_initialization);
+                _started = false;
+                _requiresRestart = true;
+                throw new InvalidOperationException("Addressables SDK 初始化失败，已释放初始化句柄。请退出运行、修复内容后重新进入运行。", error);
+            }
         }
         public (T Asset, object RawHandle) LoadAssetSync<T>(string key) where T : UnityEngine.Object
         {

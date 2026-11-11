@@ -1,0 +1,23 @@
+{
+    "name": "AAGame.Assets.YooAsset.Editor",
+    "references": [
+        "AAGame.Assets",
+        "AAGame.Assets.Editor.Common",
+        "YooAsset",
+        "YooAsset.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "defineConstraints": [
+        "USE_YOOASSET"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.tuyoogame.yooasset",
+            "expression": "[3.0.6,4.0.0)",
+            "define": "USE_YOOASSET"
+        }
+    ],
+    "autoReferenced": true
+}

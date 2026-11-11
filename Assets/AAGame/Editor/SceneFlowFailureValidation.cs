@@ -183,7 +183,8 @@ public static class SceneFlowFailureValidation
                     new SceneLoaderService(),
                     loading,
                     root.UIRoots,
-                    state
+                    state,
+                    assets
                 );
                 await ExpectFailure(
                     broken.EnterLevelFromMainAsync(new LevelLoadRequestContent(101))

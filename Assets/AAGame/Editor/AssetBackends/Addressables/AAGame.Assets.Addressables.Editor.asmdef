@@ -1,0 +1,24 @@
+{
+    "name": "AAGame.Assets.Addressables.Editor",
+    "references": [
+        "AAGame.Assets",
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "Unity.Addressables.Editor",
+        "AAGame.Assets.Editor.Common"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "defineConstraints": [
+        "USE_ADDRESSABLES"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.addressables",
+            "expression": "[2.0.0,5.0.0)",
+            "define": "USE_ADDRESSABLES"
+        }
+    ],
+    "autoReferenced": true
+}

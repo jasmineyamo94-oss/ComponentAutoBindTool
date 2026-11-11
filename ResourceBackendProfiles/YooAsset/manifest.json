@@ -1,0 +1,17 @@
+{
+    "Format": 2,
+    "AddressablesGuid": "",
+    "Roots": [
+        "Assets/BundleCollectorSetting.asset"
+    ],
+    "Files": [
+        {
+            "Path": "Assets/BundleCollectorSetting.asset",
+            "Sha256": "9e8d96b865d6f9177dd4ad9fa82aa8220265f4b087ac2c06be86fc1608af4e08"
+        },
+        {
+            "Path": "Assets/BundleCollectorSetting.asset.meta",
+            "Sha256": "9c373c5306c503dedd064f369aab6ab5452b17ad0be69fd0cb9f44ea123f0526"
+        }
+    ]
+}

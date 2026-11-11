@@ -1,0 +1,2 @@
+# 归档按原始字节校验；检出时禁止换行转换破坏配置与 .meta 的 SHA-256。
+ResourceBackendProfiles/**/files/** -text

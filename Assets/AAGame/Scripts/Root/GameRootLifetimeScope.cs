@@ -1,16 +1,17 @@
 using ComponentAutoBindTool.AssetCore;
+using AAGame.Assets;
 using VContainer;
 using VContainer.Unity;
 
 public class GameRootLifetimeScope : LifetimeScope
 {
-    public FlowCatalog Catalog;
+    public AssetBackendSettings AssetSettings;
     public GlobalUIRootRegistry UIRoots;
 
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterInstance(UIRoots);
-        builder.RegisterInstance<IAssetBackend>(new DirectCatalogBackend(Catalog.CreateCatalog()));
+        builder.RegisterInstance<IAssetBackend>(AssetBackendRegistry.Create(AssetSettings));
         builder.Register<AssetService>(Lifetime.Singleton).AsSelf().As<IAssetService>();
         builder.Register<FlowState>(Lifetime.Singleton);
         builder.Register<SceneLoaderService>(Lifetime.Singleton).As<ISceneLoader>();

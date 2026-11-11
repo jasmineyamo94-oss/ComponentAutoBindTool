@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using ComponentAutoBindTool.AssetCore;
 using ComponentAutoBindTool.ViewCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,7 @@ public sealed class SceneFlowCoordinator : ISceneFlowCoordinator
     private readonly LoadingOverlayService _loading;
     private readonly GlobalUIRootRegistry _roots;
     private readonly FlowState _state;
+    private readonly IAssetService _assets;
     private Scene _start,
         _main,
         _level;
@@ -34,13 +36,15 @@ public sealed class SceneFlowCoordinator : ISceneFlowCoordinator
         ISceneLoader loader,
         LoadingOverlayService loading,
         GlobalUIRootRegistry roots,
-        FlowState state
+        FlowState state,
+        IAssetService assets
     )
     {
         _loader = loader;
         _loading = loading;
         _roots = roots;
         _state = state;
+        _assets = assets;
     }
 
     private static T Scope<T>(Scene scene)
@@ -79,6 +83,7 @@ public sealed class SceneFlowCoordinator : ISceneFlowCoordinator
         IsTransitioning = true;
         try
         {
+            await _assets.InitializeAsync(ct);
             _start = await _loader.LoadAsync(Prefix + "StartScene.unity", ct);
             await Show(Scope<StartSceneScope>(_start), StartMenuRoutes.Main, ct);
             SceneManager.SetActiveScene(_start);

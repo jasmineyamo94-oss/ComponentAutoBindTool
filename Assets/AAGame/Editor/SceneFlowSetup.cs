@@ -17,7 +17,7 @@ public static class SceneFlowSetup
 {
     private const string Prefabs = "Assets/AAGame/UI/Prefabs/";
 
-    [MenuItem("AAGame/场景流程/生成演示资产")]
+    [MenuItem("Tools/项目工具/场景流程/生成演示资产")]
     public static void Build()
     {
         Directory.CreateDirectory(Prefabs);
@@ -140,23 +140,9 @@ public static class SceneFlowSetup
             PrefabUtility.SaveAsPrefabAsset(go, Prefabs + type.Name + ".prefab");
             UnityEngine.Object.DestroyImmediate(go);
         }
-        var catalog =
-            AssetDatabase.LoadAssetAtPath<FlowCatalog>("Assets/AAGame/Settings/FlowCatalog.asset")
-            ?? ScriptableObject.CreateInstance<FlowCatalog>();
-        catalog.Prefabs = new[]
-        {
-            "StartMenuView",
-            "MainRootMenuView",
-            "LevelHudView",
-            "LevelLoadingView",
-        }
-            .Select(n => AssetDatabase.LoadAssetAtPath<GameObject>(Prefabs + n + ".prefab"))
-            .ToArray();
-        const string catalogPath = "Assets/AAGame/Settings/FlowCatalog.asset";
-        if (!AssetDatabase.Contains(catalog))
-            AssetDatabase.CreateAsset(catalog, catalogPath);
-        else
-            EditorUtility.SetDirty(catalog);
+        var assetSettings = DemoResourceSetup.EnsureSettings();
+        if (assetSettings.Backend == AAGame.Assets.AssetBackendKind.Resources)
+            DemoResourceSetup.SyncResources();
         string bootstrap = "Assets/AAGame/Scenes/BootstrapScene.unity";
         if (
             AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/AAGame/Scenes/RootScene.unity")
@@ -187,7 +173,7 @@ public static class SceneFlowSetup
         registry.Level = Stage("LevelStage", registry.transform, ui);
         registry.Overlay = Stage("GlobalOverlay", registry.transform, ui);
         var scope = new GameObject("GameRootLifetimeScope").AddComponent<GameRootLifetimeScope>();
-        scope.Catalog = catalog;
+        scope.AssetSettings = assetSettings;
         scope.UIRoots = registry;
         var retryRoot = Rect(
             "BootstrapRetry",

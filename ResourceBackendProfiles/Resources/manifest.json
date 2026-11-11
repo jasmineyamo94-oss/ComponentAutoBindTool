@@ -1,0 +1,53 @@
+{
+    "Format": 2,
+    "AddressablesGuid": "",
+    "Roots": [
+        "Assets/AAGame/Resources/AAGameDemo"
+    ],
+    "Files": [
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo.meta",
+            "Sha256": "dbf9325842b8a2c0d77dca8004ecfdfa4b0ffd9cb5b47a3d1df2934b234c3482"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/Data_DemoText.txt",
+            "Sha256": "ad9e1b8e269cdbc423fe5ccdb63e751d981ffb7cbdfe34b8898ad75f32aba0d8"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/Data_DemoText.txt.meta",
+            "Sha256": "2f695c0b495b334123c3ac41ea19bba6025d49f23c38d55bdd347faaf816d7c2"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/UI_LevelHudView.prefab",
+            "Sha256": "be33c7435c617e6e105ceeea01bfc125621b02e461d4dd4801d5aa469f13a1b9"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/UI_LevelHudView.prefab.meta",
+            "Sha256": "ba00e7cd192106ee96d86ed71ae25aee4e6af85224c39a36100e61e8409785d6"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/UI_LevelLoadingView.prefab",
+            "Sha256": "e0f65619d49f471a4c977f074d8c5ffb38e21aeb42721ef0f4055a585ec6f5a0"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/UI_LevelLoadingView.prefab.meta",
+            "Sha256": "ce43dbec59c881cb13c2f4c600c4db19fa23e59f6da7d53fbae7c0fef5d7c648"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/UI_MainRootMenuView.prefab",
+            "Sha256": "19e3cb76b4b69375a0bb481dfbf5b4f4fd2c9566b2e382d1304605689d83d502"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/UI_MainRootMenuView.prefab.meta",
+            "Sha256": "20ebd0c87780dcc753de82935ba2d058b5a5734c8fae23c8e6877e0e3b859bc3"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/UI_StartMenuView.prefab",
+            "Sha256": "ca0b6cea12d419352ab649b8fe9e6053941a490f5acd1f2d8ff4fb2ce753fad7"
+        },
+        {
+            "Path": "Assets/AAGame/Resources/AAGameDemo/UI_StartMenuView.prefab.meta",
+            "Sha256": "8541813fa05b802b3326c1d1fcd104fcb910373f1f37970db01cdcfb70e8e457"
+        }
+    ]
+}

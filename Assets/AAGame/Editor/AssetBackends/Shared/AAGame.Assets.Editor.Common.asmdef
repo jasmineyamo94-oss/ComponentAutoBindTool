@@ -1,0 +1,10 @@
+{
+    "name": "AAGame.Assets.Editor.Common",
+    "references": [
+        "AAGame.Assets"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "autoReferenced": true
+}

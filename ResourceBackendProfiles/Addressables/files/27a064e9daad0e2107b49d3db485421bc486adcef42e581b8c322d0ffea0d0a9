@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AAGameDemo-UI
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: AAGameDemo-UI
+  m_GUID: 8a35673538cc9c74c8b3b399debf2993
+  m_SerializeEntries:
+  - m_GUID: 91d49f5546b58fe44a620e6c0a684050
+    m_Address: UI_StartMenuView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+    m_FolderGuid: 
+  - m_GUID: ccabb587382a3dd4fbae666672179f28
+    m_Address: UI_LevelHudView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+    m_FolderGuid: 
+  - m_GUID: f0357a02175c65d4185c22aded2aafc5
+    m_Address: UI_MainRootMenuView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+    m_FolderGuid: 
+  - m_GUID: f5ac42f40ba34ba47937b750a8e57616
+    m_Address: UI_LevelLoadingView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+    m_FolderGuid: 
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5731efdbeef34b44dbdc5f335c2cffe2, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bfa3b6da3d17d6440a057b64ade5746e, type: 2}
+    - {fileID: 11400000, guid: 12b6861d3edf5354a96cc95116b995f6, type: 2}
+    m_SchemaDisplayOrder:
+    - AAGameDemo-UI_BundledAssetGroupSchema
+    - AAGameDemo-UI_ContentUpdateGroupSchema
+  m_IncludeInBuild: 1
+  m_IncludeInBuildMigrated: 1

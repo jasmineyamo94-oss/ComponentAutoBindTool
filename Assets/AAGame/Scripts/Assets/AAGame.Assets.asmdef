@@ -1,0 +1,7 @@
+{
+    "name": "AAGame.Assets",
+    "references": [
+        "ComponentAutoBindTool.AssetCore"
+    ],
+    "autoReferenced": true
+}

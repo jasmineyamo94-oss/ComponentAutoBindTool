@@ -1,0 +1,177 @@
+{
+    "Format": 2,
+    "AddressablesGuid": "517acf1a7d04801468d40230c81e2b82",
+    "Roots": [
+        "Assets/AddressableAssetsData"
+    ],
+    "Files": [
+        {
+            "Path": "Assets/AddressableAssetsData.meta",
+            "Sha256": "d29147d51431ddd9e86f2c7e802d988e431bb92ae183958dc79d724aafdec0dd"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AddressableAssetGroupSortSettings.asset",
+            "Sha256": "0a38b6d5f6e1808c601aaead47d632c0890857f5e1ad6bd4b5273e3db60f406f"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AddressableAssetGroupSortSettings.asset.meta",
+            "Sha256": "7d1e1e2aeb78682619061153ac4d048727a9ffd40344784bb29d6648bfb16e6a"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AddressableAssetSettings.asset",
+            "Sha256": "413c04ac03dfdc87c026add30fecb5c938f5aa47b255f6ef66bce54a02587f1d"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AddressableAssetSettings.asset.meta",
+            "Sha256": "5a51d9ef03ffea67d204ca3b71a12e5b9d39e4cbe9e1448f64a378f9dd5ae640"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/Android.meta",
+            "Sha256": "9310e2ea735d94e3ada6b25cdb2c159707621476c0970846c6c7965803189094"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups.meta",
+            "Sha256": "fb0cdeaddb222ed7479f8947ff82980ae9be3d16c1bfc64076ed398412d27bc7"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroupTemplates.meta",
+            "Sha256": "426e1bcbd02871e4307668522631d1222827446157185819dbf17d783153fddb"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DataBuilders.meta",
+            "Sha256": "a76beaac3690d0e3063f3ea5e5b38eb616e2210ddb9d6f1a55d8fd2e88d9121f"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DefaultObject.asset",
+            "Sha256": "2591ffa3720808a8564feb49cd04814f65e768f2fbe9f68572795ce6d5ec49fc"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DefaultObject.asset.meta",
+            "Sha256": "ea88a19370542b4f40037807c70cac039948daf840e3c4b306231b0a7ed0d9de"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/ProfileDataSourceSettings.asset",
+            "Sha256": "f8de3d32f69bdd89cd640986e03089048c2254d92b7067f6d649e084d360fdfb"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/ProfileDataSourceSettings.asset.meta",
+            "Sha256": "67ee544a10b9276bc866dd1732d363a51d8e5f9b3b4573e9d05b7855c3bfb068"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/AAGameDemo-Data.asset",
+            "Sha256": "a8972e6888b6d29c1be46133471fd007e79305b1b4a4b73da1dd8f6a5af3236b"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/AAGameDemo-Data.asset.meta",
+            "Sha256": "b475cd838f575d1d5445141676077c0afb00e71fa56d67a343dd78eb004b5668"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/AAGameDemo-UI.asset",
+            "Sha256": "27a064e9daad0e2107b49d3db485421bc486adcef42e581b8c322d0ffea0d0a9"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/AAGameDemo-UI.asset.meta",
+            "Sha256": "a3e659ecbd3c6e0840f967870e152040663a3f76f7e60d9e8d710aabf49764ed"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset",
+            "Sha256": "dd20df49c745f179114bb585958d6fe51c4bda340dd65ea45842190146eef8d1"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset.meta",
+            "Sha256": "0699d17fb09b99aad2df09b85d072d9aea8cb373badc6478cbb67eb8db249f0d"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas.meta",
+            "Sha256": "cf34dc9afd90695a4bc6135cb545705da652fa08687580ff6c439b60f1972ba4"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroupTemplates/Packed Assets.asset",
+            "Sha256": "48647082c83df52b813e4fbc74d66f5d70bf60fa14b109908799268f958b1725"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroupTemplates/Packed Assets.asset.meta",
+            "Sha256": "85ab4caef961948b8f4b24b6f59018108e2df3c174b579ec37b2b5fcc4a53b39"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DataBuilders/BuildScriptFastMode.asset",
+            "Sha256": "b3b59dedfe0f3a16eb6ae671a75622add9ac8ad121bd72d2a328135fc07eb50a"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DataBuilders/BuildScriptFastMode.asset.meta",
+            "Sha256": "4bc0a8d4e48e145d6acd1ca09a9d85a7ded273e86f3a3396c58f3dc81ce689c0"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedMode.asset",
+            "Sha256": "2ec3ee4fee878a4001c13a57cc7e0895ce2d85fc194a0e9fa853f9011f51cac2"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedMode.asset.meta",
+            "Sha256": "b294e9d0152f6e18e3d9f5d51e4a80718cf92ddb3852e17fd185bbd3485834b1"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedPlayMode.asset",
+            "Sha256": "273b8a13af16a3964746b2fdf0d1155dd8201f112ca412691e97b87688a16339"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedPlayMode.asset.meta",
+            "Sha256": "fa23a758d0d0d79a022778c597f3e80142e99462bb3f8e205919a3207cea729b"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DataBuilders/BuildScriptSchemaDriven.asset",
+            "Sha256": "0f7b3a8593545173c0db5c705ca75d27ebf22d58e77f80dfffbbc273af56164e"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/DataBuilders/BuildScriptSchemaDriven.asset.meta",
+            "Sha256": "969629bfdb2849896ac6a17308623fc36d36bce0609658af7f86b66f8a5c8eab"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/AAGameDemo-Data_BundledAssetGroupSchema.asset",
+            "Sha256": "4929dcde2d4f8d1113588f1ca14b31b5ff8ec437d30e0ff1d84bb34664e443b8"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/AAGameDemo-Data_BundledAssetGroupSchema.asset.meta",
+            "Sha256": "b4681ec1275ba7a96ce3b1f2f05f537c849ff8cfea55acbda1f9238f6570ef09"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/AAGameDemo-Data_ContentUpdateGroupSchema.asset",
+            "Sha256": "60d9234009c0258899196a79815495db289370421096d62468c111c00a73a96b"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/AAGameDemo-Data_ContentUpdateGroupSchema.asset.meta",
+            "Sha256": "492b38373a166746bad38f76006f83bf593334d037114d440060f042c884156d"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/AAGameDemo-UI_BundledAssetGroupSchema.asset",
+            "Sha256": "31040726a19b473ff4e49f009f826d2a5c2287fc64fc503261e229a8e88e6881"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/AAGameDemo-UI_BundledAssetGroupSchema.asset.meta",
+            "Sha256": "e452fa54929905ad134c6df8a4defb06bbec6e4d0b6ca75aac77cac1182e8a7c"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/AAGameDemo-UI_ContentUpdateGroupSchema.asset",
+            "Sha256": "7a99f37ae72b266c7e6d21559ea06e6fd3862684f2ad4438ac18497682116b07"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/AAGameDemo-UI_ContentUpdateGroupSchema.asset.meta",
+            "Sha256": "8636ff52d105ff0dedbd4ff7e5cb2bb4b0536236cfee195e6de41c87dfe58e73"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_BundledAssetGroupSchema.asset",
+            "Sha256": "5550e33fe89ce5cfa6991cf252b392018d7c252683bc113e45162bf932a90bfd"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_BundledAssetGroupSchema.asset.meta",
+            "Sha256": "5392b991e491f810386cbc76bfc48785d4dc0479c36cb92e4e9e86cc4e6e40f2"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_ContentUpdateGroupSchema.asset",
+            "Sha256": "70a6bbc9d455569aae7821d312958d350bd6862498cf1c84cf7ed11ca96cc640"
+        },
+        {
+            "Path": "Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_ContentUpdateGroupSchema.asset.meta",
+            "Sha256": "faed1e4b53b6da6a6c35a08eecb92e9ad55486e0ac6f67cfb73ca1147674a250"
+        }
+    ]
+}
