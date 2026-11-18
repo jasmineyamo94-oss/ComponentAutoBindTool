@@ -1,0 +1,23 @@
+.workbench { flex-grow: 1; }
+.toolbar { flex-direction: row; padding: 4px; }
+.toolbar #psdAsset { flex-grow: 1; }
+.status { white-space: normal; padding: 6px; background-color: rgb(42, 48, 54); }
+.body { flex-grow: 1; flex-direction: row; }
+.layer-tree-panel { width: 320px; min-width: 240px; max-width: 420px; flex-shrink: 0; }
+.ai-host { width: 380px; min-width: 360px; flex-shrink: 0; display: none; border-left-width: 1px; border-left-color: rgb(70, 70, 70); }
+.layer-name-cell { flex-direction: row; align-items: center; flex-grow: 1; min-width: 0; }
+.layer-name-cell > Label { flex-grow: 1; flex-shrink: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.layer-folder-icon { width: 16px; height: 16px; flex-shrink: 0; margin-right: 4px; }
+.layer-name-cell > .layer-kind-icon { width: 16px; flex-grow: 0; flex-shrink: 0; margin-right: 4px; -unity-text-align: middle-center; }
+.layer-visibility { width: 18px; flex-shrink: 0; align-self: center; margin: 0 4px 0 0; padding: 0; }
+.layer-hidden > .layer-folder-icon, .layer-hidden > Label { opacity: 0.5; }
+.layer-name-cell > .layer-export-badge { flex-grow: 0; flex-shrink: 0; margin-left: 6px; padding: 0 3px; font-size: 10px; color: rgb(232, 166, 110); border-width: 1px; border-color: rgb(110, 84, 62); border-radius: 3px; -unity-text-align: middle-center; }
+.layer-name-cell.layer-hidden > .layer-export-badge { opacity: 1; }
+.layer-name-cell > .layer-export-badge.layer-export-inherited { color: rgb(165, 165, 165); border-color: rgb(85, 85, 85); opacity: 0.65; }
+.layer-name-cell > .layer-annotation-badge { width: 18px; height: 18px; flex-grow: 0; flex-shrink: 0; margin-left: 5px; font-size: 10px; color: rgb(140, 204, 248); border-width: 1px; border-color: rgb(75, 132, 170); border-radius: 9px; -unity-text-align: middle-center; }
+.layer-name-cell > .layer-annotation-badge.layer-annotation-hidden { display: none; }
+.layer-name-cell.layer-hidden > .layer-annotation-badge { opacity: 1; }
+.preview { flex-grow: 1; overflow: hidden; min-width: 200px; }
+.canvas { position: absolute; transform-origin: 0 0; }
+.layer-image { position: absolute; }
+.selection-outline { position: absolute; border-width: 2px; border-color: rgb(62, 177, 255); }

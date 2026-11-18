@@ -1,0 +1,23 @@
+{
+  "layerId": 1090,
+  "name": "0",
+  "text": "0",
+  "font": "TOXIA",
+  "fontSize": 51.1574783325195,
+  "tracking": 100.0,
+  "fauxBold": true,
+  "origin": [
+    542.274600117778,
+    346.400140417992
+  ],
+  "antiAlias": "AntiAlias.SMOOTH",
+  "mode": "cached-effects-from-disk-copy",
+  "sourceHashes": {
+    "Assets\\Psd\\战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+    "Assets\\Psd\\战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8"
+  },
+  "png": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\effects-ps-1090-cached.png",
+  "pngSha256": "da8fa8ac0569e0a84e2a9a6bee4af596129865be30baecad7ac0a13f16bddc15",
+  "photoshopVersion": "22.0.0",
+  "note": "不重排文字、不切换字体或字重；保留原稿图层效果；不操作用户文档"
+}

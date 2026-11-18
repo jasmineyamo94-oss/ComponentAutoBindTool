@@ -1,0 +1,38 @@
+[
+  {
+    "layer": "Zombie",
+    "render": "outer-final",
+    "ratio": 0.9923281203894955,
+    "iou": 0.8106731027085009
+  },
+  {
+    "layer": "Zombie",
+    "render": "resolution-96-SDF16-outer-weight-0.350",
+    "ratio": 1.0283269401003245,
+    "iou": 0.817076394395982
+  },
+  {
+    "layer": "Zombie",
+    "render": "resolution-96-SDFAA_HINTED-outer-weight-0.350",
+    "ratio": 1.014458542342874,
+    "iou": 0.8288240021430485
+  },
+  {
+    "layer": "Hell",
+    "render": "outer-final",
+    "ratio": 1.0145027624309393,
+    "iou": 0.8674775928297055
+  },
+  {
+    "layer": "Hell",
+    "render": "resolution-96-SDF16-outer-weight-0.350",
+    "ratio": 1.0310773480662982,
+    "iou": 0.8732484076433121
+  },
+  {
+    "layer": "Hell",
+    "render": "resolution-96-SDFAA_HINTED-outer-weight-0.350",
+    "ratio": 1.0276243093922652,
+    "iou": 0.866497139224412
+  }
+]

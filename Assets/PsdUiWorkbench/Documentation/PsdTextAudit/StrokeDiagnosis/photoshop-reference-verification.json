@@ -1,0 +1,470 @@
+{
+  "formatVersion": 1,
+  "createdUtc": "2026-11-16T02:12:32.781886+00:00",
+  "sourceHashesCurrent": {
+    "Assets/Psd/战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+    "Assets/Psd/战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8"
+  },
+  "provenance": {
+    "native": {
+      "png": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/photoshop-native-reference.png",
+      "pngSha256": "ae02b637161c3ab1de0147a11ed3a73b639df85ca111e5a2c3c83d7a43c4c212",
+      "record": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/photoshop-native-reference.json",
+      "recordSha256": "5a88ac38601e568c0252a609a5b53b3a4f3b6101f8e9ac86f0f3ba0685c6236b",
+      "sourceHashesBeforeAndAfterMatchCurrent": true,
+      "outputHashMatchesRecord": true,
+      "photoshopVersion": "22.0.0",
+      "method": "Document.duplicate(mergeLayersOnly=true) + PNGSaveOptions/saveAs(asCopy=true)",
+      "profile": "sRGB"
+    },
+    "layeredNative": {
+      "png": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/photoshop-native-layered-reference.png",
+      "pngSha256": "b26ade4f7e4a712ce649a265f303b7c9047b6ebeb2462358bf5ceec5faab4142",
+      "record": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/photoshop-native-layered-reference.json",
+      "recordSha256": "5e3a17fc63ee804c56264572bb76a28085653f223d1a6aa0a2579c99ed389b88",
+      "sourceHashesBeforeAndAfterMatchCurrent": true,
+      "outputHashMatchesRecord": true,
+      "photoshopVersion": "22.0.0",
+      "method": "Document.duplicate(mergeLayersOnly=false) + PNGSaveOptions/saveAs(asCopy=true)",
+      "profile": "sRGB"
+    }
+  },
+  "inputs": {
+    "native": {
+      "path": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/photoshop-native-reference.png",
+      "sha256": "ae02b637161c3ab1de0147a11ed3a73b639df85ca111e5a2c3c83d7a43c4c212",
+      "size": [
+        1080,
+        2400
+      ],
+      "mode": "RGBA",
+      "hasEmbeddedIccProfile": false
+    },
+    "layeredNative": {
+      "path": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/photoshop-native-layered-reference.png",
+      "sha256": "b26ade4f7e4a712ce649a265f303b7c9047b6ebeb2462358bf5ceec5faab4142",
+      "size": [
+        1080,
+        2400
+      ],
+      "mode": "RGBA",
+      "hasEmbeddedIccProfile": false
+    },
+    "raw": {
+      "path": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/psd-saved-composite.png",
+      "sha256": "c04e344f482268a0c09ae2c4ee12f71553c8a9bcbf5c4e3a0a92cd33fbcb3120",
+      "size": [
+        1080,
+        2400
+      ],
+      "mode": "RGBA",
+      "hasEmbeddedIccProfile": true
+    },
+    "unmatted": {
+      "path": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/psd-saved-composite-unmatted.png",
+      "sha256": "be3eded9d9ee59bef7a968b114e060bc1c15f452ff9f7ed19a44f5f3d99cab4b",
+      "size": [
+        1080,
+        2400
+      ],
+      "mode": "RGBA",
+      "hasEmbeddedIccProfile": false
+    }
+  },
+  "nativeAndLayeredNativeRgbaExactlyEqual": true,
+  "comparisonsAgainstNative": {
+    "layeredNative": {
+      "full": {
+        "rectX1Y1X2Y2": [
+          0,
+          0,
+          1080,
+          2400
+        ],
+        "alphaMismatchPixels": 0,
+        "alphaMaxDifference": 0,
+        "transparentRgbIgnoredPixels": 2280544,
+        "rgb": {
+          "visible": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          },
+          "partial": {
+            "pixels": 122851,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          },
+          "opaque": {
+            "pixels": 188605,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          }
+        },
+        "compositedVisibleRgb": {
+          "gray31": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          },
+          "white255": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          },
+          "checker192_255_size8": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          }
+        }
+      },
+      "title": {
+        "rectX1Y1X2Y2": [
+          320,
+          90,
+          765,
+          155
+        ],
+        "alphaMismatchPixels": 0,
+        "alphaMaxDifference": 0,
+        "transparentRgbIgnoredPixels": 17725,
+        "rgb": {
+          "visible": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          },
+          "partial": {
+            "pixels": 1498,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          },
+          "opaque": {
+            "pixels": 9702,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          }
+        },
+        "compositedVisibleRgb": {
+          "gray31": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          },
+          "white255": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          },
+          "checker192_255_size8": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          }
+        }
+      }
+    },
+    "raw": {
+      "full": {
+        "rectX1Y1X2Y2": [
+          0,
+          0,
+          1080,
+          2400
+        ],
+        "alphaMismatchPixels": 0,
+        "alphaMaxDifference": 0,
+        "transparentRgbIgnoredPixels": 2280544,
+        "rgb": {
+          "visible": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 27.995006250214047,
+            "p95AbsoluteChannelDifference": 157.0,
+            "maxAbsoluteChannelDifference": 254.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 113313,
+            "pixelsWithAnyChannelDifferenceAbove20": 103673
+          },
+          "partial": {
+            "pixels": 122851,
+            "meanAbsoluteChannelDifference": 69.91108198820794,
+            "p95AbsoluteChannelDifference": 213.0,
+            "maxAbsoluteChannelDifference": 254.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 107269,
+            "pixelsWithAnyChannelDifferenceAbove20": 99523
+          },
+          "opaque": {
+            "pixels": 188605,
+            "meanAbsoluteChannelDifference": 0.6922739764764101,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 40.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 6044,
+            "pixelsWithAnyChannelDifferenceAbove20": 4150
+          }
+        },
+        "compositedVisibleRgb": {
+          "gray31": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 10.243424235083259,
+            "p95AbsoluteChannelDifference": 49.411764705882355,
+            "maxAbsoluteChannelDifference": 63.74901960784314,
+            "pixelsWithAnyChannelDifferenceAbove5": 102963,
+            "pixelsWithAnyChannelDifferenceAbove20": 82875
+          },
+          "white255": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 10.243424235083259,
+            "p95AbsoluteChannelDifference": 49.41176470588235,
+            "maxAbsoluteChannelDifference": 63.74901960784314,
+            "pixelsWithAnyChannelDifferenceAbove5": 102963,
+            "pixelsWithAnyChannelDifferenceAbove20": 82875
+          },
+          "checker192_255_size8": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 10.243424235083259,
+            "p95AbsoluteChannelDifference": 49.41176470588235,
+            "maxAbsoluteChannelDifference": 63.74901960784314,
+            "pixelsWithAnyChannelDifferenceAbove5": 102963,
+            "pixelsWithAnyChannelDifferenceAbove20": 82875
+          }
+        }
+      },
+      "title": {
+        "rectX1Y1X2Y2": [
+          320,
+          90,
+          765,
+          155
+        ],
+        "alphaMismatchPixels": 0,
+        "alphaMaxDifference": 0,
+        "transparentRgbIgnoredPixels": 17725,
+        "rgb": {
+          "visible": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 19.95199404761905,
+            "p95AbsoluteChannelDifference": 162.0,
+            "maxAbsoluteChannelDifference": 250.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 2962,
+            "pixelsWithAnyChannelDifferenceAbove20": 2444
+          },
+          "partial": {
+            "pixels": 1498,
+            "meanAbsoluteChannelDifference": 130.95126835781042,
+            "p95AbsoluteChannelDifference": 233.0,
+            "maxAbsoluteChannelDifference": 250.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 1498,
+            "pixelsWithAnyChannelDifferenceAbove20": 1415
+          },
+          "opaque": {
+            "pixels": 9702,
+            "meanAbsoluteChannelDifference": 2.813577956435099,
+            "p95AbsoluteChannelDifference": 24.0,
+            "maxAbsoluteChannelDifference": 32.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 1464,
+            "pixelsWithAnyChannelDifferenceAbove20": 1029
+          }
+        },
+        "compositedVisibleRgb": {
+          "gray31": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 8.542215686274508,
+            "p95AbsoluteChannelDifference": 56.666666666666664,
+            "maxAbsoluteChannelDifference": 63.74901960784314,
+            "pixelsWithAnyChannelDifferenceAbove5": 2944,
+            "pixelsWithAnyChannelDifferenceAbove20": 2374
+          },
+          "white255": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 8.54221568627451,
+            "p95AbsoluteChannelDifference": 56.66666666666667,
+            "maxAbsoluteChannelDifference": 63.74901960784314,
+            "pixelsWithAnyChannelDifferenceAbove5": 2944,
+            "pixelsWithAnyChannelDifferenceAbove20": 2374
+          },
+          "checker192_255_size8": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 8.54221568627451,
+            "p95AbsoluteChannelDifference": 56.66666666666667,
+            "maxAbsoluteChannelDifference": 63.74901960784314,
+            "pixelsWithAnyChannelDifferenceAbove5": 2944,
+            "pixelsWithAnyChannelDifferenceAbove20": 2374
+          }
+        }
+      }
+    },
+    "unmatted": {
+      "full": {
+        "rectX1Y1X2Y2": [
+          0,
+          0,
+          1080,
+          2400
+        ],
+        "alphaMismatchPixels": 0,
+        "alphaMaxDifference": 0,
+        "transparentRgbIgnoredPixels": 2280544,
+        "rgb": {
+          "visible": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 1.4247191684646734,
+            "p95AbsoluteChannelDifference": 6.0,
+            "maxAbsoluteChannelDifference": 127.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 20866,
+            "pixelsWithAnyChannelDifferenceAbove20": 11395
+          },
+          "partial": {
+            "pixels": 122851,
+            "meanAbsoluteChannelDifference": 2.5491937387567054,
+            "p95AbsoluteChannelDifference": 17.0,
+            "maxAbsoluteChannelDifference": 127.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 14822,
+            "pixelsWithAnyChannelDifferenceAbove20": 7245
+          },
+          "opaque": {
+            "pixels": 188605,
+            "meanAbsoluteChannelDifference": 0.6922739764764101,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 40.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 6044,
+            "pixelsWithAnyChannelDifferenceAbove20": 4150
+          }
+        },
+        "compositedVisibleRgb": {
+          "gray31": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 0.48136878428552143,
+            "p95AbsoluteChannelDifference": 0.5647058823529392,
+            "maxAbsoluteChannelDifference": 40.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 6134,
+            "pixelsWithAnyChannelDifferenceAbove20": 4207
+          },
+          "white255": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 0.48136878428552143,
+            "p95AbsoluteChannelDifference": 0.5647058823529392,
+            "maxAbsoluteChannelDifference": 40.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 6134,
+            "pixelsWithAnyChannelDifferenceAbove20": 4207
+          },
+          "checker192_255_size8": {
+            "pixels": 311456,
+            "meanAbsoluteChannelDifference": 0.48136878428552143,
+            "p95AbsoluteChannelDifference": 0.5647058823529392,
+            "maxAbsoluteChannelDifference": 40.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 6134,
+            "pixelsWithAnyChannelDifferenceAbove20": 4207
+          }
+        }
+      },
+      "title": {
+        "rectX1Y1X2Y2": [
+          320,
+          90,
+          765,
+          155
+        ],
+        "alphaMismatchPixels": 0,
+        "alphaMaxDifference": 0,
+        "transparentRgbIgnoredPixels": 17725,
+        "rgb": {
+          "visible": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 2.437261904761905,
+            "p95AbsoluteChannelDifference": 23.0,
+            "maxAbsoluteChannelDifference": 32.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 1464,
+            "pixelsWithAnyChannelDifferenceAbove20": 1029
+          },
+          "partial": {
+            "pixels": 1498,
+            "meanAbsoluteChannelDifference": 0.0,
+            "p95AbsoluteChannelDifference": 0.0,
+            "maxAbsoluteChannelDifference": 0.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 0,
+            "pixelsWithAnyChannelDifferenceAbove20": 0
+          },
+          "opaque": {
+            "pixels": 9702,
+            "meanAbsoluteChannelDifference": 2.813577956435099,
+            "p95AbsoluteChannelDifference": 24.0,
+            "maxAbsoluteChannelDifference": 32.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 1464,
+            "pixelsWithAnyChannelDifferenceAbove20": 1029
+          }
+        },
+        "compositedVisibleRgb": {
+          "gray31": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 2.437261904761905,
+            "p95AbsoluteChannelDifference": 23.0,
+            "maxAbsoluteChannelDifference": 32.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 1464,
+            "pixelsWithAnyChannelDifferenceAbove20": 1029
+          },
+          "white255": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 2.437261904761905,
+            "p95AbsoluteChannelDifference": 23.0,
+            "maxAbsoluteChannelDifference": 32.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 1464,
+            "pixelsWithAnyChannelDifferenceAbove20": 1029
+          },
+          "checker192_255_size8": {
+            "pixels": 11200,
+            "meanAbsoluteChannelDifference": 2.437261904761905,
+            "p95AbsoluteChannelDifference": 23.0,
+            "maxAbsoluteChannelDifference": 32.0,
+            "pixelsWithAnyChannelDifferenceAbove5": 1464,
+            "pixelsWithAnyChannelDifferenceAbove20": 1029
+          }
+        }
+      }
+    }
+  },
+  "interpretation": [
+    "统计差值的单位为 0～255 RGB 通道值；这些数值不是视觉相似率或还原百分比。",
+    "各区域的可见、半透明、不透明集合由 Photoshop 原生 PNG 的 Alpha 定义；Alpha=0 的 RGB 忽略。",
+    "所有 PNG 均直接读取，不调用 PSD 去白底函数，不修改 Alpha，不缩放、不平移。",
+    "合成使用 sRGB 编码通道值直接插值，不进行 ICC 转换；用途是同条件离线诊断，不模拟所有应用的色彩管理。",
+    "Alpha 相等时，同背景合成的背景项相消；三种背景的相同差值不构成三份独立证据。",
+    "原生导出文件 SHA 与记录一致，且两份记录中的源 PSD/.meta 导出前后 SHA 均与当前文件匹配。",
+    "半透明外边缘吻合不代表文字内部填充／描边交界完全吻合，应分别检查 partial 与 opaque 数据。"
+  ]
+}

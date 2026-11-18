@@ -1,0 +1,25 @@
+{
+  "searchedRoots": [
+    "C:\\Windows\\Fonts",
+    "C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\Windows\\Fonts",
+    "Assets"
+  ],
+  "filesScanned": 406,
+  "hits": [
+    {
+      "postScriptNames": [
+        "TOXIA"
+      ],
+      "path": "Assets\\AAGame\\UI\\Fonts\\Toxia_FRE.ttf",
+      "faceIndex": 0,
+      "sha256": "3d03ec037a0386e02f3f8bfa58e1639c1856fe497ab1137ce174ebbb74c60dc2",
+      "family": "TOXIA",
+      "style": "Regular"
+    }
+  ],
+  "missing": [
+    "JiangChengYuanTi-500W",
+    "Rubik-Medium"
+  ],
+  "errors": []
+}

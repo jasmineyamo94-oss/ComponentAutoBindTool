@@ -1,0 +1,78 @@
+{
+  "textLayers": 20,
+  "mappedFonts": [
+    "JiangChengYuanTi-500W",
+    "Rubik-Medium",
+    "TOXIA"
+  ],
+  "missingFonts": [
+    "JiangChengYuanTi-500W",
+    "Rubik-Medium"
+  ],
+  "fontFilesScanned": 406,
+  "eligibleToxiaLayers": 13,
+  "mixedFontIds": [
+    936,
+    947,
+    1015,
+    1020,
+    1067
+  ],
+  "otherFontIds": [
+    1059,
+    1060
+  ],
+  "measurements": 390,
+  "strokePixels": [
+    2.0,
+    3.0,
+    5.0
+  ],
+  "allFauxBold": true,
+  "onlyActiveEffectKeys": [
+    "FrFX"
+  ],
+  "defaultMeanAlphaError": 0.6402438993637378,
+  "perLayerBestMeanAlphaError": 0.2762550046810737,
+  "perLayerBestErrorRange": [
+    0.22847135365009308,
+    0.34730130434036255
+  ],
+  "commonParameterCandidates": [
+    {
+      "weightBold": 0.25,
+      "boldSpacing": 2.5,
+      "kerning": false,
+      "meanAlphaError": 0.28827610038794005,
+      "maxAlphaError": 0.3681444227695465
+    },
+    {
+      "weightBold": 0.5,
+      "boldSpacing": 2.5,
+      "kerning": false,
+      "meanAlphaError": 0.28938232591518986,
+      "maxAlphaError": 0.34730130434036255
+    },
+    {
+      "weightBold": 0.0,
+      "boldSpacing": 2.5,
+      "kerning": false,
+      "meanAlphaError": 0.3601140265281384,
+      "maxAlphaError": 0.43033021688461304
+    }
+  ],
+  "coverageProbeAlpha": 0.501960813999176,
+  "sourceUnchanged": true,
+  "metaUnchanged": true,
+  "fontUnchanged": true,
+  "temporaryStateRestored": true,
+  "placeholderLayers": 7,
+  "placeholderSize": 36,
+  "placeholderFontPath": "Assets/Third Party/ComponentAutoBindTool/Example/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset",
+  "placeholderFontFamilies": [
+    "Liberation Sans"
+  ],
+  "placeholderPolicy": "缺少字体的样式段使用默认字体固定占位，无粗体、描边或阴影，不做原稿匹配",
+  "placeholderProof": true,
+  "defaultFontUnchanged": true
+}

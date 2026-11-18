@@ -1,0 +1,19 @@
+{
+  "createdUtc": "2026-11-16T03:36:32.435348+00:00",
+  "sourceHashesUnchanged": true,
+  "sourceHashes": {
+    "Assets/Psd/战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+    "Assets/Psd/战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8",
+    "Assets/AAGame/UI/Fonts/Toxia_FRE.ttf": "3d03ec037a0386e02f3f8bfa58e1639c1856fe497ab1137ce174ebbb74c60dc2"
+  },
+  "temporaryToxiaUserFontRegistrationAbsent": true,
+  "unityTests": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "inconclusive": 0
+  },
+  "photoshopCurrentDocument": "最后只读检查为未保存状态；不保存、不关闭、不恢复用户当前文档。实验源PNG使用早先已验证副本。",
+  "scope": "仅测试探针、实验Shader、对照资料；正式导出参数与Prefab不变。"
+}

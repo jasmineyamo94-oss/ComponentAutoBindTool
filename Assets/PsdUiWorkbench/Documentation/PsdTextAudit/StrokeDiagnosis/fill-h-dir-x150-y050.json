@@ -1,0 +1,398 @@
+{
+    "sourcePath": "Assets/Psd/战斗-主菜单界面.psd",
+    "sourceGuid": "38f39a6a2f2a2244fb71cc86e8d820b4",
+    "prefabPath": "Assets/PsdUiWorkbench/Exports/战斗-主菜单界面_单字形共享材质.prefab",
+    "png": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/fill-h-dir-x150-y050.png",
+    "mode": "隔离生成字体；仅整体对齐首个可见字符 origin/baseLine，后续 advance 差异单独记录",
+    "note": "黑底；关闭所有图像、其他文字、描边及阴影。像素值用于覆盖率诊断，不是视觉还原率。",
+    "layerId": 1058,
+    "width": 1080,
+    "height": 2400,
+    "whiteCoverage": true,
+    "normalStyle": false,
+    "layoutPreserved": true,
+    "requestedWeight": 0.0,
+    "sourceTracking": 100.0,
+    "sourceFauxBold": true,
+    "sourceFontKey": "TOXIA",
+    "fontAssetPath": "Assets/PsdUiWorkbench/Exports/战斗-主菜单界面_单字形共享材质 Fonts/Font 1.asset",
+    "fontGuid": "3fc6bed5803208542ba89d3db0575bd8",
+    "fontSourcePath": "Assets/AAGame/UI/Fonts/Toxia_FRE.ttf",
+    "fontSourceGuid": "6a9a27689882050479b737f2dca5beb1",
+    "fontSourceIdentityMethod": "TMP_FontAsset 序列化 m_SourceFontFileGUID（Static 字库）",
+    "sourceMaterialJson": "{\"Material\":{\"serializedVersion\":\"8\",\"m_Name\":\"Text Style 10\",\"m_Shader\":{\"fileID\":4800000,\"guid\":\"9dbba01cc2fa7d045afc4c59c3fe11dc\",\"type\":3},\"m_Parent\":{\"instanceID\":0},\"m_ModifiedSerializedProperties\":0,\"m_ValidKeywords\":[\"OUTLINE_ON\"],\"m_InvalidKeywords\":[\"_PSDDERIVATIVEAA_ON\"],\"m_LightmapFlags\":4,\"m_EnableInstancingVariants\":false,\"m_DoubleSidedGI\":false,\"m_CustomRenderQueue\":-1,\"stringTagMap\":{},\"disabledShaderPasses\":[],\"m_LockedProperties\":\"\",\"m_SavedProperties\":{\"serializedVersion\":\"3\",\"m_TexEnvs\":[{\"first\":\"_MainTex\",\"second\":{\"m_Texture\":{\"fileID\":3541409228681522780,\"guid\":\"3fc6bed5803208542ba89d3db0575bd8\",\"type\":2},\"m_Scale\":{\"x\":1.0,\"y\":1.0},\"m_Offset\":{\"x\":0.0,\"y\":0.0}}}],\"m_Ints\":[],\"m_Floats\":[{\"first\":\"_ColorMask\",\"second\":15.0},{\"first\":\"_CullMode\",\"second\":0.0},{\"first\":\"_FaceDilate\",\"second\":0.0},{\"first\":\"_GradientScale\",\"second\":25.0},{\"first\":\"_MaskSoftnessX\",\"second\":0.0},{\"first\":\"_MaskSoftnessY\",\"second\":0.0},{\"first\":\"_OutlineSoftness\",\"second\":0.0},{\"first\":\"_OutlineWidth\",\"second\":0.25},{\"first\":\"_PerspectiveFilter\",\"second\":0.875},{\"first\":\"_PsdDerivativeAA\",\"second\":1.0},{\"first\":\"_PsdFaceEdge\",\"second\":1.0},{\"first\":\"_PsdOutlineEdge\",\"second\":1.0},{\"first\":\"_PsdWidthConvention\",\"second\":1.0},{\"first\":\"_ScaleRatioA\",\"second\":0.9599999785423279},{\"first\":\"_ScaleRatioB\",\"second\":1.0},{\"first\":\"_ScaleRatioC\",\"second\":0.8759999871253967},{\"first\":\"_ScaleX\",\"second\":1.0},{\"first\":\"_ScaleY\",\"second\":1.0},{\"first\":\"_ShaderFlags\",\"second\":0.0},{\"first\":\"_Sharpness\",\"second\":0.0},{\"first\":\"_Stencil\",\"second\":0.0},{\"first\":\"_StencilComp\",\"second\":8.0},{\"first\":\"_StencilOp\",\"second\":0.0},{\"first\":\"_StencilReadMask\",\"second\":255.0},{\"first\":\"_StencilWriteMask\",\"second\":255.0},{\"first\":\"_TextureHeight\",\"second\":2048.0},{\"first\":\"_TextureWidth\",\"second\":2048.0},{\"first\":\"_UnderlayDilate\",\"second\":0.0},{\"first\":\"_UnderlayOffsetX\",\"second\":0.0},{\"first\":\"_UnderlayOffsetY\",\"second\":0.0},{\"first\":\"_UnderlaySoftness\",\"second\":0.0},{\"first\":\"_VertexOffsetX\",\"second\":0.0},{\"first\":\"_VertexOffsetY\",\"second\":0.0},{\"first\":\"_WeightBold\",\"second\":0.3499999940395355},{\"first\":\"_WeightNormal\",\"second\":0.0}],\"m_Colors\":[{\"first\":\"_ClipRect\",\"second\":{\"r\":-32767.0,\"g\":-32767.0,\"b\":32767.0,\"a\":32767.0}},{\"first\":\"_FaceColor\",\"second\":{\"r\":0.8431400060653687,\"g\":0.6944800019264221,\"b\":0.45298001170158389,\"a\":1.0}},{\"first\":\"_OutlineColor\",\"second\":{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":1.0}},{\"first\":\"_UnderlayColor\",\"second\":{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":0.5}}]},\"m_BuildTextureStacks\":[],\"m_AllowLocking\":true}}",
+    "probeMaterialJson": "{\"Material\":{\"serializedVersion\":\"8\",\"m_Name\":\"Text Style 10\",\"m_Shader\":{\"fileID\":4800000,\"guid\":\"46d41740b20cd394d9f50254d7250457\",\"type\":3},\"m_Parent\":{\"instanceID\":0},\"m_ModifiedSerializedProperties\":0,\"m_ValidKeywords\":[],\"m_InvalidKeywords\":[\"_PSDDERIVATIVEAA_ON\"],\"m_LightmapFlags\":4,\"m_EnableInstancingVariants\":false,\"m_DoubleSidedGI\":false,\"m_CustomRenderQueue\":-1,\"stringTagMap\":{},\"disabledShaderPasses\":[],\"m_LockedProperties\":\"\",\"m_SavedProperties\":{\"serializedVersion\":\"3\",\"m_TexEnvs\":[{\"first\":\"_MainTex\",\"second\":{\"m_Texture\":{\"instanceID\":0},\"m_Scale\":{\"x\":1.0,\"y\":1.0},\"m_Offset\":{\"x\":0.0,\"y\":0.0}}}],\"m_Ints\":[],\"m_Floats\":[{\"first\":\"_ColorMask\",\"second\":15.0},{\"first\":\"_CullMode\",\"second\":0.0},{\"first\":\"_FaceDilate\",\"second\":0.0},{\"first\":\"_GradientScale\",\"second\":25.0},{\"first\":\"_MaskSoftnessX\",\"second\":0.0},{\"first\":\"_MaskSoftnessY\",\"second\":0.0},{\"first\":\"_OutlineSoftness\",\"second\":0.0},{\"first\":\"_OutlineWidth\",\"second\":0.0},{\"first\":\"_PerspectiveFilter\",\"second\":0.875},{\"first\":\"_PsdDerivativeAA\",\"second\":1.0},{\"first\":\"_PsdFaceEdge\",\"second\":1.0},{\"first\":\"_PsdOutlineEdge\",\"second\":1.0},{\"first\":\"_PsdProbeBoldX\",\"second\":1.5},{\"first\":\"_PsdProbeBoldY\",\"second\":0.5},{\"first\":\"_PsdWidthConvention\",\"second\":1.0},{\"first\":\"_ScaleRatioA\",\"second\":0.9599999785423279},{\"first\":\"_ScaleRatioB\",\"second\":1.0},{\"first\":\"_ScaleRatioC\",\"second\":0.9599999785423279},{\"first\":\"_ScaleX\",\"second\":1.0},{\"first\":\"_ScaleY\",\"second\":1.0},{\"first\":\"_ShaderFlags\",\"second\":0.0},{\"first\":\"_Sharpness\",\"second\":0.0},{\"first\":\"_Stencil\",\"second\":0.0},{\"first\":\"_StencilComp\",\"second\":8.0},{\"first\":\"_StencilOp\",\"second\":0.0},{\"first\":\"_StencilReadMask\",\"second\":255.0},{\"first\":\"_StencilWriteMask\",\"second\":255.0},{\"first\":\"_TextureHeight\",\"second\":2048.0},{\"first\":\"_TextureWidth\",\"second\":2048.0},{\"first\":\"_UnderlayDilate\",\"second\":0.0},{\"first\":\"_UnderlayOffsetX\",\"second\":0.0},{\"first\":\"_UnderlayOffsetY\",\"second\":0.0},{\"first\":\"_UnderlaySoftness\",\"second\":0.0},{\"first\":\"_VertexOffsetX\",\"second\":0.0},{\"first\":\"_VertexOffsetY\",\"second\":0.0},{\"first\":\"_WeightBold\",\"second\":0.0},{\"first\":\"_WeightNormal\",\"second\":0.0}],\"m_Colors\":[{\"first\":\"_ClipRect\",\"second\":{\"r\":-32767.0,\"g\":-32767.0,\"b\":32767.0,\"a\":32767.0}},{\"first\":\"_FaceColor\",\"second\":{\"r\":1.0,\"g\":1.0,\"b\":1.0,\"a\":1.0}},{\"first\":\"_OutlineColor\",\"second\":{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":1.0}},{\"first\":\"_UnderlayColor\",\"second\":{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":0.5}}]},\"m_BuildTextureStacks\":[],\"m_AllowLocking\":true}}",
+    "fontLocalId": 11400000,
+    "generatedFont": true,
+    "sourceSamplingPoint": 96,
+    "sourcePadding": 24,
+    "generatedSamplingPoint": 96,
+    "generatedPadding": 24,
+    "sourceRenderMode": "SDFAA",
+    "generatedRenderMode": "SDFAA",
+    "sourceMeshBoldStyle": 0.75,
+    "actualMeshBoldStyle": 0.0,
+    "meshBoldStyleOverridden": true,
+    "directionalBoldEnabled": true,
+    "directionalBoldX": 1.5,
+    "directionalBoldY": 0.5,
+    "alignmentOffsetPsd": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "alignmentOffsetAnchored": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "before": {
+        "text": "Hell",
+        "fontStyle": "Bold",
+        "fontSize": 48.0,
+        "characterSpacing": 5.990466594696045,
+        "anchoredPosition": {
+            "x": -0.2003173828125,
+            "y": -17.335708618164064
+        },
+        "fontFeatures": [],
+        "glyphs": [
+            {
+                "index": 0,
+                "unicode": 72,
+                "glyphIndex": 41,
+                "visible": true,
+                "originPsd": {
+                    "x": 652.7996826171875,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 688.8397827148438,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 640.2996826171875,
+                    "y": 149.491943359375
+                },
+                "quadTopRightPsd": {
+                    "x": 693.4246826171875,
+                    "y": 94.671630859375
+                },
+                "scale": 0.5,
+                "metricWidth": 56.25,
+                "metricHeight": 68.640625,
+                "metricAdvance": 59.609375
+            },
+            {
+                "index": 1,
+                "unicode": 101,
+                "glyphIndex": 70,
+                "visible": true,
+                "originPsd": {
+                    "x": 688.8397827148438,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 714.8486328125,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 677.1522827148438,
+                    "y": 149.781005859375
+                },
+                "quadTopRightPsd": {
+                    "x": 719.8710327148438,
+                    "y": 105.421630859375
+                },
+                "scale": 0.5,
+                "metricWidth": 35.4375,
+                "metricHeight": 47.71875,
+                "metricAdvance": 39.546875
+            },
+            {
+                "index": 2,
+                "unicode": 108,
+                "glyphIndex": 77,
+                "visible": true,
+                "originPsd": {
+                    "x": 714.8486328125,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 735.1934814453125,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 702.9267578125,
+                    "y": 152.898193359375
+                },
+                "quadTopRightPsd": {
+                    "x": 740.4033203125,
+                    "y": 91.210693359375
+                },
+                "scale": 0.5,
+                "metricWidth": 24.953125,
+                "metricHeight": 82.375,
+                "metricAdvance": 28.21875
+            },
+            {
+                "index": 3,
+                "unicode": 108,
+                "glyphIndex": 77,
+                "visible": true,
+                "originPsd": {
+                    "x": 735.1934814453125,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 755.5382080078125,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 723.2716064453125,
+                    "y": 152.898193359375
+                },
+                "quadTopRightPsd": {
+                    "x": 760.7481689453125,
+                    "y": 91.210693359375
+                },
+                "scale": 0.5,
+                "metricWidth": 24.953125,
+                "metricHeight": 82.375,
+                "metricAdvance": 28.21875
+            }
+        ]
+    },
+    "unaligned": {
+        "text": "Hell",
+        "fontStyle": "Bold",
+        "fontSize": 48.0,
+        "characterSpacing": 5.990466594696045,
+        "anchoredPosition": {
+            "x": -0.2003173828125,
+            "y": -17.335708618164064
+        },
+        "fontFeatures": [],
+        "glyphs": [
+            {
+                "index": 0,
+                "unicode": 72,
+                "glyphIndex": 41,
+                "visible": true,
+                "originPsd": {
+                    "x": 652.7996826171875,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 688.8397827148438,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 640.2996826171875,
+                    "y": 151.741943359375
+                },
+                "quadTopRightPsd": {
+                    "x": 693.4246826171875,
+                    "y": 92.421630859375
+                },
+                "scale": 0.5,
+                "metricWidth": 56.25,
+                "metricHeight": 68.640625,
+                "metricAdvance": 59.609375
+            },
+            {
+                "index": 1,
+                "unicode": 101,
+                "glyphIndex": 70,
+                "visible": true,
+                "originPsd": {
+                    "x": 688.8397827148438,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 714.8486328125,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 677.1522827148438,
+                    "y": 152.031005859375
+                },
+                "quadTopRightPsd": {
+                    "x": 719.8710327148438,
+                    "y": 103.171630859375
+                },
+                "scale": 0.5,
+                "metricWidth": 35.4375,
+                "metricHeight": 47.71875,
+                "metricAdvance": 39.546875
+            },
+            {
+                "index": 2,
+                "unicode": 108,
+                "glyphIndex": 77,
+                "visible": true,
+                "originPsd": {
+                    "x": 714.8486328125,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 735.1934814453125,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 702.9267578125,
+                    "y": 155.148193359375
+                },
+                "quadTopRightPsd": {
+                    "x": 740.4033203125,
+                    "y": 88.960693359375
+                },
+                "scale": 0.5,
+                "metricWidth": 24.953125,
+                "metricHeight": 82.375,
+                "metricAdvance": 28.21875
+            },
+            {
+                "index": 3,
+                "unicode": 108,
+                "glyphIndex": 77,
+                "visible": true,
+                "originPsd": {
+                    "x": 735.1934814453125,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 755.5382080078125,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 723.2716064453125,
+                    "y": 155.148193359375
+                },
+                "quadTopRightPsd": {
+                    "x": 760.7481689453125,
+                    "y": 88.960693359375
+                },
+                "scale": 0.5,
+                "metricWidth": 24.953125,
+                "metricHeight": 82.375,
+                "metricAdvance": 28.21875
+            }
+        ]
+    },
+    "after": {
+        "text": "Hell",
+        "fontStyle": "Bold",
+        "fontSize": 48.0,
+        "characterSpacing": 5.990466594696045,
+        "anchoredPosition": {
+            "x": -0.2003173828125,
+            "y": -17.335708618164064
+        },
+        "fontFeatures": [],
+        "glyphs": [
+            {
+                "index": 0,
+                "unicode": 72,
+                "glyphIndex": 41,
+                "visible": true,
+                "originPsd": {
+                    "x": 652.7996826171875,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 688.8397827148438,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 640.2996826171875,
+                    "y": 151.741943359375
+                },
+                "quadTopRightPsd": {
+                    "x": 693.4246826171875,
+                    "y": 92.421630859375
+                },
+                "scale": 0.5,
+                "metricWidth": 56.25,
+                "metricHeight": 68.640625,
+                "metricAdvance": 59.609375
+            },
+            {
+                "index": 1,
+                "unicode": 101,
+                "glyphIndex": 70,
+                "visible": true,
+                "originPsd": {
+                    "x": 688.8397827148438,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 714.8486328125,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 677.1522827148438,
+                    "y": 152.031005859375
+                },
+                "quadTopRightPsd": {
+                    "x": 719.8710327148438,
+                    "y": 103.171630859375
+                },
+                "scale": 0.5,
+                "metricWidth": 35.4375,
+                "metricHeight": 47.71875,
+                "metricAdvance": 39.546875
+            },
+            {
+                "index": 2,
+                "unicode": 108,
+                "glyphIndex": 77,
+                "visible": true,
+                "originPsd": {
+                    "x": 714.8486328125,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 735.1934814453125,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 702.9267578125,
+                    "y": 155.148193359375
+                },
+                "quadTopRightPsd": {
+                    "x": 740.4033203125,
+                    "y": 88.960693359375
+                },
+                "scale": 0.5,
+                "metricWidth": 24.953125,
+                "metricHeight": 82.375,
+                "metricAdvance": 28.21875
+            },
+            {
+                "index": 3,
+                "unicode": 108,
+                "glyphIndex": 77,
+                "visible": true,
+                "originPsd": {
+                    "x": 735.1934814453125,
+                    "y": 139.335693359375
+                },
+                "advancePsd": {
+                    "x": 755.5382080078125,
+                    "y": 139.335693359375
+                },
+                "quadBottomLeftPsd": {
+                    "x": 723.2716064453125,
+                    "y": 155.148193359375
+                },
+                "quadTopRightPsd": {
+                    "x": 760.7481689453125,
+                    "y": 88.960693359375
+                },
+                "scale": 0.5,
+                "metricWidth": 24.953125,
+                "metricHeight": 82.375,
+                "metricAdvance": 28.21875
+            }
+        ]
+    }
+}

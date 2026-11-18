@@ -1,0 +1,35 @@
+{
+  "createdUtc": "2026-11-16T02:44:05.397375+00:00",
+  "photoshopVersion": "22.0.0",
+  "source": "Assets\\Psd\\战斗-主菜单界面.psd",
+  "sourceHashes": {
+    "Assets\\Psd\\战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+    "Assets\\Psd\\战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8",
+    "Assets\\AAGame\\UI\\Fonts\\Toxia_FRE.ttf": "3d03ec037a0386e02f3f8bfa58e1639c1856fe497ab1137ce174ebbb74c60dc2"
+  },
+  "layerId": 1058,
+  "name": "Hell",
+  "text": "Hell",
+  "actualFont": "TOXIA",
+  "fontAvailable": true,
+  "mode": "cached",
+  "origin": [
+    652.79970106887,
+    139.335709305702
+  ],
+  "fontSize": 48.0,
+  "tracking": 100.0,
+  "sourceFauxBold": true,
+  "fauxBold": true,
+  "antiAlias": "AntiAlias.SHARP",
+  "bounds": [
+    653.0,
+    101.0,
+    750.0,
+    143.0
+  ],
+  "hasEffects": false,
+  "png": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-ps-1058-cached.png",
+  "pngSha256": "cf9c36e8b42df2361d39be53e8398f6b577c253e14042a69d94a9d917ee1e983",
+  "note": "原位透明 PNG；Alpha 用于字面覆盖率，普通与粗体可能有不同字符 advance，未平移或拉伸"
+}

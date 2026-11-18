@@ -1,0 +1,1 @@
+{"name":"PsdUiWorkbench.Presentation","rootNamespace":"PsdUiWorkbench","references":["PsdUiWorkbench.Core","PsdUiWorkbench.Infrastructure","PsdUiWorkbench.AiNaming"],"includePlatforms":["Editor"],"autoReferenced":true}

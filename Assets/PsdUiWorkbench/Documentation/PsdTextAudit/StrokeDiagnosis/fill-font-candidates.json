@@ -1,0 +1,128 @@
+[
+  {
+    "candidate": "fill-tmp-1058-w000",
+    "reference": "fill-ps-1058-normal",
+    "coverage": 508.4941176470589,
+    "referenceCoverage": 555.1333333333333,
+    "iou50": 0.8576449912126538,
+    "L1": 88.52941176470588,
+    "bbox50": [
+      653,
+      106,
+      681,
+      138
+    ],
+    "alignmentOffset": null,
+    "sourceOrigin": {
+      "x": 652.7996826171875,
+      "y": 139.335693359375
+    }
+  },
+  {
+    "candidate": "fill-h-p48-aa-w000",
+    "reference": "fill-ps-1058-normal",
+    "coverage": 498.3843137254902,
+    "referenceCoverage": 555.1333333333333,
+    "iou50": 0.8006932409012132,
+    "L1": 118.70196078431371,
+    "bbox50": [
+      654,
+      107,
+      680,
+      138
+    ],
+    "alignmentOffset": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "sourceOrigin": {
+      "x": 652.7996826171875,
+      "y": 139.335693359375
+    }
+  },
+  {
+    "candidate": "fill-h-p48-hinted-w000",
+    "reference": "fill-ps-1058-normal",
+    "coverage": 512.6823529411765,
+    "referenceCoverage": 555.1333333333333,
+    "iou50": 0.8877005347593583,
+    "L1": 71.42352941176472,
+    "bbox50": [
+      654,
+      106,
+      681,
+      138
+    ],
+    "alignmentOffset": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "sourceOrigin": {
+      "x": 652.7996826171875,
+      "y": 139.335693359375
+    }
+  },
+  {
+    "candidate": "fill-tmp-1058-w035",
+    "reference": "fill-ps-1058-bold",
+    "coverage": 673.3960784313726,
+    "referenceCoverage": 666.6666666666667,
+    "iou50": 0.7986486486486486,
+    "L1": 156.10980392156864,
+    "bbox50": [
+      652,
+      105,
+      682,
+      139
+    ],
+    "alignmentOffset": null,
+    "sourceOrigin": {
+      "x": 652.7996826171875,
+      "y": 139.335693359375
+    }
+  },
+  {
+    "candidate": "fill-h-p48-aa-w035",
+    "reference": "fill-ps-1058-bold",
+    "coverage": 658.2666666666667,
+    "referenceCoverage": 666.6666666666667,
+    "iou50": 0.7567204301075269,
+    "L1": 186.0862745098039,
+    "bbox50": [
+      652,
+      106,
+      681,
+      138
+    ],
+    "alignmentOffset": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "sourceOrigin": {
+      "x": 652.7996826171875,
+      "y": 139.335693359375
+    }
+  },
+  {
+    "candidate": "fill-h-p48-hinted-w035",
+    "reference": "fill-ps-1058-bold",
+    "coverage": 675.929411764706,
+    "referenceCoverage": 666.6666666666667,
+    "iou50": 0.8235294117647058,
+    "L1": 132.14117647058825,
+    "bbox50": [
+      652,
+      105,
+      682,
+      139
+    ],
+    "alignmentOffset": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "sourceOrigin": {
+      "x": 652.7996826171875,
+      "y": 139.335693359375
+    }
+  }
+]

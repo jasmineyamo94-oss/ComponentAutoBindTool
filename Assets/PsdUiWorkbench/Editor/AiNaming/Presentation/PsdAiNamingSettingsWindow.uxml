@@ -1,0 +1,34 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Style src="PsdAiNamingSettingsWindow.uss" />
+    <ui:VisualElement name="settingsRoot" class="ai-settings-root">
+        <ui:Label text="AI 命名设置" class="ai-settings-title" />
+        <ui:Label name="busyStatus" text="命名任务进行中，配置暂不可编辑。请在工作台等待完成或取消任务。" class="ai-settings-wrap ai-settings-hidden" />
+        <ui:ScrollView name="settingsScroll" class="ai-settings-scroll" mode="Vertical">
+            <ui:VisualElement name="settingsContent">
+                <uie:ObjectField name="settingsAsset" label="设置资产" />
+                <ui:Label name="assetStatus" class="ai-settings-wrap" />
+                <ui:VisualElement class="ai-settings-toolbar">
+                    <ui:Button name="createSettings" text="创建／使用默认设置" />
+                    <ui:Button name="saveSettings" text="保存设置／另存临时设置" />
+                </ui:VisualElement>
+                <ui:Label text="模型与命名" class="ai-settings-section" />
+                <uie:EnumField name="provider" label="供应商" />
+                <ui:DropdownField name="modelChoice" label="服务模型" />
+                <ui:TextField name="model" label="手动型号" />
+                <ui:Label name="modelHelp" class="ai-settings-wrap" />
+                <uie:EnumField name="effort" label="推理强度" />
+                <ui:IntegerField name="timeout" label="超时（秒）" />
+                <ui:TextField name="rules" label="命名规则" multiline="true" class="ai-settings-rules" />
+                <ui:Button name="refreshModels" text="显式刷新服务模型列表" />
+                <ui:Label name="modelStatus" class="ai-settings-wrap" />
+                <ui:Label text="本机凭据" class="ai-settings-section" />
+                <ui:Label name="credentialStatus" class="ai-settings-wrap" />
+                <ui:Label name="credentialDisclaimer" text="状态仅表示已检测到配置，未联网验证有效性。" class="ai-settings-wrap" />
+                <ui:Label text="凭据仅用于当前供应商，彼此独立。不回显已存 Key，只有更换时才输入并明确保存；不输入则保留现有凭据。Key 不会写入设置资产。" class="ai-settings-wrap" />
+                <ui:TextField name="key" label="新的本机 Key" is-password-field="true" />
+                <ui:Button name="saveKey" text="保存新的本机 Key" />
+            </ui:VisualElement>
+            <ui:Label name="notice" class="ai-settings-wrap ai-settings-hidden" />
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>

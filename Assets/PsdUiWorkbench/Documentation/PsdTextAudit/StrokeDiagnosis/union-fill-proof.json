@@ -1,0 +1,41 @@
+[
+  {
+    "text": "Energy Level",
+    "baseline": {
+      "changedPixels": 17,
+      "maxDifference": 116,
+      "meanDifference": 0.038171262699564584
+    },
+    "prototype": {
+      "changedPixels": 0,
+      "maxDifference": 0,
+      "meanDifference": 0.0
+    }
+  },
+  {
+    "text": "Hell",
+    "baseline": {
+      "changedPixels": 0,
+      "maxDifference": 0,
+      "meanDifference": 0.0
+    },
+    "prototype": {
+      "changedPixels": 0,
+      "maxDifference": 0,
+      "meanDifference": 0.0
+    }
+  },
+  {
+    "text": "Backpack",
+    "baseline": {
+      "changedPixels": 5,
+      "maxDifference": 31,
+      "meanDifference": 0.006212121212121212
+    },
+    "prototype": {
+      "changedPixels": 0,
+      "maxDifference": 0,
+      "meanDifference": 0.0
+    }
+  }
+]

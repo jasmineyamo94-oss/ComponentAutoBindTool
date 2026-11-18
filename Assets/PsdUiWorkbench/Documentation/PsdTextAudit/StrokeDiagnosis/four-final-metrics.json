@@ -1,0 +1,197 @@
+[
+  {
+    "id": 937,
+    "text": "5",
+    "psFaceArea": 309.4713126821534,
+    "before": {
+      "faceError": 34.15897786325955,
+      "outerError": 40.79607843137255,
+      "faceArea": 306.74117647058824
+    },
+    "after": {
+      "faceError": 34.30245634152114,
+      "outerError": 38.40784313725491,
+      "faceArea": 331.35686274509806
+    }
+  },
+  {
+    "id": 948,
+    "text": "4",
+    "psFaceArea": 323.8971152126063,
+    "before": {
+      "faceError": 45.45921577908528,
+      "outerError": 38.86666666666667,
+      "faceArea": 331.156862745098
+    },
+    "after": {
+      "faceError": 46.723586725681244,
+      "outerError": 40.76078431372549,
+      "faceArea": 358.9254901960784
+    }
+  },
+  {
+    "id": 959,
+    "text": "3",
+    "psFaceArea": 282.27128534872895,
+    "before": {
+      "faceError": 43.3626185420618,
+      "outerError": 49.015686274509804,
+      "faceArea": 283.54901960784315
+    },
+    "after": {
+      "faceError": 42.90431456993746,
+      "outerError": 49.13333333333334,
+      "faceArea": 307.5372549019608
+    }
+  },
+  {
+    "id": 969,
+    "text": "5",
+    "psFaceArea": 309.4713126821534,
+    "before": {
+      "faceError": 34.48213094043647,
+      "outerError": 39.25882352941177,
+      "faceArea": 305.7607843137255
+    },
+    "after": {
+      "faceError": 34.30872169573899,
+      "outerError": 37.439215686274515,
+      "faceArea": 331.7725490196079
+    }
+  },
+  {
+    "id": 979,
+    "text": "Backpack",
+    "psFaceArea": 2162.734649115497,
+    "before": {
+      "faceError": 496.81588427516976,
+      "outerError": 383.5529411764706,
+      "faceArea": 2012.0196078431377
+    },
+    "after": {
+      "faceError": 484.50587679736714,
+      "outerError": 371.03137254901964,
+      "faceArea": 2172.5882352941176
+    }
+  },
+  {
+    "id": 994,
+    "text": "Emergency",
+    "psFaceArea": 2280.20146400488,
+    "before": {
+      "faceError": 424.5375020138955,
+      "outerError": 310.02352941176474,
+      "faceArea": 2099.0901960784313
+    },
+    "after": {
+      "faceError": 395.509735921342,
+      "outerError": 299.0078431372549,
+      "faceArea": 2272.9176470588236
+    }
+  },
+  {
+    "id": 1001,
+    "text": "60",
+    "psFaceArea": 550.8729052685526,
+    "before": {
+      "faceError": 99.86123899242315,
+      "outerError": 83.9607843137255,
+      "faceArea": 515.6313725490196
+    },
+    "after": {
+      "faceError": 93.0350529832569,
+      "outerError": 80.37647058823529,
+      "faceArea": 548.3333333333334
+    }
+  },
+  {
+    "id": 1008,
+    "text": "60",
+    "psFaceArea": 550.8640448132039,
+    "before": {
+      "faceError": 100.1676629106064,
+      "outerError": 85.4235294117647,
+      "faceArea": 513.8666666666668
+    },
+    "after": {
+      "faceError": 94.61322666981994,
+      "outerError": 80.41568627450981,
+      "faceArea": 547.9882352941177
+    }
+  },
+  {
+    "id": 1057,
+    "text": "16  4Zombie  ",
+    "psFaceArea": 3709.862804753769,
+    "before": {
+      "faceError": 715.6517056356527,
+      "outerError": 616.0392156862745,
+      "faceArea": 3523.019607843137
+    },
+    "after": {
+      "faceError": 675.250980659243,
+      "outerError": 583.6078431372548,
+      "faceArea": 3783.701960784314
+    }
+  },
+  {
+    "id": 1058,
+    "text": "Hell",
+    "psFaceArea": 1615.9871188969162,
+    "before": {
+      "faceError": 347.6145853792054,
+      "outerError": 347.60392156862747,
+      "faceArea": 1545.2313725490196
+    },
+    "after": {
+      "faceError": 342.3693461808724,
+      "outerError": 332.78823529411767,
+      "faceArea": 1643.2509803921569
+    }
+  },
+  {
+    "id": 1081,
+    "text": "43",
+    "psFaceArea": 672.3142740900745,
+    "before": {
+      "faceError": 117.29648092544156,
+      "outerError": 104.81176470588235,
+      "faceArea": 615.1960784313726
+    },
+    "after": {
+      "faceError": 109.23097617941932,
+      "outerError": 96.54509803921567,
+      "faceArea": 667.7098039215687
+    }
+  },
+  {
+    "id": 1090,
+    "text": "0",
+    "psFaceArea": 566.2668808896029,
+    "before": {
+      "faceError": 93.52106951467616,
+      "outerError": 88.42745098039215,
+      "faceArea": 590.9490196078432
+    },
+    "after": {
+      "faceError": 91.44811127148202,
+      "outerError": 83.9921568627451,
+      "faceArea": 625.6901960784314
+    }
+  },
+  {
+    "id": 1091,
+    "text": "Energy Level",
+    "psFaceArea": 2129.5919405307013,
+    "before": {
+      "faceError": 347.72116632391294,
+      "outerError": 330.45490196078435,
+      "faceArea": 1940.8470588235293
+    },
+    "after": {
+      "faceError": 305.49807142906405,
+      "outerError": 290.8470588235294,
+      "faceArea": 2089.2784313725488
+    }
+  }
+]

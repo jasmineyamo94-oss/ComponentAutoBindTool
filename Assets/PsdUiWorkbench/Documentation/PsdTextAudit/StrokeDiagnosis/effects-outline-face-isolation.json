@@ -1,0 +1,26 @@
+{
+  "baseline": {
+    "faceL1WhenAddingOutline": 0.0,
+    "maximum8BitDifference": 0.0,
+    "withOutlineFaceCoverage": 673.3960784313725,
+    "withoutOutlineFaceCoverage": 673.3960784313725,
+    "rect": [
+      645,
+      90,
+      685,
+      150
+    ]
+  },
+  "direction": {
+    "faceL1WhenAddingOutline": 0.0,
+    "maximum8BitDifference": 0.0,
+    "withOutlineFaceCoverage": 650.0705882352942,
+    "withoutOutlineFaceCoverage": 650.0705882352942,
+    "rect": [
+      645,
+      90,
+      685,
+      150
+    ]
+  }
+}

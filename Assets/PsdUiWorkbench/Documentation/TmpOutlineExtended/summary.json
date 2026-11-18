@@ -1,0 +1,335 @@
+{
+  "rowCount": 3024,
+  "completedBatches": 27,
+  "failedAttempts": [
+    {
+      "path": "Assets/PsdUiWorkbench/Documentation/TmpOutlineExtended\\SDFAA-14-missing-glyph.json",
+      "diagnostics": [
+        "InvalidOperationException: 缺少测试字符：鬱"
+      ]
+    }
+  ],
+  "fontFiles": 15,
+  "families": 12,
+  "modes": {
+    "SDFAA": {
+      "rows": 2880,
+      "expressible": 1440,
+      "unexpressible": 1440,
+      "legalShadow": 1440,
+      "maxLegalShadowError": 8.042412105169205e-07,
+      "maxInnerEquationError": 2.7509836186823122e-08,
+      "maxOutlineEquationError": 1.280568540096283e-08
+    },
+    "SDF16": {
+      "rows": 96,
+      "expressible": 64,
+      "unexpressible": 32,
+      "legalShadow": 64,
+      "maxLegalShadowError": 0.0,
+      "maxInnerEquationError": 0.0,
+      "maxOutlineEquationError": 1.280568540096283e-08
+    }
+  },
+  "baseComparisons": [
+    {
+      "spacing": 0,
+      "strokePx": 1,
+      "rows": 300,
+      "maxFaceError": 0.37615224719047546,
+      "worstFont": "cour",
+      "worstFontSize": 16,
+      "maxFaceMaskBoundsShift": 7.0,
+      "maxOuterBoundsAverageError": 1.75
+    },
+    {
+      "spacing": 0,
+      "strokePx": 2,
+      "rows": 180,
+      "maxFaceError": 0.0007684837328270078,
+      "worstFont": "Toxia_FRE",
+      "worstFontSize": 32,
+      "maxFaceMaskBoundsShift": 0.0,
+      "maxOuterBoundsAverageError": 0.5
+    },
+    {
+      "spacing": 0,
+      "strokePx": 3,
+      "rows": 180,
+      "maxFaceError": 0.010416754521429539,
+      "worstFont": "Toxia_FRE",
+      "worstFontSize": 32,
+      "maxFaceMaskBoundsShift": 0.0,
+      "maxOuterBoundsAverageError": 0.5
+    },
+    {
+      "spacing": 0,
+      "strokePx": 5,
+      "rows": 60,
+      "maxFaceError": 0.001961572328582406,
+      "worstFont": "Toxia_FRE",
+      "worstFontSize": 64,
+      "maxFaceMaskBoundsShift": 0.0,
+      "maxOuterBoundsAverageError": 0.5
+    },
+    {
+      "spacing": 100,
+      "strokePx": 1,
+      "rows": 300,
+      "maxFaceError": 0.37619179487228394,
+      "worstFont": "cour",
+      "worstFontSize": 16,
+      "maxFaceMaskBoundsShift": 7.0,
+      "maxOuterBoundsAverageError": 1.75
+    },
+    {
+      "spacing": 100,
+      "strokePx": 2,
+      "rows": 180,
+      "maxFaceError": 0.0,
+      "worstFont": "Toxia_FRE",
+      "worstFontSize": 64,
+      "maxFaceMaskBoundsShift": 0.0,
+      "maxOuterBoundsAverageError": 0.5
+    },
+    {
+      "spacing": 100,
+      "strokePx": 3,
+      "rows": 180,
+      "maxFaceError": 9.024471978591464e-07,
+      "worstFont": "arial",
+      "worstFontSize": 64,
+      "maxFaceMaskBoundsShift": 0.0,
+      "maxOuterBoundsAverageError": 0.5
+    },
+    {
+      "spacing": 100,
+      "strokePx": 5,
+      "rows": 60,
+      "maxFaceError": 9.024464020512823e-07,
+      "worstFont": "arial",
+      "worstFontSize": 64,
+      "maxFaceMaskBoundsShift": 0.0,
+      "maxOuterBoundsAverageError": 0.5
+    }
+  ],
+  "sharpness": [
+    {
+      "value": 0.5,
+      "rows": 24,
+      "maxMatchedBaselineError": 1.3340082887225435e-06,
+      "maxOriginalBaselineError": 0.20626679062843323,
+      "minBaselineChange": 0.05290272831916809
+    },
+    {
+      "value": 1,
+      "rows": 24,
+      "maxMatchedBaselineError": 1.1491148370623705e-06,
+      "maxOriginalBaselineError": 0.33824703097343445,
+      "minBaselineChange": 0.08046016097068787
+    }
+  ],
+  "fonts": [
+    {
+      "index": 0,
+      "label": "TOXIA",
+      "sample": "Hig8O",
+      "family": "TOXIA",
+      "style": "Regular",
+      "sourcePath": "Assets/AAGame/UI/Fonts/Toxia_FRE.ttf",
+      "sha256": "3d03ec037a0386e02f3f8bfa58e1639c1856fe497ab1137ce174ebbb74c60dc2",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.15396401286125183,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 1,
+      "label": "Liberation Sans",
+      "sample": "Hig8O",
+      "family": "Liberation Sans",
+      "style": "Regular",
+      "sourcePath": "Assets/Third Party/ComponentAutoBindTool/Example/TextMesh Pro/Fonts/LiberationSans.ttf",
+      "sha256": "e5b0af421ea2bfbc1ac8d251d647268087ae82786234c57f757d1f0b90fa8b49",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.23246121406555176,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 2,
+      "label": "Noto Sans CJK SC",
+      "sample": "H永国鬱田",
+      "family": "Noto Sans CJK SC",
+      "style": "Regular",
+      "sourcePath": "Assets/Third Party/ComponentAutoBindTool/Example/Fonts/NotoSansCJKsc-Regular.otf",
+      "sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.22109533846378326,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 3,
+      "label": "Arial Regular",
+      "sample": "Hig8O",
+      "family": "Arial",
+      "style": "Regular",
+      "sourcePath": "C:/Windows/Fonts/arial.ttf",
+      "sha256": "c9b76220a5be42ead4733611e417cd65c5fd8aeaa33eb56576ac378a37d130a1",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.22111472487449646,
+      "maxWideSeparatedFaceError": 9.024471978591464e-07
+    },
+    {
+      "index": 4,
+      "label": "Arial Bold",
+      "sample": "Hig8O",
+      "family": "Arial",
+      "style": "Bold",
+      "sourcePath": "C:/Windows/Fonts/arialbd.ttf",
+      "sha256": "766f06ac8761f82f25d032a220e89438f6064591af9915061f20b949efdedf69",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.14970920979976654,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 5,
+      "label": "Arial Italic",
+      "sample": "Hig8O",
+      "family": "Arial",
+      "style": "Italic",
+      "sourcePath": "C:/Windows/Fonts/ariali.ttf",
+      "sha256": "79a5742b865cf06891d4ae43e42cac0e5169c7b7b06b5b3c24ef8e0966d27b62",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.225955992937088,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 6,
+      "label": "Times New Roman",
+      "sample": "Hig8O",
+      "family": "Times New Roman",
+      "style": "Regular",
+      "sourcePath": "C:/Windows/Fonts/times.ttf",
+      "sha256": "2cff2a03d8034801979dd6d16f09b9a825c3d710fcf068f2ebfbf0e1425c87cf",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.28361865878105164,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 7,
+      "label": "Courier New",
+      "sample": "Hig8O",
+      "family": "Courier New",
+      "style": "Regular",
+      "sourcePath": "C:/Windows/Fonts/cour.ttf",
+      "sha256": "93c3ff526c19d03496c01c6a1bfd1031f97af021a13e859a89dfc717a0b6b6ec",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.37619179487228394,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 8,
+      "label": "Segoe UI Light",
+      "sample": "Hig8O",
+      "family": "Segoe UI",
+      "style": "Light",
+      "sourcePath": "C:/Windows/Fonts/segoeuil.ttf",
+      "sha256": "1a2231bbd4fad4a3ac8c0b8a93af0bce58324a8b3605df16038a9e660a0c072a",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.36467939615249634,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 9,
+      "label": "DengXian Light",
+      "sample": "H永国鬱田",
+      "family": "DengXian",
+      "style": "Light",
+      "sourcePath": "C:/Windows/Fonts/Dengl.ttf",
+      "sha256": "3ae7cf364a29b9da69eff7333decb88e577c262c5847df2510e37695e25a8395",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.3395567834377289,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 10,
+      "label": "DengXian Bold",
+      "sample": "H永国鬱田",
+      "family": "DengXian",
+      "style": "Bold",
+      "sourcePath": "C:/Windows/Fonts/Dengb.ttf",
+      "sha256": "236df24be867e527bdf810d00eb5c38f18244e776238a9f5ca937363267a9169",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.18259495496749878,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 11,
+      "label": "SimSun face 0",
+      "sample": "H永国鬱田",
+      "family": "SimSun",
+      "style": "Regular",
+      "sourcePath": "C:/Windows/Fonts/simsun.ttc",
+      "sha256": "120a51d2b14eb588700a21e15fc301f0ea55d7c1a4e1f3ae61db83b7c8d42cd6",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.3213101923465729,
+      "maxWideSeparatedFaceError": 0.0
+    },
+    {
+      "index": 12,
+      "label": "SimHei",
+      "sample": "H永国鬱田",
+      "family": "SimHei",
+      "style": "Regular",
+      "sourcePath": "C:/Windows/Fonts/simhei.ttf",
+      "sha256": "aa4560dd8fe5645745fed3ffa301c3ca4d6c03cbd738145b613303961ba733b8",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.22852657735347748,
+      "maxWideSeparatedFaceError": 8.945611398303299e-07
+    },
+    {
+      "index": 13,
+      "label": "KaiTi",
+      "sample": "H永国鬱田",
+      "family": "KaiTi",
+      "style": "Regular",
+      "sourcePath": "C:/Windows/Fonts/simkai.ttf",
+      "sha256": "9dd76f7ab430edd091db24c3f18e71410325c1414141aad5fe67947873ffba06",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.2736358940601349,
+      "maxWideSeparatedFaceError": 6.212464427335362e-07
+    },
+    {
+      "index": 14,
+      "label": "Source Han Serif SC Heavy",
+      "sample": "H永国田",
+      "family": "Source Han Serif SC",
+      "style": "Heavy",
+      "sourcePath": "C:/Windows/Fonts/Source Han Serif SC Heavy (TrueType).ttf",
+      "sha256": "152bc1c4535b8bcb6ec52e0aa4563bced6f43206c59ba32fbfa34a6a192a8304",
+      "rows": 192,
+      "expressible": 96,
+      "maxThinSeparatedFaceError": 0.17018665373325348,
+      "maxWideSeparatedFaceError": 0.0
+    }
+  ],
+  "sourceFilesUnchanged": 15,
+  "qa": {
+    "fallbackRows": 0,
+    "clippedRows": 0,
+    "emptyBaselineMasks": 0
+  }
+}

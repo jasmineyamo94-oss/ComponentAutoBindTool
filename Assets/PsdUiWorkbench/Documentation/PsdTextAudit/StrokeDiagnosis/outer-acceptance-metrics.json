@@ -1,0 +1,32 @@
+[
+  {
+    "layer": "Zombie",
+    "render": "final",
+    "fillAreaRatio": 1.0283269401003245
+  },
+  {
+    "layer": "Zombie",
+    "render": "outer-acceptance",
+    "fillAreaRatio": 1.0746532900560637
+  },
+  {
+    "layer": "Hell",
+    "render": "final",
+    "fillAreaRatio": 1.035220994475138
+  },
+  {
+    "layer": "Hell",
+    "render": "outer-acceptance",
+    "fillAreaRatio": 1.0773480662983426
+  },
+  {
+    "layer": "Energy",
+    "render": "final",
+    "fillAreaRatio": 0.9793365959760739
+  },
+  {
+    "layer": "Energy",
+    "render": "outer-acceptance",
+    "fillAreaRatio": 1.0500271886895052
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "AssetPath": "Assets/PsdUiWorkbench/Exports/战斗-主菜单界面_TMP 1.prefab",
+  "TextLayers": 19,
+  "TextComponents": 27,
+  "PlaceholderRuns": 6,
+  "ImageCount": 32,
+  "CacheVersion": 2,
+  "CachedTextLayers": 20,
+  "KnownRunsWithKerning": 21,
+  "GraphicCount": 59,
+  "MaterialCount": 14,
+  "Screenshot": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/tmp-export-render.png",
+  "ContentActive": true,
+  "SourceUnchangedSinceAudit": true,
+  "MetaUnchangedSinceAudit": true,
+  "SpriteReferencesStableAfterReimport": true,
+  "ImportSettingsStableAfterReimport": true,
+  "VisualTarget": 98,
+  "MeasuredVisualScore": null
+}

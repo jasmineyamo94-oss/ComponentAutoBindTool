@@ -1,0 +1,15 @@
+{
+  "Path": "Assets/PsdUiWorkbench/Exports/单Pass邻字合成静态原型.prefab",
+  "TextComponents": 27,
+  "UnionComponents": 21,
+  "PassCounts": [
+    1
+  ],
+  "Materials": 22,
+  "MetadataTextures": 21,
+  "MetadataPersistent": true,
+  "Graphics": 59,
+  "Canvas": 1,
+  "RuntimeToolScripts": 0,
+  "Screenshot": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/union-static-reloaded.png"
+}

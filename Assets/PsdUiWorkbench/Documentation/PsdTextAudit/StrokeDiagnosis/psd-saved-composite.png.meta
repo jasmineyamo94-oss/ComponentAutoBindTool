@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: ccfa056acc3a14b459417aa81dc4e5e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9096407433668538881
+    second: psd-saved-composite_0
+  - first:
+      213: -5536285771383916253
+    second: psd-saved-composite_1
+  - first:
+      213: -4518871219546408963
+    second: psd-saved-composite_2
+  - first:
+      213: 6487733005931286553
+    second: psd-saved-composite_3
+  - first:
+      213: 5736814836526881607
+    second: psd-saved-composite_4
+  - first:
+      213: 560175832837827896
+    second: psd-saved-composite_5
+  - first:
+      213: -7432765378081115401
+    second: psd-saved-composite_6
+  - first:
+      213: -5388973147759785912
+    second: psd-saved-composite_7
+  - first:
+      213: -9111528837688601902
+    second: psd-saved-composite_8
+  - first:
+      213: 5706419347990957295
+    second: psd-saved-composite_9
+  - first:
+      213: 5949247565838004287
+    second: psd-saved-composite_10
+  - first:
+      213: 76850121931700092
+    second: psd-saved-composite_11
+  - first:
+      213: 1466519725000938390
+    second: psd-saved-composite_12
+  - first:
+      213: 7563649075578767492
+    second: psd-saved-composite_13
+  - first:
+      213: -5697286800919069210
+    second: psd-saved-composite_14
+  - first:
+      213: -7539390346701263429
+    second: psd-saved-composite_15
+  - first:
+      213: 7436572562501234857
+    second: psd-saved-composite_16
+  - first:
+      213: 6134295310945547606
+    second: psd-saved-composite_17
+  - first:
+      213: -4924651532725686656
+    second: psd-saved-composite_18
+  - first:
+      213: 4436956790372544728
+    second: psd-saved-composite_19
+  - first:
+      213: -8520414523120713156
+    second: psd-saved-composite_20
+  - first:
+      213: 2949682027477397834
+    second: psd-saved-composite_21
+  - first:
+      213: 7666560576189313420
+    second: psd-saved-composite_22
+  - first:
+      213: 243777260365647396
+    second: psd-saved-composite_23
+  - first:
+      213: -1904498628382933813
+    second: psd-saved-composite_24
+  - first:
+      213: 7479302729016625385
+    second: psd-saved-composite_25
+  - first:
+      213: 3868155209101785362
+    second: psd-saved-composite_26
+  - first:
+      213: 707181720268139089
+    second: psd-saved-composite_27
+  - first:
+      213: 4978891406746626375
+    second: psd-saved-composite_28
+  - first:
+      213: 3222063562465280446
+    second: psd-saved-composite_29
+  - first:
+      213: 1589956846071372788
+    second: psd-saved-composite_30
+  - first:
+      213: 904558514662834411
+    second: psd-saved-composite_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: psd-saved-composite_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 2219
+        width: 79
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1023908bd5eec3e70800000000000000
+      internalID: 9096407433668538881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 2298
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 329bc956c692b23b0800000000000000
+      internalID: -5536285771383916253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_2
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 2255
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df7333d519eb941c0800000000000000
+      internalID: -4518871219546408963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_3
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 2254
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9109c10abce090a50800000000000000
+      internalID: 6487733005931286553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_4
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 2253
+        width: 65
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b1069e2b24d9f40800000000000000
+      internalID: 5736814836526881607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_5
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 2256
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83dae08b3f426c700800000000000000
+      internalID: 560175832837827896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_6
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 2256
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f237a4e44389d890800000000000000
+      internalID: -7432765378081115401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_7
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 2253
+        width: 43
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848c8af59758635b0800000000000000
+      internalID: -5388973147759785912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_8
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 2243
+        width: 164
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d2d7dc0cc85d8180800000000000000
+      internalID: -9111528837688601902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_9
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 2270
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fecca60c926413f40800000000000000
+      internalID: 5706419347990957295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_10
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 2256
+        width: 67
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f30b1a20429ff8250800000000000000
+      internalID: 5949247565838004287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_11
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 2256
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c773faa57c6011100800000000000000
+      internalID: 76850121931700092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_12
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 2266
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 693d8c08bef1a5410800000000000000
+      internalID: 1466519725000938390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_13
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 2256
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4888593a2ca77f860800000000000000
+      internalID: 7563649075578767492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_14
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 2099
+        width: 79
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed72bf07db2fe0b0800000000000000
+      internalID: -5697286800919069210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_15
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 2178
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbdacd1dc64be5790800000000000000
+      internalID: -7539390346701263429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_16
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1939
+        width: 296
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a07d4e4853043760800000000000000
+      internalID: 7436572562501234857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_17
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1979
+        width: 79
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655f04c9515612550800000000000000
+      internalID: 6134295310945547606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_18
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 2058
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e6d4dd58f18abb0800000000000000
+      internalID: -4924651532725686656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_19
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 1934
+        width: 120
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d0b9ed51bc339d30800000000000000
+      internalID: 4436956790372544728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_20
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 1937
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c328f42622861c980800000000000000
+      internalID: -8520414523120713156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_21
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 1786
+        width: 119
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41f4280d206fe820800000000000000
+      internalID: 2949682027477397834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_22
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 1629
+        width: 119
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8137c09938156a60800000000000000
+      internalID: 7666560576189313420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_23
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 1473
+        width: 123
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42e89607022126300800000000000000
+      internalID: 243777260365647396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_24
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 1596
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcc3404869cd195e0800000000000000
+      internalID: -1904498628382933813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_25
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 1578
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e845aa7432dbc760800000000000000
+      internalID: 7479302729016625385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_26
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 360
+        width: 170
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 219b6961ba27ea530800000000000000
+      internalID: 3868155209101785362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_27
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 274
+        width: 211
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15a6b3c170a60d900800000000000000
+      internalID: 707181720268139089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_28
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 306
+        width: 154
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749a06aea53981540800000000000000
+      internalID: 4978891406746626375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_29
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 85
+        width: 197
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb109742db117bc20800000000000000
+      internalID: 3222063562465280446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_30
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 85
+        width: 222
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fbd84ad359a01610800000000000000
+      internalID: 1589956846071372788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: psd-saved-composite_31
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 269
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be088013d23ad8c00800000000000000
+      internalID: 904558514662834411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      psd-saved-composite_0: 9096407433668538881
+      psd-saved-composite_1: -5536285771383916253
+      psd-saved-composite_10: 5949247565838004287
+      psd-saved-composite_11: 76850121931700092
+      psd-saved-composite_12: 1466519725000938390
+      psd-saved-composite_13: 7563649075578767492
+      psd-saved-composite_14: -5697286800919069210
+      psd-saved-composite_15: -7539390346701263429
+      psd-saved-composite_16: 7436572562501234857
+      psd-saved-composite_17: 6134295310945547606
+      psd-saved-composite_18: -4924651532725686656
+      psd-saved-composite_19: 4436956790372544728
+      psd-saved-composite_2: -4518871219546408963
+      psd-saved-composite_20: -8520414523120713156
+      psd-saved-composite_21: 2949682027477397834
+      psd-saved-composite_22: 7666560576189313420
+      psd-saved-composite_23: 243777260365647396
+      psd-saved-composite_24: -1904498628382933813
+      psd-saved-composite_25: 7479302729016625385
+      psd-saved-composite_26: 3868155209101785362
+      psd-saved-composite_27: 707181720268139089
+      psd-saved-composite_28: 4978891406746626375
+      psd-saved-composite_29: 3222063562465280446
+      psd-saved-composite_3: 6487733005931286553
+      psd-saved-composite_30: 1589956846071372788
+      psd-saved-composite_31: 904558514662834411
+      psd-saved-composite_4: 5736814836526881607
+      psd-saved-composite_5: 560175832837827896
+      psd-saved-composite_6: -7432765378081115401
+      psd-saved-composite_7: -5388973147759785912
+      psd-saved-composite_8: -9111528837688601902
+      psd-saved-composite_9: 5706419347990957295
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

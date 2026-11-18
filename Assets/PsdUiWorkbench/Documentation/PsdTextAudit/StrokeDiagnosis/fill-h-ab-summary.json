@@ -1,0 +1,55 @@
+{
+  "formatVersion": 2,
+  "purpose": "修复旧假 Normal 图；四格均使用真实 FontStyles.Normal / Bold 对照",
+  "rectX1Y1X2Y2": [
+    645,
+    90,
+    686,
+    150
+  ],
+  "displayScale": 4,
+  "resampling": "nearest; same uniform scale",
+  "inputs": {
+    "PS Normal": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-ps-1058-normal.png",
+      "sha256": "cb61eed4430100f616494eadfbacc18daf328d2f52c8b3780f513e1e5b79cdd4",
+      "metadataSha256": "1fc571f16d4bffcb533f76e43ec5640d0beba2f7c7fd1fe4599919e174cf67ed",
+      "coverageSource": "Alpha；透明 Photoshop PNG 原值，不去白底",
+      "canvas": [
+        1080,
+        2400
+      ]
+    },
+    "TMP Normal (real FontStyles.Normal)": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-tmp-1058-normalstyle.png",
+      "sha256": "5625d6dc0904f693247d7b8796360ebfd15f18b9b50f7d75c44f5d2de2aaaf4e",
+      "metadataSha256": "1ff00fad2b47dddc80e0a5c25624c099b22cc16456fe3eab4d68f88c327b09e1",
+      "coverageSource": "黑底白字 RGB 灰度；当前 Gamma 渲染路径下的覆盖率代理",
+      "canvas": [
+        1080,
+        2400
+      ]
+    },
+    "PS Bold": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-ps-1058-bold.png",
+      "sha256": "443d009288ed46ea6d39f061ac4a1e12182b8ce490d67bb82217a28b757dea2d",
+      "metadataSha256": "a3b810863882a803e7593ecb915d5aa7964b05d5594defa0fcd62902830f4df3",
+      "coverageSource": "Alpha；透明 Photoshop PNG 原值，不去白底",
+      "canvas": [
+        1080,
+        2400
+      ]
+    },
+    "TMP Bold (WeightBold=0.35)": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-tmp-1058-w035.png",
+      "sha256": "ee0e575e5a704e99d603924a36786ec3d1aaa5097c9ec45243ba6a4beacced94",
+      "metadataSha256": "303758d5e2d3ebf41deb248e356267b20b135d3389e73f5c916d2f58e012e40f",
+      "coverageSource": "黑底白字 RGB 灰度；当前 Gamma 渲染路径下的覆盖率代理",
+      "canvas": [
+        1080,
+        2400
+      ]
+    }
+  },
+  "note": "无字形对齐或缩放拟合。旧 Normal 只用于首H，不为整词Tracking正确性背书。"
+}

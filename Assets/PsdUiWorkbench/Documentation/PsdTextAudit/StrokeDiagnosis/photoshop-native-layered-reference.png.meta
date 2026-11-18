@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: cb4ca3f58a60ccf48a106a5a27aa4e51
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -943056134285746442
+    second: photoshop-native-layered-reference_0
+  - first:
+      213: -4370866726666758345
+    second: photoshop-native-layered-reference_1
+  - first:
+      213: 1066439111767521332
+    second: photoshop-native-layered-reference_2
+  - first:
+      213: -3219145246714946575
+    second: photoshop-native-layered-reference_3
+  - first:
+      213: 7929424874016979
+    second: photoshop-native-layered-reference_4
+  - first:
+      213: 3458044339534506071
+    second: photoshop-native-layered-reference_5
+  - first:
+      213: 3664255048415062446
+    second: photoshop-native-layered-reference_6
+  - first:
+      213: -2603456248031779627
+    second: photoshop-native-layered-reference_7
+  - first:
+      213: -5815280805401919489
+    second: photoshop-native-layered-reference_8
+  - first:
+      213: -2461376665105427167
+    second: photoshop-native-layered-reference_9
+  - first:
+      213: -7457468740875129972
+    second: photoshop-native-layered-reference_10
+  - first:
+      213: -9000129047783437094
+    second: photoshop-native-layered-reference_11
+  - first:
+      213: -6763545443744775802
+    second: photoshop-native-layered-reference_12
+  - first:
+      213: -3685375493628744296
+    second: photoshop-native-layered-reference_13
+  - first:
+      213: -2863873223815296026
+    second: photoshop-native-layered-reference_14
+  - first:
+      213: -1126998009954367817
+    second: photoshop-native-layered-reference_15
+  - first:
+      213: -1874820208706066282
+    second: photoshop-native-layered-reference_16
+  - first:
+      213: 2544923381175831105
+    second: photoshop-native-layered-reference_17
+  - first:
+      213: -3600006852416443249
+    second: photoshop-native-layered-reference_18
+  - first:
+      213: 8654075777531949499
+    second: photoshop-native-layered-reference_19
+  - first:
+      213: -6389217696157939682
+    second: photoshop-native-layered-reference_20
+  - first:
+      213: 7839768182345773805
+    second: photoshop-native-layered-reference_21
+  - first:
+      213: 1495751597837926750
+    second: photoshop-native-layered-reference_22
+  - first:
+      213: 4376513235576973820
+    second: photoshop-native-layered-reference_23
+  - first:
+      213: -8641490014044243584
+    second: photoshop-native-layered-reference_24
+  - first:
+      213: 5445167905997767731
+    second: photoshop-native-layered-reference_25
+  - first:
+      213: 3675777646275653664
+    second: photoshop-native-layered-reference_26
+  - first:
+      213: 3893844033923367172
+    second: photoshop-native-layered-reference_27
+  - first:
+      213: 1725760369045759698
+    second: photoshop-native-layered-reference_28
+  - first:
+      213: -5080011903518890747
+    second: photoshop-native-layered-reference_29
+  - first:
+      213: 1301572915004000444
+    second: photoshop-native-layered-reference_30
+  - first:
+      213: -1006525565368034218
+    second: photoshop-native-layered-reference_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 2219
+        width: 79
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fe15a0417799e2f0800000000000000
+      internalID: -943056134285746442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 2298
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7371474bedf8753c0800000000000000
+      internalID: -4370866726666758345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_2
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 2255
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4387c7fc8b0ccce00800000000000000
+      internalID: 1066439111767521332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_3
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 2254
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb1b21347c4353d0800000000000000
+      internalID: -3219145246714946575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_4
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 2253
+        width: 65
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d093e815cb2c1000800000000000000
+      internalID: 7929424874016979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_5
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 2256
+        width: 51
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758218b51017dff20800000000000000
+      internalID: 3458044339534506071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_6
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 2256
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea9263f6d8c0ad230800000000000000
+      internalID: 3664255048415062446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_7
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 2253
+        width: 43
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d46bcb065aaedbd0800000000000000
+      internalID: -2603456248031779627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_8
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 2243
+        width: 164
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffffedc0be8fb4fa0800000000000000
+      internalID: -5815280805401919489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_9
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 2270
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12594f9c6fe67ddd0800000000000000
+      internalID: -2461376665105427167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_10
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 2256
+        width: 67
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8bee8801bfb18890800000000000000
+      internalID: -7457468740875129972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_11
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 2256
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adc8136d05e191380800000000000000
+      internalID: -9000129047783437094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_12
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 2266
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6818163f04f0322a0800000000000000
+      internalID: -6763545443744775802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_13
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 2256
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d2456b38aeadcc0800000000000000
+      internalID: -3685375493628744296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_14
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 2099
+        width: 79
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eb8cb4f97a7148d0800000000000000
+      internalID: -2863873223815296026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_15
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 2178
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b60912f7491c50f0800000000000000
+      internalID: -1126998009954367817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_16
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1939
+        width: 296
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698e95214fc4bf5e0800000000000000
+      internalID: -1874820208706066282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_17
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1979
+        width: 79
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a4293e452615320800000000000000
+      internalID: 2544923381175831105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_18
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 2058
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ceeb467d43a0ec0800000000000000
+      internalID: -3600006852416443249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_19
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 1934
+        width: 120
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1ba138114791870800000000000000
+      internalID: 8654075777531949499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_20
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 1937
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e18cddb5b50f457a0800000000000000
+      internalID: -6389217696157939682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_21
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 1786
+        width: 119
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de2312eff937ccc60800000000000000
+      internalID: 7839768182345773805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_22
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 1629
+        width: 119
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e514a55472af1c410800000000000000
+      internalID: 1495751597837926750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_23
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 1473
+        width: 123
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf96c59999f7cbc30800000000000000
+      internalID: 4376513235576973820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_24
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 1596
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 089bec6ed92431880800000000000000
+      internalID: -8641490014044243584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_25
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 1578
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334ca5b5c5f119b40800000000000000
+      internalID: 5445167905997767731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_26
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 360
+        width: 170
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 020f49f4b4cf20330800000000000000
+      internalID: 3675777646275653664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_27
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 274
+        width: 211
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 401c6c4b486b90630800000000000000
+      internalID: 3893844033923367172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_28
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 306
+        width: 154
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d66b6489e123f710800000000000000
+      internalID: 1725760369045759698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_29
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 85
+        width: 197
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505200cb61c2089b0800000000000000
+      internalID: -5080011903518890747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_30
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 85
+        width: 222
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb845109bad101210800000000000000
+      internalID: 1301572915004000444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: photoshop-native-layered-reference_31
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 269
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c93e2c45a1802f0800000000000000
+      internalID: -1006525565368034218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      photoshop-native-layered-reference_0: -943056134285746442
+      photoshop-native-layered-reference_1: -4370866726666758345
+      photoshop-native-layered-reference_10: -7457468740875129972
+      photoshop-native-layered-reference_11: -9000129047783437094
+      photoshop-native-layered-reference_12: -6763545443744775802
+      photoshop-native-layered-reference_13: -3685375493628744296
+      photoshop-native-layered-reference_14: -2863873223815296026
+      photoshop-native-layered-reference_15: -1126998009954367817
+      photoshop-native-layered-reference_16: -1874820208706066282
+      photoshop-native-layered-reference_17: 2544923381175831105
+      photoshop-native-layered-reference_18: -3600006852416443249
+      photoshop-native-layered-reference_19: 8654075777531949499
+      photoshop-native-layered-reference_2: 1066439111767521332
+      photoshop-native-layered-reference_20: -6389217696157939682
+      photoshop-native-layered-reference_21: 7839768182345773805
+      photoshop-native-layered-reference_22: 1495751597837926750
+      photoshop-native-layered-reference_23: 4376513235576973820
+      photoshop-native-layered-reference_24: -8641490014044243584
+      photoshop-native-layered-reference_25: 5445167905997767731
+      photoshop-native-layered-reference_26: 3675777646275653664
+      photoshop-native-layered-reference_27: 3893844033923367172
+      photoshop-native-layered-reference_28: 1725760369045759698
+      photoshop-native-layered-reference_29: -5080011903518890747
+      photoshop-native-layered-reference_3: -3219145246714946575
+      photoshop-native-layered-reference_30: 1301572915004000444
+      photoshop-native-layered-reference_31: -1006525565368034218
+      photoshop-native-layered-reference_4: 7929424874016979
+      photoshop-native-layered-reference_5: 3458044339534506071
+      photoshop-native-layered-reference_6: 3664255048415062446
+      photoshop-native-layered-reference_7: -2603456248031779627
+      photoshop-native-layered-reference_8: -5815280805401919489
+      photoshop-native-layered-reference_9: -2461376665105427167
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

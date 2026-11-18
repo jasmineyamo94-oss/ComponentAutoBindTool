@@ -1,0 +1,24 @@
+test_black_edge_stored_over_white_is_black_after_unmatte (test_psd_reference_image.PsdReferenceTests.test_black_edge_stored_over_white_is_black_after_unmatte) ... ok
+test_both_images_are_composited_on_same_background (test_psd_reference_image.PsdReferenceTests.test_both_images_are_composited_on_same_background) ... ok
+test_colored_edge_recovers_original_without_changing_alpha (test_psd_reference_image.PsdReferenceTests.test_colored_edge_recovers_original_without_changing_alpha) ... ok
+test_comparison_rejects_different_canvas_sizes (test_psd_reference_image.PsdReferenceTests.test_comparison_rejects_different_canvas_sizes) ... ok
+test_current_psd_matches_unmatted_historical_raw_preview (test_psd_reference_image.PsdReferenceTests.test_current_psd_matches_unmatted_historical_raw_preview) ... ok
+test_default_reference_is_native_photoshop_png (test_psd_reference_image.PsdReferenceTests.test_default_reference_is_native_photoshop_png) ... ok
+test_diagnostic_shift_drops_pixels_instead_of_wrapping (test_psd_reference_image.PsdReferenceTests.test_diagnostic_shift_drops_pixels_instead_of_wrapping) ... ok
+test_native_png_self_comparison_has_no_quantity_or_alignment_error (test_psd_reference_image.PsdReferenceTests.test_native_png_self_comparison_has_no_quantity_or_alignment_error) ... ok
+test_opaque_pixel_is_unchanged_and_empty_pixel_has_no_nan (test_psd_reference_image.PsdReferenceTests.test_opaque_pixel_is_unchanged_and_empty_pixel_has_no_nan) ... ok
+test_png_reference_is_read_without_second_unmatte (test_psd_reference_image.PsdReferenceTests.test_png_reference_is_read_without_second_unmatte) ... ok
+test_saved_preview_reads_psd_psb_raw_and_rle (test_psd_reference_image.PsdReferenceTests.test_saved_preview_reads_psd_psb_raw_and_rle) ... ok
+test_saved_preview_rejects_truncation_and_unconfirmed_alpha (test_psd_reference_image.PsdReferenceTests.test_saved_preview_rejects_truncation_and_unconfirmed_alpha) ... ok
+test_actual_battle_inventory_matches_ids_runs_and_disabled_effects (test_psd_text_audit.AuditTests.test_actual_battle_inventory_matches_ids_runs_and_disabled_effects) ... ok
+test_descriptor_preserves_units_and_nested_values (test_psd_text_audit.AuditTests.test_descriptor_preserves_units_and_nested_values) ... ok
+test_engine_rejects_truncation_and_duplicate_keys (test_psd_text_audit.AuditTests.test_engine_rejects_truncation_and_duplicate_keys) ... ok
+test_engine_unicode_escapes_arrays_and_booleans (test_psd_text_audit.AuditTests.test_engine_unicode_escapes_arrays_and_booleans) ... ok
+test_psd_and_psb_skip_pixel_data_and_odd_unknown_block (test_psd_text_audit.AuditTests.test_psd_and_psb_skip_pixel_data_and_odd_unknown_block) ... ok
+test_psd_truncation_is_rejected (test_psd_text_audit.AuditTests.test_psd_truncation_is_rejected) ... ok
+test_unknown_descriptor_is_not_silently_guessed (test_psd_text_audit.AuditTests.test_unknown_descriptor_is_not_silently_guessed) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.125s
+
+OK

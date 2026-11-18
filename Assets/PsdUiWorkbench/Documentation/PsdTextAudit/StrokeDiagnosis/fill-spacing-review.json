@@ -1,0 +1,83 @@
+{
+  "formatVersion": 1,
+  "layerIds": [
+    1057,
+    1058
+  ],
+  "rectX1Y1X2Y2": [
+    315,
+    88,
+    775,
+    155
+  ],
+  "displayScale": 2,
+  "resampling": "nearest; same uniform scale",
+  "composition": "同一1080x2400 PSD画布，已验证字面不重叠，取覆盖率逐像素max；无层间位移或拉伸",
+  "inputs": {
+    "1057": {
+      "psNormal": {
+        "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-ps-1057-normal.png",
+        "sha256": "61b247ada917fa50989392317f0644bb45da1698a6cce93fc5cb43901dfbe538",
+        "metadataSha256": "818ee8405180e1adf43eb464b949c66cbfa4c79baed2b4efe3e796575d721901",
+        "coverageSource": "Alpha；透明 Photoshop PNG 原值，不去白底",
+        "canvas": [
+          1080,
+          2400
+        ]
+      },
+      "tmpOldNormal": {
+        "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-tmp-1057-normalstyle.png",
+        "sha256": "3cd39e8eea904f6ce219ca88495a62749357b2613988e9fb33f93d31f42c229e",
+        "metadataSha256": "158021bf6bc5b4918ab5201aecef35156e4f21c53a5c58d6b40cb5ed963aa1ff",
+        "coverageSource": "黑底白字 RGB 灰度；当前 Gamma 渲染路径下的覆盖率代理",
+        "canvas": [
+          1080,
+          2400
+        ]
+      },
+      "source": {
+        "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-spacing-1057-source.png",
+        "sha256": "016c1555ee31aa48ec1bca078dee7bd312a3561a259242380485756c95fd1059",
+        "metadataSha256": "2954e0d73ad80ff1868a9877613cfe7a41eaceed5bfd021a248f2d55fe413dff",
+        "coverageSource": "黑底白字 RGB 灰度；当前 Gamma 渲染路径下的覆盖率代理",
+        "canvas": [
+          1080,
+          2400
+        ]
+      }
+    },
+    "1058": {
+      "psNormal": {
+        "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-ps-1058-normal.png",
+        "sha256": "cb61eed4430100f616494eadfbacc18daf328d2f52c8b3780f513e1e5b79cdd4",
+        "metadataSha256": "1fc571f16d4bffcb533f76e43ec5640d0beba2f7c7fd1fe4599919e174cf67ed",
+        "coverageSource": "Alpha；透明 Photoshop PNG 原值，不去白底",
+        "canvas": [
+          1080,
+          2400
+        ]
+      },
+      "tmpOldNormal": {
+        "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-tmp-1058-normalstyle.png",
+        "sha256": "5625d6dc0904f693247d7b8796360ebfd15f18b9b50f7d75c44f5d2de2aaaf4e",
+        "metadataSha256": "1ff00fad2b47dddc80e0a5c25624c099b22cc16456fe3eab4d68f88c327b09e1",
+        "coverageSource": "黑底白字 RGB 灰度；当前 Gamma 渲染路径下的覆盖率代理",
+        "canvas": [
+          1080,
+          2400
+        ]
+      },
+      "source": {
+        "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-spacing-1058-source.png",
+        "sha256": "a50dfd5cd841220dc44aafd5f3302adc591ce95d2d123cae9dcbceba123df25b",
+        "metadataSha256": "d03274466ede022589e4b5341b38b5ecc1749a03eafd80edcdebace95c0fc08c",
+        "coverageSource": "黑底白字 RGB 灰度；当前 Gamma 渲染路径下的覆盖率代理",
+        "canvas": [
+          1080,
+          2400
+        ]
+      }
+    }
+  },
+  "note": "仅两个已找到真实TOXIA字体的普通字重文本层，不含缺字体标点；不是原PSD完整带效果外观。"
+}

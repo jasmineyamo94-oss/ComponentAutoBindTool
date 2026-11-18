@@ -1,0 +1,21 @@
+{
+  "createdUtc": "2026-11-16T02:08:25.853180+00:00",
+  "photoshopVersion": "22.0.0",
+  "source": "E:\\Github Unity Projects\\VContainer ComponentAutoBindTool\\Assets\\Psd\\战斗-主菜单界面.psd",
+  "output": "E:\\Github Unity Projects\\VContainer ComponentAutoBindTool\\Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\photoshop-native-layered-reference.png",
+  "width": 1080,
+  "height": 2400,
+  "resolution": 72.0,
+  "profile": "sRGB",
+  "sourceSaved": true,
+  "method": "Document.duplicate(mergeLayersOnly=false) + PNGSaveOptions/saveAs(asCopy=true)",
+  "sourceHashesBefore": {
+    "E:\\Github Unity Projects\\VContainer ComponentAutoBindTool\\Assets\\Psd\\战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+    "E:\\Github Unity Projects\\VContainer ComponentAutoBindTool\\Assets\\Psd\\战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8"
+  },
+  "sourceHashesAfter": {
+    "E:\\Github Unity Projects\\VContainer ComponentAutoBindTool\\Assets\\Psd\\战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+    "E:\\Github Unity Projects\\VContainer ComponentAutoBindTool\\Assets\\Psd\\战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8"
+  },
+  "outputSha256": "b26ade4f7e4a712ce649a265f303b7c9047b6ebeb2462358bf5ceec5faab4142"
+}

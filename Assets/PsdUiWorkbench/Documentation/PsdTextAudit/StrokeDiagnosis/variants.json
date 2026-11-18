@@ -1,0 +1,73 @@
+{
+  "reference": {
+    "area": 1839,
+    "width": 227,
+    "height": 33,
+    "inkPerWidth": 8.101321585903083
+  },
+  "variants": [
+    {
+      "area": 1908,
+      "width": 207,
+      "height": 32,
+      "inkPerWidth": 9.217391304347826,
+      "variant": "exported",
+      "densityRatio": 1.1377639076057404,
+      "widthRatio": 0.9118942731277533
+    },
+    {
+      "area": 1918,
+      "width": 227,
+      "height": 32,
+      "inkPerWidth": 8.449339207048459,
+      "variant": "no-kern",
+      "densityRatio": 1.0429581294181622,
+      "widthRatio": 1.0
+    },
+    {
+      "area": 1053,
+      "width": 205,
+      "height": 30,
+      "inkPerWidth": 5.136585365853659,
+      "variant": "no-bold",
+      "densityRatio": 0.6340428918155414,
+      "widthRatio": 0.9030837004405287
+    },
+    {
+      "area": 712,
+      "width": 205,
+      "height": 29,
+      "inkPerWidth": 3.473170731707317,
+      "variant": "outline-dilate-zero",
+      "densityRatio": 0.42871656122760254,
+      "widthRatio": 0.9030837004405287
+    },
+    {
+      "area": 1969,
+      "width": 207,
+      "height": 32,
+      "inkPerWidth": 9.51207729468599,
+      "variant": "fill-only",
+      "densityRatio": 1.1741389591591735,
+      "widthRatio": 0.9118942731277533
+    },
+    {
+      "area": 1082,
+      "width": 205,
+      "height": 30,
+      "inkPerWidth": 5.278048780487805,
+      "variant": "fill-no-bold",
+      "densityRatio": 0.6515046618655421,
+      "widthRatio": 0.9030837004405287
+    },
+    {
+      "area": 1063,
+      "width": 225,
+      "height": 30,
+      "inkPerWidth": 4.724444444444444,
+      "variant": "no-kern-no-bold",
+      "densityRatio": 0.5831695970032023,
+      "widthRatio": 0.9911894273127754
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "PsdUiWorkbench.Tests",
+  "references": [
+    "PsdUiWorkbench.Core",
+    "PsdUiWorkbench.Runtime",
+    "PsdUiWorkbench.Infrastructure",
+    "PsdUiWorkbench.Presentation",
+    "PsdUiWorkbench.AiNaming",
+    "Unity.2D.Psdimporter.Editor",
+    "UnityEngine.UI",
+    "Unity.TextMeshPro"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

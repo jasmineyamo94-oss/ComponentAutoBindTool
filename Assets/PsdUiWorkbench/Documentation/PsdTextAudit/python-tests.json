@@ -1,0 +1,7 @@
+{
+  "total": 7,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "output": "test_actual_battle_inventory_matches_ids_runs_and_disabled_effects (test_psd_text_audit.AuditTests.test_actual_battle_inventory_matches_ids_runs_and_disabled_effects) ... ok\ntest_descriptor_preserves_units_and_nested_values (test_psd_text_audit.AuditTests.test_descriptor_preserves_units_and_nested_values) ... ok\ntest_engine_rejects_truncation_and_duplicate_keys (test_psd_text_audit.AuditTests.test_engine_rejects_truncation_and_duplicate_keys) ... ok\ntest_engine_unicode_escapes_arrays_and_booleans (test_psd_text_audit.AuditTests.test_engine_unicode_escapes_arrays_and_booleans) ... ok\ntest_psd_and_psb_skip_pixel_data_and_odd_unknown_block (test_psd_text_audit.AuditTests.test_psd_and_psb_skip_pixel_data_and_odd_unknown_block) ... ok\ntest_psd_truncation_is_rejected (test_psd_text_audit.AuditTests.test_psd_truncation_is_rejected) ... ok\ntest_unknown_descriptor_is_not_silently_guessed (test_psd_text_audit.AuditTests.test_unknown_descriptor_is_not_silently_guessed) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.147s\n\nOK\n"
+}

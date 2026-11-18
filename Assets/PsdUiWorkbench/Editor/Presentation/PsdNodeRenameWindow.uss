@@ -1,0 +1,47 @@
+.node-rename-root {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.node-rename-hint {
+    white-space: normal;
+    margin-bottom: 8px;
+}
+
+.node-rename-rows {
+    flex-grow: 1;
+    min-height: 80px;
+}
+
+.node-rename-row {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(128, 128, 128, 0.4);
+}
+
+.node-rename-row .unity-base-field__label {
+    min-width: 90px;
+}
+
+.node-rename-error {
+    display: none;
+    white-space: normal;
+    margin-top: 8px;
+}
+
+.node-rename-error-visible {
+    display: flex;
+}
+
+.node-rename-actions {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+.node-rename-actions > Button {
+    min-width: 72px;
+    margin-left: 6px;
+}

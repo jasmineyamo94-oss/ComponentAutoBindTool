@@ -1,0 +1,35 @@
+{
+  "0.5": {
+    "max": 3.0,
+    "l1": 810.0,
+    "visible": 1367
+  },
+  "1": {
+    "max": 4.0,
+    "l1": 3433.0,
+    "visible": 5148
+  },
+  "2": {
+    "max": 7.0,
+    "l1": 13634.0,
+    "visible": 19960
+  },
+  "rotation": [
+    1436728.0,
+    39110.0
+  ],
+  "psdNodes": {
+    "1058": {
+      "maximum8BitDifference": 3.0,
+      "sum8BitDifference": 2036.0
+    },
+    "1090": {
+      "maximum8BitDifference": 2.0,
+      "sum8BitDifference": 669.0
+    },
+    "1091": {
+      "maximum8BitDifference": 3.0,
+      "sum8BitDifference": 2496.0
+    }
+  }
+}

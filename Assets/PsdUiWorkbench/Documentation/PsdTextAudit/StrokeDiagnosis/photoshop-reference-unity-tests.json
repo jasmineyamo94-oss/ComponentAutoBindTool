@@ -1,0 +1,1 @@
+{"status":"completed","duration":1.13,"summary":{"total":1,"passed":1,"failed":0,"skipped":0,"inconclusive":0},"results":[{"FullName":"PsdUiWorkbench.Tests.PsdTextAppearanceTests.AppearanceProbeMatchesBaselineAndDoesNotModifySharedMaterials","Status":"Passed","Duration":0.8278674,"Message":null,"StackTrace":null}]}

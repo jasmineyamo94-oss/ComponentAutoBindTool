@@ -1,0 +1,743 @@
+[
+  {
+    "path": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/photoshop-current-tmp.png",
+    "reference": {
+      "path": "E:\\Github Unity Projects\\VContainer ComponentAutoBindTool\\Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\photoshop-native-reference.png",
+      "sha256": "ae02b637161c3ab1de0147a11ed3a73b639df85ca111e5a2c3c83d7a43c4c212",
+      "size": [
+        1080,
+        2400
+      ],
+      "processing": "PNG 原值读取；无去白底、无色彩转换",
+      "colorAssumption": "sRGB；调用者须提供相同色彩空间的图像",
+      "iccProfileSha256": null,
+      "srgbChunk": null
+    },
+    "background": [
+      31,
+      31,
+      31,
+      255
+    ],
+    "metricScope": "阈值像素数量与原位掩码重合度；平移后指标只用于诊断，均非整体视觉还原率",
+    "meanFillError": 0.06286707505304244,
+    "meanBlackError": 0.07796032986365851,
+    "rows": [
+      {
+        "id": 937,
+        "text": "5",
+        "fillRatio": 1.1140684410646389,
+        "blackRatio": 0.9389067524115756,
+        "fillIoU": 0.7935483870967742,
+        "blackIoU": 0.6166219839142091,
+        "bestShiftFillIoU": 0.7935483870967742,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 263,
+        "actualFill": 293,
+        "referenceBlack": 311,
+        "actualBlack": 292
+      },
+      {
+        "id": 948,
+        "text": "4",
+        "fillRatio": 1.2075471698113207,
+        "blackRatio": 0.9330543933054394,
+        "fillIoU": 0.7781155015197568,
+        "blackIoU": 0.6267605633802817,
+        "bestShiftFillIoU": 0.7781155015197568,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 265,
+        "actualFill": 320,
+        "referenceBlack": 239,
+        "actualBlack": 223
+      },
+      {
+        "id": 959,
+        "text": "3",
+        "fillRatio": 1.1208333333333333,
+        "blackRatio": 0.9561128526645768,
+        "fillIoU": 0.7922535211267606,
+        "blackIoU": 0.6292428198433421,
+        "bestShiftFillIoU": 0.7922535211267606,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 240,
+        "actualFill": 269,
+        "referenceBlack": 319,
+        "actualBlack": 305
+      },
+      {
+        "id": 969,
+        "text": "5",
+        "fillRatio": 1.1216730038022813,
+        "blackRatio": 0.9389830508474576,
+        "fillIoU": 0.8058252427184466,
+        "blackIoU": 0.6112676056338028,
+        "bestShiftFillIoU": 0.8058252427184466,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 263,
+        "actualFill": 295,
+        "referenceBlack": 295,
+        "actualBlack": 277
+      },
+      {
+        "id": 979,
+        "text": "Backpack",
+        "fillRatio": 1.0054347826086956,
+        "blackRatio": 0.9215134459036898,
+        "fillIoU": 0.759656652360515,
+        "blackIoU": 0.7353854843264614,
+        "bestShiftFillIoU": 0.8159448818897638,
+        "bestShift": [
+          0,
+          1
+        ],
+        "referenceFill": 1840,
+        "actualFill": 1850,
+        "referenceBlack": 3198,
+        "actualBlack": 2947
+      },
+      {
+        "id": 994,
+        "text": "Emergency",
+        "fillRatio": 1.00625,
+        "blackRatio": 0.9176436945953674,
+        "fillIoU": 0.7924616100511866,
+        "blackIoU": 0.7731359069275515,
+        "bestShiftFillIoU": 0.8169811320754717,
+        "bestShift": [
+          0,
+          1
+        ],
+        "referenceFill": 1920,
+        "actualFill": 1932,
+        "referenceBlack": 3497,
+        "actualBlack": 3209
+      },
+      {
+        "id": 1001,
+        "text": "60",
+        "fillRatio": 0.9530612244897959,
+        "blackRatio": 0.9592760180995475,
+        "fillIoU": 0.7954971857410882,
+        "blackIoU": 0.36163522012578614,
+        "bestShiftFillIoU": 0.8298279158699808,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 490,
+        "actualFill": 467,
+        "referenceBlack": 221,
+        "actualBlack": 212
+      },
+      {
+        "id": 1008,
+        "text": "60",
+        "fillRatio": 0.9591836734693877,
+        "blackRatio": 0.9727272727272728,
+        "fillIoU": 0.7910447761194029,
+        "blackIoU": 0.36477987421383645,
+        "bestShiftFillIoU": 0.8250950570342205,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 490,
+        "actualFill": 470,
+        "referenceBlack": 220,
+        "actualBlack": 214
+      },
+      {
+        "id": 1057,
+        "text": "16  4Zombie  ",
+        "fillRatio": 1.016892911010558,
+        "blackRatio": 0.8653576437587658,
+        "fillIoU": 0.7891356703237892,
+        "blackIoU": 0.5501165501165501,
+        "bestShiftFillIoU": 0.8232887919280065,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 3315,
+        "actualFill": 3371,
+        "referenceBlack": 2852,
+        "actualBlack": 2468
+      },
+      {
+        "id": 1058,
+        "text": "Hell",
+        "fillRatio": 1.0231741573033708,
+        "blackRatio": 0.9579554822753503,
+        "fillIoU": 0.7740147783251231,
+        "blackIoU": 0.5234124438742784,
+        "bestShiftFillIoU": 0.8599096191091027,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 1424,
+        "actualFill": 1457,
+        "referenceBlack": 1213,
+        "actualBlack": 1162
+      },
+      {
+        "id": 1081,
+        "text": "43",
+        "fillRatio": 1.0189655172413794,
+        "blackRatio": 0.8977635782747604,
+        "fillIoU": 0.7823439878234398,
+        "blackIoU": 0.35926773455377575,
+        "bestShiftFillIoU": 0.82398753894081,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 580,
+        "actualFill": 591,
+        "referenceBlack": 313,
+        "actualBlack": 281
+      },
+      {
+        "id": 1090,
+        "text": "0",
+        "fillRatio": 1.0941176470588236,
+        "blackRatio": 0.8676470588235294,
+        "fillIoU": 0.8101694915254237,
+        "blackIoU": 0.5011820330969267,
+        "bestShiftFillIoU": 0.8413793103448276,
+        "bestShift": [
+          -1,
+          0
+        ],
+        "referenceFill": 510,
+        "actualFill": 558,
+        "referenceBlack": 340,
+        "actualBlack": 295
+      },
+      {
+        "id": 1091,
+        "text": "Energy Level",
+        "fillRatio": 0.9994400895856663,
+        "blackRatio": 0.8595744680851064,
+        "fillIoU": 0.7953745600804424,
+        "blackIoU": 0.6,
+        "bestShiftFillIoU": 0.7953745600804424,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 1786,
+        "actualFill": 1785,
+        "referenceBlack": 1880,
+        "actualBlack": 1616
+      }
+    ]
+  },
+  {
+    "path": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/appearance-weight-0.325.png",
+    "reference": {
+      "path": "E:\\Github Unity Projects\\VContainer ComponentAutoBindTool\\Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\photoshop-native-reference.png",
+      "sha256": "ae02b637161c3ab1de0147a11ed3a73b639df85ca111e5a2c3c83d7a43c4c212",
+      "size": [
+        1080,
+        2400
+      ],
+      "processing": "PNG 原值读取；无去白底、无色彩转换",
+      "colorAssumption": "sRGB；调用者须提供相同色彩空间的图像",
+      "iccProfileSha256": null,
+      "srgbChunk": null
+    },
+    "background": [
+      31,
+      31,
+      31,
+      255
+    ],
+    "metricScope": "阈值像素数量与原位掩码重合度；平移后指标只用于诊断，均非整体视觉还原率",
+    "meanFillError": 0.053108715192508885,
+    "meanBlackError": 0.0758607202772327,
+    "rows": [
+      {
+        "id": 937,
+        "text": "5",
+        "fillRatio": 1.079847908745247,
+        "blackRatio": 0.9421221864951769,
+        "fillIoU": 0.775974025974026,
+        "blackIoU": 0.6236559139784946,
+        "bestShiftFillIoU": 0.775974025974026,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 263,
+        "actualFill": 284,
+        "referenceBlack": 311,
+        "actualBlack": 293
+      },
+      {
+        "id": 948,
+        "text": "4",
+        "fillRatio": 1.1547169811320754,
+        "blackRatio": 0.9372384937238494,
+        "fillIoU": 0.784375,
+        "blackIoU": 0.6360424028268551,
+        "bestShiftFillIoU": 0.784375,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 265,
+        "actualFill": 306,
+        "referenceBlack": 239,
+        "actualBlack": 224
+      },
+      {
+        "id": 959,
+        "text": "3",
+        "fillRatio": 1.1083333333333334,
+        "blackRatio": 0.9498432601880877,
+        "fillIoU": 0.800711743772242,
+        "blackIoU": 0.6325459317585301,
+        "bestShiftFillIoU": 0.800711743772242,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 240,
+        "actualFill": 266,
+        "referenceBlack": 319,
+        "actualBlack": 303
+      },
+      {
+        "id": 969,
+        "text": "5",
+        "fillRatio": 1.079847908745247,
+        "blackRatio": 0.9355932203389831,
+        "fillIoU": 0.775974025974026,
+        "blackIoU": 0.6129943502824858,
+        "bestShiftFillIoU": 0.775974025974026,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 263,
+        "actualFill": 284,
+        "referenceBlack": 295,
+        "actualBlack": 276
+      },
+      {
+        "id": 979,
+        "text": "Backpack",
+        "fillRatio": 0.9831521739130434,
+        "blackRatio": 0.9252657911194496,
+        "fillIoU": 0.7568608570052962,
+        "blackIoU": 0.7314398200224972,
+        "bestShiftFillIoU": 0.8154228855721393,
+        "bestShift": [
+          0,
+          1
+        ],
+        "referenceFill": 1840,
+        "actualFill": 1809,
+        "referenceBlack": 3198,
+        "actualBlack": 2959
+      },
+      {
+        "id": 994,
+        "text": "Emergency",
+        "fillRatio": 0.9776041666666667,
+        "blackRatio": 0.9256505576208178,
+        "fillIoU": 0.7893496701225259,
+        "blackIoU": 0.7683823529411765,
+        "bestShiftFillIoU": 0.8132760267430754,
+        "bestShift": [
+          0,
+          1
+        ],
+        "referenceFill": 1920,
+        "actualFill": 1877,
+        "referenceBlack": 3497,
+        "actualBlack": 3237
+      },
+      {
+        "id": 1001,
+        "text": "60",
+        "fillRatio": 0.9387755102040817,
+        "blackRatio": 0.9819004524886877,
+        "fillIoU": 0.7890772128060264,
+        "blackIoU": 0.3560371517027864,
+        "bestShiftFillIoU": 0.8199233716475096,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 490,
+        "actualFill": 460,
+        "referenceBlack": 221,
+        "actualBlack": 217
+      },
+      {
+        "id": 1008,
+        "text": "60",
+        "fillRatio": 0.9387755102040817,
+        "blackRatio": 0.9727272727272728,
+        "fillIoU": 0.7857142857142857,
+        "blackIoU": 0.35202492211838005,
+        "bestShiftFillIoU": 0.8234165067178503,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 490,
+        "actualFill": 460,
+        "referenceBlack": 220,
+        "actualBlack": 214
+      },
+      {
+        "id": 1057,
+        "text": "16  4Zombie  ",
+        "fillRatio": 0.9918552036199095,
+        "blackRatio": 0.8681626928471248,
+        "fillIoU": 0.7845945945945946,
+        "blackIoU": 0.5452436194895591,
+        "bestShiftFillIoU": 0.8260508849557522,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 3315,
+        "actualFill": 3288,
+        "referenceBlack": 2852,
+        "actualBlack": 2476
+      },
+      {
+        "id": 1058,
+        "text": "Hell",
+        "fillRatio": 1.0021067415730338,
+        "blackRatio": 0.9530090684253916,
+        "fillIoU": 0.7675139491630503,
+        "blackIoU": 0.513738019169329,
+        "bestShiftFillIoU": 0.8658376963350786,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 1424,
+        "actualFill": 1427,
+        "referenceBlack": 1213,
+        "actualBlack": 1156
+      },
+      {
+        "id": 1081,
+        "text": "43",
+        "fillRatio": 0.9913793103448276,
+        "blackRatio": 0.9009584664536742,
+        "fillIoU": 0.7769230769230769,
+        "blackIoU": 0.3431151241534989,
+        "bestShiftFillIoU": 0.8131868131868132,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 580,
+        "actualFill": 575,
+        "referenceBlack": 313,
+        "actualBlack": 282
+      },
+      {
+        "id": 1090,
+        "text": "0",
+        "fillRatio": 1.0647058823529412,
+        "blackRatio": 0.861764705882353,
+        "fillIoU": 0.8123924268502581,
+        "blackIoU": 0.5107398568019093,
+        "bestShiftFillIoU": 0.8441330998248686,
+        "bestShift": [
+          -1,
+          0
+        ],
+        "referenceFill": 510,
+        "actualFill": 543,
+        "referenceBlack": 340,
+        "actualBlack": 293
+      },
+      {
+        "id": 1091,
+        "text": "Energy Level",
+        "fillRatio": 0.9776035834266518,
+        "blackRatio": 0.8595744680851064,
+        "fillIoU": 0.7874493927125507,
+        "blackIoU": 0.5898135516143702,
+        "bestShiftFillIoU": 0.7874493927125507,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 1786,
+        "actualFill": 1746,
+        "referenceBlack": 1880,
+        "actualBlack": 1616
+      }
+    ]
+  },
+  {
+    "path": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/appearance-stroke-0.90.png",
+    "reference": {
+      "path": "E:\\Github Unity Projects\\VContainer ComponentAutoBindTool\\Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\photoshop-native-reference.png",
+      "sha256": "ae02b637161c3ab1de0147a11ed3a73b639df85ca111e5a2c3c83d7a43c4c212",
+      "size": [
+        1080,
+        2400
+      ],
+      "processing": "PNG 原值读取；无去白底、无色彩转换",
+      "colorAssumption": "sRGB；调用者须提供相同色彩空间的图像",
+      "iccProfileSha256": null,
+      "srgbChunk": null
+    },
+    "background": [
+      31,
+      31,
+      31,
+      255
+    ],
+    "metricScope": "阈值像素数量与原位掩码重合度；平移后指标只用于诊断，均非整体视觉还原率",
+    "meanFillError": 0.06286707505304244,
+    "meanBlackError": 0.19506555432385603,
+    "rows": [
+      {
+        "id": 937,
+        "text": "5",
+        "fillRatio": 1.1140684410646389,
+        "blackRatio": 0.8327974276527331,
+        "fillIoU": 0.7935483870967742,
+        "blackIoU": 0.5659340659340659,
+        "bestShiftFillIoU": 0.7935483870967742,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 263,
+        "actualFill": 293,
+        "referenceBlack": 311,
+        "actualBlack": 259
+      },
+      {
+        "id": 948,
+        "text": "4",
+        "fillRatio": 1.2075471698113207,
+        "blackRatio": 0.8242677824267782,
+        "fillIoU": 0.7781155015197568,
+        "blackIoU": 0.5970695970695971,
+        "bestShiftFillIoU": 0.7781155015197568,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 265,
+        "actualFill": 320,
+        "referenceBlack": 239,
+        "actualBlack": 197
+      },
+      {
+        "id": 959,
+        "text": "3",
+        "fillRatio": 1.1208333333333333,
+        "blackRatio": 0.8401253918495298,
+        "fillIoU": 0.7922535211267606,
+        "blackIoU": 0.6038251366120219,
+        "bestShiftFillIoU": 0.7922535211267606,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 240,
+        "actualFill": 269,
+        "referenceBlack": 319,
+        "actualBlack": 268
+      },
+      {
+        "id": 969,
+        "text": "5",
+        "fillRatio": 1.1216730038022813,
+        "blackRatio": 0.8067796610169492,
+        "fillIoU": 0.8058252427184466,
+        "blackIoU": 0.5449275362318841,
+        "bestShiftFillIoU": 0.8058252427184466,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 263,
+        "actualFill": 295,
+        "referenceBlack": 295,
+        "actualBlack": 238
+      },
+      {
+        "id": 979,
+        "text": "Backpack",
+        "fillRatio": 1.0054347826086956,
+        "blackRatio": 0.8373983739837398,
+        "fillIoU": 0.759656652360515,
+        "blackIoU": 0.6860832137733142,
+        "bestShiftFillIoU": 0.8159448818897638,
+        "bestShift": [
+          0,
+          1
+        ],
+        "referenceFill": 1840,
+        "actualFill": 1850,
+        "referenceBlack": 3198,
+        "actualBlack": 2678
+      },
+      {
+        "id": 994,
+        "text": "Emergency",
+        "fillRatio": 1.00625,
+        "blackRatio": 0.8364312267657993,
+        "fillIoU": 0.7924616100511866,
+        "blackIoU": 0.7129901307015204,
+        "bestShiftFillIoU": 0.8169811320754717,
+        "bestShift": [
+          0,
+          1
+        ],
+        "referenceFill": 1920,
+        "actualFill": 1932,
+        "referenceBlack": 3497,
+        "actualBlack": 2925
+      },
+      {
+        "id": 1001,
+        "text": "60",
+        "fillRatio": 0.9530612244897959,
+        "blackRatio": 0.8054298642533937,
+        "fillIoU": 0.7954971857410882,
+        "blackIoU": 0.30392156862745096,
+        "bestShiftFillIoU": 0.8298279158699808,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 490,
+        "actualFill": 467,
+        "referenceBlack": 221,
+        "actualBlack": 178
+      },
+      {
+        "id": 1008,
+        "text": "60",
+        "fillRatio": 0.9591836734693877,
+        "blackRatio": 0.8045454545454546,
+        "fillIoU": 0.7910447761194029,
+        "blackIoU": 0.2973856209150327,
+        "bestShiftFillIoU": 0.8250950570342205,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 490,
+        "actualFill": 470,
+        "referenceBlack": 220,
+        "actualBlack": 177
+      },
+      {
+        "id": 1057,
+        "text": "16  4Zombie  ",
+        "fillRatio": 1.016892911010558,
+        "blackRatio": 0.7640252454417953,
+        "fillIoU": 0.7891356703237892,
+        "blackIoU": 0.5139933794763768,
+        "bestShiftFillIoU": 0.8232887919280065,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 3315,
+        "actualFill": 3371,
+        "referenceBlack": 2852,
+        "actualBlack": 2179
+      },
+      {
+        "id": 1058,
+        "text": "Hell",
+        "fillRatio": 1.0231741573033708,
+        "blackRatio": 0.8425391591096455,
+        "fillIoU": 0.7740147783251231,
+        "blackIoU": 0.47136273864384465,
+        "bestShiftFillIoU": 0.8599096191091027,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 1424,
+        "actualFill": 1457,
+        "referenceBlack": 1213,
+        "actualBlack": 1022
+      },
+      {
+        "id": 1081,
+        "text": "43",
+        "fillRatio": 1.0189655172413794,
+        "blackRatio": 0.7667731629392971,
+        "fillIoU": 0.7823439878234398,
+        "blackIoU": 0.3073286052009456,
+        "bestShiftFillIoU": 0.82398753894081,
+        "bestShift": [
+          1,
+          0
+        ],
+        "referenceFill": 580,
+        "actualFill": 591,
+        "referenceBlack": 313,
+        "actualBlack": 240
+      },
+      {
+        "id": 1090,
+        "text": "0",
+        "fillRatio": 1.0941176470588236,
+        "blackRatio": 0.7705882352941177,
+        "fillIoU": 0.8101694915254237,
+        "blackIoU": 0.47911547911547914,
+        "bestShiftFillIoU": 0.8413793103448276,
+        "bestShift": [
+          -1,
+          0
+        ],
+        "referenceFill": 510,
+        "actualFill": 558,
+        "referenceBlack": 340,
+        "actualBlack": 262
+      },
+      {
+        "id": 1091,
+        "text": "Energy Level",
+        "fillRatio": 0.9994400895856663,
+        "blackRatio": 0.7324468085106383,
+        "fillIoU": 0.7953745600804424,
+        "blackIoU": 0.5276735459662288,
+        "bestShiftFillIoU": 0.7953745600804424,
+        "bestShift": [
+          0,
+          0
+        ],
+        "referenceFill": 1786,
+        "actualFill": 1785,
+        "referenceBlack": 1880,
+        "actualBlack": 1377
+      }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+.ai-settings-host { flex-grow: 1; min-height: 0; }
+.ai-settings-root { flex-grow: 1; min-height: 0; padding: 12px; }
+.ai-settings-title { -unity-font-style: bold; font-size: 16px; margin-bottom: 8px; }
+.ai-settings-scroll { flex-grow: 1; min-height: 0; }
+.ai-settings-scroll .unity-scroll-view__content-container { padding-right: 8px; }
+.ai-settings-wrap { white-space: normal; margin-top: 5px; margin-bottom: 8px; flex-shrink: 0; }
+.ai-settings-section { -unity-font-style: bold; margin-top: 16px; margin-bottom: 8px; }
+.ai-settings-toolbar { flex-direction: row; flex-wrap: wrap; margin-top: 4px; margin-bottom: 8px; }
+.ai-settings-toolbar > Button { flex-grow: 1; }
+.ai-settings-root .unity-base-field { margin-top: 4px; margin-bottom: 4px; }
+.ai-settings-root .unity-base-field__label { min-width: 110px; }
+.ai-settings-root .unity-base-field__input { min-width: 0; }
+.ai-settings-rules > .unity-text-field__input { min-height: 110px; white-space: normal; }
+.ai-settings-hidden { display: none; }

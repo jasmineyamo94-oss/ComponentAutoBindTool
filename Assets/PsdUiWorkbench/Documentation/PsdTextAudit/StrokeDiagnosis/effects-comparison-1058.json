@@ -1,0 +1,687 @@
+{
+  "layerId": 1058,
+  "text": "Hell",
+  "fontSize": 48.0,
+  "strokePixels": 3.0,
+  "rect": [
+    641,
+    89,
+    762,
+    155
+  ],
+  "source": {
+    "layerId": 1058,
+    "name": "Hell",
+    "text": "Hell",
+    "font": "TOXIA",
+    "fontSize": 48.0,
+    "tracking": 100.0,
+    "fauxBold": true,
+    "origin": [
+      652.79970106887,
+      139.335709305702
+    ],
+    "antiAlias": "AntiAlias.SHARP",
+    "mode": "cached-effects-from-disk-copy",
+    "sourceHashes": {
+      "Assets\\Psd\\战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+      "Assets\\Psd\\战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8"
+    },
+    "png": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\effects-ps-1058-cached.png",
+    "pngSha256": "9c0ca19efea111372330998575d4ef6e0fe6fe9c8ff80d09aef1b7678180c05a",
+    "photoshopVersion": "22.0.0",
+    "note": "不重排文字、不切换字体或字重；保留原稿图层效果；不操作用户文档"
+  },
+  "sourceFaceCoverage": "由原图预乘RGB和填充/描边单色估算；PSD Alpha直接作为有效外轮廓覆盖",
+  "scope": "原位、参考分辨率；单个真实字体，不推导所有字体或运行时缩放通式",
+  "comparisons": {
+    "baseline": {
+      "face": {
+        "reference": {
+          "coverageSum": 1615.987118896916,
+          "coverageCentroidPsd": [
+            699.963550626602,
+            122.30079890588138
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1823,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                750,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1570,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1424,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                749,
+                143
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1632.1960784313724,
+          "coverageCentroidPsd": [
+            699.1229259268158,
+            122.27147593762764
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1809,
+              "boundsX1Y1X2Y2": [
+                652,
+                102,
+                749,
+                142
+              ]
+            },
+            "0.5": {
+              "area": 1638,
+              "boundsX1Y1X2Y2": [
+                652,
+                102,
+                749,
+                142
+              ]
+            },
+            "0.9": {
+              "area": 1443,
+              "boundsX1Y1X2Y2": [
+                652,
+                102,
+                748,
+                142
+              ]
+            }
+          }
+        },
+        "absoluteDifference": 363.76388874690565,
+        "iou50": 0.7992148065058889
+      },
+      "outer": {
+        "reference": {
+          "coverageSum": 3088.6,
+          "coverageCentroidPsd": [
+            701.1185142579988,
+            122.42018148967804
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 3301,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                753,
+                146
+              ]
+            },
+            "0.5": {
+              "area": 3039,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                752,
+                146
+              ]
+            },
+            "0.9": {
+              "area": 2892,
+              "boundsX1Y1X2Y2": [
+                651,
+                99,
+                752,
+                146
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 2995.8980392156864,
+          "coverageCentroidPsd": [
+            700.2959955704139,
+            122.35391528809325
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 3180,
+              "boundsX1Y1X2Y2": [
+                649,
+                99,
+                752,
+                145
+              ]
+            },
+            "0.5": {
+              "area": 2998,
+              "boundsX1Y1X2Y2": [
+                649,
+                99,
+                752,
+                145
+              ]
+            },
+            "0.9": {
+              "area": 2804,
+              "boundsX1Y1X2Y2": [
+                650,
+                100,
+                751,
+                144
+              ]
+            }
+          }
+        },
+        "absoluteDifference": 389.0313725490196,
+        "iou50": 0.884207240948814
+      },
+      "colorL1": 870.3509111880046,
+      "layoutPreserved": true,
+      "fontSize": 48.0,
+      "characterSpacing": 5.990466594696045,
+      "directionalBoldX": 0.0,
+      "directionalBias": 1,
+      "colorPngSha256": "011053ffe9ddde12d7e59c6d2db4855644de1281d7b674c63fc67e25b89e3bab",
+      "maskPngSha256": "d82d550dd88f07ad5b49a2d4472af765d94b2d1b77966fddc15c3258300016d4"
+    },
+    "direction": {
+      "face": {
+        "reference": {
+          "coverageSum": 1615.987118896916,
+          "coverageCentroidPsd": [
+            699.963550626602,
+            122.30079890588138
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1823,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                750,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1570,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1424,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                749,
+                143
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1555.4705882352941,
+          "coverageCentroidPsd": [
+            699.8457411539285,
+            122.19312231340368
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1752,
+              "boundsX1Y1X2Y2": [
+                653,
+                100,
+                750,
+                144
+              ]
+            },
+            "0.5": {
+              "area": 1547,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1378,
+              "boundsX1Y1X2Y2": [
+                654,
+                101,
+                749,
+                142
+              ]
+            }
+          }
+        },
+        "absoluteDifference": 135.13255268675647,
+        "iou50": 0.9110974862047824
+      },
+      "outer": {
+        "reference": {
+          "coverageSum": 3088.6,
+          "coverageCentroidPsd": [
+            701.1185142579988,
+            122.42018148967804
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 3301,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                753,
+                146
+              ]
+            },
+            "0.5": {
+              "area": 3039,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                752,
+                146
+              ]
+            },
+            "0.9": {
+              "area": 2892,
+              "boundsX1Y1X2Y2": [
+                651,
+                99,
+                752,
+                146
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 2992.8823529411766,
+          "coverageCentroidPsd": [
+            701.205727313823,
+            122.36058491715639
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 3181,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                753,
+                146
+              ]
+            },
+            "0.5": {
+              "area": 2991,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                752,
+                146
+              ]
+            },
+            "0.9": {
+              "area": 2802,
+              "boundsX1Y1X2Y2": [
+                651,
+                99,
+                752,
+                145
+              ]
+            }
+          }
+        },
+        "absoluteDifference": 146.4392156862745,
+        "iou50": 0.9552529182879378
+      },
+      "colorL1": 327.6584544405997,
+      "layoutPreserved": true,
+      "fontSize": 48.0,
+      "characterSpacing": 5.990466594696045,
+      "directionalBoldX": 1.5,
+      "directionalBias": 1,
+      "colorPngSha256": "fd35c26ec70e605883e6fbe356dfef2892a430a6bc49e85ef1bc421693857b72",
+      "maskPngSha256": "757c46b3e7c3cfbc7d276b604e6ff89d16dce9103371434a22bc41cac36ed57f"
+    },
+    "balanced": {
+      "face": {
+        "reference": {
+          "coverageSum": 1615.987118896916,
+          "coverageCentroidPsd": [
+            699.963550626602,
+            122.30079890588138
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1823,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                750,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1570,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1424,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                749,
+                143
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1550.6823529411765,
+          "coverageCentroidPsd": [
+            699.4628651776321,
+            122.20031662215749
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1731,
+              "boundsX1Y1X2Y2": [
+                653,
+                100,
+                749,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1555,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1366,
+              "boundsX1Y1X2Y2": [
+                653,
+                102,
+                749,
+                142
+              ]
+            }
+          }
+        },
+        "absoluteDifference": 224.06000782985592,
+        "iou50": 0.8701376421304609
+      },
+      "outer": {
+        "reference": {
+          "coverageSum": 3088.6,
+          "coverageCentroidPsd": [
+            701.1185142579988,
+            122.42018148967804
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 3301,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                753,
+                146
+              ]
+            },
+            "0.5": {
+              "area": 3039,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                752,
+                146
+              ]
+            },
+            "0.9": {
+              "area": 2892,
+              "boundsX1Y1X2Y2": [
+                651,
+                99,
+                752,
+                146
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 2995.2745098039213,
+          "coverageCentroidPsd": [
+            700.7563809660969,
+            122.35671482531308
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 3185,
+              "boundsX1Y1X2Y2": [
+                649,
+                98,
+                752,
+                146
+              ]
+            },
+            "0.5": {
+              "area": 3004,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                752,
+                146
+              ]
+            },
+            "0.9": {
+              "area": 2796,
+              "boundsX1Y1X2Y2": [
+                650,
+                99,
+                752,
+                145
+              ]
+            }
+          }
+        },
+        "absoluteDifference": 227.70980392156864,
+        "iou50": 0.9319053708439897
+      },
+      "colorL1": 534.1062514417532,
+      "layoutPreserved": true,
+      "fontSize": 48.0,
+      "characterSpacing": 5.990466594696045,
+      "directionalBoldX": 1.5,
+      "directionalBias": 0.75,
+      "colorPngSha256": "6c2ab6153ae8028af47b3dc0cc2973a7e6905559e2932ef4cf2b8b69923eddb9",
+      "maskPngSha256": "87acbfc74d5eb144400c16cb1ae34976d364440332ea097f0eaf78ac6b3cd7f9"
+    },
+    "symmetric": {
+      "face": {
+        "reference": {
+          "coverageSum": 1615.987118896916,
+          "coverageCentroidPsd": [
+            699.963550626602,
+            122.30079890588138
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1823,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                750,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1570,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1424,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                749,
+                143
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1548.5725490196078,
+          "coverageCentroidPsd": [
+            699.0732641825742,
+            122.20181773980339
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1739,
+              "boundsX1Y1X2Y2": [
+                652,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1542,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1360,
+              "boundsX1Y1X2Y2": [
+                653,
+                102,
+                748,
+                142
+              ]
+            }
+          }
+        },
+        "absoluteDifference": 347.3871343988132,
+        "iou50": 0.8051044083526682
+      },
+      "outer": {
+        "reference": {
+          "coverageSum": 3088.6,
+          "coverageCentroidPsd": [
+            701.1185142579988,
+            122.42018148967804
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 3301,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                753,
+                146
+              ]
+            },
+            "0.5": {
+              "area": 3039,
+              "boundsX1Y1X2Y2": [
+                650,
+                98,
+                752,
+                146
+              ]
+            },
+            "0.9": {
+              "area": 2892,
+              "boundsX1Y1X2Y2": [
+                651,
+                99,
+                752,
+                146
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 2999.1725490196077,
+          "coverageCentroidPsd": [
+            700.3170260032506,
+            122.37098729191973
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 3205,
+              "boundsX1Y1X2Y2": [
+                649,
+                98,
+                752,
+                146
+              ]
+            },
+            "0.5": {
+              "area": 2987,
+              "boundsX1Y1X2Y2": [
+                649,
+                99,
+                752,
+                145
+              ]
+            },
+            "0.9": {
+              "area": 2800,
+              "boundsX1Y1X2Y2": [
+                650,
+                99,
+                751,
+                145
+              ]
+            }
+          }
+        },
+        "absoluteDifference": 347.4196078431372,
+        "iou50": 0.890806401004079
+      },
+      "colorL1": 822.7302883506344,
+      "layoutPreserved": true,
+      "fontSize": 48.0,
+      "characterSpacing": 5.990466594696045,
+      "directionalBoldX": 1.5,
+      "directionalBias": 0.5,
+      "colorPngSha256": "72833dce673bd645567db977a7ed479456497ce6631bc9b479bfd6d36eeb5827",
+      "maskPngSha256": "f6b48442a8ef5902804c6936cbb833cbf8a13d6517332e23cb910035530d92cc"
+    }
+  }
+}

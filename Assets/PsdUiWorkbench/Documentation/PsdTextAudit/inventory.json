@@ -1,0 +1,2322 @@
+{
+  "source": "Assets\\Psd\\战斗-主菜单界面.psd",
+  "sha256": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+  "metaSha256": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8",
+  "width": 1080,
+  "height": 2400,
+  "resolution": {
+    "horizontal": 72.0,
+    "vertical": 72.0,
+    "horizontalUnit": 1,
+    "verticalUnit": 1,
+    "widthUnit": 1,
+    "heightUnit": 1
+  },
+  "jobs": [
+    {
+      "id": 936,
+      "name": "1/10",
+      "text": "1/10",
+      "rawEngineText": "1/10\r",
+      "fonts": [
+        "Rubik-Medium",
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 1,
+          "text": "1",
+          "font": "TOXIA",
+          "fontSize": 30.69449,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.7294,
+              0.76862,
+              0.79214
+            ]
+          }
+        },
+        {
+          "start": 1,
+          "length": 1,
+          "text": "/",
+          "font": "Rubik-Medium",
+          "fontSize": 30.69449,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.7294,
+              0.76862,
+              0.79214
+            ]
+          }
+        },
+        {
+          "start": 2,
+          "length": 3,
+          "text": "10\r",
+          "font": "TOXIA",
+          "fontSize": 30.69449,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.7294,
+              0.76862,
+              0.79214
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 30.69449,
+      "fontSizeUi": 30.00000101735135,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.9773741481728918,
+        0.0,
+        0.0,
+        0.977374148172892,
+        967.2746001177783,
+        459.4001404179919
+      ],
+      "originX": 967.2746001177783,
+      "originY": 459.4001404179919,
+      "rasterRect": [
+        934,
+        435,
+        65,
+        28
+      ],
+      "color": [
+        0.7294,
+        0.76862,
+        0.79214,
+        1.0
+      ],
+      "strokePixels": 2.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 2.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": false,
+      "diagnostics": []
+    },
+    {
+      "id": 937,
+      "name": "5",
+      "text": "5",
+      "rawEngineText": "5\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 2,
+          "text": "5\r",
+          "font": "TOXIA",
+          "fontSize": 40.92599,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 40.92599,
+      "fontSizeUi": 40.0000046143823,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.9773741481728918,
+        0.0,
+        0.0,
+        0.977374148172892,
+        1035.2746001177784,
+        364.4001404179919
+      ],
+      "originX": 1035.2746001177784,
+      "originY": 364.4001404179919,
+      "rasterRect": [
+        1025,
+        335,
+        20,
+        32
+      ],
+      "color": [
+        0.88235,
+        0.88235,
+        0.88235,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 947,
+      "name": "10/10",
+      "text": "10/10",
+      "rawEngineText": "10/10\r",
+      "fonts": [
+        "Rubik-Medium",
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 2,
+          "text": "10",
+          "font": "TOXIA",
+          "fontSize": 24.55559,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.7294,
+              0.76862,
+              0.79214
+            ]
+          }
+        },
+        {
+          "start": 2,
+          "length": 1,
+          "text": "/",
+          "font": "Rubik-Medium",
+          "fontSize": 24.55559,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.7294,
+              0.76862,
+              0.79214
+            ]
+          }
+        },
+        {
+          "start": 3,
+          "length": 3,
+          "text": "10\r",
+          "font": "TOXIA",
+          "fontSize": 24.55559,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.7294,
+              0.76862,
+              0.79214
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 24.55559,
+      "fontSizeUi": 23.999998859132784,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.9773741481728918,
+        0.0,
+        0.0,
+        0.977374148172892,
+        962.2746001177783,
+        614.4001404179919
+      ],
+      "originX": 962.2746001177783,
+      "originY": 614.4001404179919,
+      "rasterRect": [
+        927,
+        595,
+        70,
+        22
+      ],
+      "color": [
+        0.7294,
+        0.76862,
+        0.79214,
+        1.0
+      ],
+      "strokePixels": 2.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.8
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 80.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 2.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": false,
+      "diagnostics": []
+    },
+    {
+      "id": 948,
+      "name": "4",
+      "text": "4",
+      "rawEngineText": "4\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 2,
+          "text": "4\r",
+          "font": "TOXIA",
+          "fontSize": 40.92599,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 40.92599,
+      "fontSizeUi": 40.0000046143823,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.9773741481728918,
+        0.0,
+        0.0,
+        0.977374148172892,
+        1035.2746001177784,
+        520.4001404179919
+      ],
+      "originX": 1035.2746001177784,
+      "originY": 520.4001404179919,
+      "rasterRect": [
+        1024,
+        490,
+        22,
+        34
+      ],
+      "color": [
+        0.88235,
+        0.88235,
+        0.88235,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        0.8
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 80.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 959,
+      "name": "3",
+      "text": "3",
+      "rawEngineText": "3\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 2,
+          "text": "3\r",
+          "font": "TOXIA",
+          "fontSize": 40.92599,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 40.92599,
+      "fontSizeUi": 40.0000046143823,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.9773741481728918,
+        0.0,
+        0.0,
+        0.977374148172892,
+        1035.2746001177784,
+        677.4001404179919
+      ],
+      "originX": 1035.2746001177784,
+      "originY": 677.4001404179919,
+      "rasterRect": [
+        1025,
+        647,
+        19,
+        34
+      ],
+      "color": [
+        0.88235,
+        0.88235,
+        0.88235,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 969,
+      "name": "5",
+      "text": "5",
+      "rawEngineText": "5\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 2,
+          "text": "5\r",
+          "font": "TOXIA",
+          "fontSize": 40.92599,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 40.92599,
+      "fontSizeUi": 40.0000046143823,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.9773741481728918,
+        0.0,
+        0.0,
+        0.977374148172892,
+        1035.2746001177784,
+        833.4001404179919
+      ],
+      "originX": 1035.2746001177784,
+      "originY": 833.4001404179919,
+      "rasterRect": [
+        1025,
+        804,
+        20,
+        32
+      ],
+      "color": [
+        0.88235,
+        0.88235,
+        0.88235,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 979,
+      "name": "Backpack",
+      "text": "Backpack",
+      "rawEngineText": "Backpack\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 9,
+          "text": "Backpack\r",
+          "font": "TOXIA",
+          "fontSize": 42.74111,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 42.74111,
+      "fontSizeUi": 38.00000342172868,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.8890738546970034,
+        0.0,
+        0.0,
+        0.8890738546970043,
+        107.49413509811893,
+        2300.5497322205742
+      ],
+      "originX": 107.49413509811893,
+      "originY": 2300.5497322205742,
+      "rasterRect": [
+        15,
+        2272,
+        185,
+        37
+      ],
+      "color": [
+        0.88235,
+        0.88235,
+        0.88235,
+        1.0
+      ],
+      "strokePixels": 5.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 5.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 994,
+      "name": "Emergency",
+      "text": "Emergency",
+      "rawEngineText": "Emergency\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 10,
+          "text": "Emergency\r",
+          "font": "TOXIA",
+          "fontSize": 42.74111,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 42.74111,
+      "fontSizeUi": 38.00000342172868,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.8890738546970034,
+        0.0,
+        0.0,
+        0.8890738546970043,
+        957.4941350981189,
+        2300.5497322205742
+      ],
+      "originX": 957.4941350981189,
+      "originY": 2300.5497322205742,
+      "rasterRect": [
+        853,
+        2274,
+        210,
+        35
+      ],
+      "color": [
+        0.88235,
+        0.88235,
+        0.88235,
+        1.0
+      ],
+      "strokePixels": 5.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 5.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 1001,
+      "name": "60",
+      "text": "60",
+      "rawEngineText": "60\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 3,
+          "text": "60\r",
+          "font": "TOXIA",
+          "fontSize": 34.0,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              1.0,
+              0.36849,
+              0.21569
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 34.0,
+      "fontSizeUi": 34.0,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 0,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        976.7997010688703,
+        1860.335709305702
+      ],
+      "originX": 976.7997010688703,
+      "originY": 1860.335709305702,
+      "rasterRect": [
+        977,
+        1835,
+        41,
+        27
+      ],
+      "color": [
+        1.0,
+        0.36849,
+        0.21569,
+        1.0
+      ],
+      "strokePixels": 2.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 2.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 1008,
+      "name": "60",
+      "text": "60",
+      "rawEngineText": "60\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 3,
+          "text": "60\r",
+          "font": "TOXIA",
+          "fontSize": 34.0,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              1.0,
+              0.37256,
+              0.2196
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 34.0,
+      "fontSizeUi": 34.0,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 0,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        976.7997010688703,
+        2077.335709305702
+      ],
+      "originX": 976.7997010688703,
+      "originY": 2077.335709305702,
+      "rasterRect": [
+        977,
+        2052,
+        41,
+        27
+      ],
+      "color": [
+        1.0,
+        0.37256,
+        0.2196,
+        1.0
+      ],
+      "strokePixels": 2.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 2.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 1015,
+      "name": "600/600",
+      "text": "600/600",
+      "rawEngineText": "600/600\r",
+      "fonts": [
+        "Rubik-Medium",
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 3,
+          "text": "600",
+          "font": "TOXIA",
+          "fontSize": 36.43398,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        },
+        {
+          "start": 3,
+          "length": 1,
+          "text": "/",
+          "font": "Rubik-Medium",
+          "fontSize": 36.43398,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        },
+        {
+          "start": 4,
+          "length": 4,
+          "text": "600\r",
+          "font": "TOXIA",
+          "fontSize": 36.43398,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 36.43398,
+      "fontSizeUi": 27.999997629045392,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.7685132842759822,
+        0.0,
+        0.0,
+        0.7685132842759806,
+        985.7707700698096,
+        1657.1045586716468
+      ],
+      "originX": 985.7707700698096,
+      "originY": 1657.1045586716468,
+      "rasterRect": [
+        922,
+        1634,
+        127,
+        26
+      ],
+      "color": [
+        0.88235,
+        0.88235,
+        0.88235,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": false,
+      "diagnostics": []
+    },
+    {
+      "id": 1020,
+      "name": "3/3",
+      "text": "3/3",
+      "rawEngineText": "3/3\r",
+      "fonts": [
+        "Rubik-Medium",
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 1,
+          "text": "3",
+          "font": "TOXIA",
+          "fontSize": 30.69449,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.7294,
+              0.76862,
+              0.79214
+            ]
+          }
+        },
+        {
+          "start": 1,
+          "length": 1,
+          "text": "/",
+          "font": "Rubik-Medium",
+          "fontSize": 30.69449,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.7294,
+              0.76862,
+              0.79214
+            ]
+          }
+        },
+        {
+          "start": 2,
+          "length": 2,
+          "text": "3\r",
+          "font": "TOXIA",
+          "fontSize": 30.69449,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.7294,
+              0.76862,
+              0.79214
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 30.69449,
+      "fontSizeUi": 30.00000101735135,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.9773741481728918,
+        0.0,
+        0.0,
+        0.977374148172892,
+        101.27460011777828,
+        2076.4001404179917
+      ],
+      "originX": 101.27460011777828,
+      "originY": 2076.4001404179917,
+      "rasterRect": [
+        76,
+        2052,
+        50,
+        28
+      ],
+      "color": [
+        0.7294,
+        0.76862,
+        0.79214,
+        1.0
+      ],
+      "strokePixels": 2.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 2.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": false,
+      "diagnostics": []
+    },
+    {
+      "id": 1057,
+      "name": "16  4Zombie  ",
+      "text": "16  4Zombie  ",
+      "rawEngineText": "16  4Zombie  \r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 14,
+          "text": "16  4Zombie  \r",
+          "font": "TOXIA",
+          "fontSize": 48.0,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.84314,
+              0.69412,
+              0.4549
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 48.0,
+      "fontSizeUi": 48.0,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 0,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        331.7997010688703,
+        139.33570930570215
+      ],
+      "originX": 331.7997010688703,
+      "originY": 139.33570930570215,
+      "rasterRect": [
+        332,
+        102,
+        284,
+        41
+      ],
+      "color": [
+        0.84314,
+        0.69412,
+        0.4549,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 1058,
+      "name": "Hell",
+      "text": "Hell",
+      "rawEngineText": "Hell\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 5,
+          "text": "Hell\r",
+          "font": "TOXIA",
+          "fontSize": 48.0,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.84314,
+              0.69448,
+              0.45298
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 48.0,
+      "fontSizeUi": 48.0,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 0,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        652.7997010688703,
+        139.33570930570215
+      ],
+      "originX": 652.7997010688703,
+      "originY": 139.33570930570215,
+      "rasterRect": [
+        653,
+        101,
+        97,
+        42
+      ],
+      "color": [
+        0.84314,
+        0.69448,
+        0.45298,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 1059,
+      "name": "-",
+      "text": "-",
+      "rawEngineText": "-\r",
+      "fonts": [
+        "JiangChengYuanTi-500W"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 2,
+          "text": "-\r",
+          "font": "JiangChengYuanTi-500W",
+          "fontSize": 48.0,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.84314,
+              0.69412,
+              0.4549
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 48.0,
+      "fontSizeUi": 48.0,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 0,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        389.7997010688703,
+        136.33570930570215
+      ],
+      "originX": 389.7997010688703,
+      "originY": 136.33570930570215,
+      "rasterRect": [
+        392,
+        120,
+        15,
+        6
+      ],
+      "color": [
+        0.84314,
+        0.69412,
+        0.4549,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": false,
+      "diagnostics": []
+    },
+    {
+      "id": 1060,
+      "name": ".",
+      "text": ".",
+      "rawEngineText": ".\r",
+      "fonts": [
+        "JiangChengYuanTi-500W"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 2,
+          "text": ".\r",
+          "font": "JiangChengYuanTi-500W",
+          "fontSize": 48.0,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.84314,
+              0.69412,
+              0.4549
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 48.0,
+      "fontSizeUi": 48.0,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 0,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        627.7997010688703,
+        128.33570930570215
+      ],
+      "originX": 627.7997010688703,
+      "originY": 128.33570930570215,
+      "rasterRect": [
+        631,
+        120,
+        9,
+        10
+      ],
+      "color": [
+        0.84314,
+        0.69412,
+        0.4549,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": false,
+      "diagnostics": []
+    },
+    {
+      "id": 1067,
+      "name": "29:51",
+      "text": "29:51",
+      "rawEngineText": "29:51\r",
+      "fonts": [
+        "Rubik-Medium",
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 2,
+          "text": "29",
+          "font": "TOXIA",
+          "fontSize": 30.0,
+          "fauxBold": true,
+          "tracking": 200,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.70356,
+              0.71061,
+              0.71765
+            ]
+          }
+        },
+        {
+          "start": 2,
+          "length": 1,
+          "text": ":",
+          "font": "Rubik-Medium",
+          "fontSize": 30.0,
+          "fauxBold": true,
+          "tracking": 200,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.70356,
+              0.71061,
+              0.71765
+            ]
+          }
+        },
+        {
+          "start": 3,
+          "length": 3,
+          "text": "51\r",
+          "font": "TOXIA",
+          "fontSize": 30.0,
+          "fauxBold": true,
+          "tracking": 200,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.70356,
+              0.71061,
+              0.71765
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 30.0,
+      "fontSizeUi": 30.0,
+      "fauxBold": true,
+      "tracking": 200,
+      "justification": 0,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        495.79970106887026,
+        194.33570930570204
+      ],
+      "originX": 495.79970106887026,
+      "originY": 194.33570930570204,
+      "rasterRect": [
+        496,
+        172,
+        91,
+        26
+      ],
+      "color": [
+        0.70356,
+        0.71061,
+        0.71765,
+        1.0
+      ],
+      "strokePixels": 2.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 2.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": false,
+      "diagnostics": []
+    },
+    {
+      "id": 1081,
+      "name": "43",
+      "text": "43",
+      "rawEngineText": "43\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 3,
+          "text": "43\r",
+          "font": "TOXIA",
+          "fontSize": 40.0,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.70197,
+              0.70981,
+              0.71765
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 40.0,
+      "fontSizeUi": 40.0,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 0,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        980.7997010688703,
+        138.33570930570204
+      ],
+      "originX": 980.7997010688703,
+      "originY": 138.33570930570204,
+      "rasterRect": [
+        981,
+        108,
+        45,
+        34
+      ],
+      "color": [
+        0.70197,
+        0.70981,
+        0.71765,
+        1.0
+      ],
+      "strokePixels": 2.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 2.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 1090,
+      "name": "0",
+      "text": "0",
+      "rawEngineText": "0\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 2,
+          "text": "0\r",
+          "font": "TOXIA",
+          "fontSize": 51.15748,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.88235,
+              0.88235,
+              0.88235
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 51.15748,
+      "fontSizeUi": 49.99999843767176,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 2,
+      "transform": [
+        0.9773741481728918,
+        0.0,
+        0.0,
+        0.977374148172892,
+        542.2746001177784,
+        346.4001404179919
+      ],
+      "originX": 542.2746001177784,
+      "originY": 346.4001404179919,
+      "rasterRect": [
+        528,
+        309,
+        27,
+        38
+      ],
+      "color": [
+        0.88235,
+        0.88235,
+        0.88235,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 0.0,
+              "Grn ": 0.0,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    },
+    {
+      "id": 1091,
+      "name": "Energy Level",
+      "text": "Energy Level",
+      "rawEngineText": "Energy Level\r",
+      "fonts": [
+        "TOXIA"
+      ],
+      "segments": [
+        {
+          "start": 0,
+          "length": 13,
+          "text": "Energy Level\r",
+          "font": "TOXIA",
+          "fontSize": 44.6346,
+          "fauxBold": true,
+          "tracking": 100,
+          "fill": {
+            "Type": 1,
+            "Values": [
+              1.0,
+              0.4685,
+              0.75818,
+              0.87843
+            ]
+          }
+        }
+      ],
+      "fontSizePoints": 44.6346,
+      "fontSizeUi": 34.00000028974786,
+      "fauxBold": true,
+      "tracking": 100,
+      "justification": 0,
+      "transform": [
+        0.7617408980868636,
+        0.0,
+        0.0,
+        0.7617408980868623,
+        425.6863492806798,
+        446.1817996417167
+      ],
+      "originX": 425.6863492806798,
+      "originY": 446.1817996417167,
+      "rasterRect": [
+        426,
+        419,
+        229,
+        35
+      ],
+      "color": [
+        0.4685,
+        0.75818,
+        0.87843,
+        1.0
+      ],
+      "strokePixels": 3.0,
+      "strokeColor": [
+        0.054901123046875,
+        0.003936767578125,
+        0.0,
+        1.0
+      ],
+      "effectScalePercent": 100.0,
+      "activeEffects": [
+        {
+          "key": "FrFX",
+          "value": {
+            "_name": "\u0000",
+            "_class": "FrFX",
+            "enab": true,
+            "present": true,
+            "showInDialog": true,
+            "Styl": {
+              "enumType": "FStl",
+              "value": "OutF"
+            },
+            "PntT": {
+              "enumType": "FrFl",
+              "value": "SClr"
+            },
+            "Md  ": {
+              "enumType": "BlnM",
+              "value": "Nrml"
+            },
+            "Opct": {
+              "unit": "#Prc",
+              "value": 100.0
+            },
+            "Sz  ": {
+              "unit": "#Pxl",
+              "value": 3.0
+            },
+            "Clr ": {
+              "_name": "\u0000",
+              "_class": "RGBC",
+              "Rd  ": 13.999786376953125,
+              "Grn ": 1.003875732421875,
+              "Bl  ": 0.0
+            },
+            "overprint": false
+          }
+        }
+      ],
+      "eligibleForToxiaProbe": true,
+      "diagnostics": []
+    }
+  ]
+}

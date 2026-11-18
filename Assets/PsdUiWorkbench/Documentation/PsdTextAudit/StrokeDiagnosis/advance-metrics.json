@@ -1,0 +1,50 @@
+[
+  {
+    "layer": "Zombie",
+    "render": "outer-final",
+    "ratio": 0.9923281203894955,
+    "iou": 0.8106731027085009
+  },
+  {
+    "layer": "Zombie",
+    "render": "advance-final",
+    "ratio": 0.9946886987311891,
+    "iou": 0.8255468539022415
+  },
+  {
+    "layer": "Hell",
+    "render": "outer-final",
+    "ratio": 1.0145027624309393,
+    "iou": 0.8674775928297055
+  },
+  {
+    "layer": "Hell",
+    "render": "advance-final",
+    "ratio": 1.0062154696132597,
+    "iou": 0.8645699614890886
+  },
+  {
+    "layer": "Energy",
+    "render": "outer-final",
+    "ratio": 0.9728113104948342,
+    "iou": 0.8031809145129225
+  },
+  {
+    "layer": "Energy",
+    "render": "advance-final",
+    "ratio": 0.9717237629146275,
+    "iou": 0.7977193852255825
+  },
+  {
+    "layer": "Backpack",
+    "render": "outer-final",
+    "ratio": 1.0039592760180995,
+    "iou": 0.8003048780487805
+  },
+  {
+    "layer": "Backpack",
+    "render": "advance-final",
+    "ratio": 1.005656108597285,
+    "iou": 0.8147389969293757
+  }
+]

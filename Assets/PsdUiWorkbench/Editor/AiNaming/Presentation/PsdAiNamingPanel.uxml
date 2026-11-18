@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Style src="PsdAiNamingPanel.uss" />
+    <ui:VisualElement name="aiRoot" class="ai-panel">
+        <ui:VisualElement class="ai-toolbar"><ui:Label text="AI 语义命名" class="ai-title" /><ui:Button name="openSettings" text="AI 设置" /><ui:Button name="close" text="关闭" /></ui:VisualElement>
+        <ui:Label name="uploadNotice" text="分析会上传图片、文字、已保存的相关节点描述及层级至当前供应商，可能产生费用。建议默认不勾选，不会自动应用。" class="ai-wrap" />
+        <ui:Label name="selection" />
+        <ui:VisualElement name="annotationEditor" class="ai-annotation ai-hidden">
+            <ui:Label text="节点描述（保存后用于此节点及其子树的 AI 分析）" class="ai-wrap" />
+            <ui:TextField name="annotationInput" multiline="true" />
+            <ui:VisualElement class="ai-toolbar"><ui:Button name="saveAnnotation" text="保存描述" /><ui:Button name="clearAnnotation" text="清空描述" /></ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label name="annotationStatus" class="ai-wrap ai-hidden" />
+        <ui:VisualElement class="ai-toolbar"><ui:Button name="analyzeSelection" text="分析所选节点" /><ui:Button name="analyzeSubtree" text="分析所选子树" /><ui:Button name="cancel" text="取消" /></ui:VisualElement>
+        <ui:Label name="modelIssue" class="ai-wrap ai-hidden" />
+        <ui:Label name="status" class="ai-wrap" />
+        <ui:Label name="notice" class="ai-wrap ai-hidden" />
+        <ui:VisualElement name="resultsToolbar" class="ai-toolbar ai-hidden"><ui:Button name="selectAll" text="全选" /><ui:Button name="selectNone" text="取消全选" /><ui:Button name="apply" text="应用勾选项" /><ui:Button name="discard" text="丢弃全部" /></ui:VisualElement>
+        <ui:ListView name="results" class="ai-results" />
+        <ui:Label name="emptyResults" text="暂无命名建议。点击分析后再逐项审核。" class="ai-empty" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" xmlns:workbench="PsdUiWorkbench.Presentation">
+    <ui:Style src="PsdWorkbenchWindow.uss" />
+    <ui:VisualElement class="workbench">
+        <ui:VisualElement class="toolbar">
+            <editor:ObjectField name="psdAsset" label="PSD / PSB" />
+            <ui:Button name="openInspector" text="打开官方 Inspector" />
+            <ui:Button name="resetVisibility" text="重置显示" />
+            <ui:Button name="aiNaming" text="AI 命名" tooltip="审核 AI 语义命名建议；只有明确点击分析才会发送图片和文字。" />
+            <ui:Button name="frameSelection" text="聚焦选中 (F)" tooltip="将所选节点或分组居中并缩放到预览视口；多选聚焦整体范围，不改变激活和导出设置。" />
+            <ui:Button name="fit" text="适应窗口" />
+            <ui:Button name="exportPrefab" text="导出 UGUI Prefab" tooltip="只导出允许的节点；每层一个 TMP，优先使用层内可用字体。不支持的文本跳过且不保留 Image。" />
+        </ui:VisualElement>
+        <ui:Label name="status" class="status" />
+        <ui:VisualElement class="body">
+            <workbench:PsdLayerTree name="layers" class="layer-tree-panel" />
+            <workbench:PsdPreview />
+            <ui:VisualElement name="aiHost" class="ai-host" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

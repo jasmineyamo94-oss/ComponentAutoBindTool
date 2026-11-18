@@ -1,0 +1,1379 @@
+{
+  "formatVersion": 2,
+  "layerId": 1058,
+  "inputs": {
+    "psCachedBold": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-ps-1058-cached.png",
+      "sha256": "cf9c36e8b42df2361d39be53e8398f6b577c253e14042a69d94a9d917ee1e983",
+      "metadataSha256": "0bcc799654477dd77a59e640c9c6183e9b5a0ec4c67c6647e157bb83dd0d457c",
+      "coverageSource": "Alpha；透明 Photoshop PNG 原值，不去白底",
+      "canvas": [
+        1080,
+        2400
+      ]
+    },
+    "psNormal": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-ps-1058-normal.png",
+      "sha256": "cb61eed4430100f616494eadfbacc18daf328d2f52c8b3780f513e1e5b79cdd4",
+      "metadataSha256": "1fc571f16d4bffcb533f76e43ec5640d0beba2f7c7fd1fe4599919e174cf67ed",
+      "coverageSource": "Alpha；透明 Photoshop PNG 原值，不去白底",
+      "canvas": [
+        1080,
+        2400
+      ]
+    },
+    "psRerenderedBold": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-ps-1058-bold.png",
+      "sha256": "443d009288ed46ea6d39f061ac4a1e12182b8ce490d67bb82217a28b757dea2d",
+      "metadataSha256": "a3b810863882a803e7593ecb915d5aa7964b05d5594defa0fcd62902830f4df3",
+      "coverageSource": "Alpha；透明 Photoshop PNG 原值，不去白底",
+      "canvas": [
+        1080,
+        2400
+      ]
+    },
+    "tmpWeight0": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-tmp-1058-w000.png",
+      "sha256": "fbaa01c5405f5d8b05741c4f625942772cffbe58540903f0e27f9c2bd989ae06",
+      "metadataSha256": "78e53a310e90518c090f1df2ea5f8565298382ae7bd76480b5a08d08b17e9793",
+      "coverageSource": "黑底白字 RGB 灰度；当前 Gamma 渲染路径下的覆盖率代理",
+      "canvas": [
+        1080,
+        2400
+      ],
+      "fontStyle": "Bold",
+      "requestedShaderWeight": 0.0,
+      "layoutPreserved": true
+    },
+    "tmpWeight035": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-tmp-1058-w035.png",
+      "sha256": "ee0e575e5a704e99d603924a36786ec3d1aaa5097c9ec45243ba6a4beacced94",
+      "metadataSha256": "303758d5e2d3ebf41deb248e356267b20b135d3389e73f5c916d2f58e012e40f",
+      "coverageSource": "黑底白字 RGB 灰度；当前 Gamma 渲染路径下的覆盖率代理",
+      "canvas": [
+        1080,
+        2400
+      ],
+      "fontStyle": "Bold",
+      "requestedShaderWeight": 0.3499999940395355,
+      "layoutPreserved": true
+    },
+    "tmpNormalStyle": {
+      "path": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\fill-tmp-1058-normalstyle.png",
+      "sha256": "5625d6dc0904f693247d7b8796360ebfd15f18b9b50f7d75c44f5d2de2aaaf4e",
+      "metadataSha256": "1ff00fad2b47dddc80e0a5c25624c099b22cc16456fe3eab4d68f88c327b09e1",
+      "coverageSource": "黑底白字 RGB 灰度；当前 Gamma 渲染路径下的覆盖率代理",
+      "canvas": [
+        1080,
+        2400
+      ],
+      "fontStyle": "Normal",
+      "requestedShaderWeight": 0.0,
+      "layoutPreserved": false
+    }
+  },
+  "metricScope": "覆盖率、阈值面积、原位IoU及位置诊断；所有数值均非整体视觉还原率",
+  "regions": {
+    "wholeText": [
+      646,
+      95,
+      756,
+      149
+    ],
+    "firstH": [
+      645,
+      90,
+      686,
+      150
+    ]
+  },
+  "comparisons": {
+    "cachedVsRerenderedBold": {
+      "wholeText": {
+        "rectX1Y1X2Y2": [
+          646,
+          95,
+          756,
+          149
+        ],
+        "reference": {
+          "coverageSum": 1615.9333333333334,
+          "coverageCentroidPsd": [
+            699.9632410577995,
+            122.30079623746855
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1823,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                750,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1570,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1424,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                749,
+                143
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1615.9333333333334,
+          "coverageCentroidPsd": [
+            698.9750402244317,
+            122.30079623746855
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1823,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                748,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1570,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                747,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1424,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                747,
+                143
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": -2.220446049250313e-16,
+        "absoluteCoverageDifference": 408.4,
+        "addedCoverage": 204.2,
+        "lostCoverage": 204.2,
+        "rawIouByThreshold": {
+          "0.1": 0.7969443075406605,
+          "0.5": 0.7720090293453724,
+          "0.9": 0.7536945812807881
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            1,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.8234610917537747,
+          "absoluteCoverageDifferenceAfterShift": 306.79999999999995,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      },
+      "firstH": {
+        "rectX1Y1X2Y2": [
+          645,
+          90,
+          686,
+          150
+        ],
+        "reference": {
+          "coverageSum": 666.6666666666667,
+          "coverageCentroidPsd": [
+            668.5203,
+            121.8449
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 738,
+              "boundsX1Y1X2Y2": [
+                653,
+                104,
+                683,
+                140
+              ]
+            },
+            "0.5": {
+              "area": 655,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                682,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 591,
+              "boundsX1Y1X2Y2": [
+                654,
+                105,
+                682,
+                139
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 666.6666666666667,
+          "coverageCentroidPsd": [
+            668.5203,
+            121.8449
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 738,
+              "boundsX1Y1X2Y2": [
+                653,
+                104,
+                683,
+                140
+              ]
+            },
+            "0.5": {
+              "area": 655,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                682,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 591,
+              "boundsX1Y1X2Y2": [
+                654,
+                105,
+                682,
+                139
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": 0.0,
+        "absoluteCoverageDifference": 0.0,
+        "addedCoverage": 0.0,
+        "lostCoverage": 0.0,
+        "rawIouByThreshold": {
+          "0.1": 1.0,
+          "0.5": 1.0,
+          "0.9": 1.0
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            0,
+            0
+          ],
+          "bestIouAtHalfCoverage": 1.0,
+          "absoluteCoverageDifferenceAfterShift": 0.0,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      }
+    },
+    "controlledPsNormalVsTmpBoldStyleWeight0": {
+      "wholeText": {
+        "rectX1Y1X2Y2": [
+          646,
+          95,
+          756,
+          149
+        ],
+        "reference": {
+          "coverageSum": 1299.5333333333333,
+          "coverageCentroidPsd": [
+            696.409788129072,
+            121.8562047914636
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1487,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                742,
+                142
+              ]
+            },
+            "0.5": {
+              "area": 1261,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                742,
+                142
+              ]
+            },
+            "0.9": {
+              "area": 1125,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                742,
+                141
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1183.3098039215686,
+          "coverageCentroidPsd": [
+            698.4753333951959,
+            122.1452820934302
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1355,
+              "boundsX1Y1X2Y2": [
+                653,
+                103,
+                748,
+                141
+              ]
+            },
+            "0.5": {
+              "area": 1185,
+              "boundsX1Y1X2Y2": [
+                653,
+                103,
+                748,
+                141
+              ]
+            },
+            "0.9": {
+              "area": 1013,
+              "boundsX1Y1X2Y2": [
+                654,
+                103,
+                747,
+                140
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": -116.2235294117647,
+        "absoluteCoverageDifference": 914.0431372549019,
+        "addedCoverage": 398.9098039215686,
+        "lostCoverage": 515.1333333333333,
+        "rawIouByThreshold": {
+          "0.1": 0.49264705882352944,
+          "0.5": 0.4637941352483543,
+          "0.9": 0.41871267418712677
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            -2,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.5268414481897628,
+          "absoluteCoverageDifferenceAfterShift": 781.4549019607844,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      },
+      "firstH": {
+        "rectX1Y1X2Y2": [
+          645,
+          90,
+          686,
+          150
+        ],
+        "reference": {
+          "coverageSum": 555.1333333333333,
+          "coverageCentroidPsd": [
+            668.0315840038429,
+            121.57103398582923
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 620,
+              "boundsX1Y1X2Y2": [
+                653,
+                104,
+                682,
+                139
+              ]
+            },
+            "0.5": {
+              "area": 546,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                681,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 493,
+              "boundsX1Y1X2Y2": [
+                654,
+                105,
+                681,
+                138
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 508.4941176470589,
+          "coverageCentroidPsd": [
+            667.6228001172243,
+            121.77632532815079
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 578,
+              "boundsX1Y1X2Y2": [
+                653,
+                106,
+                681,
+                138
+              ]
+            },
+            "0.5": {
+              "area": 511,
+              "boundsX1Y1X2Y2": [
+                653,
+                106,
+                681,
+                138
+              ]
+            },
+            "0.9": {
+              "area": 445,
+              "boundsX1Y1X2Y2": [
+                654,
+                107,
+                680,
+                137
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": -46.63921568627451,
+        "absoluteCoverageDifference": 88.52941176470588,
+        "addedCoverage": 20.945098039215686,
+        "lostCoverage": 67.58431372549019,
+        "rawIouByThreshold": {
+          "0.1": 0.8487654320987654,
+          "0.5": 0.8576449912126538,
+          "0.9": 0.8213592233009709
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            0,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.8576449912126538,
+          "absoluteCoverageDifferenceAfterShift": 88.52941176470588,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      }
+    },
+    "boldPsVsTmp": {
+      "wholeText": {
+        "rectX1Y1X2Y2": [
+          646,
+          95,
+          756,
+          149
+        ],
+        "reference": {
+          "coverageSum": 1615.9333333333334,
+          "coverageCentroidPsd": [
+            698.9750402244317,
+            122.30079623746855
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1823,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                748,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1570,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                747,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1424,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                747,
+                143
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1632.1960784313726,
+          "coverageCentroidPsd": [
+            699.1229259268158,
+            122.27147593762764
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1809,
+              "boundsX1Y1X2Y2": [
+                652,
+                102,
+                749,
+                142
+              ]
+            },
+            "0.5": {
+              "area": 1638,
+              "boundsX1Y1X2Y2": [
+                652,
+                102,
+                749,
+                142
+              ]
+            },
+            "0.9": {
+              "area": 1443,
+              "boundsX1Y1X2Y2": [
+                652,
+                102,
+                748,
+                142
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": 16.26274509803922,
+        "absoluteCoverageDifference": 431.9882352941176,
+        "addedCoverage": 224.12549019607843,
+        "lostCoverage": 207.86274509803923,
+        "rawIouByThreshold": {
+          "0.1": 0.7847665847665848,
+          "0.5": 0.7665198237885462,
+          "0.9": 0.7396844660194175
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            0,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.7665198237885462,
+          "absoluteCoverageDifferenceAfterShift": 431.9882352941176,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      },
+      "firstH": {
+        "rectX1Y1X2Y2": [
+          645,
+          90,
+          686,
+          150
+        ],
+        "reference": {
+          "coverageSum": 666.6666666666667,
+          "coverageCentroidPsd": [
+            668.5203,
+            121.8449
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 738,
+              "boundsX1Y1X2Y2": [
+                653,
+                104,
+                683,
+                140
+              ]
+            },
+            "0.5": {
+              "area": 655,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                682,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 591,
+              "boundsX1Y1X2Y2": [
+                654,
+                105,
+                682,
+                139
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 673.3960784313726,
+          "coverageCentroidPsd": [
+            667.306337207948,
+            121.73103845885066
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 742,
+              "boundsX1Y1X2Y2": [
+                652,
+                105,
+                682,
+                139
+              ]
+            },
+            "0.5": {
+              "area": 676,
+              "boundsX1Y1X2Y2": [
+                652,
+                105,
+                682,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 607,
+              "boundsX1Y1X2Y2": [
+                652,
+                106,
+                681,
+                138
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": 6.729411764705883,
+        "absoluteCoverageDifference": 156.10980392156864,
+        "addedCoverage": 81.41960784313724,
+        "lostCoverage": 74.69019607843137,
+        "rawIouByThreshold": {
+          "0.1": 0.8004866180048662,
+          "0.5": 0.7986486486486486,
+          "0.9": 0.7643593519882179
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            1,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.896011396011396,
+          "absoluteCoverageDifferenceAfterShift": 70.41568627450981,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      }
+    },
+    "cachedPsVsTmpBold": {
+      "wholeText": {
+        "rectX1Y1X2Y2": [
+          646,
+          95,
+          756,
+          149
+        ],
+        "reference": {
+          "coverageSum": 1615.9333333333334,
+          "coverageCentroidPsd": [
+            699.9632410577995,
+            122.30079623746855
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1823,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                750,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1570,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                749,
+                143
+              ]
+            },
+            "0.9": {
+              "area": 1424,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                749,
+                143
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1632.1960784313726,
+          "coverageCentroidPsd": [
+            699.1229259268158,
+            122.27147593762764
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1809,
+              "boundsX1Y1X2Y2": [
+                652,
+                102,
+                749,
+                142
+              ]
+            },
+            "0.5": {
+              "area": 1638,
+              "boundsX1Y1X2Y2": [
+                652,
+                102,
+                749,
+                142
+              ]
+            },
+            "0.9": {
+              "area": 1443,
+              "boundsX1Y1X2Y2": [
+                652,
+                102,
+                748,
+                142
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": 16.262745098039222,
+        "absoluteCoverageDifference": 363.7607843137255,
+        "addedCoverage": 190.01176470588234,
+        "lostCoverage": 173.74901960784314,
+        "rawIouByThreshold": {
+          "0.1": 0.812375249500998,
+          "0.5": 0.7992148065058889,
+          "0.9": 0.7708462013588635
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            1,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.8629500580720093,
+          "absoluteCoverageDifferenceAfterShift": 211.3529411764706,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      },
+      "firstH": {
+        "rectX1Y1X2Y2": [
+          645,
+          90,
+          686,
+          150
+        ],
+        "reference": {
+          "coverageSum": 666.6666666666667,
+          "coverageCentroidPsd": [
+            668.5203,
+            121.8449
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 738,
+              "boundsX1Y1X2Y2": [
+                653,
+                104,
+                683,
+                140
+              ]
+            },
+            "0.5": {
+              "area": 655,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                682,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 591,
+              "boundsX1Y1X2Y2": [
+                654,
+                105,
+                682,
+                139
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 673.3960784313726,
+          "coverageCentroidPsd": [
+            667.306337207948,
+            121.73103845885066
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 742,
+              "boundsX1Y1X2Y2": [
+                652,
+                105,
+                682,
+                139
+              ]
+            },
+            "0.5": {
+              "area": 676,
+              "boundsX1Y1X2Y2": [
+                652,
+                105,
+                682,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 607,
+              "boundsX1Y1X2Y2": [
+                652,
+                106,
+                681,
+                138
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": 6.729411764705883,
+        "absoluteCoverageDifference": 156.10980392156864,
+        "addedCoverage": 81.41960784313724,
+        "lostCoverage": 74.69019607843137,
+        "rawIouByThreshold": {
+          "0.1": 0.8004866180048662,
+          "0.5": 0.7986486486486486,
+          "0.9": 0.7643593519882179
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            1,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.896011396011396,
+          "absoluteCoverageDifferenceAfterShift": 70.41568627450981,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      }
+    },
+    "normalPsVsTmp": {
+      "wholeText": {
+        "rectX1Y1X2Y2": [
+          646,
+          95,
+          756,
+          149
+        ],
+        "reference": {
+          "coverageSum": 1299.5333333333333,
+          "coverageCentroidPsd": [
+            696.409788129072,
+            121.8562047914636
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1487,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                742,
+                142
+              ]
+            },
+            "0.5": {
+              "area": 1261,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                742,
+                142
+              ]
+            },
+            "0.9": {
+              "area": 1125,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                742,
+                141
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1277.078431372549,
+          "coverageCentroidPsd": [
+            694.4129277916813,
+            122.12378744376717
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1462,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                738,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1280,
+              "boundsX1Y1X2Y2": [
+                653,
+                102,
+                738,
+                142
+              ]
+            },
+            "0.9": {
+              "area": 1087,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                737,
+                142
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": -22.454901960784305,
+        "absoluteCoverageDifference": 699.035294117647,
+        "addedCoverage": 338.29019607843134,
+        "lostCoverage": 360.7450980392157,
+        "rawIouByThreshold": {
+          "0.1": 0.6018468223791418,
+          "0.5": 0.5685185185185185,
+          "0.9": 0.522367515485203
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            2,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.653220559531555,
+          "absoluteCoverageDifferenceAfterShift": 513.8823529411766,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      },
+      "firstH": {
+        "rectX1Y1X2Y2": [
+          645,
+          90,
+          686,
+          150
+        ],
+        "reference": {
+          "coverageSum": 555.1333333333333,
+          "coverageCentroidPsd": [
+            668.0315840038429,
+            121.57103398582923
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 620,
+              "boundsX1Y1X2Y2": [
+                653,
+                104,
+                682,
+                139
+              ]
+            },
+            "0.5": {
+              "area": 546,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                681,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 493,
+              "boundsX1Y1X2Y2": [
+                654,
+                105,
+                681,
+                138
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 550.3372549019607,
+          "coverageCentroidPsd": [
+            667.6320901265534,
+            121.80350729677346
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 624,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                681,
+                139
+              ]
+            },
+            "0.5": {
+              "area": 556,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                681,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 479,
+              "boundsX1Y1X2Y2": [
+                654,
+                106,
+                680,
+                139
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": -4.796078431372548,
+        "absoluteCoverageDifference": 51.49411764705883,
+        "addedCoverage": 23.34901960784314,
+        "lostCoverage": 28.145098039215686,
+        "rawIouByThreshold": {
+          "0.1": 0.9079754601226994,
+          "0.5": 0.9232111692844677,
+          "0.9": 0.8764478764478765
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            0,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.9232111692844677,
+          "absoluteCoverageDifferenceAfterShift": 51.49411764705883,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      }
+    },
+    "tmpTrueNormalVsBoldStyleWeight0": {
+      "wholeText": {
+        "rectX1Y1X2Y2": [
+          646,
+          95,
+          756,
+          149
+        ],
+        "reference": {
+          "coverageSum": 1277.078431372549,
+          "coverageCentroidPsd": [
+            694.4129277916813,
+            122.12378744376717
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1462,
+              "boundsX1Y1X2Y2": [
+                653,
+                101,
+                738,
+                143
+              ]
+            },
+            "0.5": {
+              "area": 1280,
+              "boundsX1Y1X2Y2": [
+                653,
+                102,
+                738,
+                142
+              ]
+            },
+            "0.9": {
+              "area": 1087,
+              "boundsX1Y1X2Y2": [
+                654,
+                102,
+                737,
+                142
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 1183.3098039215686,
+          "coverageCentroidPsd": [
+            698.4753333951959,
+            122.1452820934302
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 1355,
+              "boundsX1Y1X2Y2": [
+                653,
+                103,
+                748,
+                141
+              ]
+            },
+            "0.5": {
+              "area": 1185,
+              "boundsX1Y1X2Y2": [
+                653,
+                103,
+                748,
+                141
+              ]
+            },
+            "0.9": {
+              "area": 1013,
+              "boundsX1Y1X2Y2": [
+                654,
+                103,
+                747,
+                140
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": -93.7686274509804,
+        "absoluteCoverageDifference": 1200.4666666666667,
+        "addedCoverage": 553.349019607843,
+        "lostCoverage": 647.1176470588235,
+        "rawIouByThreshold": {
+          "0.1": 0.36681222707423583,
+          "0.5": 0.34332425068119893,
+          "0.9": 0.32158590308370044
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            -2,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.3558855885588559,
+          "absoluteCoverageDifferenceAfterShift": 1170.1529411764704,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      },
+      "firstH": {
+        "rectX1Y1X2Y2": [
+          645,
+          90,
+          686,
+          150
+        ],
+        "reference": {
+          "coverageSum": 550.3372549019607,
+          "coverageCentroidPsd": [
+            667.6320901265534,
+            121.80350729677346
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 624,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                681,
+                139
+              ]
+            },
+            "0.5": {
+              "area": 556,
+              "boundsX1Y1X2Y2": [
+                653,
+                105,
+                681,
+                139
+              ]
+            },
+            "0.9": {
+              "area": 479,
+              "boundsX1Y1X2Y2": [
+                654,
+                106,
+                680,
+                139
+              ]
+            }
+          }
+        },
+        "actual": {
+          "coverageSum": 508.4941176470589,
+          "coverageCentroidPsd": [
+            667.6228001172243,
+            121.77632532815079
+          ],
+          "thresholds": {
+            "0.1": {
+              "area": 578,
+              "boundsX1Y1X2Y2": [
+                653,
+                106,
+                681,
+                138
+              ]
+            },
+            "0.5": {
+              "area": 511,
+              "boundsX1Y1X2Y2": [
+                653,
+                106,
+                681,
+                138
+              ]
+            },
+            "0.9": {
+              "area": 445,
+              "boundsX1Y1X2Y2": [
+                654,
+                107,
+                680,
+                137
+              ]
+            }
+          }
+        },
+        "actualMinusReferenceCoverage": -41.84313725490196,
+        "absoluteCoverageDifference": 55.5921568627451,
+        "addedCoverage": 6.874509803921568,
+        "lostCoverage": 48.71764705882353,
+        "rawIouByThreshold": {
+          "0.1": 0.9079365079365079,
+          "0.5": 0.9019607843137255,
+          "0.9": 0.9012345679012346
+        },
+        "positionDiagnosticOnly": {
+          "bestIntegerShiftOfActual": [
+            0,
+            0
+          ],
+          "bestIouAtHalfCoverage": 0.9019607843137255,
+          "absoluteCoverageDifferenceAfterShift": 55.5921568627451,
+          "note": "±2像素零填充平移仅用于诊断位置误差；不修改原位输出，也不是验收结果"
+        }
+      }
+    }
+  },
+  "boldMinusNormal": {
+    "wholeText": {
+      "photoshop": {
+        "coverageIncrease": 316.4,
+        "positiveCoverageChange": 561.8666666666667,
+        "negativeCoverageChange": 245.46666666666667,
+        "coverageCentroidDeltaRightDown": [
+          2.5652520953597175,
+          0.44459144600493516
+        ],
+        "areaIncreaseByThreshold": {
+          "0.1": 336,
+          "0.5": 309,
+          "0.9": 299
+        }
+      },
+      "tmpTrueNormalToBold": {
+        "coverageIncrease": 355.11764705882354,
+        "positiveCoverageChange": 878.6039215686275,
+        "negativeCoverageChange": 523.4862745098039,
+        "coverageCentroidDeltaRightDown": [
+          4.7099981351343985,
+          0.14768849386046767
+        ],
+        "areaIncreaseByThreshold": {
+          "0.1": 347,
+          "0.5": 358,
+          "0.9": 356
+        }
+      },
+      "tmpControlledWeightChangeInBoldStyle": {
+        "coverageIncrease": 448.8862745098039,
+        "positiveCoverageChange": 448.8862745098039,
+        "negativeCoverageChange": 0.0,
+        "coverageCentroidDeltaRightDown": [
+          0.6475925316198499,
+          0.1261938441974486
+        ],
+        "areaIncreaseByThreshold": {
+          "0.1": 454,
+          "0.5": 453,
+          "0.9": 430
+        }
+      }
+    },
+    "firstH": {
+      "photoshop": {
+        "coverageIncrease": 111.53333333333333,
+        "positiveCoverageChange": 111.53333333333333,
+        "negativeCoverageChange": 0.0,
+        "coverageCentroidDeltaRightDown": [
+          0.4887159961570795,
+          0.27386601417077117
+        ],
+        "areaIncreaseByThreshold": {
+          "0.1": 118,
+          "0.5": 109,
+          "0.9": 98
+        }
+      },
+      "tmpTrueNormalToBold": {
+        "coverageIncrease": 123.05882352941177,
+        "positiveCoverageChange": 127.76470588235294,
+        "negativeCoverageChange": 4.7058823529411775,
+        "coverageCentroidDeltaRightDown": [
+          -0.32575291860541356,
+          -0.07246883792280556
+        ],
+        "areaIncreaseByThreshold": {
+          "0.1": 118,
+          "0.5": 120,
+          "0.9": 128
+        }
+      },
+      "tmpControlledWeightChangeInBoldStyle": {
+        "coverageIncrease": 164.9019607843137,
+        "positiveCoverageChange": 164.9019607843137,
+        "negativeCoverageChange": 0.0,
+        "coverageCentroidDeltaRightDown": [
+          -0.31646290927624676,
+          -0.045286869300124266
+        ],
+        "areaIncreaseByThreshold": {
+          "0.1": 164,
+          "0.5": 165,
+          "0.9": 162
+        }
+      }
+    }
+  },
+  "limitations": [
+    "WeightBold=0 且仍为 FontStyles.Bold 不等于 FontStyles.Normal：Bold 样式的网格/UV路径仍可能影响覆盖率。",
+    "真正普通字重使用 tmpNormalStyle；权重0保留为固定Bold样式下的受控对照，不用于计算真实普通→粗体增量。",
+    "Photoshop 和 TMP 真正 Normal 都可能改变后续字符advance；首H窗口用于排除后续advance的影响。",
+    "所有TMP对照保持字号、显式Character Spacing和首字原点；整段Normal比较仍包含排版差异。",
+    "PS cached 与重绘bold的全段差异不直接等同字体版本差异，需要结合首字形与后续字符位置判断。",
+    "首H固定窗口覆盖该字完整边缘；无逐字平移、无缩放。最佳平移只作为独立诊断字段。",
+    "PS使用Alpha，TMP使用黑底白字灰度；两者的抗锯齿覆盖函数本身可能不同。"
+  ]
+}

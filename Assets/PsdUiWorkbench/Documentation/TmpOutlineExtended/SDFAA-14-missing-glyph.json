@@ -1,0 +1,20 @@
+{
+    "formatVersion": 1,
+    "fontIndex": 14,
+    "unity": "6000.3.20f1",
+    "graphicsDevice": "Direct3D11",
+    "colorSpace": "Gamma",
+    "generatedUtc": "2026-11-12T10:55:21.3840702Z",
+    "renderMode": "SDFAA",
+    "source": {
+        "label": "Source Han Serif SC Heavy",
+        "path": "C:/Windows/Fonts/Source Han Serif SC Heavy (TrueType).ttf",
+        "sample": "H永国鬱田"
+    },
+    "success": false,
+    "seconds": 0.17988969999999999,
+    "diagnostics": [
+        "InvalidOperationException: 缺少测试字符：鬱"
+    ],
+    "rows": []
+}

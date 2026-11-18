@@ -1,0 +1,37 @@
+{
+    "unity": "6000.3.20f1",
+    "rows": [
+        {
+            "font": "Toxia_FRE",
+            "shader": "TextMeshPro/Mobile/Distance Field",
+            "status": "可表达；阴影需更大Padding",
+            "sample": "H8O",
+            "padding": 12,
+            "pointSize": 64,
+            "fontSize": 32,
+            "bold": false,
+            "requestedPx": 4.5,
+            "atlasGradientTimesG": 0.5104408264160156,
+            "glyphScale": 0.5,
+            "ratioA0": 0.9230769276618958,
+            "ratioA1": 0.7384613752365112,
+            "width": 0.46875011920928957,
+            "dilate": 0.5937501788139343,
+            "faceErrorCentered": 0.8456025123596191,
+            "faceErrorSimpleCompensation": 0.05574365705251694,
+            "faceErrorCompensated": 0.0,
+            "outerPixels": 4.5,
+            "faceThresholdShift": 0.0,
+            "shadowErrorUncorrected": 0.6780391931533814,
+            "shadowErrorCorrected": 0.0,
+            "ratioC0": 0.676153838634491,
+            "ratioC1": 0.2019229233264923,
+            "faceBoundaryPixelsChanged": 0,
+            "originShiftX": 0.0,
+            "baselineShiftY": 0.0,
+            "weight": 0.10000000149011612,
+            "characterSpacing": 40.0,
+            "baselineDilate": 0.07999999821186066
+        }
+    ]
+}

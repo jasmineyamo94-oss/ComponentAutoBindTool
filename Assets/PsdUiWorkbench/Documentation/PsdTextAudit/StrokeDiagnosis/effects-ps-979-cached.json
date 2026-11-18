@@ -1,0 +1,23 @@
+{
+  "layerId": 979,
+  "name": "Backpack",
+  "text": "Backpack",
+  "font": "TOXIA",
+  "fontSize": 42.7411117553711,
+  "tracking": 100.0,
+  "fauxBold": true,
+  "origin": [
+    107.494135098119,
+    2300.54973222057
+  ],
+  "antiAlias": "AntiAlias.SHARP",
+  "mode": "cached-effects-from-disk-copy",
+  "sourceHashes": {
+    "Assets\\Psd\\战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+    "Assets\\Psd\\战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8"
+  },
+  "png": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\effects-ps-979-cached.png",
+  "pngSha256": "dcaa342e3901669dcb05ea21c2fafd98ce02b07b3f2ca1706f6c002563686653",
+  "photoshopVersion": "22.0.0",
+  "note": "不重排文字、不切换字体或字重；保留原稿图层效果；不操作用户文档"
+}

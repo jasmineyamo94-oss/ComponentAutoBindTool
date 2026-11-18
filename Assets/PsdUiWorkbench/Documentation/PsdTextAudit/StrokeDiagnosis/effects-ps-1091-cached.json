@@ -1,0 +1,23 @@
+{
+  "layerId": 1091,
+  "name": "Energy Level",
+  "text": "Energy Level",
+  "font": "TOXIA",
+  "fontSize": 44.6346015930176,
+  "tracking": 100.0,
+  "fauxBold": true,
+  "origin": [
+    425.68634928068,
+    446.181799641717
+  ],
+  "antiAlias": "AntiAlias.SHARP",
+  "mode": "cached-effects-from-disk-copy",
+  "sourceHashes": {
+    "Assets\\Psd\\战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+    "Assets\\Psd\\战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8"
+  },
+  "png": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\effects-ps-1091-cached.png",
+  "pngSha256": "fa31b5e00234d0b2741a832f0b5ee87d06e5c407af7e907c49cc0b3177c6918d",
+  "photoshopVersion": "22.0.0",
+  "note": "不重排文字、不切换字体或字重；保留原稿图层效果；不操作用户文档"
+}

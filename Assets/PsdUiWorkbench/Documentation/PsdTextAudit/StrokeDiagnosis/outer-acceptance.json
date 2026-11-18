@@ -1,0 +1,17 @@
+{
+  "AssetPath": "Assets/PsdUiWorkbench/Exports/战斗-主菜单界面_单Pass外描边验证 1.prefab",
+  "TextLayers": 19,
+  "TextComponents": 27,
+  "PlaceholderRuns": 6,
+  "ImageCount": 32,
+  "Diagnostic": "使用单 Pass PSD 外描边实验 Shader；相邻字形覆盖与原稿轮廓仍需核对。\n缺字体段使用默认字体 36、白色、普通字重、无字距和效果占位：JiangChengYuanTi-500W、Rubik-Medium\n8 个文本层按源排版宽度选择不启用 TMP kern，源 Tracking 保持。\n跳过 1 个无独立导出内容的节点。",
+  "Shader": "TextMeshPro/Mobile/Distance Field - PSD Outer Stroke",
+  "CustomRuns": 21,
+  "PassCounts": [
+    1
+  ],
+  "Graphics": 59,
+  "CanvasCount": 1,
+  "HasToolRuntimeComponents": false,
+  "Screenshot": "Assets/PsdUiWorkbench/Documentation/PsdTextAudit/StrokeDiagnosis/outer-acceptance.png"
+}

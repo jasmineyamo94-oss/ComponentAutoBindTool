@@ -1,0 +1,7 @@
+{
+  "name": "PsdUiWorkbench.Runtime",
+  "rootNamespace": "PsdUiWorkbench.Runtime",
+  "references": ["Unity.TextMeshPro", "UnityEngine.UI"],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": false
+}

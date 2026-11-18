@@ -1,0 +1,23 @@
+{
+  "layerId": 1057,
+  "name": "16  4Zombie  ",
+  "text": "16  4Zombie  ",
+  "font": "TOXIA",
+  "fontSize": 48.0,
+  "tracking": 100.0,
+  "fauxBold": true,
+  "origin": [
+    331.79970106887,
+    139.335709305702
+  ],
+  "antiAlias": "AntiAlias.SHARP",
+  "mode": "cached-effects-from-disk-copy",
+  "sourceHashes": {
+    "Assets\\Psd\\战斗-主菜单界面.psd": "96b36bb03aa75bdbad9198be777c63abbd25a9d4792bbe1f51a0c1a0f3d2d128",
+    "Assets\\Psd\\战斗-主菜单界面.psd.meta": "c8f36fef1431002e81b321f93d22271c67676cc62cf707691d29f573fcd4c1e8"
+  },
+  "png": "Assets\\PsdUiWorkbench\\Documentation\\PsdTextAudit\\StrokeDiagnosis\\effects-ps-1057-cached.png",
+  "pngSha256": "96d23679d5cd0e6e82558e32cd20a5e3ad00e58880a0f540fce75d1a73e28e47",
+  "photoshopVersion": "22.0.0",
+  "note": "不重排文字、不切换字体或字重；保留原稿图层效果；不操作用户文档"
+}

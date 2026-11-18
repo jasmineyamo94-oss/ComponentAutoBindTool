@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="PsdNodeRenameWindow.uss" />
+    <ui:VisualElement class="node-rename-root">
+        <ui:Label name="renameHint" class="node-rename-hint" />
+        <ui:ScrollView name="renameRows" class="node-rename-rows" />
+        <ui:Label name="renameError" class="node-rename-error" />
+        <ui:VisualElement class="node-rename-actions">
+            <ui:Button name="confirmRename" text="确认" />
+            <ui:Button name="cancelRename" text="取消" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

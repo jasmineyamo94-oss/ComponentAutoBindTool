@@ -1,0 +1,14 @@
+.ai-panel { width: 380px; min-width: 360px; max-width: 400px; flex-grow: 1; padding: 8px; }
+.ai-toolbar { flex-direction: row; flex-wrap: wrap; margin-top: 4px; margin-bottom: 4px; }
+.ai-toolbar > Button { flex-grow: 1; }
+.ai-title { flex-grow: 1; -unity-font-style: bold; }
+.ai-toolbar > #close { width: 64px; flex-grow: 0; }
+.ai-empty { white-space: normal; margin-top: 8px; }
+.ai-wrap { white-space: normal; margin-top: 4px; margin-bottom: 4px; }
+.ai-results { flex-grow: 1; min-height: 160px; }
+.ai-result { padding: 5px; border-bottom-width: 1px; border-bottom-color: rgba(128, 128, 128, 0.4); }
+.ai-result Label { white-space: normal; }
+.ai-result .unity-base-field__label { min-width: 60px; }
+.ai-hidden { display: none; }
+.ai-toolbar > #openSettings { flex-grow: 0; }
+.ai-annotation > #annotationInput { min-height: 68px; max-height: 120px; }

@@ -1,0 +1,15 @@
+{
+  "name": "PsdUiWorkbench.Infrastructure",
+  "rootNamespace": "PsdUiWorkbench",
+  "references": [
+    "PsdUiWorkbench.Core",
+    "Unity.2D.Psdimporter.Editor",
+    "Unity.2D.Sprite.Editor",
+    "UnityEngine.UI",
+    "Unity.TextMeshPro"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": false
+}
