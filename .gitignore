@@ -28,3 +28,8 @@ Validation/
 all_code.txt
 Assets/Psd/
 UserSettings/
+Assets/Psd.meta
+Assets/PsdToUnityUI Res/
+Assets/PsdToUnityUI Res.meta
+/Assets/PsdToUnityUI/
+/Assets/PsdToUnityUI.meta
